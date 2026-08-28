@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>poster · 模型开始造自己了</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    background:#1a1a1a;
+    display:flex; justify-content:center; align-items:flex-start;
+    padding:40px 20px;
+    font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;
+  }
+  /* 设计宽 1080px，屏幕预览缩放到 540px 便于查看；导出时用 2x DPR 截图 */
+  .poster {
+    width:1080px;
+    transform:scale(0.5);
+    transform-origin:top center;
+    margin-bottom:-540px; /* 抵消缩放后的空白 */
+    background:#0a0a0a;
+    color:#e8e8e8;
+    border-radius:24px;
+    overflow:hidden;
+  }
+  .inner { padding:80px 72px; }
+
+  /* 顶部 */
+  .top { margin-bottom:48px; }
+  .tag {
+    display:inline-block;
+    background:rgba(90,200,250,0.12);
+    color:#5ac8fa;
+    font-size:24px; font-weight:600;
+    padding:8px 24px; border-radius:24px;
+    letter-spacing:1px;
+    margin-bottom:36px;
+  }
+  h1 {
+    color:#ffffff;
+    font-size:88px; font-weight:700;
+    line-height:1.25;
+    margin-bottom:36px;
+    letter-spacing:-1px;
+  }
+  h1 .hl { color:#5ac8fa; }
+  .lead {
+    color:#cbd5e1;
+    font-size:34px; line-height:1.7;
+    border-left:5px solid #5ac8fa;
+    padding-left:28px;
+  }
+
+  /* 核心数字 */
+  .hero-num {
+    background:rgba(90,200,250,0.08);
+    border:1px solid rgba(90,200,250,0.2);
+    border-radius:20px;
+    padding:48px;
+    text-align:center;
+    margin:56px 0;
+  }
+  .hero-num .n {
+    color:#5ac8fa;
+    font-size:132px; font-weight:700; line-height:1;
+    letter-spacing:-3px;
+  }
+  .hero-num .nl { color:#fff; font-size:36px; font-weight:600; margin-top:20px; }
+  .hero-num .ns { color:#888; font-size:26px; margin-top:14px; line-height:1.6; }
+
+  /* 要点卡 */
+  .pts { margin-top:8px; }
+  .pt {
+    border-left:5px solid #2a2a2a;
+    padding:4px 0 4px 32px;
+    margin-bottom:44px;
+  }
+  .pt.a { border-left-color:#5ac8fa; }
+  .pt.b { border-left-color:#76b900; }
+  .pt.c { border-left-color:#f39c12; }
+  .pt.d { border-left-color:#e74c3c; }
+  .pt .k { font-size:24px; font-weight:600; letter-spacing:1px; margin-bottom:12px; }
+  .pt.a .k { color:#5ac8fa; }
+  .pt.b .k { color:#76b900; }
+  .pt.c .k { color:#f39c12; }
+  .pt.d .k { color:#e74c3c; }
+  .pt .t { color:#fff; font-size:40px; font-weight:600; line-height:1.45; margin-bottom:12px; }
+  .pt .d { color:#999; font-size:28px; line-height:1.7; }
+
+  /* 时间线小卡 */
+  .tl {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:40px 44px;
+    margin:20px 0 8px;
+  }
+  .tl h3 { color:#fff; font-size:32px; font-weight:600; margin-bottom:28px; }
+  .tl .row { display:flex; gap:24px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .tl .row:last-child { border-bottom:none; padding-bottom:0; }
+  .tl .row .d { color:#5ac8fa; font-size:26px; font-weight:600; min-width:120px; }
+  .tl .row .c { color:#cbd5e1; font-size:28px; line-height:1.5; }
+  .tl .row .c b { color:#fff; }
+
+  /* 底部 */
+  .foot {
+    margin-top:64px; padding-top:36px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    display:flex; justify-content:space-between; align-items:flex-end;
+  }
+  .foot .brand { color:#fff; font-size:34px; font-weight:700; letter-spacing:1px; }
+  .foot .brand span { display:block; color:#666; font-size:24px; font-weight:400; margin-top:8px; letter-spacing:0; }
+  .foot .date { color:#666; font-size:26px; text-align:right; }
+</style>
+</head>
+<body>
+
+<div class="poster">
+  <div class="inner">
+
+    <div class="top">
+      <span class="tag">腾讯混元 · Hy4 preview</span>
+      <h1>模型开始<br>造<span class="hl">自己</span>了</h1>
+      <p class="lead">770B 参数不稀奇。稀奇的是，它把 31.8% 的推理提速写进了自己的成绩单。</p>
+    </div>
+
+    <div class="hero-num">
+      <div class="n">31.8%</div>
+      <div class="nl">端到端推理吞吐提升</div>
+      <div class="ns">模型自主分析系统瓶颈，围绕算子融合、<br>通信优化开展多轮优化——自己干出来的</div>
+    </div>
+
+    <div class="pts">
+      <div class="pt a">
+        <div class="k">信号</div>
+        <div class="t">首次参与训练方法、数据策略、<br>评估体系与底层算子的自动优化</div>
+        <div class="d">模型提方案 → 跑实验 → 看结果 → 继续迭代，形成初步的递归自我改进闭环</div>
+      </div>
+
+      <div class="pt b">
+        <div class="k">可信度分层</div>
+        <div class="t">推理基建优化：可测量<br>数据策略参与：缺量化指标</div>
+        <div class="d">31.8% 是硬数字，可复现；数据策略与评估体系的改进幅度，官方未披露</div>
+      </div>
+
+      <div class="pt c">
+        <div class="k">同日对照</div>
+        <div class="t">Rich Sutton：大模型或陷<br>「局部最优」</div>
+        <div class="d">模型上线后权重冻结、无法持续学习。Hy4 是「研发提效」，不是「在线学习」</div>
+      </div>
+
+      <div class="pt d">
+        <div class="k">边界</div>
+        <div class="t">参与研发 ≠ 自主研发</div>
+        <div class="d">在人类设定的框架内加速迭代，尚未自主设定研发方向。2.99/4 为内部盲测，非公开榜单</div>
+      </div>
+    </div>
+
+    <div class="tl">
+      <h3>本周关键事件</h3>
+      <div class="row">
+        <div class="d">08-28</div>
+        <div class="c"><b>混元 Hy4 preview</b> 发布并开源 · 770B/49B/1M 上下文</div>
+      </div>
+      <div class="row">
+        <div class="d">08-28</div>
+        <div class="c"><b>DeepSeek</b> 寻求 74 亿美元融资，估值 740 亿美元</div>
+      </div>
+      <div class="row">
+        <div class="d">08-27</div>
+        <div class="c"><b>英伟达 129 亿美元</b> 收购 Hugging Face</div>
+      </div>
+      <div class="row">
+        <div class="d">08-26</div>
+        <div class="c"><b>智谱 GLM-5.3-Flash</b> / <b>阿里 Qwen3.8-Flash</b> 同日开源</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="brand">烨然漫笔<span>AI 深度解读</span></div>
+      <div class="date">2026.08.28<br>艾AI</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

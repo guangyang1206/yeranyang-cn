@@ -1,5 +1,13 @@
 [
   {
+    "id": "2026-08-28_hy4-recursive-self-improvement",
+    "date": "2026-08-28",
+    "title": "模型开始造自己了：Hy4 preview 与递归自我改进的第一道裂缝",
+    "desc": "770B 参数不稀奇。稀奇的是模型首次参与训练方法、数据策略与底层算子的自动优化，把端到端推理吞吐提升了 31.8%——但这是工程提效，不是在线学习。",
+    "tags": ["tech", "company"],
+    "status": "draft"
+  },
+  {
     "id": "2026-08-21_anthropic-revenue-overtake",
     "date": "2026-08-21",
     "title": "营收易位：Anthropic为什么反超了OpenAI",

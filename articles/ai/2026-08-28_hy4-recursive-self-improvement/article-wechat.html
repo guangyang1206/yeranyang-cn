@@ -5,182 +5,350 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>模型开始造自己了：Hy4 preview 与递归自我改进的第一道裂缝</title>
 </head>
-<body style="margin:0;padding:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#333;line-height:1.8;font-size:16px;">
+<body>
 
-<!-- 头图 -->
-<section style="background:#0a1a2f;padding:40px 24px;text-align:center;">
-  <div style="max-width:680px;margin:0 auto;">
-    <p style="color:#5ac8fa;font-size:14px;margin:0 0 8px;">腾讯混元 · Hy4 preview · 技术趋势</p>
-    <h1 style="color:#ffffff;font-size:24px;font-weight:700;margin:0 0 12px;line-height:1.4;">模型开始造自己了</h1>
-    <p style="color:#cbd5e1;font-size:17px;margin:0 0 6px;line-height:1.6;">Hy4 preview 把 31.8% 的推理提速写进了自己的成绩单——这是"递归自我改进"的第一道裂缝，还是又一个被用滥的词？</p>
-    <p style="color:#64748b;font-size:14px;margin:0;">2026年8月28日 · AI 深度解读</p>
+<!--
+====================================================================
+微信公众号专用版 — 导入方法：
+1. 在浏览器中打开此 HTML 文件
+2. 全选复制（Ctrl+A → Ctrl+C）
+3. 粘贴到公众号编辑器（Ctrl+V）
+
+设计原则（Anthropic 900b 标准，勿破坏）：
+- 每个内容块用独立 section 包裹，且带 background-color
+- 颜色体系：#ffffff 白 / #f8fafc 浅灰 交替；头图与文末引导用深色
+- 不依赖 CSS Grid/Flex 布局，多列用 table 实现
+- 不使用带透明度的颜色写法，全用 HEX 颜色
+- 不使用渐变背景与文字渐变裁剪
+- 不使用绝对定位或固定定位
+- 所有样式纯内联，正文无外链
+====================================================================
+-->
+
+<section style="max-width:680px;margin:0 auto;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Microsoft YaHei',sans-serif;font-size:16px;color:#333333;line-height:1.85;word-wrap:break-word">
+
+<!-- ===== 封面区 ===== -->
+<section style="background-color:#0f172a;padding:52px 28px 44px;text-align:center">
+  <p style="display:inline-block;padding:4px 16px;border:1px solid #334155;border-radius:100px;font-size:12px;color:#94a3b8;letter-spacing:1px;margin:0 0 18px 0">🤖 AI 深度解读 · 技术观察 · 2026.08.28</p>
+  <h1 style="font-size:26px;font-weight:900;line-height:1.4;letter-spacing:-0.5px;margin:0 0 14px 0;color:#ffffff">模型开始造自己了：<br><span style="color:#5ac8fa">Hy4 preview 与递归自我改进的第一道裂缝</span></h1>
+  <p style="font-size:15px;color:#94a3b8;font-weight:400;margin:0 0 10px 0">770B 参数不稀奇。稀奇的是，它把 31.8% 的推理提速<br>写进了自己的成绩单——而且这活儿是模型自己干的。</p>
+  <p style="font-size:12px;color:#64748b;margin:14px 0 0 0">基于腾讯混元官方通稿及多家媒体交叉核实 · 阅读约 8 分钟</p>
+</section>
+
+<!-- ===== 导语 ===== -->
+<section style="padding:28px 24px;background-color:#ffffff">
+  <p style="font-size:15px;color:#444444;line-height:1.9;margin:0 0 12px 0">今天，腾讯混元发布并开源了新一代大语言模型 <strong style="color:#111111">Hy4 preview</strong>：总参数 770B，激活参数 49B，上下文长度 1M。<sup style="font-size:10px;color:#5ac8fa;vertical-align:super">[1]</sup></p>
+  <p style="font-size:15px;color:#444444;line-height:1.9;margin:0 0 12px 0">参数翻倍、上下文扩大这类消息，今年已经听得太多了，本身不构成新闻。真正值得停下来的，是官方通稿里一段很容易被划过去的描述。</p>
+  <p style="font-size:15px;color:#444444;line-height:1.9;margin:0"><strong style="color:#111111">这个模型不只是被训练的产物，它还下场参与了"怎么训练自己"这件事——挑数据、定评估标准、优化底层算子。</strong>其中有一个可以验证的硬数字：端到端吞吐提升了 31.8%。</p>
+</section>
+
+<!-- ===== 官方原文引用 ===== -->
+<section style="padding:20px 24px;background-color:#f8fafc">
+  <div style="background-color:#ffffff;border-left:4px solid #5ac8fa;border-radius:0 6px 6px 0;padding:16px 20px">
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0 0 10px 0;font-style:italic">"Hy4 preview 在自身研发的全链路过程中发挥了积极价值，<strong style="color:#2563eb">首次参与训练方法、数据策略、评估体系和底层算子的自动优化</strong>。模型提出方案、运行实验并根据结果继续迭代，实验产生的代码、日志和反馈进入下一轮探索，形成初步的<strong style="color:#2563eb">递归自我改进闭环</strong>。"</p>
+    <p style="font-size:12px;color:#94a3b8;margin:0;text-align:right">—— 腾讯混元官方通稿，2026 年 8 月 28 日</p>
   </div>
 </section>
 
-<!-- 导语 -->
-<section style="background:#ffffff;padding:28px 24px;">
-  <p style="margin:0 0 16px;">今天，腾讯混元发布并开源了新一代大语言模型 Hy4 preview：总参数 770B，激活参数 49B，上下文长度 1M<sup>[1][2]</sup>。参数翻倍、上下文扩大这类消息，今年已经听得太多了，本身不构成新闻。</p>
-  <p style="margin:0 0 16px;">真正值得停下来看的，是官方通稿里一段很容易被划过去的描述：</p>
-
-  <section style="background:#f9f9f9;border-left:3px solid #5ac8fa;padding:16px 20px;border-radius:4px;margin:0 0 16px;">
-    <p style="margin:0;font-size:15px;color:#666;line-height:1.7;">"Hy4 preview 在自身研发的全链路过程中发挥了积极价值，<strong>首次参与训练方法、数据策略、评估体系和底层算子的自动优化</strong>。模型提出方案、运行实验并根据结果继续迭代，实验产生的代码、日志和反馈进入下一轮探索，形成初步的<strong>递归自我改进闭环</strong>。"<sup>[3]</sup></p>
-  </section>
-
-  <p style="margin:0 0 16px;">翻译成大白话：这个模型不只是被训练的产物，它还下场参与了"怎么训练自己"这件事——包括挑数据、定评估标准、优化底层算子。其中有一个可以验证的硬数字：模型通过自主分析推理系统瓶颈、围绕算子融合与通信优化开展多轮优化，让端到端吞吐相比基线<strong>提升了 31.8%</strong><sup>[3]</sup>。</p>
-  <p style="margin:0;">31.8% 这个数字之所以重要，不是因为它有多大，而是因为<strong>它是模型自己干出来的，而且能被测量</strong>。这篇文章想讲清楚三件事：这个"闭环"在工程上到底是什么形态；它能不能算"递归自我改进"；以及它和同一天另一位大佬提出的质疑，构成了怎样的一幅图景。</p>
+<!-- ===== 一句话总结 ===== -->
+<section style="padding:20px 24px;background-color:#fffde7;border-left:4px solid #ffc107">
+  <p style="font-size:14px;color:#92400e;line-height:1.8;margin:0"><strong style="color:#e65100">一句话总结：</strong>模型第一次参与了"怎么造自己"的工程环节，31.8% 的推理提速是可测量的真实收益。但这仍是<strong style="color:#e65100">研发阶段的工程自动化</strong>，不是部署后的持续学习，更不是"AI 已经能自己造自己"。</p>
 </section>
 
-<!-- 分隔线 -->
-<section style="padding:0 24px;"><p style="height:1px;background:#e5e7eb;margin:0;"></p></section>
+<!-- ===== 分隔线 ===== -->
+<section style="padding:0 24px;background-color:#ffffff"><p style="height:1px;background:#e8e8e8;margin:0;line-height:1px;font-size:0"> </p></section>
 
-<!-- Part 1 -->
-<section style="background:#f8fafc;padding:28px 24px;">
-  <h2 style="font-size:19px;color:#111;margin:0 0 18px;font-weight:700;">一、先把成绩单的口径说清楚</h2>
+<!-- ===== PART 1：先把成绩单的口径说清楚 ===== -->
+<section style="padding:28px 24px;background-color:#ffffff">
+  <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:0 0 6px 0">一、先把成绩单的口径说清楚</h2>
+  <p style="font-size:12px;color:#94a3b8;margin:0 0 16px 0">在聊激动人心的部分之前，先把"能打程度"讲明白——这里最容易产生误解。</p>
 
-  <p style="margin:0 0 14px;">在聊那些激动人心的部分之前，先花一点时间把这个模型的"能打程度"讲明白，因为这里最容易产生误解。</p>
-
-  <p style="margin:0 0 14px;">Hy4 preview 在模型尺寸、上下文长度、数据规模上都做了显著扩展，官方的定位是"稳居开源模型第一梯队"<sup>[3]</sup>。支撑这个说法的核心数据，来自腾讯内部组织的一次盲测：<strong>163 名内部专家、203 个工程任务</strong>，Hy4 preview 均分 <strong>2.99/4</strong>，略优于 GLM 5.3 的 2.92 和 Kimi K3 的 2.94<sup>[1][3]</sup>。</p>
-
-  <p style="margin:0 0 14px;">这组数字需要加三个注脚，否则很容易被误读：</p>
-
-  <p style="margin:0 0 14px;"><strong>第一，这是腾讯自己组织的内部盲测，不是第三方公开榜单。</strong>163 名专家来自腾讯内部，203 个工程任务的选取标准、评分细则都没有对外公开。它的参考价值在于"腾讯用自己最熟悉的业务场景做了横向对比"，但它不等于行业公认的排名。</p>
-
-  <p style="margin:0 0 14px;"><strong>第二，领先幅度是 0.05~0.07 分，满分 4 分。</strong>用"略优于"来描述是准确的，用"碾压""全面超越"就是失实了。而且 2.99/4 这个绝对分数本身也说明，在最难的工程任务上，模型离"可靠交付"还有明显距离。</p>
-
-  <p style="margin:0;"><strong>第三，盲测对比的是特定时间点上的特定版本。</strong>GLM 5.3、Kimi K3 都在持续迭代，这个横截面结论的时效性有限。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 12px 0">Hy4 preview 在模型尺寸、上下文长度、数据规模上都做了显著扩展，官方定位是"稳居开源模型第一梯队"。支撑这个说法的核心数据，来自腾讯内部组织的一次盲测：<strong style="color:#1e293b">163 名内部专家、203 个工程任务</strong>，Hy4 preview 均分 <strong style="color:#2563eb">2.99/4</strong>。<sup style="font-size:10px;color:#5ac8fa;vertical-align:super">[2]</sup></p>
 </section>
 
-<!-- 分隔线 -->
-<section style="padding:0 24px;"><p style="height:1px;background:#e5e7eb;margin:0;"></p></section>
-
-<!-- Part 2 -->
-<section style="background:#ffffff;padding:28px 24px;">
-  <h2 style="font-size:19px;color:#111;margin:0 0 18px;font-weight:700;">二、真正的新闻：31.8% 是谁干出来的</h2>
-
-  <p style="margin:0 0 14px;">现在回到开头那段话。官方提到的"递归自我改进闭环"，实际上包含好几个层次，它们的可靠程度并不相同，需要分开看。</p>
-
-  <p style="margin:0 0 14px;"><strong>最硬的一层：推理基础设施的自我优化。</strong>官方描述是——Hy4 preview 通过自主分析推理系统瓶颈，围绕算子融合、通信优化等方向开展多轮优化，端到端吞吐相较基线提升 31.8%，且在不同上下文长度和并发度下均取得稳定收益<sup>[3]</sup>。</p>
-
-  <p style="margin:0 0 14px;">这一层之所以可信度高，是因为它的产出物是<strong>可测量、可复现的工程结果</strong>。算子融合和通信优化本来就是推理工程里的成熟课题，模型在这里扮演的角色，更像一个不知疲倦、能快速试错的性能工程师：读 profile 找瓶颈 → 提出优化方案 → 跑 benchmark → 看结果决定下一轮怎么改。吞吐提升 31.8% 是能直接测出来的数字，不是主观评分。</p>
-
-  <p style="margin:0 0 14px;"><strong>中间一层：参与数据策略与评估体系的优化。</strong>官方表述是模型"参与训练方法、数据策略、评估体系的自动优化"，并通过"提出方案、运行实验、根据结果继续迭代"的方式工作，实验产生的代码、日志和反馈进入下一轮探索<sup>[3]</sup>。</p>
-
-  <p style="margin:0 0 14px;">这一层的分量比第一层重得多，因为数据配比和评估标准直接决定了模型会长成什么样。但恰恰是这一层，公开信息里<strong>没有给出可量化的效果指标</strong>——我们不知道模型参与之后，数据策略变好了多少，评估体系改进了多少。所以更审慎的理解是：这仍然是"辅助"角色，人类团队保留最终决策权。</p>
-
-  <p style="margin:0;"><strong>需要警惕的一种误读：</strong>把这三层打包理解成"AI 已经能自己造出更强的自己了"。从目前公开的信息看，Hy4 做的是<strong>在人类设定的目标和框架内，加速工程迭代</strong>，而不是自主设定研发方向、自主决定"下一代模型应该长什么样"。这两者之间，还隔着很远的距离。</p>
+<!-- ===== 数据卡：盲测得分对比（纯 table） ===== -->
+<section style="padding:20px 24px;background-color:#f8fafc">
+  <div style="background-color:#ffffff;border-radius:12px;padding:16px;box-shadow:0 1px 3px #e2e8f0">
+    <h3 style="font-size:15px;font-weight:700;color:#1e293b;text-align:center;margin:0 0 12px 0">内部盲测得分对比（满分 4 分）</h3>
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;font-size:13px;text-align:center">
+      <tr style="background:#f1f5f9">
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b">模型</td>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b">盲测均分</td>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b">与 Hy4 差值</td>
+      </tr>
+      <tr>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;font-weight:700;color:#2563eb;background:#eff6ff">Hy4 preview</td>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;font-weight:700;color:#2563eb;background:#eff6ff">2.99</td>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;color:#64748b;background:#eff6ff">—</td>
+      </tr>
+      <tr>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;color:#475569">Kimi K3</td>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;color:#475569">2.94</td>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;color:#64748b">−0.05</td>
+      </tr>
+      <tr>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;color:#475569">GLM 5.3</td>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;color:#475569">2.92</td>
+        <td style="padding:9px 6px;border:1px solid #e2e8f0;color:#64748b">−0.07</td>
+      </tr>
+    </table>
+    <p style="font-size:10px;color:#94a3b8;text-align:center;margin:8px 0 0 0">腾讯内部 163 名专家、203 个工程任务盲测。非第三方公开榜单，样本与评分细则未对外披露。</p>
+  </div>
 </section>
 
-<!-- 分隔线 -->
-<section style="padding:0 24px;"><p style="height:1px;background:#e5e7eb;margin:0;"></p></section>
+<!-- ===== 三个注脚 ===== -->
+<section style="padding:24px;background-color:#ffffff">
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 14px 0">这组数字需要加三个注脚，否则很容易被误读。</p>
 
-<!-- Part 3 -->
-<section style="background:#f8fafc;padding:28px 24px;">
-  <h2 style="font-size:19px;color:#111;margin:0 0 18px;font-weight:700;">三、同一天的另一半：Rich Sutton 说，这条路可能走不通</h2>
+  <div style="background:#f8fafc;border-radius:8px;padding:14px 16px;margin:0 0 10px 0">
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0"><strong style="color:#e65100">注脚一 · 这是腾讯自己组织的内部盲测。</strong> 不是第三方公开榜单。163 名专家来自腾讯内部，203 个任务的选取标准与评分细则都没公开。它的价值在于"腾讯用自己最熟的业务场景做了横向对比"，但不等于行业公认排名。</p>
+  </div>
 
-  <p style="margin:0 0 14px;">巧的是，就在 Hy4 preview 发布的前一天，被称为"强化学习之父"的 Rich Sutton 在一场访谈里，给出了一个几乎针锋相对的判断。</p>
+  <div style="background:#f8fafc;border-radius:8px;padding:14px 16px;margin:0 0 10px 0">
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0"><strong style="color:#e65100">注脚二 · 领先幅度是 0.05~0.07 分，满分 4 分。</strong> 用"略优于"来表述是准确的，用"碾压""全面超越"就是失实。而且 2.99/4 这个绝对分数本身也说明：在最难的工程任务上，模型离"可靠交付"还有明显距离。</p>
+  </div>
 
-  <p style="margin:0 0 14px;">他的核心观点是：<strong>今天的大模型可能已经陷入了"局部最优"</strong>。理由是——模型虽然摆脱了人工规则，却重新被"人类已知的东西"限制住了：互联网数据总量有限，而合成数据仍然需要人来决定生成什么。更关键的是，<strong>模型一旦上线，核心权重基本就冻结了，不具备持续学习的能力</strong><sup>[4]</sup>。</p>
-
-  <p style="margin:0 0 14px;">因此他认为，继续堆 GPU、继续 Scaling 未必是出路。这个判断之所以有分量，是因为 Sutton 正是《苦涩的教训》（The Bitter Lesson）的作者——那篇文章是整个 Scaling 路线的思想基石之一。现在由他本人出来修正自己的框架，这件事本身就是一个信号。</p>
-
-  <p style="margin:0 0 14px;">把 Sutton 的质疑和 Hy4 的实践放在一起看，会出现一个有意思的对照：他们其实在说<strong>同一件事的两个侧面</strong>。</p>
-
-  <p style="margin:0 0 14px;">Sutton 说的是：模型上线后权重冻结，无法从真实世界的持续交互中学习——这是一个<strong>能力层面的断点</strong>。而 Hy4 展示的是：模型可以在研发阶段，通过"自己提方案、自己跑实验、自己看结果"的方式加速迭代——这是一个<strong>工程层面的闭环</strong>。</p>
-
-  <p style="margin:0;">换句话说，Hy4 并没有回答 Sutton 提出的问题。它证明的是"模型能帮我们更快地把模型造出来"，而不是"模型能在部署后继续学习"。这是两条不同的路：一条提升研发效率，一条追求在线适应。目前看，前者的可行性已经被部分验证，后者仍然是开放问题。</p>
+  <div style="background:#f8fafc;border-radius:8px;padding:14px 16px;margin:0">
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0"><strong style="color:#e65100">注脚三 · 这是横截面结论。</strong> 对比的是特定时间点上的特定版本，GLM 5.3、Kimi K3 都还在持续迭代，时效性有限。</p>
+  </div>
 </section>
 
-<!-- 分隔线 -->
-<section style="padding:0 24px;"><p style="height:1px;background:#e5e7eb;margin:0;"></p></section>
+<!-- ===== 分隔线 ===== -->
+<section style="padding:0 24px;background-color:#ffffff"><p style="height:1px;background:#e8e8e8;margin:0;line-height:1px;font-size:0"> </p></section>
 
-<!-- Part 4 -->
-<section style="background:#ffffff;padding:28px 24px;">
-  <h2 style="font-size:19px;color:#111;margin:0 0 18px;font-weight:700;">四、"为生产力而生"，到底体现在哪</h2>
-
-  <p style="margin:0 0 14px;">抛开那些宏大的概念，Hy4 preview 的定位其实很实在——官方给它的标签是"<strong>为生产力而生</strong>"<sup>[3]</sup>。具体做法有两个：一是和腾讯内部软件工程、游戏、金融、安全等领域的专家共建高质量数据；二是和 WorkBuddy 这类产品做深度协同（Co-Design）</p>
-
-  <p style="margin:0 0 14px;">这种"模型 + 产品"协同设计的思路，在几个具体场景上的落点相当清晰<sup>[3]</sup>：</p>
-
-  <p style="margin:0 0 14px;"><strong>软件工程：</strong>增强长程开发任务的理解、规划、调试与验证能力，同时提升前端开发的视觉审美和交互质量。注意这里"长程"两个字——它对应的是需要跨多个文件、多个步骤持续推进的任务，而不是单次补全。</p>
-
-  <p style="margin:0 0 14px;"><strong>办公分析：</strong>提升复杂办公环境理解和金融分析能力，着重优化数据分析、跨文件协作，目标是完成从信息处理到文档、表格与演示文稿交付的完整流程。</p>
-
-  <p style="margin:0 0 14px;"><strong>游戏开发：</strong>增强"一句话需求直接生成可玩原型"的能力，能熟练使用游戏引擎，支持多轮交互持续完善复杂项目。</p>
-
-  <p style="margin:0;"><strong>科学研究：</strong>提升复杂科研问题的理解、推理与求解能力，在 AI 研发、分子动力学模拟、凝聚态物理、基础数学等场景均有进展。</p>
+<!-- ===== PART 2：真正的新闻 ===== -->
+<section style="padding:28px 24px 16px;background-color:#ffffff">
+  <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:0 0 6px 0">二、真正的新闻：31.8% 是谁干出来的</h2>
+  <p style="font-size:12px;color:#94a3b8;margin:0 0 16px 0">"递归自我改进"这个词包含好几个层次，可靠程度并不相同，需要分开看。</p>
 </section>
 
-<!-- 分隔线 -->
-<section style="padding:0 24px;"><p style="height:1px;background:#e5e7eb;margin:0;"></p></section>
+<!-- ===== 三层可信度（table 布局） ===== -->
+<section style="padding:0 24px 8px;background-color:#ffffff">
 
-<!-- Part 5 -->
-<section style="background:#f8fafc;padding:28px 24px;">
-  <h2 style="font-size:19px;color:#111;margin:0 0 18px;font-weight:700;">五、价格、节奏，以及一个容易被忽略的信号</h2>
+  <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px 18px;margin:0 0 12px 0">
+    <p style="display:inline-block;background:#dcfce7;color:#15803d;font-size:11px;font-weight:700;padding:2px 10px;border-radius:100px;margin:0 0 8px 0">第一层 · 可靠度高，可测量</p>
+    <h3 style="font-size:16px;font-weight:700;color:#14532d;margin:0 0 6px 0">推理基础设施的自我优化</h3>
+    <p style="font-size:14px;color:#3f6212;line-height:1.8;margin:0">模型通过自主分析推理系统瓶颈，围绕<strong style="color:#14532d">算子融合、通信优化</strong>开展多轮优化，端到端吞吐相较基线<strong style="color:#14532d">提升 31.8%</strong>，且在不同上下文长度和并发度下均取得稳定收益。<strong style="color:#14532d">这一层可信度最高</strong>，因为产出物是可测量、可复现的工程结果。模型在这里更像一个不知疲倦、能快速试错的性能工程师：读 profile 找瓶颈 → 提方案 → 跑 benchmark → 看结果决定下一轮怎么改。</p>
+  </div>
 
-  <p style="margin:0 0 14px;"><strong>定价继续走普惠路线：</strong>输入 6 元 / 百万 tokens，输出 18 元 / 百万 tokens，缓存命中 0.3 元 / 百万 tokens<sup>[3]</sup>。作为对照，本周阿里发布的 Qwen3.8-Flash 官方称输入 1 元、输出 3 元 / 百万 tokens<sup>[5]</sup>。两者定位不同（Hy4 是 770B 旗舰级，Qwen3.8-Flash 走的是极致性价比路线），但价格带的整体下移是个明确趋势。</p>
+  <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:16px 18px;margin:0 0 12px 0">
+    <p style="display:inline-block;background:#fef3c7;color:#b45309;font-size:11px;font-weight:700;padding:2px 10px;border-radius:100px;margin:0 0 8px 0">第二层 · 分量更重，但缺量化指标</p>
+    <h3 style="font-size:16px;font-weight:700;color:#78350f;margin:0 0 6px 0">参与数据策略与评估体系的优化</h3>
+    <p style="font-size:14px;color:#92400e;line-height:1.8;margin:0">官方表述是模型"参与训练方法、数据策略、评估体系的自动优化"。这一层的分量比第一层重得多，因为数据配比和评估标准直接决定了模型会长成什么样。<strong style="color:#78350f">但恰恰是这一层，公开信息里没有给出可量化的效果指标</strong>——我们不知道模型参与之后，数据策略变好了多少，评估体系改进了多少。更审慎的理解是：这仍是"辅助"角色，人类团队保留最终决策权。</p>
+  </div>
 
-  <p style="margin:0 0 14px;"><strong>落地渠道：</strong>Hy4 preview 已开源，并在 WorkBuddy / CodeBuddy 国内版及国际版、元宝、ima 等腾讯产品同步首发；API 通过腾讯云 TokenHub 和 OpenRouter 接入<sup>[2][3]</sup>。WorkBuddy / CodeBuddy 还开展了为期两周的限时免费活动，上一代 Hy3 的免费期延长至 9 月 30 日<sup>[2]</sup>。</p>
+  <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px 18px;margin:0 0 12px 0">
+    <p style="display:inline-block;background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:700;padding:2px 10px;border-radius:100px;margin:0 0 8px 0">第三层 · 尚未发生，最需警惕的误读</p>
+    <h3 style="font-size:16px;font-weight:700;color:#7f1d1d;margin:0 0 6px 0">自主设定研发方向</h3>
+    <p style="font-size:14px;color:#991b1b;line-height:1.8;margin:0">把三层打包理解成"AI 已经能自己造出更强的自己了"，是目前最常见的误读。从公开信息看，Hy4 做的是<strong style="color:#7f1d1d">在人类设定的目标和框架内，加速工程迭代</strong>，而不是自主决定"下一代模型应该长什么样"。这两者之间，还隔着很远的距离。</p>
+  </div>
 
-  <p style="margin:0 0 14px;"><strong>迭代节奏本身也是信息。</strong>自今年 2 月重建基础设施以来，混元平均每两个月迭代一个大版本，采取"preview 先行、正式版跟进"的方式<sup>[3]</sup>。把未完全定型的 preview 版本先放出来收集真实反馈，再用反馈驱动下一版——这个动作本身，其实就是"把真实世界的反馈引入研发过程"的一种轻量化实践，和前面讲的自我改进闭环在思路上是一致的。</p>
-
-  <p style="margin:0;">按照这个节奏，Hy4 的正式版预计也将在近期陆续上线<sup>[3]</sup>。对开发者来说，值得关注的不是今天这个 preview 的分数，而是<strong>两个月后正式版会把今天的哪些短板补上</strong>。</p>
 </section>
 
-<!-- 分隔线 -->
-<section style="padding:0 24px;"><p style="height:1px;background:#e5e7eb;margin:0;"></p></section>
+<!-- ===== 分隔线 ===== -->
+<section style="padding:0 24px;background-color:#ffffff"><p style="height:1px;background:#e8e8e8;margin:0;line-height:1px;font-size:0"> </p></section>
 
-<!-- Part 6 -->
-<section style="background:#ffffff;padding:28px 24px;">
-  <h2 style="font-size:19px;color:#111;margin:0 0 18px;font-weight:700;">六、几个需要说清楚的边界</h2>
+<!-- ===== PART 3：Sutton 对照 ===== -->
+<section style="padding:28px 24px 16px;background-color:#f8fafc">
+  <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:0 0 6px 0">三、同一天的另一半：Sutton 说这条路可能走不通</h2>
+  <p style="font-size:12px;color:#94a3b8;margin:0 0 16px 0">巧的是，就在发布前一天，一位大佬给出了几乎针锋相对的判断。</p>
 
-  <p style="margin:0 0 14px;"><strong>第一，"递归自我改进"目前是官方对自身研发过程的描述，不是经过独立验证的学术结论。</strong>相关表述来自腾讯发布的官方通稿<sup>[3]</sup>，目前没有看到配套的技术报告或第三方复现。31.8% 的吞吐提升是可测量的工程结果，但"递归自我改进闭环"这个概念的成立范围，还需要更多细节披露才能评估。</p>
-
-  <p style="margin:0 0 14px;"><strong>第二，模型参与研发 ≠ 模型自主研发。</strong>从公开表述看，Hy4 是在人类设定的框架内加速迭代，不是自主设定研发方向。把它理解成"AI 已经开始自己造自己"是过度延伸；把它理解成"又一场营销话术"也不公平——31.8% 是真实的工程收益。更准确的说法是：这是<strong>工程自动化的实质性进展</strong>。</p>
-
-  <p style="margin:0 0 14px;"><strong>第三，内部盲测不能当行业排名用。</strong>163 名专家、203 个工程任务的盲测均分 2.99/4，领先 GLM 5.3 与 Kimi K3 的幅度在 0.05~0.07 分区间。这是有价值的横向参考，但样本规模、任务选取、评分标准均未公开，不宜直接等同于第三方权威评测结论。</p>
-
-  <p style="margin:0 0 14px;"><strong>第四，这不构成对 Sutton 质疑的回应。</strong>模型在研发阶段加速迭代，与模型在部署后持续学习，是两个不同的问题。后者涉及在线权重更新、灾难性遗忘、安全边界等一系列尚未解决的难题。Hy4 的进展不意味着 Scaling 的天花板被突破了。</p>
-
-  <p style="margin:0;"><strong>第五，不必急着上升到"AI 自我进化"的叙事。</strong>过去几年，"递归自我改进""AI 造 AI"这类词被过度使用，往往承载着远超事实的想象。这次的实际情况是：一个模型在明确的工程目标（提升推理吞吐）下，通过自动化的试错循环取得了可测量的优化效果。这已经是很实在的进步，但它的边界也就在这里。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 12px 0">被称为"强化学习之父"的 <strong style="color:#1e293b">Rich Sutton</strong> 在一场访谈里提出：今天的大模型可能已经陷入了<strong style="color:#1e293b">"局部最优"</strong>。<sup style="font-size:10px;color:#5ac8fa;vertical-align:super">[3]</sup></p>
 </section>
 
-<!-- 分隔线 -->
-<section style="padding:0 24px;"><p style="height:1px;background:#e5e7eb;margin:0;"></p></section>
-
-<!-- 结语 -->
-<section style="background:#f8fafc;padding:28px 24px;">
-  <h2 style="font-size:19px;color:#111;margin:0 0 18px;font-weight:700;">写在最后</h2>
-
-  <p style="margin:0 0 14px;">如果把今天的消息压缩成一句话，大概是：<strong>模型开始参与制造自己了，但还远远谈不上"自己造自己"。</strong></p>
-
-  <p style="margin:0 0 14px;">31.8% 的推理吞吐提升，是一个安静但扎实的数字。它不像"参数突破万亿"那样夺人眼球，但它指向的是另一条曲线——当 Scaling 的边际收益开始被讨论、当"局部最优"的质疑被提出来的时候，让模型参与自己的研发与优化，可能是为数不多可以验证的替代路径之一。</p>
-
-  <p style="margin:0 0 14px;">这条路能走多远，取决于一个关键问题：模型能不能从"优化别人给它定好的目标"，走到"提出值得优化的目标"。这一步目前还没有任何公开证据表明已经实现。</p>
-
-  <p style="margin:0;">不过话说回来，两个月一个版本的迭代节奏，意味着我们不用等太久就能看到下一个答案。</p>
+<!-- ===== Sutton 引用块 ===== -->
+<section style="padding:0 24px 20px;background-color:#f8fafc">
+  <div style="background-color:#ffffff;border-left:4px solid #f39c12;border-radius:0 6px 6px 0;padding:16px 20px">
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0 0 10px 0;font-style:italic">模型虽然摆脱了人工规则，却重新被"人类已知的东西"限制住了：互联网数据总量有限，而合成数据仍然需要人来决定生成什么。更关键的是，<strong style="color:#b45309">模型一旦上线，核心权重基本就冻结了，不具备持续学习的能力</strong>。因此，继续堆 GPU、继续 Scaling 未必是出路。</p>
+    <p style="font-size:12px;color:#94a3b8;margin:0;text-align:right">—— Rich Sutton，红杉资本访谈，2026 年 8 月 27 日</p>
+  </div>
 </section>
 
-<!-- 分隔线 -->
-<section style="padding:0 24px;"><p style="height:1px;background:#e5e7eb;margin:0;"></p></section>
+<!-- ===== 对照表格 ===== -->
+<section style="padding:20px 24px;background-color:#ffffff">
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 14px 0">把 Sutton 的质疑和 Hy4 的实践放在一起看，会出现一个有意思的对照——<strong style="color:#1e293b">他们其实在说同一件事的两个侧面。</strong></p>
 
-<!-- 参考来源 -->
-<section style="background:#ffffff;padding:28px 24px;">
-  <h2 style="font-size:17px;color:#111;margin:0 0 14px;font-weight:700;">参考来源</h2>
-  <p style="font-size:14px;color:#666;line-height:1.9;margin:0;">
-    [1] 钛媒体，2026-08-28，《腾讯混元 Hy4 preview 发布并开源》<br>
-    [2] 快科技（经新浪财经转引），2026-08-28，《腾讯混元 Hy4 preview 发布：770B 总参数 稳居开源第一梯队》<br>
-    [3] 雷峰网，2026-08-28，《腾讯混元 Hy4 preview 发布，稳居开源模型第一梯队》（引述腾讯混元官方通稿）<br>
-    [4] 36氪，2026-08-27，《Rich Sutton：大模型陷入"局部最优"，AI 必须学会持续学习》（红杉资本访谈）<br>
-    [5] IT之家 / 凤凰科技，2026-08-26，《阿里发布 Qwen3.8-Flash，开源下一代 Qwen4 架构雏形》<br>
-    [6] 央广网，2026-08-28，《腾讯混元 Hy4 preview 发布 稳居开源模型第一梯队》<br>
-    [7] 腾讯混元官方，2026-08-28，《Hy4 preview 正式发布，诚邀你来体验》
-  </p>
+  <div style="background-color:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;font-size:13px">
+      <tr style="background:#f1f5f9">
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b;width:22%">维度</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:700;color:#b45309;width:39%">Sutton 的关切</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:700;color:#2563eb;width:39%">Hy4 的进展</td>
+      </tr>
+      <tr>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b">问题定位</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569">模型上线后权重冻结，无法从交互中持续学习</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569">模型在研发阶段加速迭代，提升研发效率</td>
+      </tr>
+      <tr>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b">性质</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569">能力层面的断点</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569">工程层面的闭环</td>
+      </tr>
+      <tr>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b">可验证性</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569">理论判断，尚无工程解法</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569">31.8% 吞吐提升，可测量</td>
+      </tr>
+      <tr>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b">时间窗口</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569">部署后（在线）</td>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569">研发中（离线）</td>
+      </tr>
+      <tr>
+        <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:700;color:#1e293b">相互关系</td>
+        <td colspan="2" style="padding:9px 10px;border:1px solid #e2e8f0;background:#fffbeb;color:#78350f">Hy4 <strong style="color:#b45309">并未回答</strong> Sutton 的问题。它证明的是"模型能帮我们更快地把模型造出来"，不是"模型能在部署后继续学习"。</td>
+      </tr>
+    </table>
+  </div>
 </section>
 
-<!-- 署名 -->
-<section style="background:#f5f5f5;padding:24px;text-align:center;">
-  <p style="font-size:14px;color:#999;margin:0 0 4px;">本文数据均来自公开报道，仅供读者参考，不构成投资建议</p>
-  <p style="font-size:14px;color:#999;margin:0;">2026年8月28日 · 烨然漫笔 · 艾AI</p>
+<!-- ===== 分隔线 ===== -->
+<section style="padding:0 24px;background-color:#ffffff"><p style="height:1px;background:#e8e8e8;margin:0;line-height:1px;font-size:0"> </p></section>
+
+<!-- ===== PART 4：为生产力而生 ===== -->
+<section style="padding:28px 24px 16px;background-color:#f8fafc">
+  <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:0 0 6px 0">四、"为生产力而生"，到底体现在哪</h2>
+  <p style="font-size:12px;color:#94a3b8;margin:0 0 16px 0">抛开宏大概念，这个定位其实很实在——两个做法 + 四个落点。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 12px 0">一是和腾讯内部软件工程、游戏、金融、安全等领域的专家共建高质量数据；二是和 WorkBuddy 这类产品做深度协同（Co-Design）。这种"模型 + 产品"协同设计的思路，在几个具体场景上的落点相当清晰：</p>
+</section>
+
+<!-- ===== 四场景卡片（table 两列） ===== -->
+<section style="padding:0 24px 8px;background-color:#f8fafc">
+  <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:8px">
+    <tr>
+      <td style="width:50%;background:#eff6ff;border-radius:10px;padding:14px 16px;vertical-align:top">
+        <p style="font-size:15px;font-weight:700;color:#1d4ed8;margin:0 0 6px 0">💻 软件工程</p>
+        <p style="font-size:13px;color:#475569;line-height:1.75;margin:0">增强长程开发任务的理解、规划、调试与验证能力，提升前端开发的视觉审美与交互质量。重点是<strong style="color:#1e293b">"长程"</strong>——跨多文件、多步骤的持续推进。</p>
+      </td>
+      <td style="width:50%;background:#f0fdf4;border-radius:10px;padding:14px 16px;vertical-align:top">
+        <p style="font-size:15px;font-weight:700;color:#15803d;margin:0 0 6px 0">📊 办公分析</p>
+        <p style="font-size:13px;color:#475569;line-height:1.75;margin:0">提升复杂办公环境理解与金融分析能力，优化数据分析、跨文件协作，完成<strong style="color:#1e293b">从信息处理到文档、表格与演示文稿交付</strong>的完整流程。</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="width:50%;background:#fef3c7;border-radius:10px;padding:14px 16px;vertical-align:top">
+        <p style="font-size:15px;font-weight:700;color:#b45309;margin:0 0 6px 0">🎮 游戏开发</p>
+        <p style="font-size:13px;color:#475569;line-height:1.75;margin:0">增强"一句话需求直接生成可玩原型"能力，熟练使用游戏引擎，支持<strong style="color:#1e293b">多轮交互持续完善</strong>复杂项目。</p>
+      </td>
+      <td style="width:50%;background:#f5f3ff;border-radius:10px;padding:14px 16px;vertical-align:top">
+        <p style="font-size:15px;font-weight:700;color:#6d28d9;margin:0 0 6px 0">🔬 科学研究</p>
+        <p style="font-size:13px;color:#475569;line-height:1.75;margin:0">提升复杂科研问题的理解、推理与求解能力，在 <strong style="color:#1e293b">AI 研发、分子动力学模拟、凝聚态物理、基础数学</strong>等场景均有进展。</p>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<!-- ===== 分隔线 ===== -->
+<section style="padding:0 24px;background-color:#f8fafc"><p style="height:1px;background:#e8e8e8;margin:0;line-height:1px;font-size:0"> </p></section>
+
+<!-- ===== PART 5：价格与节奏 ===== -->
+<section style="padding:28px 24px 16px;background-color:#ffffff">
+  <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:0 0 6px 0">五、价格、节奏，以及一个容易被忽略的信号</h2>
+</section>
+
+<!-- ===== 定价数据卡 ===== -->
+<section style="padding:0 24px 16px;background-color:#ffffff">
+  <div style="background:#f8fafc;border-radius:12px;padding:16px">
+    <h3 style="font-size:15px;font-weight:700;color:#1e293b;text-align:center;margin:0 0 12px 0">Hy4 preview 定价（元 / 百万 tokens）</h3>
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:6px;text-align:center">
+      <tr>
+        <td style="width:33%;background:#eff6ff;border-radius:8px;padding:14px 8px">
+          <p style="font-size:22px;font-weight:700;color:#2563eb;line-height:1.2;margin:0 0 4px 0">6</p>
+          <p style="font-size:11px;color:#64748b;margin:0">输入</p>
+        </td>
+        <td style="width:33%;background:#eff6ff;border-radius:8px;padding:14px 8px">
+          <p style="font-size:22px;font-weight:700;color:#2563eb;line-height:1.2;margin:0 0 4px 0">18</p>
+          <p style="font-size:11px;color:#64748b;margin:0">输出</p>
+        </td>
+        <td style="width:33%;background:#f0fdf4;border-radius:8px;padding:14px 8px">
+          <p style="font-size:22px;font-weight:700;color:#15803d;line-height:1.2;margin:0 0 4px 0">0.3</p>
+          <p style="font-size:11px;color:#64748b;margin:0">缓存命中</p>
+        </td>
+      </tr>
+    </table>
+    <p style="font-size:12px;color:#64748b;line-height:1.7;margin:12px 0 0 0">作为对照，本周阿里发布的 <strong style="color:#1e293b">Qwen3.8-Flash</strong> 输入 1 元、输出 3 元 / 百万 tokens。<sup style="font-size:10px;color:#5ac8fa;vertical-align:super">[4]</sup> 两者定位不同（Hy4 是 770B 旗舰级，Qwen3.8-Flash 走极致性价比路线），但价格带整体下移是明确趋势。</p>
+  </div>
+</section>
+
+<section style="padding:0 24px 20px;background-color:#ffffff">
+  <h3 style="font-size:16px;font-weight:700;color:#1e293b;margin:0 0 8px 0">落地渠道</h3>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 14px 0">Hy4 preview 已开源，并在 WorkBuddy / CodeBuddy 国内版及国际版、元宝、ima 等腾讯产品同步首发；API 通过腾讯云 TokenHub 和 OpenRouter 接入。WorkBuddy / CodeBuddy 开展为期两周的限时免费，上一代 Hy3 免费期延长至 9 月 30 日。</p>
+
+  <h3 style="font-size:16px;font-weight:700;color:#1e293b;margin:0 0 8px 0">迭代节奏本身也是信息</h3>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0">自今年 2 月重建基础设施以来，混元平均每两个月迭代一个大版本，采取"preview 先行、正式版跟进"的方式。把未完全定型的 preview 版本先放出来收集真实反馈，再用反馈驱动下一版——<strong style="color:#1e293b">这个动作本身就是"把真实世界反馈引入研发过程"的轻量化实践</strong>，和前面讲的自我改进闭环在思路上是一致的。</p>
+</section>
+
+<!-- ===== 分隔线 ===== -->
+<section style="padding:0 24px;background-color:#ffffff"><p style="height:1px;background:#e8e8e8;margin:0;line-height:1px;font-size:0"> </p></section>
+
+<!-- ===== PART 6：边界 ===== -->
+<section style="padding:28px 24px 16px;background-color:#f8fafc">
+  <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:0 0 6px 0">六、几个需要说清楚的边界</h2>
+  <p style="font-size:12px;color:#94a3b8;margin:0 0 16px 0">进展是真的，边界也是真的。以下五条建议一并阅读。</p>
+</section>
+
+<section style="padding:0 24px 20px;background-color:#f8fafc">
+
+  <div style="background:#ffffff;border-left:4px solid #e74c3c;border-radius:0 8px 8px 0;padding:14px 16px;margin:0 0 10px 0">
+    <p style="font-size:14px;font-weight:700;color:#b91c1c;margin:0 0 6px 0">边界一 · 官方描述 ≠ 独立验证</p>
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0">"递归自我改进"目前是腾讯官方对自身研发过程的描述，没有配套技术报告或第三方复现。31.8% 是可测量的工程结果，但这个概念本身的成立范围，还需要更多细节披露才能评估。</p>
+  </div>
+
+  <div style="background:#ffffff;border-left:4px solid #e74c3c;border-radius:0 8px 8px 0;padding:14px 16px;margin:0 0 10px 0">
+    <p style="font-size:14px;font-weight:700;color:#b91c1c;margin:0 0 6px 0">边界二 · 参与研发 ≠ 自主研发</p>
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0">Hy4 是在人类设定的框架内加速迭代，不是自主设定研发方向。理解成"AI 已经开始自己造自己"是过度延伸；理解成"又一场营销话术"也不公平——31.8% 是真实的工程收益。更准确的说法是：<strong style="color:#1e293b">这是工程自动化的实质性进展</strong>。</p>
+  </div>
+
+  <div style="background:#ffffff;border-left:4px solid #f39c12;border-radius:0 8px 8px 0;padding:14px 16px;margin:0 0 10px 0">
+    <p style="font-size:14px;font-weight:700;color:#b45309;margin:0 0 6px 0">边界三 · 内部盲测不能当行业排名用</p>
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0">163 名专家、203 个工程任务的盲测均分 2.99/4，领先幅度 0.05~0.07 分。样本规模、任务选取、评分标准均未公开，不宜直接等同于第三方权威评测结论。</p>
+  </div>
+
+  <div style="background:#ffffff;border-left:4px solid #f39c12;border-radius:0 8px 8px 0;padding:14px 16px;margin:0 0 10px 0">
+    <p style="font-size:14px;font-weight:700;color:#b45309;margin:0 0 6px 0">边界四 · 这不构成对 Sutton 质疑的回应</p>
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0">模型在研发阶段加速迭代，与模型在部署后持续学习，是两个不同的问题。后者涉及在线权重更新、灾难性遗忘、安全边界等一系列尚未解决的难题。Hy4 的进展不意味着 Scaling 的天花板被突破。</p>
+  </div>
+
+  <div style="background:#ffffff;border-left:4px solid #f39c12;border-radius:0 8px 8px 0;padding:14px 16px;margin:0">
+    <p style="font-size:14px;font-weight:700;color:#b45309;margin:0 0 6px 0">边界五 · 不必急着上升到"AI 自我进化"</p>
+    <p style="font-size:14px;color:#475569;line-height:1.8;margin:0">过去几年，"递归自我改进""AI 造 AI"这类词被过度使用，往往承载着远超事实的想象。这次的实际情况是：<strong style="color:#1e293b">一个模型在明确的工程目标下，通过自动化试错循环取得了可测量的优化效果</strong>。这已经是很实在的进步，但边界也就在这里。</p>
+  </div>
+
+</section>
+
+<!-- ===== 分隔线 ===== -->
+<section style="padding:0 24px;background-color:#f8fafc"><p style="height:1px;background:#e8e8e8;margin:0;line-height:1px;font-size:0"> </p></section>
+
+<!-- ===== 结语 ===== -->
+<section style="padding:28px 24px;background-color:#ffffff">
+  <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:0 0 12px 0">结语</h2>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 12px 0">如果把今天的消息压缩成一句话，大概是：<strong style="color:#1e293b">模型开始参与制造自己了，但还远远谈不上"自己造自己"。</strong></p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 12px 0">31.8% 的推理吞吐提升，是一个安静但扎实的数字。它不像"参数突破万亿"那样夺人眼球，但它指向的是另一条曲线——当 Scaling 的边际收益开始被讨论、当"局部最优"的质疑被提出来的时候，<strong style="color:#1e293b">让模型参与自己的研发与优化，可能是为数不多可以验证的替代路径之一</strong>。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 12px 0">这条路能走多远，取决于一个关键问题：模型能不能从"优化别人给它定好的目标"，走到"提出值得优化的目标"。这一步目前还没有任何公开证据表明已经实现。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0">不过话说回来，两个月一个版本的迭代节奏，意味着我们不用等太久就能看到下一个答案。</p>
+</section>
+
+<!-- ===== 关注引导 ===== -->
+<section style="padding:36px 24px;background-color:#0f172a;text-align:center">
+  <p style="font-size:15px;color:#e2e8f0;margin:0 0 8px 0">📡 微信搜索「AI 深度解读」</p>
+  <p style="font-size:13px;color:#94a3b8;line-height:1.8;margin:0">报道新闻背后的商业逻辑和技术趋势<br>让普通人也能了解 AI，不制造焦虑</p>
+</section>
+
+<!-- ===== 参考来源 ===== -->
+<section style="padding:28px 24px 32px;background-color:#f8fafc">
+  <p style="font-size:12px;color:#2563eb;letter-spacing:2px;margin:0 0 14px 0">📚 参考来源</p>
+  <ol style="padding-left:20px;margin:0">
+    <li style="font-size:13px;color:#555555;line-height:1.7;margin:0 0 8px 0">腾讯混元官方通稿，2026 年 8 月 28 日，Hy4 preview 发布。</li>
+    <li style="font-size:13px;color:#555555;line-height:1.7;margin:0 0 8px 0">雷峰网 / 钛媒体 / 央广网，2026 年 8 月 28 日，腾讯混元 Hy4 preview 发布并开源（内部盲测数据引自官方）。</li>
+    <li style="font-size:13px;color:#555555;line-height:1.7;margin:0 0 8px 0">36 氪，2026 年 8 月 27 日，Rich Sutton 红杉资本访谈：大模型陷入"局部最优"，AI 必须学会持续学习。</li>
+    <li style="font-size:13px;color:#555555;line-height:1.7;margin:0 0 8px 0">IT 之家 / 凤凰科技，2026 年 8 月 26 日，阿里发布 Qwen3.8-Flash，开源下一代 Qwen4 架构雏形。</li>
+    <li style="font-size:13px;color:#555555;line-height:1.7;margin:0">快科技 / 东方财富，2026 年 8 月 28 日，Hy4 preview 定价与 TokenHub 上线信息。</li>
+  </ol>
+  <p style="font-size:12px;color:#94a3b8;line-height:1.8;margin:16px 0 0 0"><em>本文数据均来自公开报道，仅供读者参考，不构成投资建议。<br>2026 年 8 月 28 日 · 烨然漫笔 · 艾AI</em></p>
+</section>
+
 </section>
 
 </body>

@@ -96,6 +96,23 @@
 - [x] 搜索并梳理本周时间线
 - [x] 撰写头条初稿（article-wechat.html）
 - [x] 补齐 article-full.html + poster.html
-- [x] 三轮审核通过（见 review-log.md）
+- [x] 第一轮三轮审核通过（见 review-log.md 第 1~3 轮）
+- [x] 公众号版格式优化（对标 ai-long-horizon / ai-ipo-era）+ 第二轮三轮审核（第 4~6 轮）
+- [x] 生成封面图并内嵌（assets/cover-900x383.png + cover-assets.html 五件套）
+- [x] 手机端 390px 渲染验证（封面加载、表格无溢出、文字无截断）
 - [ ] 主理人发布前点验转引信源
+- [ ] 公众号编辑器实机粘贴测试
 - [ ] 次条选题（英伟达收购 HF / ARR 口径）待后续排期
+
+## 文件清单
+
+| 文件 | 说明 |
+|---|---|
+| `article-wechat.html` | 公众号版，封面图 base64 内嵌，4 个表格，31.5KB + 封面 |
+| `article-full.html` | 网站完整版，深色科技风 + 2 张 Chart.js 图表 + 时间线 |
+| `poster.html` | 竖版 1080px 贴图版 |
+| `cover-assets.html` | 封面素材五件套（头图/缩略图/分享图/内文卡/纯 CSS 备用头图）|
+| `assets/cover-900x383.png` | 公众号头图成品，可直接上传后台 |
+| `assets/cover-raw.png` | AI 生成原图 1152×896 |
+| `review-log.md` | 六轮审核记录 |
+| `README.md` | 本周时间线 + 口径表 + 选题推荐 |

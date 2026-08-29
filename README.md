@@ -56,22 +56,23 @@ yeranyang-cn/
 | 12 | 2026-07-15 | [AI 伴侣「紧箍咒」落地：一部新规划下的红线](./articles/ai/2026-07-15_ai-companion-regulation/) | 📝 待发布 |
 | 13 | 2026-07-09 | [GPT-5.6 全量上线：三档模型杀穿性价比](./articles/ai/2026-07-09_gpt-5-6-launch/) | 📝 待发布 |
 | 14 | 2026-07-01 | [英伟达 ASPIRE：机器人的「Skill 时刻」](./articles/ai/2026-07-01_nvidia-aspire-robotics/) | 📝 待发布 |
-| 15 | 2026-06-08 | [苹果 WWDC 2026：Siri 的「救赎之战」](./articles/ai/2026-06-08_apple-wwdc-siri/) | 📝 待发布 |
-| 16 | 2026-06-08 | [阿里千问开放第三方Agent，微信AI同日开放开发者接入——AI助手开始「能办事」了](./articles/ai/2026-06-08_alibaba-qwen-agent/) | ✅ 已完成 |
-| 17 | 2026-06-07 | [AI军备竞赛到底有多烧钱？——800亿美元能建什么？](./articles/ai/2026-06-07_ai-infra-cost/) | ✅ 已完成 |
-| 18 | 2026-06-01 | [Anthropic 要 IPO 了：AI公司的「成人礼」](./articles/ai/2026-06-01_anthropic-ipo/) | 📝 待发布 |
-| 19 | 2026-06-01 | [英伟达造CPU了：RTX Spark 意味着什么？](./articles/ai/2026-06-01_nvidia-rtx-spark/) | 📝 待发布 |
-| 20 | 2026-05-26 | [AI 时代，互联网增长公式正在失效](./articles/ai/2026-05-26_ai-internet-rules-fail/) | 📝 待发布 |
-| 21 | 2026-05-23 | [5月IPO三国杀：SpaceX带着22万张GPU入场](./articles/ai/2026-05-23_ai-ipo-era/) | ✅ 已完成 |
-| 22 | 2026-05-23 | [AI 和数学家一起，解开了一道 80 年的数学谜题](./articles/ai/2026-05-23_ai-math-proof/) | ✅ 已完成 |
-| 23 | 2026-05-21 | [DeepSeek 战略转向：从「不融资」到「融对资」](./articles/ai/2026-05-21_deepseek-harness-funding/) | ✅ 已完成 |
-| 24 | 2026-05-18 | [DeepSeek 融资拆解：500亿背后的战略棋局](./articles/ai/2026-05-18_deepseek-funding/) | ✅ 已完成 |
-| 25 | 2026-05-17 | [Anthropic 估值 $9000 亿超越 OpenAI](./articles/ai/2026-05-17_anthropic-900b-valuation/) | ✅ 已完成 |
-| 26 | 2026-05-17 | [AI 编码 Agent 终端战争](./articles/ai/2026-05-17_ai-coding-agent-war/) | ✅ 已完成 |
-| 27 | 2026-05-03 | [部署静态网站踩坑实录](./articles/ai/2026-05-03_deploy-static-site-lessons/) | ✅ 已完成 |
-| 28 | 2026-04-29 | [ChatGPT 开始投放广告了](./articles/ai/2026-04-29_chatgpt-ads-breakdown/) | ✅ 已完成 |
-| 29 | 2026-04-24 | [DeepSeek V4 深度解读](./articles/ai/2026-04-24_deepseek-v4-deep-dive/) | ✅ 已完成 |
-| 30 | 2026-04-17 | [AI安全：科学家们坐不住了——解读《IDAIS伦敦宣言》](./articles/ai/2026-04-17_ai-safety-london-declaration/) | 📝 待发布 |
+| 15 | 2026-06-09 | [Claude Fable 5：最强模型，第一次戴着手铐出门](./articles/ai/2026-06-09_claude-fable-5/) | 📝 待发布 |
+| 16 | 2026-06-08 | [苹果 WWDC 2026：Siri 的「救赎之战」](./articles/ai/2026-06-08_apple-wwdc-siri/) | 📝 待发布 |
+| 17 | 2026-06-08 | [阿里千问开放第三方Agent，微信AI同日开放开发者接入——AI助手开始「能办事」了](./articles/ai/2026-06-08_alibaba-qwen-agent/) | ✅ 已完成 |
+| 18 | 2026-06-07 | [AI军备竞赛到底有多烧钱？——800亿美元能建什么？](./articles/ai/2026-06-07_ai-infra-cost/) | ✅ 已完成 |
+| 19 | 2026-06-01 | [Anthropic 要 IPO 了：AI公司的「成人礼」](./articles/ai/2026-06-01_anthropic-ipo/) | 📝 待发布 |
+| 20 | 2026-06-01 | [英伟达造CPU了：RTX Spark 意味着什么？](./articles/ai/2026-06-01_nvidia-rtx-spark/) | 📝 待发布 |
+| 21 | 2026-05-26 | [AI 时代，互联网增长公式正在失效](./articles/ai/2026-05-26_ai-internet-rules-fail/) | 📝 待发布 |
+| 22 | 2026-05-23 | [5月IPO三国杀：SpaceX带着22万张GPU入场](./articles/ai/2026-05-23_ai-ipo-era/) | ✅ 已完成 |
+| 23 | 2026-05-23 | [AI 和数学家一起，解开了一道 80 年的数学谜题](./articles/ai/2026-05-23_ai-math-proof/) | ✅ 已完成 |
+| 24 | 2026-05-21 | [DeepSeek 战略转向：从「不融资」到「融对资」](./articles/ai/2026-05-21_deepseek-harness-funding/) | ✅ 已完成 |
+| 25 | 2026-05-18 | [DeepSeek 融资拆解：500亿背后的战略棋局](./articles/ai/2026-05-18_deepseek-funding/) | ✅ 已完成 |
+| 26 | 2026-05-17 | [Anthropic 估值 $9000 亿超越 OpenAI](./articles/ai/2026-05-17_anthropic-900b-valuation/) | ✅ 已完成 |
+| 27 | 2026-05-17 | [AI 编码 Agent 终端战争](./articles/ai/2026-05-17_ai-coding-agent-war/) | ✅ 已完成 |
+| 28 | 2026-05-03 | [部署静态网站踩坑实录](./articles/ai/2026-05-03_deploy-static-site-lessons/) | ✅ 已完成 |
+| 29 | 2026-04-29 | [ChatGPT 开始投放广告了](./articles/ai/2026-04-29_chatgpt-ads-breakdown/) | ✅ 已完成 |
+| 30 | 2026-04-24 | [DeepSeek V4 深度解读](./articles/ai/2026-04-24_deepseek-v4-deep-dive/) | ✅ 已完成 |
+| 31 | 2026-04-17 | [AI安全：科学家们坐不住了——解读《IDAIS伦敦宣言》](./articles/ai/2026-04-17_ai-safety-london-declaration/) | 📝 待发布 |
 
 ---
 

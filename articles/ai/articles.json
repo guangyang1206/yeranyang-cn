@@ -22,17 +22,6 @@
     "status": "draft"
   },
   {
-    "id": "2026-07-30_anthropic-cyber-eval-incidents",
-    "date": "2026-07-30",
-    "title": "AI 越狱\"实锤\"了：Anthropic 回查 14 万次，揪出三起真实入侵",
-    "desc": "141,006次评测回溯，三起Claude越界入侵真实企业系统。根因是环境隔离失效，而非模型主动作恶。",
-    "tags": [
-      "security",
-      "tech"
-    ],
-    "status": "draft"
-  },
-  {
     "id": "2026-08-21_ai-agent-jailbreak-overview",
     "date": "2026-08-21",
     "title": "一个月七起\"AI 越狱\"：风险的性质，已经悄悄变了",
@@ -99,6 +88,17 @@
     "status": "draft"
   },
   {
+    "id": "2026-07-30_anthropic-cyber-eval-incidents",
+    "date": "2026-07-30",
+    "title": "AI 越狱\"实锤\"了：Anthropic 回查 14 万次，揪出三起真实入侵",
+    "desc": "141,006次评测回溯，三起Claude越界入侵真实企业系统。根因是环境隔离失效，而非模型主动作恶。",
+    "tags": [
+      "security",
+      "tech"
+    ],
+    "status": "draft"
+  },
+  {
     "id": "2026-07-24_claude-opus-5",
     "date": "2026-07-24",
     "title": "Claude Opus 5 发布：能力逼近 Fable 5，价格一分不涨",
@@ -108,6 +108,16 @@
       "company"
     ],
     "status": "draft"
+  },
+  {
+    "id": "2026-07-20_waic-2026-aftermath",
+    "date": "2026-07-20",
+    "title": "WAIC 散场了，真正的问题才开始",
+    "desc": "一场10万平米展会背后，开源与闭源、机器人打工、治理竞争力三条暗线正在定义 AI 的下半场。",
+    "tags": [
+      "scope"
+    ],
+    "status": "published"
   },
   {
     "id": "2026-07-15_ai-companion-regulation",
@@ -141,12 +151,36 @@
     "status": "draft"
   },
   {
-    "id": "2026-07-20_waic-2026-aftermath",
-    "date": "2026-07-20",
-    "title": "WAIC 散场了，真正的问题才开始",
-    "desc": "一场10万平米展会背后，开源与闭源、机器人打工、治理竞争力三条暗线正在定义 AI 的下半场。",
+    "id": "2026-06-09_claude-fable-5",
+    "date": "2026-06-09",
+    "title": "Claude Fable 5：最强模型，第一次戴着手铐出门",
+    "desc": "Mythos 级能力首次公开，发布 72 小时后被美国出口管制叫停",
     "tags": [
-      "scope"
+      "大模型",
+      "Anthropic",
+      "出口管制"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-06-08_apple-wwdc-siri",
+    "date": "2026-06-08",
+    "title": "苹果 WWDC 2026：Siri 的「救赎之战」",
+    "desc": "全球最有钱的公司，为什么做不好AI？从Siri十年困局看苹果的AI战略。",
+    "tags": [
+      "company",
+      "tech"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "2026-06-08_alibaba-qwen-agent",
+    "date": "2026-06-08",
+    "title": "阿里千问开放第三方Agent，微信AI同日开放开发者接入——AI助手开始「能办事」了",
+    "desc": "两大平台同日开放Agent生态，AI助手从「会聊天」到「能办事」的转折点。",
+    "tags": [
+      "scope",
+      "tech"
     ],
     "status": "published"
   },
@@ -162,16 +196,6 @@
     "status": "published"
   },
   {
-    "id": "2026-04-17_ai-safety-london-declaration",
-    "date": "2026-04-17",
-    "title": "AI安全：科学家们坐不住了——解读《IDAIS伦敦宣言》",
-    "desc": "姚期智、Bengio联署，全球最懂AI的人到底在担心什么？",
-    "tags": [
-      "policy"
-    ],
-    "status": "draft"
-  },
-  {
     "id": "2026-06-01_anthropic-ipo",
     "date": "2026-06-01",
     "title": "Anthropic 要 IPO 了：AI公司的「成人礼」",
@@ -179,17 +203,6 @@
     "tags": [
       "company",
       "business"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-06-08_apple-wwdc-siri",
-    "date": "2026-06-08",
-    "title": "苹果 WWDC 2026：Siri 的「救赎之战」",
-    "desc": "全球最有钱的公司，为什么做不好AI？从Siri十年困局看苹果的AI战略。",
-    "tags": [
-      "company",
-      "tech"
     ],
     "status": "draft"
   },
@@ -203,17 +216,6 @@
       "company"
     ],
     "status": "draft"
-  },
-  {
-    "id": "2026-06-08_alibaba-qwen-agent",
-    "date": "2026-06-08",
-    "title": "阿里千问开放第三方Agent，微信AI同日开放开发者接入——AI助手开始「能办事」了",
-    "desc": "两大平台同日开放Agent生态，AI助手从「会聊天」到「能办事」的转折点。",
-    "tags": [
-      "scope",
-      "tech"
-    ],
-    "status": "published"
   },
   {
     "id": "2026-05-26_ai-internet-rules-fail",
@@ -319,5 +321,15 @@
       "tech"
     ],
     "status": "published"
+  },
+  {
+    "id": "2026-04-17_ai-safety-london-declaration",
+    "date": "2026-04-17",
+    "title": "AI安全：科学家们坐不住了——解读《IDAIS伦敦宣言》",
+    "desc": "姚期智、Bengio联署，全球最懂AI的人到底在担心什么？",
+    "tags": [
+      "policy"
+    ],
+    "status": "draft"
   }
 ]

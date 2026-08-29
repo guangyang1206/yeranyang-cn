@@ -124,7 +124,7 @@ articles/ai/YYYY-MM-DD_slug/
 ├── article-wechat.html        # ① 公众号版：内联样式，复制粘贴样式不变
 ├── article-full.html          # ② 完整版：网页阅读，移动端适配，可交互
 ├── poster.html                # ③ 贴图版：竖版长图 + 一句导语（小红书/朋友圈/公众号图片消息）
-├── cover-assets.html          # 公众号后台素材（头图/缩略图/朋友圈分享图）
+├── cover-assets.html          # 封面素材五件套（头图/缩略图/分享图/内文卡/纯 CSS 备用头图）
 ├── article-illustrations.html # 内文配图素材（手绘风格）
 ├── review-log.md              # ④ 审核记录：每轮审核与修改流水账（见 §9）
 ├── en-article.html            # （可选）英文版
@@ -142,6 +142,45 @@ articles/ai/YYYY-MM-DD_slug/
 | ④ | `review-log.md` | 审核记录，每轮审核与修改的忠实记录者 | 结构见 §9；随文章终身保留，定稿后不删除 |
 
 > `cover-assets.html` 与 `article-illustrations.html` 为辅助素材（见 §8）；`README.md` 为选题与状态唯一权威来源。
+
+### 3.3 配图内嵌铁律（2026-08-29 定）
+
+> **所有配图一律 `base64` 内嵌进 `article-wechat.html`，与正文一起复制，不再另出独立图床/外链图。**
+
+**为什么**：公众号后台「选择封面图」支持**从正文选取**。图随文走，一次全选复制即可带走全部图片；封面也能直接从正文里点选，不用再单独上传。
+
+| 规则 | 说明 |
+|---|---|
+| **封面图** | 内嵌于 `article-wechat.html` **顶部第一个 `<section>`**，独立成块 |
+| **内文配图** | 内嵌在对应正文位置，替代 `article-illustrations.html` 的截图贴图 |
+| **格式** | `<img src="data:image/jpeg;base64,..." />`，JPEG 优先（体积远小于 PNG） |
+| **体积** | 单图压缩后 ≤ 50KB（base64 后约 ≤ 67KB）；全文 HTML 控制在 ~500KB 内 |
+| **无外链** | 正文不出现任何 `http(s)://` 图片地址，复制即见，不依赖外链存活 |
+| **兜底** | 封面图下方保留深色标题区块（标题+副标题+信源），防编辑器过滤图片后标题丢失 |
+
+**封面图标准写法**（置于正文第一个 section 之前）：
+
+```html
+<!-- ===== 封面图（base64 内嵌，粘贴即见）===== -->
+<section style="padding:0;background-color:#0f172a;text-align:center;line-height:0;font-size:0">
+  <img src="data:image/jpeg;base64,......" style="width:100%;display:block;" alt="封面" />
+</section>
+
+<!-- ===== 封面区（兜底：图片被过滤时标题仍完整）===== -->
+<section style="background-color:#0f172a;padding:52px 28px 44px;text-align:center">
+  ...标题 / 副标题 / 信源...
+</section>
+```
+
+**落地步骤**：
+
+1. AI 生图（`image_generate`）→ 取原图
+2. 裁剪为 **900×383**（公众号头图标准比例 2.35:1），压缩 JPEG 至 ≤ 50KB
+3. `base64 -w0` 转码，内嵌进 `article-wechat.html` 顶部
+4. 原图与成品存 `assets/cover-900x383.png` 备查
+5. **浏览器实测**：390px 宽渲染，确认 `img.complete && naturalWidth>0`，与标题区衔接无割裂
+
+> 注：`cover-assets.html` 里的素材仍可用相对路径引用 `assets/*.png`——它是**本地素材页**，不用于粘贴公众号，不受 §4.3 外链限制约束。
 
 ---
 
@@ -191,7 +230,13 @@ grep -n '<meta name="viewport"' articles/ai/*/article-wechat.html  # 只有 widt
 - position: absolute/fixed → 谨慎使用
 ```
 
-### 4.4 外部链接与参考来源
+### 4.4 图片与配图（见 §3.3 配图内嵌铁律）
+
+- **全部 base64 内嵌**，与正文一起复制；封面图位于顶部第一个 `<section>`
+- 封面图下方**保留深色标题区块兜底**（此为 §4.1「禁止深色结语」的唯一例外——仅限封面区，正文其余部分一律白/浅灰）
+- 单图 ≤ 50KB，JPEG 优先；正文无 `http(s)://` 图片外链
+
+### 4.5 外部链接与参考来源
 
 - **正文不放任何非公众号文章的外部链接**
 - 参考文献以**纯文本**列于文末（来源名称 + 标题，如"The Information、Reuters、公司 Q2 财报"）
@@ -336,18 +381,24 @@ grep -n '<meta name="viewport"' articles/ai/*/article-wechat.html  # 只有 widt
 
 ## §8 素材生成规范
 
+> **§3.3 优先**：封面图与内文配图一律 base64 内嵌进 `article-wechat.html`（配图内嵌铁律）。
+> 本节的两个 HTML 是**本地素材页**（浏览器打开截图/备查用），不是公众号粘贴源。
+
 ### 8.1 `cover-assets.html` 标准结构
 
-4 个素材（浏览器打开后截图）：
+5 个素材（浏览器打开后截图）：
 
 | 素材 | 尺寸 | 用途 |
 |---|---|---|
-| 公众号头图 | 900×383 | 公众号文章头图 |
+| 公众号头图 | 900×383 | 公众号文章头图（**已内嵌进正文**，此处为备查版）|
 | 缩略图 | 200×200 | 历史消息列表缩略图 |
 | 朋友圈分享图 | 400×400（1:1） | 朋友圈分享卡片 |
 | 信息卡片 | 680×约300 | 内文贴图 |
+| 纯 CSS 备用头图 | 900×383 | 无图兜底，编辑器过滤图片时截图顶上 |
 
 ### 8.2 `article-illustrations.html` 标准结构
+
+> 内文配图已随正文内嵌（§3.3），本文件作为**手绘风格素材源与备查**保留。
 
 每 PART 一张配图，手绘风格：
 
@@ -424,11 +475,12 @@ grep -n '<meta name="viewport"' articles/ai/*/article-wechat.html  # 只有 widt
 
 # 2. 三轮审核定稿（见 §9），review-log.md 记录完整
 
-# 3. 生成素材（见 §8）
-#    → cover-assets.html（公众号后台素材）
+# 3. 生成配图并内嵌（见 §3.3 / §8）
+#    → AI 生图 → 裁 900×383 → 压 JPEG ≤50KB → base64 -w0 → 内嵌 article-wechat.html 顶部
+#    → 封面图下方保留深色标题区块兜底
 #    → poster.html（竖版长图）
-#    → article-illustrations.html（内文配图）
-#    → 浏览器打开截图使用
+#    → cover-assets.html / article-illustrations.html（本地素材页，备查）
+#    → 浏览器 390px 实测：图片加载成功、与标题区衔接自然
 
 # 4. 更新 README
 #    → articles/ai/README.md 表格新增一行，状态"📝 待发布"
@@ -458,6 +510,7 @@ git push
 | 写作完成 | 数据口径（实际 vs ARR） | 人工逐句检查 |
 | 写作完成 | 标题/正文严谨性 | 「推翻猜想」vs「反证上界」 |
 | HTML 生成 | meta 标签语法 | grep charset / viewport |
+| 配图内嵌 | 封面/配图已 base64 内嵌、顶部独立 section、有兜底标题区 | 浏览器 390px 实测 naturalWidth>0 |
 | HTML 生成 | 格式是否 Anthropic 标准 | 复制进公众号编辑器测试 |
 | 首页更新 | 入口卡片是否齐全 | 对比上一篇 |
 | 部署前 | git status 是否干净 | `git status` |
@@ -530,6 +583,13 @@ docs: 更新 README 文章状态（✅ 已完成）
 **文件结构阶段**：
 - [ ] 四类文件齐全：`article-wechat.html` / `article-full.html` / `poster.html` / `review-log.md`
 - [ ] 状态在 `README.md` 中正确标注
+
+**配图阶段**（见 §3.3）：
+- [ ] 封面图 base64 内嵌于 `article-wechat.html` 顶部第一个 `<section>`
+- [ ] 内文配图同样内嵌，无 `http(s)://` 图片外链
+- [ ] 单图 ≤ 50KB（JPEG），全文 HTML 体积可控
+- [ ] 封面图下方保留深色标题区块兜底
+- [ ] 浏览器 390px 实测图片加载成功、衔接自然
 
 **公众号版阶段**：
 - [ ] 每块独立 `<section>`，白/灰交替背景

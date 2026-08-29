@@ -78,10 +78,10 @@ yeranyang-cn/
     ├── articles.json      # 文章元数据
     └── YYYY-MM-DD_slug/        # 每个选题独立目录`
         ├── README.md           # 选题元数据 & 发布追踪`
-        ├── article-wechat.html  # 公众号专用版（内联样式，复制粘贴）
+        ├── article-wechat.html  # 公众号专用版（内联样式 + 配图 base64 内嵌）
         ├── article-full.html       # 个人网站全文版（深色科技风）
-        ├── article-illustrations.html # 文章内文配图素材（手绘风格）
-        ├── cover-assets.html       # 公众号封面/缩略图素材`
+        ├── article-illustrations.html # 内文配图素材源（本地备查，非粘贴源）
+        ├── cover-assets.html       # 封面素材五件套（本地备查，非粘贴源）`
         ├── prompts/                # AI 生图 prompt（如有）
         └── assets/                 # 参考资料、图片素材`
 ```
@@ -99,10 +99,14 @@ yeranyang-cn/
 | 文件 | 用途 | 使用方式 |
 |------|------|----------|
 | `README.md` | 选题元数据 & 发布追踪 | 每次发布后更新状态 |
-| `article-wechat.html` | 微信公众号正文 | 浏览器打开 → Ctrl+A → 粘贴到编辑器 |
+| `article-wechat.html` | 微信公众号正文（配图已 base64 内嵌）| 浏览器打开 → Ctrl+A → 粘贴到编辑器 |
 | `article-full.html` | 个人网站全文版 | 部署到个人网站 |
-| `article-illustrations.html` | 文章内文配图素材 | 浏览器打开 → 逐张截图 |
-| `cover-assets.html` | 公众号封面/缩略图 | 浏览器打开 → 截图对应尺寸 |
+| `article-illustrations.html` | 内文配图素材源（本地备查）| 浏览器打开 → 逐张截图 |
+| `cover-assets.html` | 封面素材五件套（本地备查）| 浏览器打开 → 截图对应尺寸 |
+
+> **配图内嵌铁律（2026-08-29 定）**：封面图与内文配图一律 `base64` 内嵌进 `article-wechat.html`，与正文一起复制。
+> 公众号后台「选择封面图」支持**从正文选取**，无需单独上传。封面图置于顶部第一个 `<section>`，下方保留深色标题区块兜底。
+> 详见根目录 [`CONTENT_STANDARD.md`](../../CONTENT_STANDARD.md) §3.3。
 | `prompts/` | AI 生图的 prompt 文本 | 备份用，方便复用和微调 |
 
 ## 发文流程`

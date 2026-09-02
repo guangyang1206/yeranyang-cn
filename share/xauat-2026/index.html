@@ -1,624 +1,1230 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Enlightenment — Understanding AI from Scratch</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+SC:wght@400;600;700;900&family=Caveat:wght@400;500;600;700&family=ZCOOL+KuaiLe&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <!-- 进度条 -->
-  <div class="progress-bar" id="progressBar"></div>
-  
-  <!-- 语言切换 -->
-  <div class="lang-switcher" id="langSwitcher">
-    <button class="lang-btn active" data-lang="en" onclick="switchLang('en')">EN</button>
-    <button class="lang-btn" data-lang="zh" onclick="switchLang('zh')">中</button>
-  </div>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>当人工智能开始涌现，人往何处</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/favicon-64.png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./custom.css" />
+  </head>
+  <body>
 
-  <!-- 导航 -->
-  <nav class="slide-nav" id="slideNav">
-    <div class="nav-logo" data-i18n="navLogo">AI Enlightenment</div>
-    <div class="nav-dots" id="navDots"></div>
-    <div class="nav-controls">
-      <button class="nav-btn" id="prevBtn" onclick="prevSlide()">←</button>
-      <span class="slide-counter" id="slideCounter">1 / 17</span>
-      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">→</button>
-    </div>
-  </nav>
+    <!-- ===== SLIDES ===== -->
+    <div class="deck">
 
-  <!-- ==================== SLIDE 0: 封面 ==================== -->
-  <section class="slide slide-cover active" data-index="0">
-    <div class="cover-bg-art">
-      <svg class="cover-circuit" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50,300 Q200,100 400,300 Q600,500 750,300" stroke="rgba(255,255,255,0.08)" fill="none" stroke-width="2" class="draw-path"/>
-        <path d="M100,500 Q300,200 500,400 Q700,100 780,350" stroke="rgba(255,255,255,0.06)" fill="none" stroke-width="1.5" class="draw-path delay-1"/>
-        <circle cx="400" cy="300" r="80" stroke="rgba(255,255,255,0.05)" fill="none" stroke-width="1" class="pulse-circle"/>
-        <circle cx="400" cy="300" r="150" stroke="rgba(255,255,255,0.03)" fill="none" stroke-width="1" class="pulse-circle delay-2"/>
-      </svg>
-    </div>
-    <div class="cover-content">
-      <p class="cover-subtitle fade-up" data-i18n="coverSubtitle">A Gentle Conversation About Intelligence</p>
-      <h1 class="cover-title fade-up delay-1">
-        <span class="title-line">AI</span>
-        <span class="title-line accent" data-i18n="coverTitleLine2">Enlightenment</span>
-      </h1>
-      <p class="cover-desc fade-up delay-2" data-i18n="coverDesc">Understanding how AI is transforming our work and life, from the ground up</p>
-      <div class="cover-quote fade-up delay-3">
-        <p data-i18n="coverQuote">"Any sufficiently advanced technology is indistinguishable from magic."</p>
-        <cite data-i18n="coverQuoteCite">— Arthur C. Clarke</cite>
-      </div>
-      <button class="start-btn fade-up delay-4" onclick="nextSlide()">
-        <span data-i18n="startBtn">Start Exploring</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
-    </div>
-  </section>
+      <!-- PAGE 01 — COVER -->
+      <section class="slide active" id="slide-01">
+        <div class="slide-body cover-body">
+          <div class="tag-pill">
+            <span class="tag-dot"></span>
+            西安建筑科技大学 · 校友分享 · 2026
+          </div>
 
-  <!-- ==================== SLIDE 1: 什么是AI ==================== -->
-  <section class="slide slide-what-is-ai" data-index="1">
-    <div class="slide-inner">
-      <div class="slide-label">01</div>
-      <h2 class="slide-title" data-i18n="s1Title">What is Artificial Intelligence?</h2>
-      <div class="two-col">
-        <div class="col-left">
-          <div class="sketch-box">
-            <svg viewBox="0 0 400 300" class="sketch-svg">
-              <path d="M200,40 C120,40 60,90 60,160 C60,220 100,260 160,270 C170,272 180,275 190,280 L200,285 L210,280 C220,275 230,272 240,270 C300,260 340,220 340,160 C340,90 280,40 200,40Z" fill="none" stroke="#5B4A8A" stroke-width="2.5" stroke-linecap="round" class="hand-draw"/>
-              <path d="M200,60 L200,250" stroke="#5B4A8A" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
-              <path d="M120,100 Q160,130 200,100 Q240,70 280,100" stroke="#E8A87C" stroke-width="2" fill="none" class="hand-draw delay-1"/>
-              <path d="M100,150 Q150,180 200,150 Q250,120 300,150" stroke="#85C7DE" stroke-width="2" fill="none" class="hand-draw delay-2"/>
-              <path d="M120,200 Q160,230 200,200 Q240,170 280,200" stroke="#C38EC7" stroke-width="2" fill="none" class="hand-draw delay-3"/>
-              <circle cx="150" cy="100" r="4" fill="#E8A87C" class="blink"/>
-              <circle cx="250" cy="100" r="4" fill="#E8A87C" class="blink delay-1"/>
-              <circle cx="130" cy="150" r="4" fill="#85C7DE" class="blink delay-2"/>
-              <circle cx="270" cy="150" r="4" fill="#85C7DE" class="blink"/>
-              <circle cx="160" cy="200" r="4" fill="#C38EC7" class="blink delay-3"/>
-              <circle cx="240" cy="200" r="4" fill="#C38EC7" class="blink delay-1"/>
-              <text x="60" y="30" class="sketch-label" fill="#5B4A8A" data-i18n="s1SketchLabel">🧠 Artificial Intelligence</text>
-              <text x="30" y="110" class="sketch-label-sm" fill="#E8A87C" data-i18n="s1SketchLearn">Learn</text>
-              <text x="30" y="160" class="sketch-label-sm" fill="#85C7DE" data-i18n="s1SketchReason">Reason</text>
-              <text x="30" y="210" class="sketch-label-sm" fill="#C38EC7" data-i18n="s1SketchCreate">Create</text>
-            </svg>
+          <h1 class="cover-title">当人工智能开始涌现，<br /><span class="accent">人往何处</span></h1>
+          <p class="cover-author">从大模型到 Agent —— 一个工科毕业生的观察与再思考</p>
+          <div class="cover-rule"></div>
+
+          <p class="cover-speaker">
+            <span class="cs-role">分享人</span>
+            <span class="cs-name">杨　光</span>
+            <span class="cs-sep">|</span>
+            <span class="cs-aff">信息与控制工程学院 · 建筑电气与智能化 · 2010 级</span>
+          </p>
+
+          <div class="cover-quote cover-quote-bilingual">
+            <blockquote class="quote-en">
+              &ldquo;It's actually kind of incredible that you can get so much <em>emergent magical behavior</em> out of them, despite them being so simple mathematically.&rdquo;
+            </blockquote>
+            <blockquote class="quote-zh">
+              &ldquo;真正令人惊叹的是：神经网络在数学上其实相当简单，你却能从中获得如此多<em>涌现</em>出来的、近乎神奇的行为。&rdquo;
+            </blockquote>
+            <p class="quote-attribution">&mdash; Andrej Karpathy &middot; Lex Fridman Podcast #333 &middot; 2022-10-29</p>
           </div>
         </div>
-        <div class="col-right">
-          <div class="content-block fade-in-right">
-            <p class="lead-text" data-i18n="s1Lead">Artificial Intelligence (AI) is the technology that enables computers to simulate human intelligence.</p>
-            <p data-i18n="s1Desc">Just like teaching a child to understand the world, we "train" computers with massive amounts of data so they can learn to recognize images, understand language, and make decisions.</p>
-            <div class="key-points">
-              <div class="key-point">
-                <span class="point-icon">👁️</span>
-                <div>
-                  <strong data-i18n="s1Point1Title">Perception</strong>
-                  <p data-i18n="s1Point1Desc">Understand images, comprehend speech</p>
+
+        <!-- QR 码浮标 · 仅电脑端显示 -->
+        <a class="qr-badge" href="https://yeranyang.cn/share/xauat-2026/" target="_blank" rel="noopener" title="扫码 · 手机阅读本次分享">
+          <img src="./assets/qr-deck.svg" alt="扫码阅读本次分享" width="84" height="84" />
+          <div class="qr-badge-copy">
+            <span class="qr-tag">SCAN &amp; READ</span>
+            <span class="qr-title">扫码看这份分享</span>
+            <span class="qr-sub">手机端 · 随身翻阅</span>
+          </div>
+        </a>
+      </section>
+
+      <!-- PAGE 02 — 自我介绍 -->
+      <section class="slide" id="slide-02">
+        <div class="slide-body intro-body">
+          <p class="section-eyebrow">01 &mdash; 我是谁</p>
+          <h2>先从<span class="accent">两张合影</span>说起。</h2>
+          <div class="cover-rule"></div>
+
+          <div class="intro-photos">
+            <figure class="ipc ipc-portrait">
+              <img src="./assets/photo-with-feng.png" alt="杨光与李安桂老师合影" />
+              <figcaption>
+                <strong>与李安桂老师合影</strong>
+                <span>2017 年 7 月</span>
+              </figcaption>
+            </figure>
+            <figure class="ipc ipc-class">
+              <img src="./assets/class-photo-2014.jpg" alt="2014 年 6 月毕业合影" />
+              <figcaption>
+                <strong>毕业合影</strong>
+                <span>2014 年 6 月 · 前排居中为班主任冯增喜老师</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="intro-role-card">
+            <span class="if-kicker">现在</span>
+            <p>我现在在腾讯国际公共事务部，担任 <strong>腾讯官网 tencent.com 技术负责人</strong>，同时负责部门 <strong>AI 提效</strong>相关项目。</p>
+          </div>
+
+          <div class="intro-humble-quote">
+            <p>回到母校，不是带着答案回来，而是带着问题、感激和一点点实践，向老师和同学们做一次汇报。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 03 — 今天聊什么 -->
+      <section class="slide" id="slide-03">
+        <div class="slide-body">
+          <p class="section-eyebrow">02 &mdash; 今天聊什么</p>
+          <h2>四段路，一个问题。</h2>
+          <div class="cover-rule"></div>
+
+          <div class="agenda-flow" aria-label="今天分享的四段路径">
+            <span class="af-node af-tech">
+              <span class="af-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>
+              </span>
+              <span class="af-label">技术</span>
+            </span>
+            <span class="af-arrow" aria-hidden="true">
+              <svg viewBox="0 0 40 12" width="40" height="12"><path d="M1 6 H33" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M32 1 L39 6 L32 11" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="af-node af-industry">
+              <span class="af-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l5 3V9l5 3V9l5 3v9z"/><path d="M3 21h18"/></svg>
+              </span>
+              <span class="af-label">产业</span>
+            </span>
+            <span class="af-arrow" aria-hidden="true">
+              <svg viewBox="0 0 40 12" width="40" height="12"><path d="M1 6 H33" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M32 1 L39 6 L32 11" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="af-node af-trend">
+              <span class="af-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+              </span>
+              <span class="af-label">趋势</span>
+            </span>
+            <span class="af-arrow" aria-hidden="true">
+              <svg viewBox="0 0 40 12" width="40" height="12"><path d="M1 6 H33" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M32 1 L39 6 L32 11" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="af-node af-people">
+              <span class="af-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.5-3.6 4-5.4 7-5.4s5.5 1.8 7 5.4"/></svg>
+              </span>
+              <span class="af-label">人</span>
+            </span>
+          </div>
+
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <span class="ag-num">01</span>
+              <div class="ag-copy">
+                <h3>AI 是什么，它怎么走到今天</h3>
+                <p>三波浪潮、大模型的本质与神经网络，智能的三次跃迁，以及 Agent 的感知-行动闭环。</p>
+              </div>
+            </div>
+            <div class="agenda-item">
+              <span class="ag-num">02</span>
+              <div class="ag-copy">
+                <h3>从大模型到 Agent，产业在发生什么</h3>
+                <p>国家层面的顶层设计、黄仁勋的&ldquo;AI 五层蛋糕&rdquo;、应用层动态、四道门槛与 Token 经济学。</p>
+              </div>
+            </div>
+            <div class="agenda-item">
+              <span class="ag-num">03</span>
+              <div class="ag-copy">
+                <h3>三个正在发生的趋势</h3>
+                <p>市场规模、电力底座与&ldquo;Token 出海&rdquo;——没有预言，只有正在被验证的三件事。</p>
+              </div>
+            </div>
+            <div class="agenda-item accent-item">
+              <span class="ag-num">04</span>
+              <div class="ag-copy">
+                <h3>人往何处：一个工科人的再定位</h3>
+                <p>人的智能优势、三种新定位（提问者 · 指挥者 · 意义的守护者），以及工科生核心竞争力的迁移。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 04 — AI 三波浪潮 + 时间线 -->
+      <section class="slide" id="slide-04">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">03 &mdash; AI 是什么（1/3）</p>
+          <h2>七十年，<span class="accent">三波浪潮</span>。</h2>
+          <div class="cover-rule"></div>
+
+          <!-- ★ 三波浪潮 · 精简卡片 -->
+          <div class="waves waves-compact">
+            <div class="wave-card">
+              <span class="wave-tag">第一波 · 1956&ndash;1980s</span>
+              <h3>符号主义</h3>
+              <p class="wave-sub">Symbolism · 基于逻辑推理</p>
+              <p class="wave-body">用规则和知识库编码专家的思维。代表：专家系统、知识图谱。<strong>硬编码，脆弱。</strong></p>
+            </div>
+            <div class="wave-card">
+              <span class="wave-tag">第二波 · 1980s&ndash;2010s</span>
+              <h3>连接主义</h3>
+              <p class="wave-sub">Connectionism · 基于统计学习</p>
+              <p class="wave-body">模拟神经元连接，从海量数据里学规律。代表：CNN、RNN、AlphaGo。<strong>会自己学。</strong></p>
+            </div>
+            <div class="wave-card wave-now">
+              <span class="wave-tag">第三波 · 2017&ndash;至今</span>
+              <h3>大模型 &amp; Agent</h3>
+              <p class="wave-sub">Foundation Models · 能力开始涌现</p>
+              <p class="wave-body">Transformer &rarr; GPT &rarr; 推理 &rarr; Agent。规模跨过临界点，<strong>会推理、会做事。</strong></p>
+            </div>
+          </div>
+
+          <!-- ★ AI 发展时间线（SVG） -->
+          <div class="ai-timeline">
+            <div class="ait-header">
+              <span class="ait-title">AI 发展关键节点 · Timeline</span>
+              <span class="ait-legend">
+                <span class="ait-lg ait-lg-sym">符号主义</span>
+                <span class="ait-lg ait-lg-conn">连接主义</span>
+                <span class="ait-lg ait-lg-fm">大模型时代</span>
+              </span>
+            </div>
+
+            <svg class="ait-svg" viewBox="0 0 1000 240" aria-hidden="true">
+              <!-- 背景网格线 -->
+              <line x1="40" y1="200" x2="960" y2="200" stroke="#d8d8d8" stroke-width="1"/>
+              <!-- 三段区间底色 -->
+              <rect x="40"  y="24" width="220" height="176" fill="rgba(90,90,90,0.05)"/>
+              <rect x="260" y="24" width="380" height="176" fill="rgba(20,110,245,0.05)"/>
+              <rect x="640" y="24" width="320" height="176" fill="rgba(20,110,245,0.10)"/>
+              <!-- 能力曲线（贝塞尔）-->
+              <path d="M 60 190 Q 200 188 260 178 T 460 150 T 640 108 T 820 52 T 960 32"
+                    fill="none" stroke="#146ef5" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- 节点 · 事件 -->
+              <!-- 1956 达特茅斯 -->
+              <circle cx="80"  cy="190" r="6" fill="#fff" stroke="#5a5a5a" stroke-width="2"/>
+              <text x="80"  y="220" text-anchor="middle" font-size="11" fill="#5a5a5a">1956</text>
+              <text x="80"  y="175" text-anchor="middle" font-size="10.5" fill="#363636">达特茅斯会议</text>
+              <!-- 1974 AI Winter I -->
+              <circle cx="180" cy="188" r="5" fill="#fff" stroke="#5a5a5a" stroke-width="2"/>
+              <text x="180" y="220" text-anchor="middle" font-size="11" fill="#5a5a5a">1974</text>
+              <text x="180" y="173" text-anchor="middle" font-size="10.5" fill="#363636">第一次寒冬</text>
+              <!-- 1986 反向传播 -->
+              <circle cx="300" cy="176" r="6" fill="#fff" stroke="#146ef5" stroke-width="2"/>
+              <text x="300" y="220" text-anchor="middle" font-size="11" fill="#146ef5">1986</text>
+              <text x="300" y="161" text-anchor="middle" font-size="10.5" fill="#363636">反向传播（Hinton）</text>
+              <!-- 2006 深度学习 -->
+              <circle cx="460" cy="150" r="6" fill="#fff" stroke="#146ef5" stroke-width="2"/>
+              <text x="460" y="220" text-anchor="middle" font-size="11" fill="#146ef5">2006</text>
+              <text x="460" y="135" text-anchor="middle" font-size="10.5" fill="#363636">深度学习被提出</text>
+              <!-- 2012 AlexNet -->
+              <circle cx="560" cy="126" r="7" fill="#146ef5" stroke="#146ef5" stroke-width="2"/>
+              <text x="560" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#146ef5">2012</text>
+              <text x="560" y="112" text-anchor="middle" font-size="10.5" font-weight="600" fill="#146ef5">AlexNet · ImageNet</text>
+              <!-- 2016 AlphaGo -->
+              <circle cx="640" cy="108" r="6" fill="#fff" stroke="#146ef5" stroke-width="2"/>
+              <text x="640" y="220" text-anchor="middle" font-size="11" fill="#146ef5">2016</text>
+              <text x="640" y="93" text-anchor="middle" font-size="10.5" fill="#363636">AlphaGo 胜李世石</text>
+              <!-- 2017 Transformer -->
+              <circle cx="720" cy="86" r="7" fill="#146ef5" stroke="#146ef5" stroke-width="2"/>
+              <text x="720" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#146ef5">2017</text>
+              <text x="720" y="72" text-anchor="middle" font-size="10.5" font-weight="600" fill="#146ef5">Transformer</text>
+              <!-- 2022 ChatGPT -->
+              <circle cx="840" cy="46" r="7" fill="#146ef5" stroke="#146ef5" stroke-width="2"/>
+              <text x="840" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#146ef5">2022</text>
+              <text x="840" y="32" text-anchor="middle" font-size="10.5" font-weight="600" fill="#146ef5">ChatGPT</text>
+              <!-- 2026 Agent -->
+              <circle cx="945" cy="32" r="8" fill="#146ef5" stroke="#0055d4" stroke-width="2"/>
+              <text x="945" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#0055d4">2026</text>
+              <text x="945" y="17" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0055d4">Agent · DeepSeek</text>
+              <!-- Y 轴标签 -->
+              <text x="40"  y="18" font-size="10" fill="#ababab">AI 能力 &uarr;</text>
+              <text x="965" y="215" font-size="10" fill="#ababab" text-anchor="end">时间 &rarr;</text>
+            </svg>
+
+            <p class="ait-source">时间轴综合参考：Andrew Ng 斯坦福 CS230 · Fei-Fei Li ImageNet · Yann LeCun Deep Learning History · 华为开发者社区 AI 简史</p>
+          </div>
+
+          <div class="key-insight-bar">
+            <span class="key-icon">&#128200;</span>
+            <p>本轮浪潮的底座是<strong>连接主义</strong>：机器从人类历史数据中学习并归纳规律。它不是被&ldquo;编程&rdquo;出来的，而是被<em>&ldquo;训练&rdquo;出来的</em>——这一点，决定了后面的一切。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 05 — 大模型的本质 · 神经网络 -->
+      <section class="slide" id="slide-05">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">03 &mdash; AI 是什么（2/3）</p>
+          <h2>大模型的本质：<span class="accent">神经网络</span>与一场&ldquo;猜词&rdquo;游戏。</h2>
+          <div class="cover-rule"></div>
+
+          <p class="nn-lede">大模型主要通过从海量数据中学习来构建能力，其本质是一种<strong>基于统计的方法</strong>，依赖于统计规律，而非逻辑推理。给定上文，预测下一个最可能出现的语言符号（Token）。</p>
+
+          <div class="nn-main">
+            <!-- ★ 左：神经网络架构 SVG -->
+            <div class="nn-diagram">
+              <svg class="nn-svg" viewBox="0 0 520 260" aria-hidden="true">
+                <!-- 层标签 -->
+                <text x="60"  y="18" text-anchor="middle" font-size="11" fill="#5a5a5a">输入层</text>
+                <text x="60"  y="30" text-anchor="middle" font-size="9.5" fill="#ababab">Input</text>
+                <text x="200" y="18" text-anchor="middle" font-size="11" fill="#5a5a5a">隐藏层 1</text>
+                <text x="200" y="30" text-anchor="middle" font-size="9.5" fill="#ababab">Hidden</text>
+                <text x="340" y="18" text-anchor="middle" font-size="11" fill="#5a5a5a">隐藏层 2</text>
+                <text x="340" y="30" text-anchor="middle" font-size="9.5" fill="#ababab">Hidden</text>
+                <text x="470" y="18" text-anchor="middle" font-size="11" fill="#5a5a5a">输出层</text>
+                <text x="470" y="30" text-anchor="middle" font-size="9.5" fill="#ababab">Softmax</text>
+
+                <!-- 权重连线：input(3) → h1(5) -->
+                <g stroke="#146ef5" stroke-width="0.6" opacity="0.35">
+                  <line x1="60" y1="80"  x2="200" y2="60"/>
+                  <line x1="60" y1="80"  x2="200" y2="100"/>
+                  <line x1="60" y1="80"  x2="200" y2="140"/>
+                  <line x1="60" y1="80"  x2="200" y2="180"/>
+                  <line x1="60" y1="80"  x2="200" y2="220"/>
+                  <line x1="60" y1="140" x2="200" y2="60"/>
+                  <line x1="60" y1="140" x2="200" y2="100"/>
+                  <line x1="60" y1="140" x2="200" y2="140"/>
+                  <line x1="60" y1="140" x2="200" y2="180"/>
+                  <line x1="60" y1="140" x2="200" y2="220"/>
+                  <line x1="60" y1="200" x2="200" y2="60"/>
+                  <line x1="60" y1="200" x2="200" y2="100"/>
+                  <line x1="60" y1="200" x2="200" y2="140"/>
+                  <line x1="60" y1="200" x2="200" y2="180"/>
+                  <line x1="60" y1="200" x2="200" y2="220"/>
+                </g>
+                <!-- 权重连线：h1(5) → h2(5) -->
+                <g stroke="#146ef5" stroke-width="0.5" opacity="0.25">
+                  <line x1="200" y1="60"  x2="340" y2="60"/><line x1="200" y1="60" x2="340" y2="100"/><line x1="200" y1="60" x2="340" y2="140"/><line x1="200" y1="60" x2="340" y2="180"/><line x1="200" y1="60" x2="340" y2="220"/>
+                  <line x1="200" y1="100" x2="340" y2="60"/><line x1="200" y1="100" x2="340" y2="100"/><line x1="200" y1="100" x2="340" y2="140"/><line x1="200" y1="100" x2="340" y2="180"/><line x1="200" y1="100" x2="340" y2="220"/>
+                  <line x1="200" y1="140" x2="340" y2="60"/><line x1="200" y1="140" x2="340" y2="100"/><line x1="200" y1="140" x2="340" y2="140"/><line x1="200" y1="140" x2="340" y2="180"/><line x1="200" y1="140" x2="340" y2="220"/>
+                  <line x1="200" y1="180" x2="340" y2="60"/><line x1="200" y1="180" x2="340" y2="100"/><line x1="200" y1="180" x2="340" y2="140"/><line x1="200" y1="180" x2="340" y2="180"/><line x1="200" y1="180" x2="340" y2="220"/>
+                  <line x1="200" y1="220" x2="340" y2="60"/><line x1="200" y1="220" x2="340" y2="100"/><line x1="200" y1="220" x2="340" y2="140"/><line x1="200" y1="220" x2="340" y2="180"/><line x1="200" y1="220" x2="340" y2="220"/>
+                </g>
+                <!-- 权重连线：h2(5) → out(2) 高亮 -->
+                <g stroke="#146ef5" stroke-width="1" opacity="0.55">
+                  <line x1="340" y1="60"  x2="470" y2="110"/>
+                  <line x1="340" y1="60"  x2="470" y2="170"/>
+                  <line x1="340" y1="100" x2="470" y2="110"/>
+                  <line x1="340" y1="100" x2="470" y2="170"/>
+                  <line x1="340" y1="140" x2="470" y2="110"/>
+                  <line x1="340" y1="140" x2="470" y2="170"/>
+                  <line x1="340" y1="180" x2="470" y2="110"/>
+                  <line x1="340" y1="180" x2="470" y2="170"/>
+                  <line x1="340" y1="220" x2="470" y2="110"/>
+                  <line x1="340" y1="220" x2="470" y2="170"/>
+                </g>
+
+                <!-- 输入层节点 -->
+                <g>
+                  <circle cx="60" cy="80"  r="18" fill="#fff" stroke="#5a5a5a" stroke-width="1.5"/>
+                  <text x="60" y="85" text-anchor="middle" font-size="14" fill="#080808" font-weight="600">中</text>
+                  <circle cx="60" cy="140" r="18" fill="#fff" stroke="#5a5a5a" stroke-width="1.5"/>
+                  <text x="60" y="145" text-anchor="middle" font-size="14" fill="#080808" font-weight="600">华</text>
+                  <circle cx="60" cy="200" r="18" fill="#fff" stroke="#5a5a5a" stroke-width="1.5"/>
+                  <text x="60" y="205" text-anchor="middle" font-size="14" fill="#080808" font-weight="600">人民</text>
+                </g>
+                <!-- 隐藏层 1 节点 -->
+                <g fill="rgba(20,110,245,0.08)" stroke="#146ef5" stroke-width="1.2">
+                  <circle cx="200" cy="60"  r="11"/><circle cx="200" cy="100" r="11"/><circle cx="200" cy="140" r="11"/><circle cx="200" cy="180" r="11"/><circle cx="200" cy="220" r="11"/>
+                </g>
+                <!-- 隐藏层 2 节点 -->
+                <g fill="rgba(20,110,245,0.08)" stroke="#146ef5" stroke-width="1.2">
+                  <circle cx="340" cy="60"  r="11"/><circle cx="340" cy="100" r="11"/><circle cx="340" cy="140" r="11"/><circle cx="340" cy="180" r="11"/><circle cx="340" cy="220" r="11"/>
+                </g>
+                <!-- 输出层节点 -->
+                <g>
+                  <circle cx="470" cy="110" r="20" fill="#146ef5" stroke="#0055d4" stroke-width="1.5"/>
+                  <text x="470" y="115" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">97%</text>
+                  <text x="510" y="107" text-anchor="start" font-size="11" fill="#146ef5" font-weight="600">共和国</text>
+                  <text x="510" y="120" text-anchor="start" font-size="9" fill="#5a5a5a">最可能</text>
+
+                  <circle cx="470" cy="170" r="16" fill="#fff" stroke="#146ef5" stroke-width="1.5"/>
+                  <text x="470" y="174" text-anchor="middle" font-size="10" fill="#146ef5" font-weight="600">3%</text>
+                  <text x="510" y="167" text-anchor="start" font-size="11" fill="#5a5a5a">共产党</text>
+                  <text x="510" y="180" text-anchor="start" font-size="9" fill="#ababab">次可能</text>
+                </g>
+              </svg>
+              <p class="nn-caption"><strong>结构本质</strong>：输入 <span class="nn-hl">中 · 华 · 人民</span> → 神经网络计算权重 → 输出下一个 Token 的<strong>概率分布</strong>（Softmax）。它把&ldquo;学到的世界&rdquo;编码进了亿万个连接的权重里。</p>
+            </div>
+
+            <!-- ★ 右：Ilya 引言 -->
+            <aside class="nn-side">
+              <blockquote class="ilya-quote ilya-quote-v2">
+                <p class="iq-body">&ldquo;预测下一个语言符号（Token）的质量，其实反映了你对语言背后隐藏的语义和知识的理解程度。这不仅是统计，更是<span class="accent">对世界本质的压缩和表达</span>。&rdquo;</p>
+                <cite>—— Ilya Sutskever（时任 OpenAI 首席科学家）· NVIDIA GTC 2023 · 2023-03-23</cite>
+              </blockquote>
+              <div class="nn-insight">
+                <span class="ni-icon">&#129504;</span>
+                <p><strong>要把下一个词猜得足够准，模型不得不&ldquo;顺带&rdquo;理解这个世界。</strong>智能，是在压缩世界的过程中<em>涌现</em>出来的副产品。</p>
+              </div>
+            </aside>
+          </div>
+
+          <!-- ★ 两个终极问题 -->
+          <div class="nn-questions">
+            <article class="nn-q">
+              <div class="nq-head">
+                <span class="nq-tag">Q1</span>
+                <p class="nq-title">预测下一个词的语言生成，<em>本质</em>是什么？</p>
+              </div>
+              <p class="nq-body">
+                是<strong>基于联合概率的最大值</strong>，是马尔科夫链的自然推广；也是<strong>信息熵最大、能量最小</strong>，符合物理学<strong>玻尔兹曼分布</strong>与<strong>吉布斯分布</strong>。
+                人类语言生成的奥秘，就藏在<span class="accent">统计物理与信息论的深层耦合</span>之中——当 GPT 通过最小化信息熵来预测词语时，本质是在遵循玻尔兹曼分布的物理规律，如同粒子在热力学系统里寻找最低熵态。
+              </p>
+            </article>
+            <article class="nn-q">
+              <div class="nq-head">
+                <span class="nq-tag">Q2</span>
+                <p class="nq-title">神经网络为何能通过学习，<em>记住</em>世界百科知识？</p>
+              </div>
+              <p class="nq-body">
+                通过<strong>人工神经网络架构（ANN）</strong>，靠<strong>激活函数</strong>与<strong>权重</strong>在训练中不断更新获得。
+                其本质是<span class="accent">学习并形成一种高效的信息与知识编码</span>——把亿万数据压进有限的参数里，把&ldquo;世界&rdquo;塞进权重里。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 06 — 智能的三次跃迁 -->
+      <section class="slide" id="slide-06">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">03 &mdash; AI 是什么（3/3）</p>
+          <h2>把这条线拉直，是智能的<span class="accent">三次跃迁</span>。</h2>
+          <div class="cover-rule"></div>
+          <p class="leaps-lede">技术演进背后有一条脊柱——每一次跃迁，机器都从人手里<strong>接过一样东西</strong>。</p>
+
+          <div class="era-cards era-cards-v3">
+            <!-- ★ 第一跃 -->
+            <article class="era-card era-past">
+              <p class="era-label">01 &nbsp;·&nbsp; 第一跃 · 算得快</p>
+              <h3>运算智能 <span class="era-h-en">Computation</span></h3>
+              <p class="era-body">机器接过了 <strong>&ldquo;手&rdquo;</strong>——存储与计算。能记、能算，比人快亿万倍。</p>
+              <div class="era-stat">
+                <span class="es-key">ENIAC · 1946</span>
+                <span class="es-val">5,000 次加法/秒</span>
+              </div>
+              <div class="era-stat">
+                <span class="es-key">H100 GPU · 2022</span>
+                <span class="es-val">FP8 稀疏 2 PFLOPS</span>
+              </div>
+              <div class="era-products">
+                <p class="ep-think">Think: 算 &middot; 存 &middot; 传</p>
+                <div class="ep-tags">
+                  <span class="ep-tag ep-tag-cn"><span class="ep-flag">CN</span>超算 · 神威 · 天河</span>
+                  <span class="ep-tag ep-tag-en"><span class="ep-flag">EN</span>Cray · IBM Mainframe</span>
                 </div>
               </div>
-              <div class="key-point">
-                <span class="point-icon">🧩</span>
-                <div>
-                  <strong data-i18n="s1Point2Title">Reasoning</strong>
-                  <p data-i18n="s1Point2Desc">Analyze information, solve problems</p>
+            </article>
+
+            <!-- ★ 第二跃 -->
+            <article class="era-card era-mid">
+              <p class="era-label">02 &nbsp;·&nbsp; 第二跃 · 看得懂 · 想得通</p>
+              <h3>感知 &amp; 认知智能 <span class="era-h-en">Perception &amp; Cognition</span></h3>
+              <p class="era-body">机器接过了 <strong>&ldquo;脑&rdquo;</strong>——能听会说、能看会认，进而能推理会思考。</p>
+              <div class="era-stat">
+                <span class="es-key">AlexNet · 2012</span>
+                <span class="es-val">Top-5 错误率 15.3%</span>
+              </div>
+              <div class="era-stat">
+                <span class="es-key">GPT-4 · 2023</span>
+                <span class="es-val">MMLU 86.4%</span>
+              </div>
+              <div class="era-products">
+                <p class="ep-think">Think: 看 &middot; 听 &middot; 说 &middot; 写</p>
+                <div class="ep-tags">
+                  <span class="ep-tag ep-tag-cn"><span class="ep-flag">CN</span>DeepSeek · 通义 · 混元 · 豆包</span>
+                  <span class="ep-tag ep-tag-en"><span class="ep-flag">EN</span>GPT · Claude · Gemini · Llama</span>
                 </div>
               </div>
-              <div class="key-point">
-                <span class="point-icon">✍️</span>
-                <div>
-                  <strong data-i18n="s1Point3Title">Generation</strong>
-                  <p data-i18n="s1Point3Desc">Write articles, create images, code</p>
+            </article>
+
+            <!-- ★ 第三跃 -->
+            <article class="era-card era-now">
+              <p class="era-label">03 &nbsp;·&nbsp; 第三跃 · 自己去做</p>
+              <h3>自主智能 <span class="era-h-en">Autonomy &middot; Agent</span></h3>
+              <p class="era-body">机器接过了 <strong>&ldquo;手脚&rdquo;</strong>——自己拆解目标、调用工具、执行、交付。</p>
+              <div class="era-stat">
+                <span class="es-key">Cursor / Claude Code</span>
+                <span class="es-val">写代码 · 跑测试 · 交 PR</span>
+              </div>
+              <div class="era-stat">
+                <span class="es-key">Manus / WorkBuddy</span>
+                <span class="es-val">日均完成数小时工作</span>
+              </div>
+              <div class="era-products">
+                <p class="ep-think">Think: 规划 &rarr; 行动 &rarr; 反思 &rarr; 交付</p>
+                <div class="ep-tags">
+                  <span class="ep-tag ep-tag-cn"><span class="ep-flag">CN</span>WorkBuddy · Manus · MiniMax M1</span>
+                  <span class="ep-tag ep-tag-en"><span class="ep-flag">EN</span>Cursor · Devin · Claude Code</span>
                 </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="era-transition">
+            <p class="et-text">
+              <span class="et-tag">下一页</span>
+              计算 &rarr; 认知 &rarr; 自主。那<span class="accent">自主智能（Agent）</span>究竟是怎么运作的？
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 06b — Agent 感知-行动闭环 -->
+      <section class="slide" id="slide-06b">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">03 &mdash; AI 是什么 · Extra</p>
+          <h2>Agent 的<span class="accent">感知-行动闭环</span>。</h2>
+          <div class="cover-rule"></div>
+
+          <div class="agent-oneline">
+            <p class="ao-kicker">一句话总结</p>
+            <p class="ao-body">
+              Agent 不是让 AI &ldquo;更聪明&rdquo;，而是让 AI 从&ldquo;<strong>回答问题</strong>&rdquo;走向&ldquo;<strong>完成任务</strong>&rdquo;——用自然语言说出目标，它<strong>自己</strong>感知上下文、拆解步骤、调用工具、交付可评审的结果。
+            </p>
+          </div>
+
+          <div class="agent-loop-wrap">
+            <p class="al-title">The Perception&ndash;Action Cycle &nbsp;·&nbsp; 感知-行动闭环</p>
+            <p class="al-sub">五个阶段环环相扣，每一环的输出是下一环的输入——是闭环，不是流水线。</p>
+
+            <div class="agent-loop">
+              <div class="al-node">
+                <div class="al-icon al-icon-perc" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </div>
+                <p class="al-name">感知 <span>Perception</span></p>
+                <p class="al-desc">从文件、工具、用户输入等多源信息里，把当前情境<strong>拼起来</strong>。</p>
+              </div>
+              <span class="al-arrow" aria-hidden="true">&rarr;</span>
+              <div class="al-node">
+                <div class="al-icon al-icon-reas" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3a5 5 0 0 0-3 9v3h6v-3a5 5 0 0 0-3-9Z"/><path d="M9 20h6M10 22h4"/>
+                  </svg>
+                </div>
+                <p class="al-name">推理 <span>Reasoning</span></p>
+                <p class="al-desc">理解情境，判断什么<strong>最重要</strong>、什么是当前的关键约束。</p>
+              </div>
+              <span class="al-arrow" aria-hidden="true">&rarr;</span>
+              <div class="al-node">
+                <div class="al-icon al-icon-plan" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>
+                  </svg>
+                </div>
+                <p class="al-name">规划 <span>Planning</span></p>
+                <p class="al-desc">把目标<strong>拆解为步骤</strong>，选择当前最优的执行路径。</p>
+              </div>
+              <span class="al-arrow" aria-hidden="true">&rarr;</span>
+              <div class="al-node">
+                <div class="al-icon al-icon-act" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 2 3 14h9l-1 8 10-12h-9Z"/>
+                  </svg>
+                </div>
+                <p class="al-name">行动 <span>Action</span></p>
+                <p class="al-desc">调用工具与系统去<strong>做</strong>——不只是<strong>说</strong>。</p>
+              </div>
+              <span class="al-arrow" aria-hidden="true">&rarr;</span>
+              <div class="al-node">
+                <div class="al-icon al-icon-refl" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/>
+                  </svg>
+                </div>
+                <p class="al-name">反思 <span>Reflection</span></p>
+                <p class="al-desc">检查结果、汲取反馈，让下一轮更好。<em>输出回到感知。</em></p>
+              </div>
+            </div>
+
+            <div class="al-loop-back" aria-hidden="true">
+              <svg viewBox="0 0 900 40" preserveAspectRatio="none">
+                <path d="M 880 6 Q 880 34 852 34 L 48 34 Q 20 34 20 6" fill="none" stroke="#146ef5" stroke-width="1.2" stroke-dasharray="5 4"/>
+                <path d="M 24 12 L 20 6 L 26 4" fill="none" stroke="#146ef5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="al-loop-text">Reflection &rarr; Perception &nbsp;·&nbsp; 反思即新的感知</span>
+            </div>
+          </div>
+
+          <div class="agent-insight">
+            <span class="ai-icon">&#128161;</span>
+            <div class="ai-copy">
+              <p class="ai-en"><strong>The key insight:</strong> The difference isn&rsquo;t intelligence — the intelligence was always there. The difference is <span class="accent">continuity, context, and connection</span>.</p>
+              <p class="ai-zh"><strong>核心洞察：</strong>差别不在<em>智能</em>本身——智能一直都在。真正的差别在于<span class="accent">连续性（Continuity）</span>、<span class="accent">上下文（Context）</span>、<span class="accent">连接（Connection）</span>。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 07 — 国家意志 · 顶层设计（新增） -->
+      <section class="slide" id="slide-07n">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">04 &mdash; 产业在发生什么（1/4）</p>
+          <h2>国家意志：把人工智能<span class="accent">写进顶层设计</span>。</h2>
+          <div class="cover-rule"></div>
+          <p class="np-lede">从中央政治局到&ldquo;十五五&rdquo;规划，人工智能已上升为<strong>国家战略</strong>。拥抱 AI，不只是个人和企业的选择，更是<strong>国家层面</strong>的战略方向。</p>
+
+          <!-- ★ 三张政策卡片（时间轴） -->
+          <div class="np-policy">
+            <article class="npc">
+              <p class="npc-date">2025.04</p>
+              <p class="npc-title">中央政治局<br />第二十次集体学习</p>
+              <ul class="npc-list">
+                <li><strong>坚持自立自强</strong>，突出应用导向</li>
+                <li>科技创新与产业创新<strong>深度融合</strong></li>
+                <li>统筹算力基础设施、数据开放共享</li>
+                <li>安全 · 可靠 · 可控，国际公共产品</li>
+              </ul>
+            </article>
+            <span class="npc-arrow" aria-hidden="true">&rarr;</span>
+            <article class="npc">
+              <p class="npc-date">2025.08</p>
+              <p class="npc-title">国发〔2025〕11 号<br />&ldquo;人工智能+&rdquo;行动</p>
+              <ul class="npc-list">
+                <li>科技 · 产业 · 消费 · 民生</li>
+                <li>治理 · 全球合作 <strong>六大重点行动</strong></li>
+                <li>加快培育<strong>发展新质生产力</strong></li>
+              </ul>
+            </article>
+            <span class="npc-arrow" aria-hidden="true">&rarr;</span>
+            <article class="npc npc-now">
+              <p class="npc-date">2026 · &ldquo;十五五&rdquo;</p>
+              <p class="npc-title">国家规划纲要<br />&ldquo;智能&rdquo;高频写入</p>
+              <ul class="npc-list">
+                <li>算力 · 智能体 · <strong>具身智能</strong>全面布局</li>
+                <li>关键词 <strong>117 处</strong>：智能 53 · 数智 26 · 数字 25 · 智慧 13</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- ★ 中部：词频柱状图 + 三级目标 -->
+          <div class="np-main">
+            <div class="np-freq-wrap">
+              <p class="npf-title">&ldquo;十五五&rdquo;规划关键词词频 &nbsp;·&nbsp; 共 117 处</p>
+              <div class="np-freq">
+                <div class="npf-bar" style="--h:100%"><span class="npf-v">53</span><span class="npf-l">智能</span></div>
+                <div class="npf-bar" style="--h:57%"><span class="npf-v">30</span><span class="npf-l">人工智能</span></div>
+                <div class="npf-bar" style="--h:49%"><span class="npf-v">26</span><span class="npf-l">数智</span></div>
+                <div class="npf-bar" style="--h:47%"><span class="npf-v">25</span><span class="npf-l">数字</span></div>
+                <div class="npf-bar" style="--h:25%"><span class="npf-v">13</span><span class="npf-l">智慧</span></div>
+              </div>
+              <p class="npf-note">规划全文中，&ldquo;智能&rdquo;相关词汇成为最<strong>密集</strong>的关键词群——政策语言的重心已经转向智能化。<span class="fact-src">词频为媒体公开统计口径，最终以官方发布纲要为准。</span></p>
+            </div>
+
+            <div class="np-goal-wrap">
+              <p class="npg-title">智能经济 &nbsp;·&nbsp; 三级目标</p>
+              <div class="np-goal">
+                <div class="npg-item">
+                  <span class="npg-year">2027</span>
+                  <div class="npg-body">
+                    <p class="npg-hd">智能体应用</p>
+                    <p class="npg-val">普及率 &gt; <strong>70%</strong></p>
+                  </div>
+                </div>
+                <div class="npg-line" aria-hidden="true"></div>
+                <div class="npg-item">
+                  <span class="npg-year">2030</span>
+                  <div class="npg-body">
+                    <p class="npg-hd">全面赋能高质量发展</p>
+                    <p class="npg-val">普及率 &gt; <strong>90%</strong></p>
+                  </div>
+                </div>
+                <div class="npg-line" aria-hidden="true"></div>
+                <div class="npg-item npg-final">
+                  <span class="npg-year">2035</span>
+                  <div class="npg-body">
+                    <p class="npg-hd">步入智能经济社会</p>
+                    <p class="npg-val">支撑<strong>基本现代化</strong></p>
+                  </div>
+                </div>
+              </div>
+              <p class="npg-note">来源：中央政治局第二十次集体学习 · 国发〔2025〕11 号 · 国家&ldquo;十五五&rdquo;规划纲要</p>
+            </div>
+          </div>
+
+          <div class="era-transition">
+            <p class="et-text">
+              <span class="et-tag">下一页</span>
+              这就是国家层面的顶层设计。那么落到<span class="accent">产业结构</span>上——AI 到底是一块<strong>怎样的蛋糕</strong>？
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 08 — 黄仁勋 五层蛋糕（产业结构总览） -->
+      <section class="slide" id="slide-09">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">04 &mdash; 产业在发生什么（2/5）</p>
+          <h2>AI 是一块<span class="accent">五层蛋糕</span>。</h2>
+          <div class="cover-rule"></div>
+
+          <div class="cake-wrap">
+            <div class="cake cake-detailed">
+              <div class="cake-layer cl-1">
+                <span class="cl-idx">05</span>
+                <div class="cl-copy">
+                  <strong>应用 Applications</strong>
+                  <span class="cl-mid">AI 与业务需求的结合</span>
+                  <span class="cl-note">决定 AI 能否普及和变现</span>
+                </div>
+              </div>
+              <div class="cake-layer cl-2">
+                <span class="cl-idx">04</span>
+                <div class="cl-copy">
+                  <strong>模型 Models</strong>
+                  <span class="cl-mid">大语言 ｜ 多模态</span>
+                  <span class="cl-note">负责理解、推理、生成、交互</span>
+                </div>
+              </div>
+              <div class="cake-layer cl-3">
+                <span class="cl-idx">03</span>
+                <div class="cl-copy">
+                  <strong>基础设施 Infrastructure</strong>
+                  <span class="cl-mid">AI 工厂 ｜ Token 工厂</span>
+                  <span class="cl-note">超大规模数据中心 · 高速网络 · 集群管理</span>
+                </div>
+              </div>
+              <div class="cake-layer cl-4">
+                <span class="cl-idx">02</span>
+                <div class="cl-copy">
+                  <strong>芯片 Chips</strong>
+                  <span class="cl-mid">专用处理器（GPU / NPU / AI 加速器）</span>
+                  <span class="cl-note">芯片性能 = AI 经济效率</span>
+                </div>
+              </div>
+              <div class="cake-layer cl-5">
+                <span class="cl-idx">01</span>
+                <div class="cl-copy">
+                  <strong>能源 Energy</strong>
+                  <span class="cl-mid">Token 本质是能量的转化</span>
+                  <span class="cl-note">AI 的上限，最终由能源决定</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="cake-side">
+              <figure class="jensen-fig">
+                <img src="./assets/jensen-huang.jpg" alt="Jensen Huang, NVIDIA Founder &amp; CEO" />
+                <figcaption>
+                  <strong>Jensen Huang</strong>
+                  <span>黄仁勋 · NVIDIA 创始人兼 CEO</span>
+                </figcaption>
+              </figure>
+              <blockquote class="jensen-quote">
+                <p class="jq-en">&ldquo;AI is a <em>five-layer cake</em>: <br />Energy &rarr; Chips &rarr; Infrastructure &rarr; Models &rarr; Applications.&rdquo;</p>
+                <p class="jq-zh">&ldquo;AI 是一块<em>五层蛋糕</em>：能源 &rarr; 芯片 &rarr; 基础设施 &rarr; 模型 &rarr; 应用。&rdquo;</p>
+                <cite>&mdash; NVIDIA Blog · 2026-03-10</cite>
+              </blockquote>
+            </aside>
+          </div>
+
+          <p class="cake-foot">每一层都在形成<strong>巨大的想象空间</strong>，层层依赖，最终落到能源。<span class="accent">今天的分享重点，我们放在离普通人最近的一层——应用层。</span></p>
+        </div>
+      </section>
+
+      <!-- PAGE 09 — 应用层产业动态（新增） -->
+      <section class="slide" id="slide-09b">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">04 &mdash; 产业在发生什么（3/5）</p>
+          <h2>应用层：<span class="accent">谁在跑步进入生产</span>？</h2>
+          <div class="cover-rule"></div>
+          <p class="app-lede">这一页只讲和大家最有关系的一层——<strong>应用层</strong>。海外双雄，国内三强，加上腾讯自己的一线实践。数据都截取自最近一到两个季度。</p>
+
+          <!-- ★ 海外双雄：Anthropic vs OpenAI -->
+          <div class="app-block">
+            <p class="app-block-title"><span class="app-flag app-flag-en">EN</span>海外双雄 &nbsp;·&nbsp; 都在冲刺 IPO 前的最后一段跑道</p>
+            <div class="app-cards-2">
+              <article class="app-card app-anthropic">
+                <div class="app-card-head">
+                  <strong>Anthropic</strong>
+                  <span class="app-card-sub">Claude · Claude Code</span>
+                </div>
+                <div class="app-stat-row">
+                  <div class="app-stat">
+                    <span class="as-v">$47B</span>
+                    <span class="as-k">年化收入 ARR<br /><small>2026-05，年内翻 3 倍</small></span>
+                  </div>
+                  <div class="app-stat">
+                    <span class="as-v">$965B</span>
+                    <span class="as-k">H 轮投后估值<br /><small>2026-05-28 · 融资 $65B</small></span>
+                  </div>
+                </div>
+                <p class="app-note"><strong>企业为王</strong>：To B 收入占 <strong>80%</strong>，Fortune 10 有 8 家是客户，年花 $100k+ 的客户一年增长 7 倍。</p>
+              </article>
+              <article class="app-card app-openai">
+                <div class="app-card-head">
+                  <strong>OpenAI</strong>
+                  <span class="app-card-sub">ChatGPT · GPT-5 · Codex</span>
+                </div>
+                <div class="app-stat-row">
+                  <div class="app-stat">
+                    <span class="as-v">9.0 亿</span>
+                    <span class="as-k">周活用户<br /><small>2026-02 · 月增 1 亿</small></span>
+                  </div>
+                  <div class="app-stat">
+                    <span class="as-v">$24B</span>
+                    <span class="as-k">年化收入<br /><small>2026 中 · 估值 $852B</small></span>
+                  </div>
+                </div>
+                <p class="app-note"><strong>消费为王</strong>：日均 <strong>25 亿</strong>次调用，付费订阅 5000 万；企业收入占比升至 <strong>40%+</strong>，目标 IPO 估值最高 $1T。</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- ★ 国内三强 + 腾讯 -->
+          <div class="app-block">
+            <p class="app-block-title"><span class="app-flag app-flag-cn">CN</span>国内格局 &nbsp;·&nbsp; 4.4 亿 AI 原生 App 用户 · 一季度新增 1.3 亿</p>
+            <div class="app-cards-3">
+              <div class="app-mini">
+                <p class="am-name">豆包 <span>字节</span></p>
+                <p class="am-val">3.45 亿</p>
+                <p class="am-note">月活 · 活跃率 33.5%</p>
+              </div>
+              <div class="app-mini">
+                <p class="am-name">通义千问 <span>阿里</span></p>
+                <p class="am-val">1.66 亿</p>
+                <p class="am-note">月活 · 春节红包补贴驱动</p>
+              </div>
+              <div class="app-mini">
+                <p class="am-name">DeepSeek <span>独立</span></p>
+                <p class="am-val">1.27 亿</p>
+                <p class="am-note">月活 · API 首选，V4 定价降至 1/4</p>
+              </div>
+            </div>
+            <p class="app-block-src">来源：QuestMobile 2026Q1 春季 AI 应用洞察报告 · CNNIC 中国互联网发展状况调查</p>
+          </div>
+
+          <!-- ★ 腾讯 AI 集团作战体系 -->
+          <div class="app-block app-block-highlight">
+            <p class="app-block-title"><span class="app-flag app-flag-tx">TX</span>腾讯 AI 集团作战体系 &nbsp;·&nbsp; 混元底座 + 三条产品线</p>
+            <div class="app-tx-grid">
+              <div class="app-tx">
+                <p class="tx-role">底座</p>
+                <p class="tx-name">混元 Hy3</p>
+                <p class="tx-desc">MoE 295B / 激活 21B · <strong>2026 Q1 曾登顶 OpenRouter 总榜</strong>，付费日调用量是 DeepSeek V4 Flash 的 <strong>2 倍以上</strong></p>
+              </div>
+              <div class="app-tx">
+                <p class="tx-role">智能体先锋</p>
+                <p class="tx-name">WorkBuddy</p>
+                <p class="tx-desc">跨应用协同 · 打通腾讯文档 / QQ 邮箱等办公工具<br /><em>马化腾：&ldquo;目前是中国使用最广的 AI 效率智能体服务。&rdquo;</em><br /><span class="fact-src">腾讯 2026 Q1 财报电话会</span></p>
+              </div>
+              <div class="app-tx">
+                <p class="tx-role">生态接口</p>
+                <p class="tx-name">元宝 / 微信 AI</p>
+                <p class="tx-desc">元宝已进入微信联系人 · 微信原生 AI Agent 收尾测试中——将社交、支付、小程序、身份体系一次串起来</p>
+              </div>
+            </div>
+            <p class="app-block-src">来源：腾讯 2026 Q1 财报（营收 1964 亿 · 研发 225 亿）· 马化腾财报电话会 · 刘炽平 Q1 业绩会</p>
+          </div>
+
+          <div class="key-insight-bar">
+            <span class="key-icon">&#127919;</span>
+            <p>应用层的竞争，本质是<strong>&ldquo;用户在哪里，AI 就长在哪里&rdquo;</strong>。海外靠订阅和 API，国内靠超级 App 入口——AI 正在从<em>独立工具</em>变成<em>系统底座</em>。</p>
+          </div>
+
+          <div class="era-transition">
+            <p class="et-text">
+              <span class="et-tag">下一页</span>
+              产品和数字都很光鲜。可真正难的是——<strong>Agent 从 Demo 走到生产</strong>，还要迈过<span class="accent">四道门槛</span>。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 10 — 从大模型到 Agent · 四道门槛 -->
+      <section class="slide" id="slide-08">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">04 &mdash; 产业在发生什么（4/5）</p>
+          <h2>从大模型到 Agent：<span class="accent">从 Demo 到生产</span>的四道门槛。</h2>
+          <div class="cover-rule"></div>
+          <p class="quad-lede">
+            会写一个惊艳的 Demo 不难，难的是让 Agent 真正&ldquo;上岗干活&rdquo;。
+            <strong>MIT NANDA 研究显示：约 95% 的生成式 AI 项目在企业里没能进入生产</strong>（Menlo Ventures 2025 State of GenAI 引用）——
+            要成为企业里可靠的&ldquo;数字员工&rdquo;，Agent 必须回答四个问题。
+          </p>
+
+          <div class="quad-grid quad-grid-v2">
+            <!-- 供得起 -->
+            <article class="quad-card">
+              <div class="qc-head">
+                <span class="quad-idx">01</span>
+                <div class="qc-title">
+                  <h3>供得起 <span class="qc-en">Affordable</span></h3>
+                  <p class="qc-sub">Token 经济学 · 算力 × 电力</p>
+                </div>
+              </div>
+              <p class="qc-body">调用成本能不能降到规模可用？大模型 API 每年在降价，但 Agent 一次任务动辄消耗 <strong>数十万 Token</strong>——问题不是&ldquo;单价&rdquo;，而是&ldquo;单位任务成本&rdquo;。</p>
+              <div class="qc-fact">
+                <span class="qf-key">案例</span>
+                <span class="qf-val">DeepSeek V4 API 永久降至原价 <strong>1/4</strong>；Claude Sonnet 4 缓存命中价降至 $0.30/百万 token</span>
+              </div>
+            </article>
+
+            <!-- 跑得稳 -->
+            <article class="quad-card">
+              <div class="qc-head">
+                <span class="quad-idx">02</span>
+                <div class="qc-title">
+                  <h3>跑得稳 <span class="qc-en">Reliable</span></h3>
+                  <p class="qc-sub">一致性 · 确定性 · 可追溯</p>
+                </div>
+              </div>
+              <p class="qc-body">企业要的是<strong>可复现</strong>的执行，不是每次都不一样的&ldquo;惊喜&rdquo;。同一个任务，跑十次要有十次都能交付的把握。</p>
+              <div class="qc-fact">
+                <span class="qf-key">现状</span>
+                <span class="qf-val">Menlo 报告：只有 <strong>16%</strong> 企业部署是&ldquo;真 Agent&rdquo;，其余 84% 仍是固定流程 workflow</span>
+              </div>
+            </article>
+
+            <!-- 管得住 -->
+            <article class="quad-card">
+              <div class="qc-head">
+                <span class="quad-idx">03</span>
+                <div class="qc-title">
+                  <h3>管得住 <span class="qc-en">Governable</span></h3>
+                  <p class="qc-sub">权限 · 审计 · 边界</p>
+                </div>
+              </div>
+              <p class="qc-body">能<strong>授权</strong>、能<strong>约束</strong>、能<strong>问责</strong>——才敢把真实业务交给它。Agent 每一步 tool call 都要能审计、能撤销、能挂人工审核。</p>
+              <div class="qc-fact">
+                <span class="qf-key">案例</span>
+                <span class="qf-val">Claude Code 的 <strong>permission system</strong>；OpenAI Enterprise 的 SOC 2 / HIPAA / 数据不训练承诺</span>
+              </div>
+            </article>
+
+            <!-- 会成长 -->
+            <article class="quad-card">
+              <div class="qc-head">
+                <span class="quad-idx">04</span>
+                <div class="qc-title">
+                  <h3>会成长 <span class="qc-en">Improvable</span></h3>
+                  <p class="qc-sub">从反馈里学 · 越用越好</p>
+                </div>
+              </div>
+              <p class="qc-body">Agent 不是一次交付的软件，而是<strong>持续训练的员工</strong>。要能从用户反馈、错误案例、真实数据里迭代——人机协同才是完整图景。</p>
+              <div class="qc-fact">
+                <span class="qf-key">数据</span>
+                <span class="qf-val">Menlo：AI 交易转化率 <strong>47%</strong>，是 SaaS（25%）的 <strong>1.9 倍</strong>——价值一旦被验证，扩散极快</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="era-transition">
+            <p class="et-text">
+              <span class="et-tag">下一页</span>
+              四道门槛，第一道就是<span class="accent">供得起</span>。那就把它<strong>放大来看</strong>——AI 究竟&ldquo;贵不贵&rdquo;？
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 11 — Token 经济学（第一道门槛"供得起"的深入） -->
+      <section class="slide" id="slide-07">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">04 &mdash; 产业在发生什么（5/5）</p>
+          <h2>放大第一道门槛：<span class="accent">Token 经济学</span>。</h2>
+          <div class="cover-rule"></div>
+          <p class="token-lede">Token 正在成为 AI 时代的&ldquo;数字燃料&rdquo;与智能的<strong>度量单位</strong>——就像比特之于信息时代。供给爆发，成本下降，&ldquo;供得起&rdquo;这道门槛<strong>正在被市场用调用量投票通过</strong>。</p>
+
+          <div class="token-main">
+            <div class="token-chart-wrap">
+              <p class="tc-title">OpenRouter 全球周 Token 调用量 · 2025&ndash;2026（万亿 / 周）</p>
+              <div class="token-chart">
+                <div class="tc-bar" style="--h:6%"><span class="tc-val">2</span><span class="tc-x">2025-03</span></div>
+                <div class="tc-bar" style="--h:15%"><span class="tc-val">5</span><span class="tc-x">2025-Q4</span></div>
+                <div class="tc-bar" style="--h:42%"><span class="tc-val">13.95</span><span class="tc-x">2026-02</span></div>
+                <div class="tc-bar" style="--h:62%"><span class="tc-val">20.47</span><span class="tc-x">2026-03</span></div>
+                <div class="tc-bar" style="--h:88%"><span class="tc-val">28.9</span><span class="tc-x">2026-05</span></div>
+                <div class="tc-bar tc-bar-now" style="--h:100%"><span class="tc-val">36.1</span><span class="tc-x">2026-06</span></div>
+              </div>
+              <p class="tc-note">一年时间增长 <strong>约 18 倍</strong>——智能的供给正在指数级爆发。<span class="tc-source">数据来源：OpenRouter 官方用量图表 · Menlo Ventures / 财联社 / 证券时报 · 2025.03&ndash;2026.06</span></p>
+            </div>
+
+            <div class="token-facts">
+              <div class="p7-fact">
+                <p class="p7-fact-kicker">演进链</p>
+                <p class="p7-fact-value">比特 → 字节 → 数据 → 内容 → Token</p>
+                <p class="p7-fact-note">每个时代都有自己的最小价值单元，Token 是智能时代的那一个。</p>
+              </div>
+              <div class="p7-fact">
+                <p class="p7-fact-kicker">Token 工厂</p>
+                <p class="p7-fact-value">= AI 时代最重要的基础设施</p>
+                <p class="p7-fact-note">输入电力与数据，输出 Token。核心指标：每瓦产出 <strong>Tokens / Watt</strong>。</p>
+              </div>
+              <div class="p7-fact">
+                <p class="p7-fact-kicker">共同衍生品</p>
+                <p class="p7-fact-value">算力 × 电力</p>
+                <p class="p7-fact-note">Token 的成本，核心只有两项：GPU（算力）与数据中心（电力）。</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ==================== SLIDE 2: AI发展简史 ==================== -->
-  <section class="slide slide-history" data-index="2">
-    <div class="slide-inner">
-      <div class="slide-label">02</div>
-      <h2 class="slide-title" data-i18n="s2Title">The Story of AI</h2>
-      <p class="slide-subtitle-text" data-i18n="s2Subtitle">From Turing's dream to the birth of ChatGPT</p>
-      <div class="timeline">
-        <div class="timeline-line"></div>
-        <div class="timeline-item"><div class="timeline-year">1950</div><div class="timeline-card"><h4 data-i18n="s2T1Title">Turing Test</h4><p data-i18n="s2T1Desc">Alan Turing posed "Can machines think?", sparking AI philosophy</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">1956</div><div class="timeline-card"><h4 data-i18n="s2T2Title">AI is Born</h4><p data-i18n="s2T2Desc">The Dartmouth Conference formally coined "Artificial Intelligence"</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">1997</div><div class="timeline-card"><h4 data-i18n="s2T3Title">Deep Blue Wins</h4><p data-i18n="s2T3Desc">IBM's Deep Blue defeats chess champion Kasparov</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">2016</div><div class="timeline-card"><h4 data-i18n="s2T4Title">AlphaGo</h4><p data-i18n="s2T4Desc">DeepMind's AlphaGo defeats Go champion Lee Sedol</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">2022</div><div class="timeline-card highlight"><h4 data-i18n="s2T5Title">ChatGPT Era</h4><p data-i18n="s2T5Desc">Large Language Models enter everyday life, AI goes mainstream</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">2024+</div><div class="timeline-card highlight"><h4 data-i18n="s2T6Title">AI Agent</h4><p data-i18n="s2T6Desc">AI can not only chat, but autonomously complete complex tasks</p></div></div>
-      </div>
-    </div>
-  </section>
+      <!-- PAGE 12 — 三个正在发生的趋势（原"前沿趋势与展望"重定位） -->
+      <section class="slide" id="slide-10">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">05 &mdash; 三个正在发生的趋势</p>
+          <h2>没有预言，只有正在被验证的<span class="accent">三件事</span>。</h2>
+          <div class="cover-rule"></div>
+          <p class="trends-lede">既然智能可以被&ldquo;生产&rdquo;，那我们看看——过去一年，市场用<strong>真金白银</strong>投票，验证了什么。以下三条不是猜测，是<strong>已经在发生</strong>。</p>
 
-  <!-- ==================== SLIDE 3: LLM ==================== -->
-  <section class="slide slide-llm" data-index="3">
-    <div class="slide-inner">
-      <div class="slide-label">03</div>
-      <h2 class="slide-title" data-i18n="s3Title">Large Language Models (LLM)</h2>
-      <div class="quote-banner">
-        <p data-i18n="s3Quote">"The limits of my language mean the limits of my world."</p>
-        <cite data-i18n="s3QuoteCite">— Ludwig Wittgenstein</cite>
-      </div>
-      <div class="two-col">
-        <div class="col-left">
-          <div class="sketch-box llm-sketch">
-            <svg viewBox="0 0 400 350" class="sketch-svg">
-              <rect x="40" y="220" width="320" height="30" rx="3" fill="#F5E6D3" stroke="#8B7355" stroke-width="1.5" class="hand-draw"/>
-              <rect x="50" y="195" width="300" height="25" rx="3" fill="#E8D5C4" stroke="#8B7355" stroke-width="1.5" class="hand-draw delay-1"/>
-              <rect x="45" y="170" width="310" height="25" rx="3" fill="#F0DCC8" stroke="#8B7355" stroke-width="1.5" class="hand-draw delay-1"/>
-              <text x="120" y="240" class="sketch-label-sm" fill="#8B7355" data-i18n="s3SketchData">📚 Massive Text Data</text>
-              <path d="M200,170 L200,130" stroke="#5B4A8A" stroke-width="2" marker-end="url(#arrowhead)" class="hand-draw delay-2"/>
-              <rect x="120" y="60" width="160" height="70" rx="15" fill="rgba(91,74,138,0.1)" stroke="#5B4A8A" stroke-width="2" class="hand-draw delay-2"/>
-              <text x="145" y="100" class="sketch-label-sm" fill="#5B4A8A" data-i18n="s3SketchModel">🤖 LLM Model</text>
-              <path d="M200,60 L200,30" stroke="#E8A87C" stroke-width="2" marker-end="url(#arrowhead2)" class="hand-draw delay-3"/>
-              <text x="130" y="20" class="sketch-label-sm" fill="#E8A87C" data-i18n="s3SketchOutput">✨ Understand &amp; Generate</text>
-              <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#5B4A8A"/></marker>
-                <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#E8A87C"/></marker>
-              </defs>
-              <text x="20" y="90" font-size="8" fill="rgba(91,74,138,0.3)" transform="rotate(-15,20,90)">hello</text>
-              <text x="330" y="80" font-size="8" fill="rgba(91,74,138,0.3)" transform="rotate(10,330,80)">你好</text>
-              <text x="350" y="110" font-size="7" fill="rgba(91,74,138,0.3)" transform="rotate(-5,350,110)">bonjour</text>
-              <text x="10" y="130" font-size="7" fill="rgba(91,74,138,0.3)" transform="rotate(8,10,130)">こんにちは</text>
-            </svg>
-          </div>
-        </div>
-        <div class="col-right">
-          <div class="content-block fade-in-right">
-            <p class="lead-text" data-i18n="s3Lead">An LLM is like a "super scholar" who has read every book.</p>
-            <p data-i18n-html="s3Desc">Large Language Models learn the patterns of language by reading massive amounts of text from the internet — books, web pages, code, papers. They don't simply "memorize" answers; they learn the ability to <strong>understand context</strong> and <strong>generate coherent text</strong>.</p>
-            <div class="feature-cards">
-              <div class="feature-card"><div class="feature-icon">💬</div><h4 data-i18n="s3F1Title">Conversation</h4><p data-i18n="s3F1Desc">Chat naturally like a friend</p></div>
-              <div class="feature-card"><div class="feature-icon">📝</div><h4 data-i18n="s3F2Title">Writing</h4><p data-i18n="s3F2Desc">Articles, emails, reports</p></div>
-              <div class="feature-card"><div class="feature-icon">💻</div><h4 data-i18n="s3F3Title">Coding</h4><p data-i18n="s3F3Desc">Write and debug program code</p></div>
-              <div class="feature-card"><div class="feature-icon">🌐</div><h4 data-i18n="s3F4Title">Translation</h4><p data-i18n="s3F4Desc">Break through language barriers</p></div>
+          <div class="p7-facts trends-facts">
+            <div class="p7-fact">
+              <p class="p7-fact-kicker"><span class="tf-tag tf-tag-fact">事实</span>市场规模</p>
+              <p class="p7-fact-value">接近 1000 亿美元</p>
+              <p class="p7-fact-note">IDC 预测 2029 年中国生成式 AI 市场规模，2024&ndash;2029 年复合增速约 <strong>68%</strong>。<br /><span class="fact-src">来源：IDC 中国区总裁霍锦洁 · AIEC 2026 · 2026-06</span></p>
             </div>
-            <div class="tip-box" data-i18n-html="s3Tip"><strong>💡 Notable Models:</strong> GPT-4, Claude, Hunyuan, DeepSeek, Llama, etc.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 4: Prompt ==================== -->
-  <section class="slide slide-prompt" data-index="4">
-    <div class="slide-inner">
-      <div class="slide-label">04</div>
-      <h2 class="slide-title" data-i18n="s4Title">Prompt Engineering</h2>
-      <p class="slide-subtitle-text" data-i18n="s4Subtitle">The art of talking to AI</p>
-      <div class="prompt-demo">
-        <div class="prompt-comparison">
-          <div class="prompt-card bad">
-            <div class="prompt-card-header" data-i18n="s4BadHeader">❌ Vague Prompt</div>
-            <div class="prompt-input" data-i18n="s4BadInput">"Write me something"</div>
-            <div class="prompt-result"><p data-i18n="s4BadResult">AI: What would you like me to write? An article? Email? Code? Please provide more details...</p></div>
-          </div>
-          <div class="prompt-arrow">→</div>
-          <div class="prompt-card good">
-            <div class="prompt-card-header" data-i18n="s4GoodHeader">✅ Precise Prompt</div>
-            <div class="prompt-input" data-i18n="s4GoodInput">"You are a senior technical writer. Please write an email introducing a new project's technical plan to the team. Keep it professional yet friendly, within 300 words."</div>
-            <div class="prompt-result"><p data-i18n="s4GoodResult">AI: [Outputs a well-structured, appropriately-toned professional email] ✨</p></div>
-          </div>
-        </div>
-        <div class="prompt-tips">
-          <h3 class="handwrite" data-i18n="s4TipsTitle">Four Elements of a Great Prompt</h3>
-          <div class="tips-grid">
-            <div class="tip-item"><div class="tip-number">1</div><h4 data-i18n="s4Tip1Title">Role Setting</h4><p data-i18n-html="s4Tip1Desc">Tell AI who it is<br><em>"You are an experienced product manager"</em></p></div>
-            <div class="tip-item"><div class="tip-number">2</div><h4 data-i18n="s4Tip2Title">Clear Task</h4><p data-i18n-html="s4Tip2Desc">Specify what to do<br><em>"Help me analyze this user feedback"</em></p></div>
-            <div class="tip-item"><div class="tip-number">3</div><h4 data-i18n="s4Tip3Title">Provide Context</h4><p data-i18n-html="s4Tip3Desc">Give background info<br><em>"This is a social product targeting young people"</em></p></div>
-            <div class="tip-item"><div class="tip-number">4</div><h4 data-i18n="s4Tip4Title">Output Format</h4><p data-i18n-html="s4Tip4Desc">Specify expected form<br><em>"Present in a table with priority levels"</em></p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 5: RAG ==================== -->
-  <section class="slide slide-rag" data-index="5">
-    <div class="slide-inner">
-      <div class="slide-label">05</div>
-      <h2 class="slide-title" data-i18n="s5Title">RAG — Retrieval-Augmented Generation</h2>
-      <div class="quote-banner">
-        <p data-i18n="s5Quote">"Memory is a form of forgetting."</p>
-        <cite data-i18n="s5QuoteCite">— Jorge Luis Borges</cite>
-      </div>
-      <div class="rag-visual">
-        <div class="rag-flow">
-          <div class="rag-step"><div class="rag-icon">❓</div><div class="rag-label" data-i18n="s5Step0Label">User Question</div><div class="rag-desc" data-i18n="s5Step0Desc">"What is the company's annual leave policy?"</div></div>
-          <div class="rag-connector"><svg width="60" height="30"><path d="M0,15 L50,15" stroke="#5B4A8A" stroke-width="2" stroke-dasharray="4,4"/><polygon points="50,10 60,15 50,20" fill="#5B4A8A"/></svg></div>
-          <div class="rag-step"><div class="rag-icon">🔍</div><div class="rag-label" data-i18n="s5Step1Label">Search Knowledge Base</div><div class="rag-desc" data-i18n="s5Step1Desc">Search relevant content in company documents</div></div>
-          <div class="rag-connector"><svg width="60" height="30"><path d="M0,15 L50,15" stroke="#5B4A8A" stroke-width="2" stroke-dasharray="4,4"/><polygon points="50,10 60,15 50,20" fill="#5B4A8A"/></svg></div>
-          <div class="rag-step"><div class="rag-icon">📄</div><div class="rag-label" data-i18n="s5Step2Label">Retrieve Context</div><div class="rag-desc" data-i18n="s5Step2Desc">Find relevant paragraphs in Employee Handbook Ch.3</div></div>
-          <div class="rag-connector"><svg width="60" height="30"><path d="M0,15 L50,15" stroke="#5B4A8A" stroke-width="2" stroke-dasharray="4,4"/><polygon points="50,10 60,15 50,20" fill="#5B4A8A"/></svg></div>
-          <div class="rag-step"><div class="rag-icon">🤖</div><div class="rag-label" data-i18n="s5Step3Label">LLM Generates Answer</div><div class="rag-desc" data-i18n="s5Step3Desc">Combine retrieved content to generate accurate answer</div></div>
-          <div class="rag-connector"><svg width="60" height="30"><path d="M0,15 L50,15" stroke="#E8A87C" stroke-width="2" stroke-dasharray="4,4"/><polygon points="50,10 60,15 50,20" fill="#E8A87C"/></svg></div>
-          <div class="rag-step highlight-step"><div class="rag-icon">✅</div><div class="rag-label" data-i18n="s5Step4Label">Precise Answer</div><div class="rag-desc" data-i18n="s5Step4Desc">"Per company policy, employees with 1+ year tenure get 5 days annual leave..."</div></div>
-        </div>
-        <div class="rag-why">
-          <h3 data-i18n="s5WhyTitle">Why Do We Need RAG?</h3>
-          <div class="rag-comparison">
-            <div class="rag-comp-item"><div class="comp-header bad-bg" data-i18n="s5NoBadHeader">AI Without RAG</div><p data-i18n="s5NoBadDesc">Can only rely on training data, may give outdated or inaccurate information, and cannot access internal company knowledge</p></div>
-            <div class="rag-comp-item"><div class="comp-header good-bg" data-i18n="s5YesGoodHeader">AI With RAG</div><p data-i18n="s5YesGoodDesc">Retrieves the latest, most relevant information in real-time, answers are verifiable, greatly reducing "hallucinations"</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 6: 知识库 ==================== -->
-  <section class="slide slide-kb" data-index="6">
-    <div class="slide-inner">
-      <div class="slide-label">06</div>
-      <h2 class="slide-title" data-i18n="s6Title">Knowledge Base Applications</h2>
-      <p class="slide-subtitle-text" data-i18n="s6Subtitle">Give AI its own "personal library"</p>
-      <div class="kb-visual">
-        <div class="kb-center">
-          <div class="kb-brain"><span>🧠</span><p data-i18n="s6BrainLabel">AI + Knowledge Base</p></div>
-          <div class="kb-orbits">
-            <div class="kb-orbit-item" style="--angle:0deg; --delay:0s"><span>📋</span><p data-i18n="s6Orbit1">Company Policies</p></div>
-            <div class="kb-orbit-item" style="--angle:60deg; --delay:0.3s"><span>📊</span><p data-i18n="s6Orbit2">Product Docs</p></div>
-            <div class="kb-orbit-item" style="--angle:120deg; --delay:0.6s"><span>💻</span><p data-i18n="s6Orbit3">Tech Wiki</p></div>
-            <div class="kb-orbit-item" style="--angle:180deg; --delay:0.9s"><span>📞</span><p data-i18n="s6Orbit4">Customer FAQ</p></div>
-            <div class="kb-orbit-item" style="--angle:240deg; --delay:1.2s"><span>📈</span><p data-i18n="s6Orbit5">Business Data</p></div>
-            <div class="kb-orbit-item" style="--angle:300deg; --delay:1.5s"><span>📝</span><p data-i18n="s6Orbit6">Meeting Notes</p></div>
-          </div>
-        </div>
-        <div class="kb-scenarios">
-          <h3 data-i18n="s6ScenariosTitle">Typical Use Cases</h3>
-          <div class="scenario-cards">
-            <div class="scenario-card"><div class="scenario-icon">🏢</div><div><h4 data-i18n="s6Sc1Title">Enterprise Smart CS</h4><p data-i18n="s6Sc1Desc">Upload product manuals and FAQs, AI can accurately answer customer questions</p></div></div>
-            <div class="scenario-card"><div class="scenario-icon">👨‍💻</div><div><h4 data-i18n="s6Sc2Title">New Hire Assistant</h4><p data-i18n="s6Sc2Desc">New colleagues can ask about company policies and processes anytime</p></div></div>
-            <div class="scenario-card"><div class="scenario-icon">📚</div><div><h4 data-i18n="s6Sc3Title">Tech Doc Q&A</h4><p data-i18n="s6Sc3Desc">Developers quickly search API docs and technical solutions</p></div></div>
-          </div>
-          <div class="tip-box" data-i18n-html="s6Tip"><strong>🚀 How-to:</strong> On the Knot platform, you can create a knowledge base, upload documents (PDF/Word/web pages), then link it to an agent, enabling AI to answer questions based on your exclusive knowledge.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 7: MCP ==================== -->
-  <section class="slide slide-mcp" data-index="7">
-    <div class="slide-inner">
-      <div class="slide-label">07</div>
-      <h2 class="slide-title" data-i18n="s7Title">MCP — Model Context Protocol</h2>
-      <p class="slide-subtitle-text" data-i18n="s7Subtitle">AI's "Universal Interface"</p>
-      <div class="quote-banner small">
-        <p data-i18n="s7Quote">"The best interface is no interface."</p>
-        <cite data-i18n="s7QuoteCite">— Golden Krishna, The Best Interface is No Interface</cite>
-      </div>
-      <div class="mcp-visual">
-        <div class="mcp-diagram">
-          <div class="mcp-layer mcp-tools">
-            <div class="mcp-tool-item" data-i18n="s7Tool1">📧 Email System</div>
-            <div class="mcp-tool-item" data-i18n="s7Tool2">📅 Calendar</div>
-            <div class="mcp-tool-item" data-i18n="s7Tool3">🗄️ Database</div>
-            <div class="mcp-tool-item" data-i18n="s7Tool4">🔧 Internal Tools</div>
-            <div class="mcp-tool-item" data-i18n="s7Tool5">🌐 Web</div>
-            <div class="mcp-tool-item" data-i18n="s7Tool6">📁 File System</div>
-          </div>
-          <div class="mcp-connector-zone">
-            <div class="mcp-protocol-box"><span data-i18n="s7ProtocolLabel">MCP Protocol</span><p data-i18n="s7ProtocolDesc">Standardized Connection Layer</p></div>
-          </div>
-          <div class="mcp-layer mcp-ai"><div class="mcp-ai-box"><span>🤖</span><p data-i18n="s7AILabel">AI Model</p></div></div>
-        </div>
-        <div class="mcp-explain">
-          <p class="lead-text" data-i18n-html="s7Lead">MCP is like the <strong>"USB port"</strong> of the AI world.</p>
-          <p data-i18n="s7Desc">Just as USB allows all kinds of devices to connect to a computer, MCP (Model Context Protocol) enables AI to connect to various external tools and data sources in a unified way.</p>
-          <div class="mcp-benefits">
-            <div class="benefit-item"><span class="benefit-icon">🔌</span><div><strong data-i18n="s7B1Title">Plug & Play</strong><p data-i18n="s7B1Desc">Standardized interface, no need to develop separately for each tool</p></div></div>
-            <div class="benefit-item"><span class="benefit-icon">🔒</span><div><strong data-i18n="s7B2Title">Secure & Controlled</strong><p data-i18n="s7B2Desc">Every tool call by AI goes through authorization</p></div></div>
-            <div class="benefit-item"><span class="benefit-icon">🔄</span><div><strong data-i18n="s7B3Title">Two-Way Communication</strong><p data-i18n="s7B3Desc">AI can not only read information but also execute actions</p></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 8: Skills ==================== -->
-  <section class="slide slide-skills" data-index="8">
-    <div class="slide-inner">
-      <div class="slide-label">08</div>
-      <h2 class="slide-title" data-i18n="s8Title">Skills — AI's "Skill Packs"</h2>
-      <div class="skills-visual">
-        <div class="skills-metaphor">
-          <div class="sketch-box skills-sketch">
-            <svg viewBox="0 0 500 280" class="sketch-svg">
-              <rect x="150" y="80" width="200" height="150" rx="10" fill="rgba(232,168,124,0.15)" stroke="#E8A87C" stroke-width="2.5" class="hand-draw"/>
-              <rect x="140" y="65" width="220" height="25" rx="5" fill="rgba(232,168,124,0.25)" stroke="#E8A87C" stroke-width="2" class="hand-draw"/>
-              <rect x="225" y="50" width="50" height="20" rx="8" fill="none" stroke="#E8A87C" stroke-width="2" class="hand-draw"/>
-              <rect x="170" y="100" width="60" height="40" rx="5" fill="#85C7DE" opacity="0.8" class="float-card"/><text x="185" y="125" font-size="18">📝</text>
-              <rect x="250" y="100" width="60" height="40" rx="5" fill="#C38EC7" opacity="0.8" class="float-card delay-1"/><text x="265" y="125" font-size="18">📊</text>
-              <rect x="170" y="155" width="60" height="40" rx="5" fill="#90C695" opacity="0.8" class="float-card delay-2"/><text x="185" y="180" font-size="18">🌐</text>
-              <rect x="250" y="155" width="60" height="40" rx="5" fill="#F5A623" opacity="0.8" class="float-card delay-3"/><text x="265" y="180" font-size="18">💻</text>
-              <text x="165" y="260" class="sketch-label" fill="#E8A87C" data-i18n="s8SketchLabel">🧰 AI Skill Toolbox</text>
-            </svg>
-          </div>
-        </div>
-        <div class="skills-content">
-          <p class="lead-text" data-i18n="s8Lead">A Skill is a set of predefined instructions and resources that instantly give AI professional capabilities in a specific domain.</p>
-          <p data-i18n="s8Desc">Imagine you have a universal assistant — every time you hand it an "operation manual," it immediately masters a new skill. That's how Skills work.</p>
-          <div class="skills-examples">
-            <div class="skill-example-item"><span class="skill-tag">📄 PDF Skill</span><p data-i18n="s8Sk1Desc">Read, create, merge PDF files</p></div>
-            <div class="skill-example-item"><span class="skill-tag">📊 Excel Skill</span><p data-i18n="s8Sk2Desc">Process spreadsheet data, generate charts</p></div>
-            <div class="skill-example-item"><span class="skill-tag">🌐 Web Skill</span><p data-i18n="s8Sk3Desc">Browse web pages, extract information</p></div>
-            <div class="skill-example-item"><span class="skill-tag">🎨 Design Skill</span><p data-i18n="s8Sk4Desc">Create beautiful frontend interfaces</p></div>
-          </div>
-          <div class="tip-box" data-i18n-html="s8Tip"><strong>💡 Skill vs MCP:</strong> Skills focus on injecting "knowledge and processes" into AI, while MCP focuses on letting AI "connect to external tools." They complement each other to enhance AI capabilities.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 9: Agent ==================== -->
-  <section class="slide slide-agent" data-index="9">
-    <div class="slide-inner">
-      <div class="slide-label">09</div>
-      <h2 class="slide-title" data-i18n="s9Title">AI Agent — Intelligent Agents</h2>
-      <p class="slide-subtitle-text" data-i18n="s9Subtitle">The leap from "conversation" to "action"</p>
-      <div class="agent-visual">
-        <div class="agent-comparison">
-          <div class="agent-card">
-            <div class="agent-card-header" data-i18n="s9TraditionalHeader">Traditional AI Assistant</div>
-            <div class="agent-card-body">
-              <div class="chat-bubble user" data-i18n="s9UserMsg">Book a meeting room for tomorrow morning</div>
-              <div class="chat-bubble ai" data-i18n="s9TraditionalReply">Sure, you can log into the meeting room booking system, select a date and time...</div>
-              <p class="agent-verdict" data-i18n="s9TraditionalVerdict">🤷 Can only tell you how to do it</p>
+            <div class="p7-fact">
+              <p class="p7-fact-kicker"><span class="tf-tag tf-tag-struct">结构性优势</span>电力底座</p>
+              <p class="p7-fact-value">发电量 2.22 倍 · 工业电价 ≈ 1/3</p>
+              <p class="p7-fact-note">2025 年中国全年发电量 10.58 万亿千瓦时，约为美国的 2.22 倍；中国工业电价约 0.3&ndash;0.35 元/度，仅约美国的三分之一。<br /><span class="fact-src">来源：国家统计局 2025 · 单伟建《AI 竞争中美旗鼓相当》2026-05</span></p>
+            </div>
+            <div class="p7-fact">
+              <p class="p7-fact-kicker"><span class="tf-tag tf-tag-emerging">正在发生</span>Token 出海</p>
+              <p class="p7-fact-value">不是货物贸易，是服务贸易</p>
+              <p class="p7-fact-note">卖出去的不是实体商品，而是&ldquo;算力 + 低价电力&rdquo;协同出海的智能服务。</p>
             </div>
           </div>
-          <div class="vs-badge">VS</div>
-          <div class="agent-card highlight-card">
-            <div class="agent-card-header" data-i18n="s9AgentHeader">AI Agent</div>
-            <div class="agent-card-body">
-              <div class="chat-bubble user" data-i18n="s9UserMsg">Book a meeting room for tomorrow morning</div>
-              <div class="chat-bubble ai thinking" data-i18n="s9AgentThink1">Searching for available meeting rooms tomorrow morning...</div>
-              <div class="chat-bubble ai thinking" data-i18n="s9AgentThink2">Found 3 available rooms, booking A301...</div>
-              <div class="chat-bubble ai" data-i18n="s9AgentReply">✅ Successfully booked Room A301, tomorrow 9:00-10:00. Calendar invites sent to all attendees.</div>
-              <p class="agent-verdict" data-i18n="s9AgentVerdict">🚀 Can complete tasks autonomously!</p>
+
+          <div class="trends-story">
+            <p class="ts-title">一个具体的例子：什么是 &ldquo;Token 出海&rdquo;？</p>
+            <p class="ts-body">一个美国的程序员，用中国的大模型来写代码。请求经由光缆抵达中国的数据中心，GPU 集群开始工作，电力驱动芯片推理运算，结果再传回——<strong>整个过程只用了一两秒</strong>。电力从未离开中国，但它的价值，通过 Token 完成了跨境交付。</p>
+          </div>
+
+          <div class="key-insight-bar">
+            <span class="key-icon">&#127760;</span>
+            <p>算力已成为像水、电一样的<strong>新型基础设施</strong>。AI 的竞争，最终是能源、芯片、模型、应用<em>全产业链的系统竞争</em>。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 13 — 人的智能优势 + 三种新定位 -->
+      <section class="slide" id="slide-11">
+        <div class="slide-body slide-wide">
+          <p class="section-eyebrow">06 &mdash; 人往何处</p>
+          <h2>机器越强，越要问：<span class="accent">人的智能优势</span>是什么？</h2>
+          <div class="cover-rule"></div>
+          <p class="human-lede">工具在变，人的位置也在变。<strong>从动&ldquo;手&rdquo;、动&ldquo;脑&rdquo;到动&ldquo;心&rdquo;</strong>——这是我给自己找到的三种新定位。</p>
+
+          <div class="human-era">
+            <div class="he-item"><span class="he-c">19 世纪 · 工业时代</span><span class="he-b">动&ldquo;手&rdquo;的人</span><span class="he-n">工具优势</span></div>
+            <span class="he-arrow">&rarr;</span>
+            <div class="he-item"><span class="he-c">20 世纪 · 信息时代</span><span class="he-b">动&ldquo;脑&rdquo;的人</span><span class="he-n">知识优势</span></div>
+            <span class="he-arrow">&rarr;</span>
+            <div class="he-item he-now"><span class="he-c">21 世纪 · 智能时代</span><span class="he-b">动&ldquo;心&rdquo;的人</span><span class="he-n">心理优势</span></div>
+          </div>
+
+          <!-- ★ 三种新定位（来自原 pptx 第 12 页） -->
+          <div class="human-cards role-cards">
+            <div class="hc-card">
+              <span class="hc-icon">&#128172;</span>
+              <p class="rc-role">提问者</p>
+              <h3>Question-Asker</h3>
+              <p class="rc-body"><strong>目前，</strong>AI 更擅长<strong>求解</strong>，人更擅长<strong>定义问题</strong>和<strong>判断价值</strong>——&ldquo;这是不是一个值得解的问题&rdquo;，永远是人先回答。</p>
+            </div>
+            <div class="hc-card">
+              <span class="hc-icon">&#128101;</span>
+              <p class="rc-role">指挥者</p>
+              <h3>Orchestrator</h3>
+              <p class="rc-body">从执行者变成 Agent 的<strong>编排者</strong>、<strong>审校者</strong>与<strong>责任人</strong>——最后拍板和负责的，永远是人。</p>
+            </div>
+            <div class="hc-card">
+              <span class="hc-icon">&#128161;</span>
+              <p class="rc-role">意义的守护者</p>
+              <h3>Guardian of Meaning</h3>
+              <p class="rc-body">效率交给<strong>机器</strong>，人回归<strong>创造 · 连接 · 与伦理判断</strong>——机器给答案，人给意义。</p>
             </div>
           </div>
-        </div>
-        <div class="agent-features">
-          <div class="agent-feature"><span>🧠</span><h4 data-i18n="s9F1Title">Autonomous Planning</h4><p data-i18n="s9F1Desc">Break complex tasks into steps</p></div>
-          <div class="agent-feature"><span>🔧</span><h4 data-i18n="s9F2Title">Tool Invocation</h4><p data-i18n="s9F2Desc">Use various tools to execute actions</p></div>
-          <div class="agent-feature"><span>🔄</span><h4 data-i18n="s9F3Title">Reflection & Iteration</h4><p data-i18n="s9F3Desc">Adjust strategy based on results</p></div>
-          <div class="agent-feature"><span>🎯</span><h4 data-i18n="s9F4Title">Goal-Oriented</h4><p data-i18n="s9F4Desc">Keep tracking until completion</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ==================== SLIDE 10: Evolution of AI-Assisted Development ==================== -->
-  <section class="slide slide-harness" data-index="10">
-    <div class="slide-inner">
-      <div class="slide-label">10</div>
-      <h2 class="slide-title" data-i18n="s10Title">The Evolution of AI-Assisted Development</h2>
-      <p class="slide-subtitle-text" data-i18n="s10Subtitle">From Vibe Coding to Context Engineering to Harness Engineering</p>
-      <div class="quote-banner small">
-        <p data-i18n="s10Quote">"The future of programming is not writing code, but describing intent."</p>
-        <cite data-i18n="s10QuoteCite">— Andrej Karpathy, Former Tesla AI Director</cite>
-      </div>
+          <!-- 底部彭教授分享的理论视角（缩为一句话小字） -->
+          <div class="human-theory">
+            <span class="ht-tag">积极心理学 · 补充视角</span>
+            <p class="ht-body">
+              人是 <strong>&ldquo;展望人&rdquo;（Homo Prospectus）</strong>——能想象未来并为之行动；即使机器再擅长预测，人依然拥有<strong>自由意志</strong>与价值判断；Pinker &ldquo;人性中的善良天使&rdquo;：<strong>同理 · 自制 · 道德 · 理性</strong>——这些是人性中的<strong>核心</strong>道德能力。
+              <span class="ht-src">来源：清华彭凯平《活出心花怒放的人生》· Seligman et al.《Homo Prospectus》Oxford 2016 · Pinker《The Better Angels of Our Nature》</span>
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <div class="paradigm-evolution">
-        <!-- Vibe Coding -->
-        <div class="paradigm-card paradigm-vibe">
-          <div class="paradigm-header">
-            <span class="paradigm-icon">🎸</span>
-            <div>
-              <h3 data-i18n="s10VibeName">Vibe Coding</h3>
-              <span class="paradigm-era" data-i18n="s10VibeEra">Early 2025</span>
+      <!-- PAGE 14 — 人往何处（工科生的核心竞争力迁移） -->
+      <section class="slide" id="slide-12">
+        <div class="slide-body closing-body reflect-body">
+          <p class="section-eyebrow">06 &mdash; 人往何处</p>
+
+          <figure class="epitaph">
+            <blockquote>智能可以外包，<br />判断与意义，不能。</blockquote>
+            <figcaption>—— 这是我作为一个工科毕业生，给自己的答案。</figcaption>
+          </figure>
+
+          <div class="closing-rule"></div>
+
+          <p class="closing-cta">
+            一个工科背景的人，如何在 AI 时代重新定位自己？我的想法是：<strong>不必和机器比谁算得快、记得多、做得多</strong>，而是主动退到只属于人的那一侧——<strong>设计、立法与终极审核</strong>：定义什么问题值得解、划定什么是对的边界、对结果负最终的责任。
+          </p>
+
+          <!-- ★ 工科生核心竞争力迁移（原 pptx 第 13 页） -->
+          <div class="skill-shift">
+            <p class="ss-title">工科生的核心竞争力，正在<span class="accent">迁移</span>。</p>
+            <div class="ss-flow">
+              <span class="ss-from">从&nbsp;&ldquo;<strong>会写代码</strong>&rdquo;</span>
+              <span class="ss-arrow" aria-hidden="true">&rarr;</span>
+              <span class="ss-to">到&nbsp;&ldquo;<strong>会定义系统、会与 AI 协作</strong>&rdquo;</span>
+            </div>
+            <div class="ss-tips">
+              <div class="ss-tip">
+                <span class="st-icon">&#128218;</span>
+                <p><strong>保持学习曲线</strong>，把 AI 当成&ldquo;<em>随身的同事</em>&rdquo;，而非威胁。</p>
+              </div>
+              <div class="ss-tip">
+                <span class="st-icon">&#10024;</span>
+                <p><strong>守住人的独特性</strong>：<span class="accent">好奇 · 判断 · 审美 · 责任</span>——机器越来越擅长前三样的<em>表现</em>，但<strong>最终的价值判断与责任承担，只属于人</strong>。</p>
+              </div>
             </div>
           </div>
-          <p class="paradigm-tagline" data-i18n="s10VibeTagline">Intent over syntax — feel your way through the problem</p>
-          <p class="paradigm-desc" data-i18n-html="s10VibeDesc">Coined by Andrej Karpathy: describe what you want in <strong>natural language</strong>, let AI generate code, run it, iterate based on what works. You're not reading every line — you're <strong>feeling</strong> your way through.</p>
-          <div class="paradigm-traits">
-            <span class="trait" data-i18n="s10VibeTrait1">🚀 Rapid prototyping</span>
-            <span class="trait" data-i18n="s10VibeTrait2">💬 Natural language input</span>
-            <span class="trait" data-i18n="s10VibeTrait3">⚠️ Unpredictable at scale</span>
-          </div>
-        </div>
 
-        <div class="paradigm-arrow">→</div>
-
-        <!-- Context Engineering -->
-        <div class="paradigm-card paradigm-context">
-          <div class="paradigm-header">
-            <span class="paradigm-icon">🧠</span>
-            <div>
-              <h3 data-i18n="s10ContextName">Context Engineering</h3>
-              <span class="paradigm-era" data-i18n="s10ContextEra">Mid–Late 2025</span>
+          <div class="human-loop reflect-loop">
+            <span class="hl-icon">&#127793;</span>
+            <div class="hl-copy">
+              <span class="hl-title">动&ldquo;手&rdquo; → 动&ldquo;脑&rdquo; → 动&ldquo;心&rdquo;</span>
+              <span class="hl-body">母校教给我的工程思维——拆解复杂系统、对结果负责——恰恰是 AI 时代最稀缺的能力。工具会变，但&ldquo;把事情做对、并且做对的事情&rdquo;的人，永远被需要。</span>
             </div>
           </div>
-          <p class="paradigm-tagline" data-i18n="s10ContextTagline">Design the AI's entire information environment</p>
-          <p class="paradigm-desc" data-i18n-html="s10ContextDesc">Not just what you ask, but what AI can <strong>see, remember, and act on</strong>. Manage retrieval, memory, tool definitions, and conversation history — architect the AI's working conditions.</p>
-          <div class="paradigm-traits">
-            <span class="trait" data-i18n="s10ContextTrait1">📚 Knowledge retrieval (RAG)</span>
-            <span class="trait" data-i18n="s10ContextTrait2">🧩 Tool & memory design</span>
-            <span class="trait" data-i18n="s10ContextTrait3">🔗 Multi-step workflows</span>
+
+          <p class="closing-sign">&ldquo;庐山烟雨浙江潮，未至千般恨不消。到得还来别无事，庐山烟雨浙江潮。&rdquo;——苏轼《观潮》。看过潮起潮落，回到本心，才知道什么真正属于自己。</p>
+        </div>
+      </section>
+
+      <!-- PAGE 15 — 致谢 + Q&A -->
+      <section class="slide" id="slide-13">
+        <div class="slide-body closing-body">
+          <p class="section-eyebrow">07 &mdash; 致谢 · 答疑</p>
+
+          <figure class="epitaph">
+            <blockquote>谢谢母校，<br />谢谢<span class="accent">还在这里的人</span>。</blockquote>
+            <figcaption>祝校友会一路生长，也祝每一位师生，都活成心花怒放的&ldquo;心&rdquo;青年。</figcaption>
+          </figure>
+
+          <div class="closing-rule"></div>
+
+          <p class="closing-cta thanks-cta">
+            <strong>&ldquo;The best way to predict the future is to invent it.&rdquo;</strong>
+            <span class="tc-source">预测未来最好的方式，就是去创造它。 —— Alan Kay · 1971</span><br />
+            愿我们既能用好 AI 这把&ldquo;神笔&rdquo;，也守得住自己的那颗心。
+          </p>
+
+          <div class="qa-block">
+            <span class="qa-tag">Q &amp; A</span>
+            <p>接下来的时间交给大家——关于 AI、关于职业、关于母校，欢迎随便聊。</p>
           </div>
+
+          <p class="closing-sign">分享人 · 杨光 &nbsp;|&nbsp; 信息与控制工程学院 · 建筑电气与智能化 · 2010 级 &nbsp;|&nbsp; 2026</p>
         </div>
 
-        <div class="paradigm-arrow">→</div>
-
-        <!-- Harness Engineering -->
-        <div class="paradigm-card paradigm-harness">
-          <div class="paradigm-header">
-            <span class="paradigm-icon">⚙️</span>
-            <div>
-              <h3 data-i18n="s10HarnessName">Harness Engineering</h3>
-              <span class="paradigm-era" data-i18n="s10HarnessEra">2026</span>
-            </div>
+        <!-- QR 码浮标 · 仅电脑端显示 -->
+        <a class="qr-badge" href="https://yeranyang.cn/share/xauat-2026/" target="_blank" rel="noopener" title="扫码 · 带走这份分享">
+          <img src="./assets/qr-deck.svg" alt="扫码带走这份分享" width="84" height="84" />
+          <div class="qr-badge-copy">
+            <span class="qr-tag">TAKE IT WITH YOU</span>
+            <span class="qr-title">扫码带走这份分享</span>
+            <span class="qr-sub">欢迎会后随时翻看</span>
           </div>
-          <p class="paradigm-tagline" data-i18n="s10HarnessTagline">Build production-grade structures around AI agents</p>
-          <p class="paradigm-desc" data-i18n-html="s10HarnessDesc">Where context engineering focuses on what AI <strong>knows</strong>, harness engineering focuses on how AI <strong>behaves</strong> — error recovery, observability, guardrails, and architectural constraints for reliable production deployment.</p>
-          <div class="paradigm-traits">
-            <span class="trait" data-i18n="s10HarnessTrait1">🛡️ Error recovery & guardrails</span>
-            <span class="trait" data-i18n="s10HarnessTrait2">👁️ Observability & debugging</span>
-            <span class="trait" data-i18n="s10HarnessTrait3">🏗️ Production reliability</span>
-          </div>
+        </a>
+      </section>
+
+    </div>
+
+    <!-- ===== INDEX PANEL (slide-out) ===== -->
+    <div class="index-panel" id="indexPanel" aria-hidden="true">
+      <div class="index-backdrop" id="indexBackdrop"></div>
+      <div class="index-drawer">
+        <div class="index-header">
+          <span class="index-title">目录</span>
+          <button class="index-close" id="btnIndexClose" aria-label="关闭目录">&#10005;</button>
+        </div>
+        <nav class="index-list" id="indexList"></nav>
+      </div>
+    </div>
+
+    <!-- ===== BOTTOM BAR ===== -->
+    <nav class="bottom-bar">
+      <div class="bar-left">
+        <span class="bar-brand">当人工智能开始<span class="accent">涌现</span></span>
+        <span class="bar-dash">&mdash;</span>
+        <span class="bar-page" id="barPage">1 / 16</span>
+      </div>
+
+      <div class="bar-timeline" id="barTimeline" aria-label="进度">
+        <div class="btm-track">
+          <div class="btm-seg" data-seg="0" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="1" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="2" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="3" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="4" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="5" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="6" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="7" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="8" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="9" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="10" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="11" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="12" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="13" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="14" style="width:6.25%"></div>
+          <div class="btm-seg" data-seg="15" style="width:6.25%"></div>
+        </div>
+        <div class="btm-labels">
+          <span data-seg="0" style="width:6.25%">开场</span>
+          <span data-seg="1" style="width:6.25%">我是谁</span>
+          <span data-seg="2" style="width:6.25%">聊什么</span>
+          <span data-seg="3" style="width:6.25%">三波浪潮</span>
+          <span data-seg="4" style="width:6.25%">大模型</span>
+          <span data-seg="5" style="width:6.25%">三次跃迁</span>
+          <span data-seg="6" style="width:6.25%">Agent闭环</span>
+          <span data-seg="7" style="width:6.25%">国家意志</span>
+          <span data-seg="8" style="width:6.25%">五层蛋糕</span>
+          <span data-seg="9" style="width:6.25%">应用层</span>
+          <span data-seg="10" style="width:6.25%">到Agent</span>
+          <span data-seg="11" style="width:6.25%">Token经济</span>
+          <span data-seg="12" style="width:6.25%">三个趋势</span>
+          <span data-seg="13" style="width:6.25%">智能优势</span>
+          <span data-seg="14" style="width:6.25%">人往何处</span>
+          <span data-seg="15" style="width:6.25%">致谢</span>
         </div>
       </div>
 
-      <div class="paradigm-summary">
-        <p data-i18n-html="s10Summary">Each paradigm <strong>subsumes</strong> the previous one: vibe coding instincts still matter inside a well-designed context, and context engineering becomes one component of the harness. The developer's role shifts from <strong>"the person who writes code"</strong> to <strong>"the person who architects AI collaboration."</strong></p>
+      <div class="bar-right">
+        <button class="bar-btn" id="btnIndex" title="目录">&#9776; 目录</button>
+        <button class="bar-btn" id="btnPrev">&lsaquo; 上一页</button>
+        <button class="bar-btn primary" id="btnNext">下一页 &rsaquo;</button>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- ==================== SLIDE 11: Open Claw ==================== -->
-  <section class="slide slide-openclaw" data-index="11">
-    <div class="slide-inner">
-      <div class="slide-label">11</div>
-      <h2 class="slide-title" data-i18n="s11Title">Open Claw</h2>
-      <p class="slide-subtitle-text" data-i18n="s11Subtitle">An open AI capability ecosystem</p>
-      <div class="quote-banner">
-        <p data-i18n="s11Quote">"My memory of the memory may be no less than the original event itself."</p>
-        <cite data-i18n="s11QuoteCite">— Jorge Luis Borges, Memory</cite>
-      </div>
-      <div class="openclaw-content">
-        <div class="openclaw-visual">
-          <div class="claw-center"><div class="claw-logo">🦀</div><p>Open Claw</p></div>
-          <div class="claw-branches">
-            <div class="claw-branch" style="--branch-angle:270deg"><div class="branch-node" data-i18n="s11Branch1">Shared Skills</div></div>
-            <div class="claw-branch" style="--branch-angle:342deg"><div class="branch-node" data-i18n="s11Branch2">Community Collaboration</div></div>
-            <div class="claw-branch" style="--branch-angle:198deg"><div class="branch-node" data-i18n="s11Branch3">Capability Reuse</div></div>
-            <div class="claw-branch" style="--branch-angle:126deg"><div class="branch-node" data-i18n="s11Branch4">Open Ecosystem</div></div>
-            <div class="claw-branch" style="--branch-angle:54deg"><div class="branch-node" data-i18n="s11Branch5">Continuous Evolution</div></div>
-          </div>
-        </div>
-        <div class="openclaw-desc">
-          <p class="lead-text" data-i18n="s11Lead">Open Claw is an open ecosystem for sharing AI skills and capabilities.</p>
-          <p data-i18n="s11Desc">Like Borges' "Library of Babel" containing every possible book, Open Claw aggregates community-contributed AI skills, where everyone can discover, use, and share AI capabilities.</p>
-          <div class="openclaw-features">
-            <div class="oc-feature"><strong data-i18n="s11F1Title">🌍 Open Sharing</strong><p data-i18n="s11F1Desc">Massive community-contributed skills, available to everyone</p></div>
-            <div class="oc-feature"><strong data-i18n="s11F2Title">🔗 Capability Composition</strong><p data-i18n="s11F2Desc">Combine different skills like building blocks</p></div>
-            <div class="oc-feature"><strong data-i18n="s11F3Title">📈 Continuous Evolution</strong><p data-i18n="s11F3Desc">Community-driven, capabilities keep growing</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 12: AI 提效实战 ==================== -->
-  <section class="slide slide-practice" data-index="12">
-    <div class="slide-inner">
-      <div class="slide-label">12</div>
-      <h2 class="slide-title" data-i18n="s12Title">AI Productivity in Action</h2>
-      <p class="slide-subtitle-text" data-i18n="s12Subtitle">See how AI transforms daily work</p>
-      <div class="practice-grid">
-        <div class="practice-card"><div class="practice-icon">📧</div><h4 data-i18n="s12C1Title">Email & Communication</h4><div class="practice-before-after"><div class="before" data-i18n-html="s12C1Before"><strong>Before:</strong> Spend 30 min crafting wording</div><div class="after" data-i18n-html="s12C1After"><strong>Now:</strong> Tell AI key points, generated in 1 min</div></div><div class="time-saved" data-i18n="s12C1Saved">Save 90% Time ⚡</div></div>
-        <div class="practice-card"><div class="practice-icon">📊</div><h4 data-i18n="s12C2Title">Data Analysis</h4><div class="practice-before-after"><div class="before" data-i18n-html="s12C2Before"><strong>Before:</strong> Manually organize Excel data</div><div class="after" data-i18n-html="s12C2After"><strong>Now:</strong> Upload file, AI auto-analyzes conclusions</div></div><div class="time-saved" data-i18n="s12C2Saved">Save 80% Time ⚡</div></div>
-        <div class="practice-card"><div class="practice-icon">📝</div><h4 data-i18n="s12C3Title">Document Writing</h4><div class="practice-before-after"><div class="before" data-i18n-html="s12C3Before"><strong>Before:</strong> Write proposals from scratch</div><div class="after" data-i18n-html="s12C3After"><strong>Now:</strong> AI generates draft, you polish</div></div><div class="time-saved" data-i18n="s12C3Saved">Save 70% Time ⚡</div></div>
-        <div class="practice-card"><div class="practice-icon">💻</div><h4 data-i18n="s12C4Title">Code Development</h4><div class="practice-before-after"><div class="before" data-i18n-html="s12C4Before"><strong>Before:</strong> Write and debug line by line</div><div class="after" data-i18n-html="s12C4After"><strong>Now:</strong> Describe needs, AI generates &amp; fixes code</div></div><div class="time-saved" data-i18n="s12C4Saved">Save 60% Time ⚡</div></div>
-        <div class="practice-card"><div class="practice-icon">🎨</div><h4 data-i18n="s12C5Title">Design & Creation</h4><div class="practice-before-after"><div class="before" data-i18n-html="s12C5Before"><strong>Before:</strong> Repeatedly revise design drafts</div><div class="after" data-i18n-html="s12C5After"><strong>Now:</strong> AI quickly generates multiple options to choose from</div></div><div class="time-saved" data-i18n="s12C5Saved">Save 75% Time ⚡</div></div>
-        <div class="practice-card"><div class="practice-icon">🔍</div><h4 data-i18n="s12C6Title">Information Retrieval</h4><div class="practice-before-after"><div class="before" data-i18n-html="s12C6Before"><strong>Before:</strong> Browse through piles of documents</div><div class="after" data-i18n-html="s12C6After"><strong>Now:</strong> Ask AI directly, get answers in seconds</div></div><div class="time-saved" data-i18n="s12C6Saved">Save 95% Time ⚡</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 13: 如何开始 ==================== -->
-  <section class="slide slide-start" data-index="13">
-    <div class="slide-inner">
-      <div class="slide-label">13</div>
-      <h2 class="slide-title" data-i18n="s13Title">How to Start Your AI Journey?</h2>
-      <div class="start-roadmap">
-        <div class="roadmap-path">
-          <div class="roadmap-step"><div class="step-marker">🌱</div><div class="step-content"><h4 data-i18n="s13Step1Title">Step 1: Start a Conversation</h4><p data-i18n="s13Step1Desc">Open ChatGPT, Claude, or the Knot platform and try chatting with AI. Start with simple questions like "Help me summarize this text."</p><div class="step-action" data-i18n="s13Step1Action">💡 Try: Ask AI a question you encounter at work</div></div></div>
-          <div class="roadmap-step"><div class="step-marker">🌿</div><div class="step-content"><h4 data-i18n="s13Step2Title">Step 2: Learn Prompt Engineering</h4><p data-i18n="s13Step2Desc">Master good prompt techniques to make AI output more accurate. Remember: Role + Task + Context + Format.</p><div class="step-action" data-i18n="s13Step2Action">💡 Try: Use a detailed prompt to have AI write an email for you</div></div></div>
-          <div class="roadmap-step"><div class="step-marker">🌳</div><div class="step-content"><h4 data-i18n="s13Step3Title">Step 3: Integrate into Workflow</h4><p data-i18n="s13Step3Desc">Incorporate AI into daily work — use it to write documents, analyze data, brainstorm, review code.</p><div class="step-action" data-i18n="s13Step3Action">💡 Try: Complete at least one work task with AI every day</div></div></div>
-          <div class="roadmap-step"><div class="step-marker">🌲</div><div class="step-content"><h4 data-i18n="s13Step4Title">Step 4: Explore Advanced Features</h4><p data-i18n="s13Step4Desc">Try Knowledge Base, MCP, Skills, and other advanced features. Create your own AI assistant that truly understands your business.</p><div class="step-action" data-i18n="s13Step4Action">💡 Try: Create an agent on the Knot platform</div></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 14: 常见误区 ==================== -->
-  <section class="slide slide-myths" data-index="14">
-    <div class="slide-inner">
-      <div class="slide-label">14</div>
-      <h2 class="slide-title" data-i18n="s14Title">Common Myths About AI</h2>
-      <div class="myths-grid">
-        <div class="myth-card"><div class="myth-header"><span class="myth-x">✗</span><h4 data-i18n="s14M1Myth">"AI will replace my job"</h4></div><div class="myth-truth"><span class="myth-check">✓</span><p data-i18n-html="s14M1Truth"><strong>Truth:</strong> AI is a tool, not a replacement. People who use AI well will outperform those who don't. Just as calculators didn't replace accountants — they made them more efficient.</p></div></div>
-        <div class="myth-card"><div class="myth-header"><span class="myth-x">✗</span><h4 data-i18n="s14M2Myth">"Everything AI says is correct"</h4></div><div class="myth-truth"><span class="myth-check">✓</span><p data-i18n-html="s14M2Truth"><strong>Truth:</strong> AI can "hallucinate" (fabricate plausible but incorrect content). Always maintain critical thinking; important information needs verification.</p></div></div>
-        <div class="myth-card"><div class="myth-header"><span class="myth-x">✗</span><h4 data-i18n="s14M3Myth">"Using AI is cheating"</h4></div><div class="myth-truth"><span class="myth-check">✓</span><p data-i18n-html="s14M3Truth"><strong>Truth:</strong> AI is a productivity tool, just like a search engine. What matters is how you use it to improve work quality and efficiency.</p></div></div>
-        <div class="myth-card"><div class="myth-header"><span class="myth-x">✗</span><h4 data-i18n="s14M4Myth">"AI is too complex, I can't learn it"</h4></div><div class="myth-truth"><span class="myth-check">✓</span><p data-i18n-html="s14M4Truth"><strong>Truth:</strong> Modern AI tools are designed for everyone to use. You just need to be able to type and describe your needs to get started.</p></div></div>
-      </div>
-      <div class="quote-banner small" style="margin-top:2rem">
-        <p data-i18n="s14Quote">"I do not fear computers. I fear the lack of them."</p>
-        <cite data-i18n="s14QuoteCite">— Isaac Asimov</cite>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 15: 核心概念总览 ==================== -->
-  <section class="slide slide-summary" data-index="15">
-    <div class="slide-inner">
-      <div class="slide-label">15</div>
-      <h2 class="slide-title" data-i18n="s15Title">Core Concepts at a Glance</h2>
-      <div class="summary-table-wrap">
-        <table class="summary-table">
-          <thead><tr>
-            <th data-i18n="s15ThConcept">Concept</th>
-            <th data-i18n="s15ThOneLiner">One-Line Explanation</th>
-            <th data-i18n="s15ThAnalogy">Analogy</th>
-            <th data-i18n="s15ThUseCase">Use Cases</th>
-          </tr></thead>
-          <tbody>
-            <tr><td><strong>LLM</strong></td><td data-i18n="s15R1Desc">A super scholar who read every book</td><td data-i18n="s15R1Analogy">📚 Encyclopedia</td><td data-i18n="s15R1Use">Chat, writing, translation, coding</td></tr>
-            <tr><td><strong>Prompt</strong></td><td data-i18n="s15R2Desc">The skill of communicating with AI</td><td data-i18n="s15R2Analogy">🎯 Precise instructions</td><td data-i18n="s15R2Use">All AI interaction scenarios</td></tr>
-            <tr><td><strong>RAG</strong></td><td data-i18n="s15R3Desc">Look up info before answering</td><td data-i18n="s15R3Analogy">📖 Open-book exam</td><td data-i18n="s15R3Use">Enterprise Q&A, customer service</td></tr>
-            <tr><td><strong data-i18n="s15R4Name">Knowledge Base</strong></td><td data-i18n="s15R4Desc">AI's personal library</td><td data-i18n="s15R4Analogy">🏛️ Library</td><td data-i18n="s15R4Use">Internal knowledge management</td></tr>
-            <tr><td><strong>MCP</strong></td><td data-i18n="s15R5Desc">Standard interface for AI to connect tools</td><td data-i18n="s15R5Analogy">🔌 USB port</td><td data-i18n="s15R5Use">Tool integration, automation</td></tr>
-            <tr><td><strong>Skills</strong></td><td data-i18n="s15R6Desc">Inject professional capabilities into AI</td><td data-i18n="s15R6Analogy">🧰 Skill packs</td><td data-i18n="s15R6Use">Domain-specific tasks</td></tr>
-            <tr><td><strong>Agent</strong></td><td data-i18n="s15R7Desc">AI assistant that acts autonomously</td><td data-i18n="s15R7Analogy">🤖 Smart butler</td><td data-i18n="s15R7Use">Complex task automation</td></tr>
-            <tr><td><strong>Harness</strong></td><td data-i18n="s15R8Desc">Programming with natural language</td><td data-i18n="s15R8Analogy">🏇 Harnessing power</td><td data-i18n="s15R8Use">Software development, automation</td></tr>
-            <tr><td><strong>Open Claw</strong></td><td data-i18n="s15R9Desc">Open AI capability ecosystem</td><td data-i18n="s15R9Analogy">🌐 Skill marketplace</td><td data-i18n="s15R9Use">Capability sharing & reuse</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SLIDE 16: 结尾 ==================== -->
-  <section class="slide slide-ending" data-index="16">
-    <div class="slide-inner ending-inner">
-      <div class="ending-content">
-        <p class="ending-pre fade-up" data-i18n="s16Pre">AI is not the destination, but the starting point</p>
-        <h2 class="ending-title fade-up delay-1">
-          <span data-i18n="s16Title">Explore Infinite Possibilities</span>
-        </h2>
-        <div class="ending-quote fade-up delay-2">
-          <p data-i18n="s16Quote">"Among all possible futures, the best one requires us to create it."</p>
-          <cite data-i18n="s16QuoteCite">— Kevin Kelly, The Inevitable</cite>
-        </div>
-        <div class="ending-cta fade-up delay-3">
-          <p data-i18n="s16Cta">Start now, make AI your most powerful partner</p>
-          <div class="ending-links">
-            <a href="index.html" class="ending-link" data-i18n="s16LinkReview">🏠 返回首页</a>
-            <a href="#" class="ending-link primary" onclick="goToSlide(0);return false;" data-i18n="s16LinkAction">🔄 再看一遍</a>
-          </div>
-        </div>
-      </div>
-      <div class="ending-particles" id="endingParticles"></div>
-    </div>
-  </section>
-
-  <!-- 键盘提示 -->
-  <div class="keyboard-hint" id="keyboardHint">
-    <span data-i18n="keyboardHint">Use ← → keys or scroll wheel to navigate slides</span>
-  </div>
-
-  <!-- 文章入口 -->
-  <div style="position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:200;text-align:center;">
-    <a href="index.html" style="display:inline-block;padding:8px 20px;background:rgba(26,25,41,0.8);backdrop-filter:blur(20px);border:1px solid rgba(91,74,138,0.3);border-radius:10px;color:#A7A9BE;text-decoration:none;font-size:13px;font-family:'Noto Serif SC',Georgia,serif;transition:all 0.3s ease;" onmouseover="this.style.color='#E8A87C';this.style.borderColor='rgba(232,168,124,0.4)'" onmouseout="this.style.color='#A7A9BE';this.style.borderColor='rgba(91,74,138,0.3)'">🏠 返回首页</a>
-  </div>
-
-  <script src="i18n.js"></script>
-  <script src="script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

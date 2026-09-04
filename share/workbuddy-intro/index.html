@@ -435,7 +435,215 @@
         color: var(--gray-600);
       }
 
-      /* ============ P15 — Habit Journey ============ */
+      /* ============ P14 — September Product Update ============ */
+      .release-intro {
+        margin: 0 0 18px;
+        max-width: 880px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--gray-500);
+      }
+      .release-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .release-card {
+        position: relative;
+        min-height: 150px;
+        padding: 18px 20px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: rgba(255,255,255,.88);
+        overflow: hidden;
+      }
+      .release-card::after {
+        content: "";
+        position: absolute;
+        right: -30px;
+        bottom: -46px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: rgba(20,110,245,.045);
+      }
+      .release-card.featured {
+        border-color: rgba(20,110,245,.3);
+        background: rgba(20,110,245,.035);
+      }
+      .release-card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .release-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: #101828;
+        color: #fff;
+        font-size: 16px;
+      }
+      .release-card.featured .release-icon { background: var(--blue); }
+      .release-version {
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #f3f5f8;
+        color: var(--gray-500);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .7px;
+      }
+      .release-card h3 {
+        position: relative;
+        z-index: 1;
+        font-size: 15px;
+        color: var(--black);
+        margin-bottom: 6px;
+      }
+      .release-card p {
+        position: relative;
+        z-index: 1;
+        font-size: 11.5px;
+        line-height: 1.55;
+        color: var(--gray-500);
+      }
+      .release-summary {
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 16px;
+        border-radius: 10px;
+        background: #101828;
+        color: #fff;
+      }
+      .release-summary strong { font-size: 12.5px; }
+      .release-summary span { font-size: 10.5px; color: rgba(255,255,255,.62); }
+      .release-summary a { flex-shrink: 0; color: #9cc1ff; font-size: 10.5px; font-weight: 700; text-decoration: none; }
+
+      /* ============ P15 — Living Library ============ */
+      .library-intro {
+        margin: 0 0 18px;
+        max-width: 880px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--gray-500);
+      }
+      .library-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+        gap: 16px;
+      }
+      .library-panel {
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: rgba(255,255,255,.9);
+      }
+      .library-panel-kicker,
+      .library-app-kicker {
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 1.15px;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      .library-panel h3,
+      .library-app h3 {
+        margin-top: 5px;
+        font-size: 16px;
+        color: var(--black);
+      }
+      .library-flow {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        gap: 8px;
+      }
+      .library-step {
+        min-height: 148px;
+        padding: 14px 13px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+      .library-step-num {
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 14px;
+        background: rgba(20,110,245,.09);
+        color: var(--blue);
+        font-size: 9px;
+        font-weight: 800;
+      }
+      .library-step h4 { font-size: 12.5px; color: var(--black); }
+      .library-step p { margin-top: 7px; font-size: 10.5px; line-height: 1.5; color: var(--gray-500); }
+      .library-step small { margin-top: auto; padding-top: 10px; font-size: 9px; font-weight: 700; color: var(--blue); }
+      .library-app {
+        padding: 20px;
+        border-radius: 12px;
+        background: #101828;
+        color: #fff;
+        box-shadow: 0 14px 34px rgba(15,23,42,.12);
+      }
+      .library-app h3 { color: #fff; }
+      .library-sync {
+        margin: 18px 0 14px;
+        display: grid;
+        grid-template-columns: 1fr 38px 1fr;
+        align-items: center;
+        gap: 8px;
+      }
+      .library-sync-node {
+        min-height: 82px;
+        padding: 12px 10px;
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 9px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background: rgba(255,255,255,.06);
+      }
+      .library-sync-node strong { font-size: 13px; }
+      .library-sync-node span { margin-top: 4px; font-size: 9px; color: rgba(255,255,255,.55); }
+      .library-sync-arrow { text-align: center; color: #9cc1ff; font-size: 18px; }
+      .library-app p { font-size: 11px; line-height: 1.55; color: rgba(255,255,255,.66); }
+      .library-examples {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .library-examples span {
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: rgba(255,255,255,.08);
+        font-size: 9px;
+        color: rgba(255,255,255,.78);
+      }
+      .library-foot {
+        margin-top: 14px;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .library-foot a { color: var(--blue); font-size: 10.5px; font-weight: 700; text-decoration: none; }
+      .library-foot span { font-size: 10.5px; color: var(--gray-400); }
+
+      /* ============ P17 — Habit Journey ============ */
       .slide-body-p15-visual {
         max-width: 1200px;
         padding: 40px var(--slide-px) 32px;
@@ -708,8 +916,9 @@
         .privacy-control-rail { min-height: 0; }
         .privacy-risk-strip { grid-template-columns: 1fr; }
         .privacy-risk-item { border-left: 0; border-top: 1px solid var(--border); }
-        /* P10: Experts */
+        /* P10–P11: Experts + SkillHub */
         .se-grid { grid-template-columns: 1fr; gap: 12px; }
+        .skillhub-layout { grid-template-columns: 1fr !important; }
         .se-side { order: unset; }
         .se-matrix { order: unset; }
         .se-wrap-ext { grid-template-columns: 1fr !important; }
@@ -719,7 +928,10 @@
         .two-col-content { grid-template-columns: 1fr; }
         /* P13: Credits */
         .p7-models-grid { grid-template-columns: 1fr !important; }
-        /* P15: Tips */
+        /* P14–P15: Product update + Library */
+        .library-layout { grid-template-columns: 1fr; }
+        .library-flow { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        /* P17: Tips */
         .tips-grid { grid-template-columns: 1fr 1fr; }
         .habit-step,
         .habit-step.step-two,
@@ -812,7 +1024,14 @@
         .se-bottom { padding: 12px 14px; }
         .se-bottom-text { font-size: 13px; }
         .connector-card { padding: 12px 14px; }
-        /* P14 */
+        /* P14–P15 */
+        .release-grid { grid-template-columns: 1fr; }
+        .release-card { min-height: 0; padding: 14px 16px; }
+        .release-summary { align-items: flex-start; flex-direction: column; }
+        .library-flow { grid-template-columns: 1fr; }
+        .library-step { min-height: 0; }
+        .library-sync { max-width: 360px; }
+        /* P16 */
         .case-header h2 { font-size: 28px; }
         .case-compact-card { padding: 14px 16px; }
         .case-compact-card h3 { font-size: 14px; }
@@ -917,7 +1136,13 @@
         .se-side-label { font-size: 14px; }
         .se-oneliner { font-size: 12px; }
         .connector-card { padding: 10px 12px; gap: 8px; }
-        /* P14 */
+        /* P14–P16 */
+        .release-intro, .library-intro { font-size: 12.5px; }
+        .release-card { padding: 12px 14px; }
+        .release-card h3 { font-size: 14px; }
+        .release-card p { font-size: 11px; }
+        .library-panel, .library-app { padding: 16px; }
+        .library-sync { grid-template-columns: 1fr 30px 1fr; }
         .case-compact-card { padding: 12px 14px; }
         .case-compact-card h3 { font-size: 13px; }
         .prompt-quote { padding: 12px 14px; }
@@ -992,7 +1217,7 @@
             <span class="cover-meta-tag">分享人</span>
             <span class="cover-meta-name">腾讯 · 杨光</span>
             <span class="cover-meta-sep"></span>
-            <span class="cover-meta-date">2026年8月</span>
+            <span class="cover-meta-date">2026年9月</span>
           </div>
           <div class="cover-quote" style="white-space:normal;">
             <blockquote>
@@ -1497,23 +1722,23 @@
           <h2>技能市场 SkillHub：<span class="accent">先逛市场，别自己造轮子。</span></h2>
           <div class="cover-rule"></div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="skillhub-layout" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
             <!-- LEFT: Stats -->
             <div style="border:1px solid var(--border); border-radius:10px; padding:22px 24px; background:var(--bg); display:flex; flex-direction:column; gap:14px;">
-              <h3 style="font-size:16px; font-weight:700; color:var(--black);">超过 11 万个社区技能，持续更新</h3>
+              <h3 style="font-size:16px; font-weight:700; color:var(--black);">可信分发比“数量很多”更重要</h3>
               <div style="display:flex; gap:16px;">
                 <div style="text-align:center;">
-                  <p style="font-size:32px; font-weight:800; color:var(--blue); line-height:1;">11.1 万+</p>
-                  <p style="font-size:12px; color:var(--gray-500);">SkillHub 已收录</p>
+                  <p style="font-size:32px; font-weight:800; color:var(--blue); line-height:1;">4.6 万+</p>
+                  <p style="font-size:12px; color:var(--gray-500);">累计已审核发布个人 Skill</p>
                 </div>
                 <div style="width:1px; background:var(--border);"></div>
                 <div style="text-align:center;">
-                  <p style="font-size:32px; font-weight:800; color:#2f855a; line-height:1;">双重</p>
-                  <p style="font-size:12px; color:var(--gray-500);">安全认证</p>
+                  <p style="font-size:32px; font-weight:800; color:#2f855a; line-height:1;">100%</p>
+                  <p style="font-size:12px; color:var(--gray-500);">Skill 强制安全准入</p>
                 </div>
               </div>
               <p style="font-size:13px; line-height:1.6; color:var(--gray-500);">
-                PDF 处理、办公文档、内容创作、代码审查、会议管理……先搜索再安装。不同技能的兼容性、配置要求与可用范围，以 SkillHub 实时页面和技能说明为准。
+                平台当前明确展示三线并行审核：内容合规过滤、科恩实验室深度漏洞扫描、云鼎实验室 AI 模型安全评估。安装前仍应查看具体 Skill 的安全报告、权限和配置要求。
               </p>
             </div>
             <!-- RIGHT: Tags + MCP -->
@@ -1538,7 +1763,7 @@
             </div>
           </div>
           <div style="display:flex; justify-content:center;">
-            <a href="https://skillhub.cloud.tencent.com/about" target="_blank" rel="noopener" style="font-size:11px; color:var(--blue); text-decoration:none; font-weight:600;">数据来源：SkillHub 官网（2026年8月）&#8599;</a>
+            <a href="https://skillhub.tencent.com/" target="_blank" rel="noopener" style="font-size:11px; color:var(--blue); text-decoration:none; font-weight:600;">数据来源：SkillHub 官网（2026年9月访问）&#8599;</a>
           </div>
         </div>
       </section>
@@ -1643,10 +1868,124 @@
         </div>
       </section>
 
-      <!-- ===== PAGE 14 — 案例：内容创作 ===== -->
+      <!-- ===== PAGE 14 — 2026年9月产品更新 ===== -->
       <section class="slide" id="slide-14">
         <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
-          <p class="section-eyebrow">14 &mdash; 上手案例</p>
+          <p class="section-eyebrow">14 &mdash; 2026年9月产品更新</p>
+          <h2>新功能越来越多，核心是<span class="accent">任务路径更短了。</span></h2>
+          <div class="cover-rule"></div>
+          <p class="release-intro">5.5.0–5.5.2 的变化可以归纳为两件事：更快进入专业场景，更自然地把现实素材交给 AI 继续处理。</p>
+
+          <div class="release-grid">
+            <article class="release-card featured">
+              <div class="release-card-head">
+                <span class="release-icon">&#9673;</span>
+                <span class="release-version">5.5.0</span>
+              </div>
+              <h3>行业 Buddy：从通用工作台进入专业场景</h3>
+              <p>按场景提供专属首页、专家、技能和连接器。不是先研究“该装什么”，而是直接从更贴近行业需求的任务入口开始。</p>
+            </article>
+            <article class="release-card">
+              <div class="release-card-head">
+                <span class="release-icon">&#8645;</span>
+                <span class="release-version">5.5.0</span>
+              </div>
+              <h3>系统分享：微信聊天记录可直接送进任务</h3>
+              <p>macOS 与 Windows 增加系统分享入口，可将微信聊天记录发送到 WorkBuddy，并在提交前预览转发内容。</p>
+            </article>
+            <article class="release-card">
+              <div class="release-card-head">
+                <span class="release-icon">&#9635;</span>
+                <span class="release-version">5.5.0</span>
+              </div>
+              <h3>图片处理：不只生成，还能继续修</h3>
+              <p>新增去文字或水印、图片修复、增强、美颜和透明背景抠图等能力，让已有素材也能进入工作流。</p>
+            </article>
+            <article class="release-card">
+              <div class="release-card-head">
+                <span class="release-icon">&#9654;</span>
+                <span class="release-version">5.5.1</span>
+              </div>
+              <h3>视频生成：创作控制更具体</h3>
+              <p>可选择画面比例、是否带声音，并描述不希望出现的内容；适合先明确约束，再生成可审阅的视频草稿。</p>
+            </article>
+          </div>
+
+          <div class="release-summary">
+            <strong>从“一个通用入口”走向“按场景组织能力”。</strong>
+            <span>5.5.1–5.5.2 还重点改善云助理、自动化、积分明细和本地历史恢复。</span>
+            <a href="https://www.codebuddy.cn/docs/workbuddy/Changelog" target="_blank" rel="noopener">查看官方更新日志 &#8599;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PAGE 15 — 资料库与人机双写 ===== -->
+      <section class="slide" id="slide-15">
+        <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow">15 &mdash; 资料库与人机双写</p>
+          <h2>AI 产物不再是<span class="accent">一次性文件。</span></h2>
+          <div class="cover-rule"></div>
+          <p class="library-intro">生成只是起点。资料库让人、同事与 AI 围绕同一份内容继续修改、审阅、发布和复用，把“交付文件”变成持续生长的工作资产。</p>
+
+          <div class="library-layout">
+            <section class="library-panel">
+              <p class="library-panel-kicker">Living document</p>
+              <h3>一份产物，沿着四步继续生长</h3>
+              <div class="library-flow">
+                <article class="library-step">
+                  <span class="library-step-num">01</span>
+                  <h4>生成</h4>
+                  <p>先让 AI 产出 Word、PPT、Markdown、HTML 或数据表初稿。</p>
+                  <small>从空白到第一版</small>
+                </article>
+                <article class="library-step">
+                  <span class="library-step-num">02</span>
+                  <h4>人机双写</h4>
+                  <p>小改动直接手动改；复杂改写选中内容后交给 AI。</p>
+                  <small>同区编辑，可撤销</small>
+                </article>
+                <article class="library-step">
+                  <span class="library-step-num">03</span>
+                  <h4>协同审阅</h4>
+                  <p>团队成员与 Agent 围绕同一份内容继续评论、修改和确认。</p>
+                  <small>人负责判断</small>
+                </article>
+                <article class="library-step">
+                  <span class="library-step-num">04</span>
+                  <h4>发布与复用</h4>
+                  <p>HTML 可发布为网页；沉淀后的内容还能成为下一次任务的上下文。</p>
+                  <small>从交付到资产</small>
+                </article>
+              </div>
+            </section>
+
+            <aside class="library-app">
+              <p class="library-app-kicker">Light app</p>
+              <h3>轻应用：页面与数据双向同步</h3>
+              <div class="library-sync">
+                <div class="library-sync-node"><strong>HTML</strong><span>界面与交互</span></div>
+                <div class="library-sync-arrow">&#8644;</div>
+                <div class="library-sync-node"><strong>CSV</strong><span>数据底座</span></div>
+              </div>
+              <p>适合把静态网页升级成能记录、筛选和同步数据的轻量工具。功能开放范围以账号与版本为准。</p>
+              <div class="library-examples">
+                <span>项目看板</span><span>库存台账</span><span>个人工作台</span>
+              </div>
+            </aside>
+          </div>
+
+          <div class="library-foot">
+            <a href="https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Knowledge-Base/Cowriting" target="_blank" rel="noopener">人机双写官方文档 &#8599;</a>
+            <span>·</span>
+            <a href="https://cloud.tencent.com.cn/developer/article/2728428" target="_blank" rel="noopener">资料库升级说明 &#8599;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PAGE 16 — 案例：内容创作 ===== -->
+      <section class="slide" id="slide-16">
+        <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow">16 &mdash; 上手案例</p>
           <div class="case-header">
             <span class="case-label">内容创作</span>
             <h2>把一个选题变成<span class="accent">能用的初稿</span>。</h2>
@@ -1691,10 +2030,10 @@
         </div>
       </section>
 
-      <!-- ===== PAGE 15 — 三个好习惯 ===== -->
-      <section class="slide" id="slide-15">
+      <!-- ===== PAGE 17 — 三个好习惯 ===== -->
+      <section class="slide" id="slide-17">
         <div class="slide-body slide-body-p15-visual">
-          <p class="section-eyebrow">15 &mdash; 用好 AI 的习惯</p>
+          <p class="section-eyebrow">17 &mdash; 用好 AI 的习惯</p>
           <h2>把 AI 从“会回答”，<span class="accent">带到“能交付”。</span></h2>
           <div class="cover-rule"></div>
           <p class="habit-intro">不是把要求一次塞满，而是沿着一条清晰路径推进：先说清楚，再分步审阅，最后安全放大。</p>
@@ -1758,10 +2097,10 @@
         </div>
       </section>
 
-      <!-- ===== PAGE 16 — 快速上手 ===== -->
-      <section class="slide" id="slide-16">
+      <!-- ===== PAGE 18 — 快速上手 ===== -->
+      <section class="slide" id="slide-18">
         <div class="slide-body slide-body-p14">
-          <p class="section-eyebrow">16 &mdash; 快速上手</p>
+          <p class="section-eyebrow">18 &mdash; 快速上手</p>
           <h2>你的第一个任务，<span class="accent">七步搞定。</span></h2>
           <div class="cover-rule"></div>
           <ol class="p14-flow">
@@ -1848,10 +2187,10 @@
         </div>
       </section>
 
-      <!-- ===== PAGE 17 — 选一个开始吧 ===== -->
-      <section class="slide" id="slide-17">
+      <!-- ===== PAGE 19 — 选一个开始吧 ===== -->
+      <section class="slide" id="slide-19">
         <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
-          <p class="section-eyebrow">17 &mdash; 选一个开始吧</p>
+          <p class="section-eyebrow">19 &mdash; 选一个开始吧</p>
           <h2>最快的学习方式：<span class="accent">用它做一件真事。</span></h2>
           <div class="cover-rule"></div>
           <p style="font-size:15px; color:var(--gray-500); max-width:880px; line-height:1.6; margin-bottom:24px;">
@@ -1893,10 +2232,10 @@
         </div>
       </section>
 
-      <!-- ===== PAGE 18 — 结尾 ===== -->
-      <section class="slide" id="slide-18">
+      <!-- ===== PAGE 20 — 结尾 ===== -->
+      <section class="slide" id="slide-20">
         <div class="slide-body closing-body">
-          <p class="section-eyebrow">18 &mdash; 结尾</p>
+          <p class="section-eyebrow">20 &mdash; 结尾</p>
           <figure class="epitaph">
             <blockquote>
               &ldquo;他从未长大，<br />但也从未停止成长。&rdquo;
@@ -1944,49 +2283,53 @@
       <div class="bar-left">
         <span class="bar-brand">Work<span class="accent">Buddy</span></span>
         <span class="bar-dash">&mdash;</span>
-        <span class="bar-page" id="barPage">1 / 18</span>
+        <span class="bar-page" id="barPage">1 / 20</span>
       </div>
 
       <div class="bar-timeline" id="barTimeline" aria-label="页面进度">
         <div class="btm-track">
-          <div class="btm-seg" data-seg="0"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="1"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="2"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="3"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="4"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="5"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="6"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="7"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="8"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="9"  style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="10" style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="11" style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="12" style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="13" style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="14" style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="15" style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="16" style="width:5.556%"></div>
-          <div class="btm-seg" data-seg="17" style="width:5.556%"></div>
+          <div class="btm-seg" data-seg="0"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="1"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="2"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="3"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="4"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="5"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="6"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="7"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="8"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="9"  style="width:5%"></div>
+          <div class="btm-seg" data-seg="10" style="width:5%"></div>
+          <div class="btm-seg" data-seg="11" style="width:5%"></div>
+          <div class="btm-seg" data-seg="12" style="width:5%"></div>
+          <div class="btm-seg" data-seg="13" style="width:5%"></div>
+          <div class="btm-seg" data-seg="14" style="width:5%"></div>
+          <div class="btm-seg" data-seg="15" style="width:5%"></div>
+          <div class="btm-seg" data-seg="16" style="width:5%"></div>
+          <div class="btm-seg" data-seg="17" style="width:5%"></div>
+          <div class="btm-seg" data-seg="18" style="width:5%"></div>
+          <div class="btm-seg" data-seg="19" style="width:5%"></div>
         </div>
         <div class="btm-labels">
-          <span data-seg="0"  style="width:5.556%">封面</span>
-          <span data-seg="1"  style="width:5.556%">进化</span>
-          <span data-seg="2"  style="width:5.556%">什么是</span>
-          <span data-seg="3"  style="width:5.556%">怎么工作</span>
-          <span data-seg="4"  style="width:5.556%">能做什么</span>
-          <span data-seg="5"  style="width:5.556%">对比</span>
-          <span data-seg="6"  style="width:5.556%">开始</span>
-          <span data-seg="7"  style="width:5.556%">记忆</span>
-          <span data-seg="8"  style="width:5.556%">隐私</span>
-          <span data-seg="9"  style="width:5.556%">专家团</span>
-          <span data-seg="10" style="width:5.556%">技能</span>
-          <span data-seg="11" style="width:5.556%">助理</span>
-          <span data-seg="12" style="width:5.556%">积分</span>
-          <span data-seg="13" style="width:5.556%">案例</span>
-          <span data-seg="14" style="width:5.556%">习惯</span>
-          <span data-seg="15" style="width:5.556%">上手</span>
-          <span data-seg="16" style="width:5.556%">开始吧</span>
-          <span data-seg="17" style="width:5.556%">结尾</span>
+          <span data-seg="0"  style="width:5%">封面</span>
+          <span data-seg="1"  style="width:5%">进化</span>
+          <span data-seg="2"  style="width:5%">什么是</span>
+          <span data-seg="3"  style="width:5%">怎么工作</span>
+          <span data-seg="4"  style="width:5%">能做什么</span>
+          <span data-seg="5"  style="width:5%">对比</span>
+          <span data-seg="6"  style="width:5%">开始</span>
+          <span data-seg="7"  style="width:5%">记忆</span>
+          <span data-seg="8"  style="width:5%">隐私</span>
+          <span data-seg="9"  style="width:5%">专家团</span>
+          <span data-seg="10" style="width:5%">技能</span>
+          <span data-seg="11" style="width:5%">助理</span>
+          <span data-seg="12" style="width:5%">积分</span>
+          <span data-seg="13" style="width:5%">更新</span>
+          <span data-seg="14" style="width:5%">资料库</span>
+          <span data-seg="15" style="width:5%">案例</span>
+          <span data-seg="16" style="width:5%">习惯</span>
+          <span data-seg="17" style="width:5%">上手</span>
+          <span data-seg="18" style="width:5%">开始吧</span>
+          <span data-seg="19" style="width:5%">结尾</span>
         </div>
       </div>
 

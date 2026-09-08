@@ -204,7 +204,8 @@ grep -n '<meta name="viewport"' articles/ai/*/article-wechat.html  # 只有 widt
 ### 4.4 外部链接与参考来源
 
 - **正文不放任何非公众号文章的外部链接**
-- 参考文献以**纯文本**列于文末（来源名称 + 标题，如"The Information、Reuters、公司 Q2 财报"）
+- 参考文献以**纯文本**列于文末（来源名称 + 标题，如“The Information、Reuters、公司 Q2 财报”）
+- 参考来源编号必须写成显式文本（如 `<span>1.</span>`），不要依赖 `<ol>/<li>` 的自动 marker；微信编辑器可能重置 marker 颜色，导致部分序号在浅色背景下不可见
 
 ---
 

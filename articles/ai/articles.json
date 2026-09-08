@@ -8,7 +8,8 @@
     "status": "draft",
     "editorialStatus": "ready",
     "websiteStatus": "published",
-    "wechatStatus": "unscheduled",
+    "wechatStatus": "drafted",
+    "wechatDraftedAt": "2026-09-08",
     "updatedAt": "2026-09-08",
     "freshnessCheckedAt": "2026-09-08",
     "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-28_hy4-recursive-self-improvement/article-full.html"

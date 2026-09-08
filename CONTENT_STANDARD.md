@@ -48,6 +48,7 @@
 - 新文章应优先维护机器可读母稿（Markdown/MDX 或结构化正文），再生成 `article-full.html`、`article-wechat.html` 与 `poster.html`。存量文章在完成迁移前，任何事实修订必须同步两个 HTML 版本。
 - 发布状态必须拆分：`editorial_status`（编辑成熟度）、`website_status`（网站是否公开）、`wechat_status`（公众号状态）。不得再用一个 `status` 同时表达“内容完成、网站上线、公众号发布”。
 - `wechat_status=published` 只能依据公众号后台真实记录确认；网站页面可访问不代表公众号已经发布。
+- 旧字段 `status` 仅为迁移期兼容字段，不再作为新流程的状态真相源；新增或修订文章必须填写 `editorialStatus`、`websiteStatus`、`wechatStatus`、`updatedAt`、`freshnessCheckedAt` 与 `canonicalUrl`。
 - 微信公众号 API 自动化止于草稿箱；正式发布或定时发布必须由作者在后台人工确认。
 
 **commit 前自检**：

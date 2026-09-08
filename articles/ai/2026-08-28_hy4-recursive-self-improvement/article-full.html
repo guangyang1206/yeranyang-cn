@@ -3,497 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>模型开始造自己了：Hy4 preview 与递归自我改进的第一道裂缝</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<title>Hy4 preview 开始参与自己的研发了｜烨然漫笔</title>
 <style>
-  * { box-sizing: border-box; }
-  body {
-    margin:0; padding:0;
-    background:#0a0a0a;
-    color:#e8e8e8;
-    font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','SF Pro Display','Helvetica Neue',Arial,sans-serif;
-    line-height:1.8;
-    font-size:18px;
-  }
-  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
-  a { color:#5ac8fa; text-decoration:none; }
-  a:hover { text-decoration:underline; }
-
-  /* Hero */
-  .hero {
-    background:linear-gradient(160deg,#0a1a2f 0%,#0a0a0a 100%);
-    padding:80px 20px 60px;
-    text-align:center;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-  .hero .tag {
-    display:inline-block; background:rgba(90,200,250,0.12); color:#5ac8fa;
-    padding:4px 14px; border-radius:12px; font-size:13px; font-weight:500;
-    margin-bottom:20px; letter-spacing:0.5px;
-  }
-  .hero h1 { color:#fff; font-size:38px; font-weight:700; margin:0 0 18px; line-height:1.3; }
-  .hero .sub { color:#cbd5e1; font-size:19px; margin:0 auto 24px; max-width:640px; line-height:1.7; }
-  .hero .meta { color:#666; font-size:14px; margin:0; }
-
-  /* Section */
-  section { padding:48px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
-  h2 { color:#fff; font-size:26px; font-weight:600; margin:0 0 24px; line-height:1.4; }
-  h3 { color:#fff; font-size:21px; font-weight:600; margin:32px 0 14px; }
-  p { margin:0 0 20px; }
-  strong { color:#fff; font-weight:600; }
-
-  /* Quote */
-  .quote {
-    background:rgba(255,255,255,0.05);
-    border-left:3px solid #5ac8fa;
-    padding:20px 24px; border-radius:6px; margin:0 0 24px;
-    color:#cbd5e1; font-size:17px; line-height:1.75;
-  }
-  .quote strong { color:#5ac8fa; }
-
-  /* Stat cards */
-  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin:28px 0; }
-  .stat {
-    background:rgba(90,200,250,0.07);
-    border:1px solid rgba(90,200,250,0.15);
-    border-radius:8px; padding:20px;
-  }
-  .stat .num { font-size:30px; font-weight:700; color:#5ac8fa; line-height:1.2; margin-bottom:6px; }
-  .stat .label { font-size:14px; color:#888; }
-  .stat.gold { background:rgba(212,165,116,0.07); border-color:rgba(212,165,116,0.2); }
-  .stat.gold .num { color:#d4a574; }
-  .stat.green { background:rgba(118,185,0,0.07); border-color:rgba(118,185,0,0.2); }
-  .stat.green .num { color:#76b900; }
-
-  /* Timeline */
-  .tl { border-left:2px solid rgba(255,255,255,0.12); margin:28px 0 0; padding-left:0; list-style:none; }
-  .tl li { position:relative; padding:0 0 28px 28px; }
-  .tl li::before {
-    content:''; position:absolute; left:-7px; top:8px;
-    width:12px; height:12px; border-radius:50%;
-    background:#5ac8fa; border:2px solid #0a0a0a;
-  }
-  .tl li.hi::before { background:#d4a574; }
-  .tl .date { color:#5ac8fa; font-size:14px; font-weight:600; letter-spacing:0.5px; }
-  .tl li.hi .date { color:#d4a574; }
-  .tl .title { color:#fff; font-size:17px; font-weight:600; margin:4px 0 6px; }
-  .tl .desc { color:#888; font-size:15px; line-height:1.7; margin:0; }
-
-  /* Table */
-  .tbl-wrap { overflow-x:auto; margin:24px 0; }
-  table { width:100%; border-collapse:collapse; font-size:15px; }
-  th { color:#fff; text-align:left; padding:12px 14px; border-bottom:2px solid rgba(255,255,255,0.15); font-weight:600; white-space:nowrap; }
-  td { padding:12px 14px; border-bottom:1px solid rgba(255,255,255,0.07); color:#cbd5e1; vertical-align:top; }
-  tr:hover td { background:rgba(255,255,255,0.02); }
-
-  /* Callout */
-  .callout {
-    background:rgba(231,76,60,0.07);
-    border:1px solid rgba(231,76,60,0.2);
-    border-radius:8px; padding:20px 24px; margin:24px 0;
-  }
-  .callout h4 { color:#e74c3c; font-size:16px; margin:0 0 10px; font-weight:600; }
-  .callout p { margin:0; color:#cbd5e1; font-size:16px; }
-
-  /* Chart */
-  .chart-box {
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:8px; padding:24px; margin:28px 0;
-  }
-  .chart-box h4 { color:#fff; font-size:16px; margin:0 0 4px; font-weight:600; }
-  .chart-box .cap { color:#666; font-size:13px; margin:0 0 18px; }
-
-  /* Layer diagram */
-  .layer { border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:18px 20px; margin-bottom:12px; }
-  .layer .lv-tag { display:inline-block; font-size:12px; font-weight:600; padding:2px 10px; border-radius:12px; margin-bottom:8px; }
-  .layer.l1 { background:rgba(118,185,0,0.07); border-color:rgba(118,185,0,0.25); }
-  .layer.l1 .lv-tag { background:rgba(118,185,0,0.18); color:#76b900; }
-  .layer.l2 { background:rgba(243,156,18,0.07); border-color:rgba(243,156,18,0.25); }
-  .layer.l2 .lv-tag { background:rgba(243,156,18,0.18); color:#f39c12; }
-  .layer.l3 { background:rgba(231,76,60,0.07); border-color:rgba(231,76,60,0.25); }
-  .layer.l3 .lv-tag { background:rgba(231,76,60,0.18); color:#e74c3c; }
-  .layer .lv-title { color:#fff; font-size:17px; font-weight:600; margin:0 0 6px; }
-  .layer .lv-desc { color:#cbd5e1; font-size:15px; margin:0; line-height:1.7; }
-
-  /* Refs */
-  .refs { font-size:15px; color:#888; line-height:2; }
-  .refs li { margin-bottom:6px; }
-
-  footer { padding:48px 20px 60px; text-align:center; color:#555; font-size:14px; }
-
-  @media (max-width:640px) {
-    .hero { padding:56px 20px 40px; }
-    .hero h1 { font-size:28px; }
-    .hero .sub { font-size:17px; }
-    body { font-size:17px; }
-    h2 { font-size:22px; }
-    .stats { grid-template-columns:1fr; }
-  }
+*{box-sizing:border-box}body{margin:0;background:#07111f;color:#dbe7f3;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.85;font-size:17px}a{color:#7dd3fc}.hero{padding:76px 20px 58px;background:linear-gradient(155deg,#0b2942,#07111f 66%);border-bottom:1px solid #18344d}.wrap{max-width:820px;margin:0 auto;padding:0 22px}.eyebrow{display:inline-block;padding:5px 13px;border:1px solid #2c5875;border-radius:20px;color:#9bdcf7;font-size:13px;letter-spacing:1px}.hero h1{font-size:42px;line-height:1.3;color:#fff;margin:20px 0 16px}.hero .lead{font-size:20px;color:#b9cad8;max-width:720px;margin:0 0 20px}.meta{font-size:14px;color:#7990a3}main section{padding:46px 0;border-bottom:1px solid #153048}h2{font-size:27px;line-height:1.45;color:#fff;margin:0 0 20px}h3{font-size:20px;color:#fff;margin:28px 0 10px}p{margin:0 0 18px}.summary{padding:22px 24px;border-left:4px solid #38bdf8;background:#0d2539;border-radius:0 8px 8px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}.card{padding:20px;border:1px solid #21425a;border-radius:10px;background:#0b1d2d}.card.good{border-color:#246849}.card.mid{border-color:#786321}.card.limit{border-color:#7a3540}.tag{font-size:12px;font-weight:700;letter-spacing:.5px;color:#7dd3fc}.card.good .tag{color:#86efac}.card.mid .tag{color:#fde68a}.card.limit .tag{color:#fca5a5}.card h3{font-size:18px;margin:8px 0}.card p{font-size:15px;color:#b8c9d7;margin:0}.table-wrap{overflow-x:auto;margin:22px 0}table{width:100%;border-collapse:collapse;font-size:15px}th,td{padding:11px 13px;border:1px solid #21425a;text-align:left;vertical-align:top}th{background:#10283c;color:#fff}td{color:#c3d2de}.bars{padding:22px;border:1px solid #21425a;border-radius:10px;background:#0b1d2d}.bar-row{display:grid;grid-template-columns:120px 1fr 66px;gap:12px;align-items:center;margin:14px 0}.bar-track{height:18px;background:#142e42;border-radius:9px;overflow:hidden}.bar-fill{height:100%;background:#38bdf8;border-radius:9px}.caption{font-size:13px;color:#7890a3}.callout{padding:20px 22px;background:#251c11;border:1px solid #6f542b;border-radius:8px;color:#f4d9a7}.source{padding:18px 20px;border:1px solid #21425a;border-radius:8px;background:#0b1d2d;margin:12px 0}.source strong{color:#fff}.source p{font-size:14px;color:#aebfcd;margin:7px 0}.badge{display:inline-block;padding:2px 8px;border-radius:12px;background:#17344a;color:#9bdcf7;font-size:12px}.update{border-left:3px solid #64748b;padding-left:18px;margin:18px 0}.update time{color:#93c5fd;font-size:14px}.small{font-size:14px;color:#8ba0b1}footer{padding:48px 20px 64px;text-align:center;color:#6f8799;font-size:14px}@media(max-width:720px){body{font-size:16px}.hero{padding-top:54px}.hero h1{font-size:31px}.hero .lead{font-size:18px}.grid{grid-template-columns:1fr}.bar-row{grid-template-columns:92px 1fr 58px}h2{font-size:23px}}
 </style>
 </head>
 <body>
-
-<!-- Hero -->
-<div class="hero">
+<header class="hero">
   <div class="wrap">
-    <span class="tag">腾讯混元 · Hy4 preview · 技术趋势</span>
-    <h1>模型开始造自己了</h1>
-    <p class="sub">Hy4 preview 把 31.8% 的推理提速写进了自己的成绩单——这是"递归自我改进"的第一道裂缝，还是又一个被用滥的词？</p>
-    <p class="meta">2026年8月28日 · AI 深度解读 · 艾AI</p>
+    <span class="eyebrow">技术观察 · 2026-09-08 复核版</span>
+    <h1>Hy4 preview 开始参与自己的研发了</h1>
+    <p class="lead">腾讯把“模型参与模型研发”写进了官方发布。进展值得记录，但 31.8% 仍是缺少公开复现细节的官方测量，“递归自我改进”也远未等于自主进化。</p>
+    <p class="meta">烨然漫笔 · 艾AI · 首发 2026-08-28 · 更新 2026-09-08</p>
   </div>
-</div>
+</header>
+<main class="wrap">
+  <section>
+    <div class="summary"><strong>一句话判断：</strong>Hy4 preview 展示的是“模型进入人类主导的研发闭环”，不是“模型自主决定如何制造下一代自己”。前者已经发生，后者没有公开证据。</div>
+    <p style="margin-top:24px">8 月 28 日，腾讯发布并开源 Hy4 preview。腾讯官网与官方模型仓库可以互相印证的基础信息包括：MoE 架构、770B 总参数、每个 token 激活 49B、超过 1M tokens 的上下文窗口，以及 Apache 2.0 许可证。</p>
+    <p>真正值得讨论的，是腾讯公司发布页中一段更少见的描述：Hy4 preview 首次参与训练方法、数据策略、评估体系和底层算子的自动优化；模型提出方案、运行实验并依据结果继续迭代，代码、日志和反馈进入后续探索。</p>
+    <p>腾讯把这称为“初步的递归自我改进闭环”。这个词很大，所以本文只沿着公开证据往前走，不替它补完故事。</p>
+  </section>
 
-<div class="wrap">
-
-<!-- 导语 -->
-<section>
-  <p>今天，腾讯混元发布并开源了新一代大语言模型 <strong>Hy4 preview</strong>：总参数 770B，激活参数 49B，上下文长度 1M。参数翻倍、上下文扩大这类消息，今年已经听得太多了，本身不构成新闻。</p>
-
-  <div class="quote">
-    "Hy4 preview 在自身研发的全链路过程中发挥了积极价值，<strong>首次参与训练方法、数据策略、评估体系和底层算子的自动优化</strong>。模型提出方案、运行实验并根据结果继续迭代，实验产生的代码、日志和反馈进入下一轮探索，形成初步的<strong>递归自我改进闭环</strong>。"
-    <span style="color:#666;font-size:14px;">—— 腾讯混元官方通稿</span>
-  </div>
-
-  <p>真正值得停下来看的，是这段很容易被划过去的描述。翻译成大白话：这个模型不只是被训练的产物，它还下场参与了"怎么训练自己"这件事——包括挑数据、定评估标准、优化底层算子。其中有一个可以验证的硬数字：模型通过自主分析推理系统瓶颈、围绕算子融合与通信优化开展多轮优化，让端到端吞吐相比基线<strong>提升了 31.8%</strong>。</p>
-
-  <p>31.8% 这个数字之所以重要，不是因为它有多大，而是因为<strong>它是模型自己干出来的，而且能被测量</strong>。这篇文章想讲清楚三件事：这个"闭环"在工程上到底是什么形态；它能不能算"递归自我改进"；以及它和同一天另一位大佬提出的质疑，构成了怎样的一幅图景。</p>
-</section>
-
-<!-- Part 1 -->
-<section>
-  <h2>一、先把成绩单的口径说清楚</h2>
-
-  <p>在聊那些激动人心的部分之前，先花一点时间把这个模型的"能打程度"讲明白，因为这里最容易产生误解。</p>
-
-  <p>Hy4 preview 在模型尺寸、上下文长度、数据规模上都做了显著扩展，官方的定位是"稳居开源模型第一梯队"。支撑这个说法的核心数据，来自腾讯内部组织的一次盲测：<strong>163 名内部专家、203 个工程任务</strong>，Hy4 preview 均分 <strong>2.99/4</strong>，略优于 GLM 5.3 的 2.92 和 Kimi K3 的 2.94。</p>
-
-  <div class="chart-box">
-    <h4>内部盲测得分对比</h4>
-    <p class="cap">腾讯内部 163 名专家、203 个工程任务盲测，满分 4 分。数据来自腾讯官方通稿，非第三方公开榜单。</p>
-    <canvas id="chartBlind" height="200"></canvas>
-  </div>
-
-  <p>这组数字需要加三个注脚，否则很容易被误读：</p>
-
-  <h3>第一，这是腾讯自己组织的内部盲测</h3>
-  <p>不是第三方公开榜单。163 名专家来自腾讯内部，203 个工程任务的选取标准、评分细则都没有对外公开。它的参考价值在于"腾讯用自己最熟悉的业务场景做了横向对比"，但它不等于行业公认的排名。</p>
-
-  <h3>第二，领先幅度是 0.05~0.07 分，满分 4 分</h3>
-  <p>用"略优于"来描述是准确的，用"碾压""全面超越"就是失实了。而且 2.99/4 这个绝对分数本身也说明，在最难的工程任务上，模型离"可靠交付"还有明显距离。</p>
-
-  <h3>第三，盲测对比的是特定时间点上的特定版本</h3>
-  <p>GLM 5.3、Kimi K3 都在持续迭代，这个横截面结论的时效性有限。</p>
-</section>
-
-<!-- Part 2 -->
-<section>
-  <h2>二、真正的新闻：31.8% 是谁干出来的</h2>
-
-  <p>现在回到开头那段话。官方提到的"递归自我改进闭环"，实际上包含好几个层次，它们的可靠程度并不相同，需要分开看。</p>
-
-  <div class="layer l1">
-    <span class="lv-tag">可靠度高 · 可测量</span>
-    <p class="lv-title">第一层：推理基础设施的自我优化</p>
-    <p class="lv-desc">模型通过自主分析推理系统瓶颈，围绕算子融合、通信优化等方向开展多轮优化，端到端吞吐相较基线提升 <strong>31.8%</strong>，且在不同上下文长度和并发度下均取得稳定收益。这一层可信度高，因为产出物是<strong>可测量、可复现的工程结果</strong>。模型在这里更像一个不知疲倦、能快速试错的性能工程师：读 profile 找瓶颈 → 提出优化方案 → 跑 benchmark → 看结果决定下一轮怎么改。</p>
-  </div>
-
-  <div class="layer l2">
-    <span class="lv-tag">中等 · 缺量化指标</span>
-    <p class="lv-title">第二层：参与数据策略与评估体系的优化</p>
-    <p class="lv-desc">官方表述是模型"参与训练方法、数据策略、评估体系的自动优化"，通过"提出方案、运行实验、根据结果继续迭代"的方式工作。这一层的分量比第一层重得多，因为数据配比和评估标准直接决定了模型会长成什么样。但恰恰是这一层，公开信息里<strong>没有给出可量化的效果指标</strong>——我们不知道模型参与之后，数据策略变好了多少，评估体系改进了多少。更审慎的理解是：这仍是"辅助"角色，人类团队保留最终决策权。</p>
-  </div>
-
-  <div class="layer l3">
-    <span class="lv-tag">需警惕的误读</span>
-    <p class="lv-title">第三层：自主设定研发方向 —— 尚未发生</p>
-    <p class="lv-desc">把三层打包理解成"AI 已经能自己造出更强的自己了"，是目前最常见的误读。从公开信息看，Hy4 做的是<strong>在人类设定的目标和框架内，加速工程迭代</strong>，而不是自主决定"下一代模型应该长什么样"。这两者之间，还隔着很远的距离。</p>
-  </div>
-</section>
-
-<!-- Part 3 -->
-<section>
-  <h2>三、同一天的另一半：Rich Sutton 说，这条路可能走不通</h2>
-
-  <p>巧的是，就在 Hy4 preview 发布的前一天，被称为"强化学习之父"的 Rich Sutton 在一场访谈里，给出了一个几乎针锋相对的判断。</p>
-
-  <div class="quote">
-    今天的大模型可能已经陷入了<strong>"局部最优"</strong>。模型虽然摆脱了人工规则，却重新被"人类已知的东西"限制住了：互联网数据总量有限，而合成数据仍然需要人来决定生成什么。更关键的是，<strong>模型一旦上线，核心权重基本就冻结了，不具备持续学习的能力</strong>。
-    <span style="color:#666;font-size:14px;">—— Rich Sutton，红杉资本访谈（2026-08-27）</span>
-  </div>
-
-  <p>因此他认为，继续堆 GPU、继续 Scaling 未必是出路。这个判断之所以有分量，是因为 Sutton 正是《苦涩的教训》（The Bitter Lesson）的作者——那篇文章是整个 Scaling 路线的思想基石之一。现在由他本人出来修正自己的框架，这件事本身就是一个信号。</p>
-
-  <p>把 Sutton 的质疑和 Hy4 的实践放在一起看，会出现一个有意思的对照：他们其实在说<strong>同一件事的两个侧面</strong>。</p>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead>
-        <tr><th>维度</th><th>Rich Sutton 的关切</th><th>Hy4 preview 的进展</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>问题定位</strong></td>
-          <td>模型上线后权重冻结，无法从真实交互中持续学习</td>
-          <td>模型在研发阶段加速迭代，提升研发效率</td>
-        </tr>
-        <tr>
-          <td><strong>性质</strong></td>
-          <td>能力层面的断点</td>
-          <td>工程层面的闭环</td>
-        </tr>
-        <tr>
-          <td><strong>可验证性</strong></td>
-          <td>理论判断，尚无工程解法</td>
-          <td>31.8% 吞吐提升，可测量</td>
-        </tr>
-        <tr>
-          <td><strong>时间窗口</strong></td>
-          <td>部署后（在线）</td>
-          <td>研发中（离线）</td>
-        </tr>
-        <tr>
-          <td><strong>相互关系</strong></td>
-          <td colspan="2" style="color:#f39c12;">Hy4 <strong>并未回答</strong> Sutton 的问题。它证明的是"模型能帮我们更快地把模型造出来"，不是"模型能在部署后继续学习"。</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p>换句话说，这是两条不同的路：一条提升研发效率，一条追求在线适应。目前看，前者的可行性已经被部分验证，后者仍然是开放问题。</p>
-</section>
-
-<!-- Part 4 -->
-<section>
-  <h2>四、"为生产力而生"，到底体现在哪</h2>
-
-  <p>抛开那些宏大的概念，Hy4 preview 的定位其实很实在——官方给它的标签是"<strong>为生产力而生</strong>"。具体做法有两个：一是和腾讯内部软件工程、游戏、金融、安全等领域的专家共建高质量数据；二是和 WorkBuddy 这类产品做深度协同（Co-Design）。这种"模型 + 产品"协同设计的思路，在几个具体场景上的落点相当清晰：</p>
-
-  <div class="stats">
-    <div class="stat">
-      <div class="num">软件工程</div>
-      <div class="label">增强长程开发任务的理解、规划、调试与验证能力，提升前端开发的视觉审美与交互质量。重点是"长程"——跨多文件、多步骤的持续推进。</div>
+  <section>
+    <h2>一、把“参与自身研发”拆成三层</h2>
+    <div class="grid">
+      <article class="card good">
+        <span class="tag">有量化结果</span>
+        <h3>推理基础设施优化</h3>
+        <p>腾讯称模型围绕算子融合、通信优化开展多轮实验，端到端吞吐相较其基线提升 31.8%。</p>
+      </article>
+      <article class="card mid">
+        <span class="tag">有描述，缺单项指标</span>
+        <h3>训练与评估环节</h3>
+        <p>官方确认模型参与训练方法、数据策略和评估体系优化，但未披露各环节的增益与人类介入程度。</p>
+      </article>
+      <article class="card limit">
+        <span class="tag">没有公开证据</span>
+        <h3>自主设定研发方向</h3>
+        <p>公开资料不支持模型脱离人类目标、权限和验收标准，自主决定下一代模型该往哪里走。</p>
+      </article>
     </div>
-    <div class="stat">
-      <div class="num">办公分析</div>
-      <div class="label">提升复杂办公环境理解与金融分析能力，优化数据分析、跨文件协作，完成从信息处理到文档、表格与演示文稿交付的完整流程。</div>
+    <p>因此，“模型开始参与制造自己”可以作为便于理解的比喻；“模型已经能自己造自己”则把参与、辅助、自主三种不同程度混在了一起。</p>
+  </section>
+
+  <section>
+    <h2>二、31.8% 是量化结果，不是独立验证</h2>
+    <p>旧稿曾把 31.8% 写成“可复现的硬数字”。复核后，这个表述被撤回。</p>
+    <p>公开发布页确实给出了 31.8%，也说明了算子融合、通信优化以及不同上下文长度、并发度下的稳定收益。但公开材料没有披露完整基线、硬件配置、批量大小、测量区间、实验日志或复现代码。外部读者无法仅凭现有材料重现实验。</p>
+    <div class="callout"><strong>更准确的写法：</strong>“腾讯称，Hy4 preview 参与推理基础设施优化后，端到端吞吐相较其内部基线提升 31.8%。”这既保留了信息，也保留了来源边界。</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>判断</th><th>结论</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td>数字是否有一手来源</td><td>有</td><td>腾讯公司中英文发布页明确列示</td></tr>
+          <tr><td>是否有公开实验细节</td><td>不足</td><td>缺少完整基线、环境和统计方法</td></tr>
+          <tr><td>能否称为独立验证</td><td>不能</td><td>目前是公司自报结果，未见第三方复现</td></tr>
+          <tr><td>是否仍有信息价值</td><td>有</td><td>它对应具体工程目标，比抽象能力口号更可讨论</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="stat">
-      <div class="num">游戏开发</div>
-      <div class="label">增强"一句话需求直接生成可玩原型"能力，熟练使用游戏引擎，支持多轮交互持续完善复杂项目。</div>
+  </section>
+
+  <section>
+    <h2>三、内部盲测：可以参考，不能定榜</h2>
+    <p>腾讯官方模型仓库披露：163 名内部专家评估 203 个工程任务，Hy4 preview 平均 2.99/4，Kimi K3 为 2.94/4，GLM-5.3 为 2.92/4。官方用词是“slightly ahead”，即“略微领先”。</p>
+    <div class="bars" aria-label="腾讯内部盲测均分图">
+      <div class="bar-row"><span>Hy4 preview</span><div class="bar-track"><div class="bar-fill" style="width:99.7%"></div></div><strong>2.99</strong></div>
+      <div class="bar-row"><span>Kimi K3</span><div class="bar-track"><div class="bar-fill" style="width:98%"></div></div><strong>2.94</strong></div>
+      <div class="bar-row"><span>GLM-5.3</span><div class="bar-track"><div class="bar-fill" style="width:97.3%"></div></div><strong>2.92</strong></div>
+      <p class="caption">视觉从 0 到 3.0 缩放，仅用于显示细小差异；原始满分为 4。数据来自腾讯内部盲测，不是第三方公开榜单。</p>
     </div>
-    <div class="stat">
-      <div class="num">科学研究</div>
-      <div class="label">提升复杂科研问题的理解、推理与求解能力，在 AI 研发、分子动力学模拟、凝聚态物理、基础数学等场景均有进展。</div>
+    <p>这组数据只能说明：在腾讯选取的工程任务与评估流程中，三款模型表现接近，Hy4 preview 的平均分略高。任务集、评分细则、模型调用配置和完整样本未公开，不能据此推出“全面领先”。</p>
+  </section>
+
+  <section>
+    <h2>四、它没有回答持续学习问题</h2>
+    <p>在 8 月 18 日发布的红杉资本访谈中，Rich Sutton 与 Khurram Javed 讨论了当前模型的一个结构性限制：模型在训练完成后通常停止更新权重。用户可以增加上下文，却不能让自己的模型持续改写内部知识。</p>
+    <p>这与 Hy4 preview 的进展发生在两个时间窗口：</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>维度</th><th>Hy4 preview 官方披露</th><th>Sutton / Javed 讨论</th></tr></thead>
+        <tbody>
+          <tr><td>发生阶段</td><td>研发和实验阶段</td><td>产品部署与长期使用阶段</td></tr>
+          <tr><td>目标</td><td>加快方案、实验和基础设施优化</td><td>让模型从持续经验中更新</td></tr>
+          <tr><td>权重持续更新</td><td>未展示</td><td>正是要解决的问题</td></tr>
+          <tr><td>当前结论</td><td>出现了研发自动化案例</td><td>仍是开放研究问题</td></tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-</section>
+    <p>所以，Hy4 preview 没有推翻 Sutton 的质疑；Sutton 的质疑也不否定研发阶段自动化的价值。</p>
+  </section>
 
-<!-- Part 5 -->
-<section>
-  <h2>五、价格、节奏，以及一个容易被忽略的信号</h2>
+  <section>
+    <h2>五、参数、价格和已知限制</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>项目</th><th>官方披露</th><th>本文处理</th></tr></thead>
+        <tbody>
+          <tr><td>模型名称</td><td>Hy4 preview</td><td>保持小写 preview，不写成已发布正式版</td></tr>
+          <tr><td>规模</td><td>770B 总参数；49B/token 激活</td><td>与官方模型仓库一致</td></tr>
+          <tr><td>上下文</td><td>超过 1M tokens</td><td>不简化为“准确等于 1M”</td></tr>
+          <tr><td>许可证</td><td>Apache License 2.0</td><td>来自官方仓库</td></tr>
+          <tr><td>发布页价格</td><td>输入 6 元；输出 18 元；缓存命中最低 0.3 元 / 百万 tokens</td><td>注明为发布页列示价格，实际以控制台为准</td></tr>
+          <tr><td>已知限制</td><td>复杂任务思考时间偏长；有过度自我验证倾向</td><td>来自官方仓库 Known Limitations</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>“preview”不是装饰。腾讯自己的模型仓库将它定义为 Hy4 的早期版本，并主动列出了思考偏长、过度验证等已知问题。评价它时，应该把“公开权重”和“尚未定型”同时放在桌面上。</p>
+  </section>
 
-  <h3>定价继续走普惠路线</h3>
-  <p>输入 6 元 / 百万 tokens，输出 18 元 / 百万 tokens，缓存命中 0.3 元 / 百万 tokens。作为对照，本周阿里发布的 Qwen3.8-Flash 官方称输入 1 元、输出 3 元 / 百万 tokens。两者定位不同（Hy4 是 770B 旗舰级，Qwen3.8-Flash 走极致性价比路线），但价格带的整体下移是个明确趋势。</p>
+  <section>
+    <h2>六、我的判断：变化发生在研发组织里</h2>
+    <p>Hy4 preview 目前最重要的意义，不是某个模型突然获得了“自我进化”能力，而是模型开始成为模型研发流水线的一部分。</p>
+    <p>性能分析、候选方案生成、实验执行、日志阅读和下一轮建议，本来都是工程团队的工作。模型进入这些环节之后，团队可能用同样的人力探索更多方案，也可能更快暴露失败路径。</p>
+    <p>但这个闭环要可靠，仍然离不开人类设定目标、限制权限、审查数据、验证结果和决定是否上线。把它当成研发助手，已经很重要；把它写成自主研发主体，证据还不够。</p>
+  </section>
 
-  <div class="chart-box">
-    <h4>本周新发布模型输入价格对比</h4>
-    <p class="cap">单位：元 / 百万 tokens（输入侧）。均为官方公布价格，定位不同仅供参照。</p>
-    <canvas id="chartPrice" height="180"></canvas>
-  </div>
+  <section>
+    <h2>方法附录：这篇文章如何核验</h2>
+    <ol>
+      <li>模型规格、盲测、已知限制优先使用腾讯官方模型仓库和 Hugging Face 官方模型卡交叉确认。</li>
+      <li>“参与自身研发”、31.8% 和价格使用腾讯公司中英文发布页；由于模型仓库未给出相应实验方法，保留“官方称”限定。</li>
+      <li>持续学习部分只采用红杉资本原始访谈文字稿，不再依赖中文媒体转述。</li>
+      <li>删除与主论点无关、截至初稿时仅有媒体转引的融资与交易时间线；不让边缘信息扩大核验面。</li>
+      <li>所有结论分为“官方事实”“官方测量”“作者判断”三类，避免互相替代。</li>
+    </ol>
+  </section>
 
-  <h3>落地渠道</h3>
-  <p>Hy4 preview 已开源，并在 WorkBuddy / CodeBuddy 国内版及国际版、元宝、ima 等腾讯产品同步首发；API 通过腾讯云 TokenHub 和 OpenRouter 接入。WorkBuddy / CodeBuddy 还开展了为期两周的限时免费活动，上一代 Hy3 的免费期延长至 9 月 30 日。</p>
+  <section>
+    <h2>逐条来源</h2>
+    <div class="source">
+      <span class="badge">一手 · 公司发布</span>
+      <p><strong>腾讯公司：《腾讯发布并开源 Hy4 preview》</strong>（2026-08-28）</p>
+      <p>用于核验发布、参数、上下文、内部盲测、自身研发参与、31.8% 吞吐、价格和产品渠道。</p>
+      <a href="https://www.tencent.com/zh-cn/tencent-releases-and-open-sources-tencent-hy4-preview/">https://www.tencent.com/zh-cn/tencent-releases-and-open-sources-tencent-hy4-preview/</a>
+    </div>
+    <div class="source">
+      <span class="badge">一手 · 模型仓库</span>
+      <p><strong>Tencent-Hunyuan/Hy4-preview</strong></p>
+      <p>用于核验架构、参数、上下文、盲测细项、Apache 2.0 许可证、部署方式和已知限制。</p>
+      <a href="https://github.com/Tencent-Hunyuan/Hy4-preview">https://github.com/Tencent-Hunyuan/Hy4-preview</a>
+    </div>
+    <div class="source">
+      <span class="badge">一手 · 模型卡</span>
+      <p><strong>tencent/Hy4-preview · Hugging Face</strong></p>
+      <p>与 GitHub 模型仓库交叉确认模型规格、权重与许可证。</p>
+      <a href="https://huggingface.co/tencent/Hy4-preview">https://huggingface.co/tencent/Hy4-preview</a>
+    </div>
+    <div class="source">
+      <span class="badge">一手 · 原始访谈</span>
+      <p><strong>Sequoia Capital：Rich Sutton and Khurram Javed: Why AI Models Stop Learning, and How to Start It Again</strong>（2026-08-18）</p>
+      <p>用于核验部署后权重停止更新与持续学习的讨论。</p>
+      <a href="https://sequoiacap.com/podcast/rich-sutton-and-khurram-javed-why-ai-models-stop-learning-and-how-to-start-it-again">https://sequoiacap.com/podcast/rich-sutton-and-khurram-javed-why-ai-models-stop-learning-and-how-to-start-it-again</a>
+    </div>
+  </section>
 
-  <h3>迭代节奏本身也是信息</h3>
-  <p>自今年 2 月重建基础设施以来，混元平均每两个月迭代一个大版本，采取"preview 先行、正式版跟进"的方式。把未完全定型的 preview 版本先放出来收集真实反馈，再用反馈驱动下一版——这个动作本身，其实就是"把真实世界的反馈引入研发过程"的一种轻量化实践，和前面讲的自我改进闭环在思路上是一致的。</p>
-
-  <p>按照这个节奏，Hy4 的正式版预计也将在近期陆续上线。对开发者来说，值得关注的不是今天这个 preview 的分数，而是<strong>两个月后正式版会把今天的哪些短板补上</strong>。</p>
-</section>
-
-<!-- Part 6 -->
-<section>
-  <h2>六、几个需要说清楚的边界</h2>
-
-  <div class="callout">
-    <h4>边界一：官方描述 ≠ 独立验证</h4>
-    <p>"递归自我改进"目前是腾讯官方对自身研发过程的描述，没有配套技术报告或第三方复现。31.8% 的吞吐提升是可测量的工程结果，但"递归自我改进闭环"这个概念的成立范围，还需要更多细节披露才能评估。</p>
-  </div>
-
-  <div class="callout">
-    <h4>边界二：参与研发 ≠ 自主研发</h4>
-    <p>从公开表述看，Hy4 是在人类设定的框架内加速迭代，不是自主设定研发方向。理解成"AI 已经开始自己造自己"是过度延伸；理解成"又一场营销话术"也不公平——31.8% 是真实的工程收益。更准确的说法是：<strong>这是工程自动化的实质性进展</strong>。</p>
-  </div>
-
-  <div class="callout">
-    <h4>边界三：内部盲测不能当行业排名用</h4>
-    <p>163 名专家、203 个工程任务的盲测均分 2.99/4，领先 GLM 5.3 与 Kimi K3 的幅度在 0.05~0.07 分区间。样本规模、任务选取、评分标准均未公开，不宜直接等同于第三方权威评测结论。</p>
-  </div>
-
-  <div class="callout">
-    <h4>边界四：这不构成对 Sutton 质疑的回应</h4>
-    <p>模型在研发阶段加速迭代，与模型在部署后持续学习，是两个不同的问题。后者涉及在线权重更新、灾难性遗忘、安全边界等一系列尚未解决的难题。Hy4 的进展不意味着 Scaling 的天花板被突破了。</p>
-  </div>
-
-  <div class="callout">
-    <h4>边界五：不必急着上升到"AI 自我进化"</h4>
-    <p>过去几年，"递归自我改进""AI 造 AI"这类词被过度使用，往往承载着远超事实的想象。这次的实际情况是：一个模型在明确的工程目标（提升推理吞吐）下，通过自动化的试错循环取得了可测量的优化效果。这已经是很实在的进步，但它的边界也就在这里。</p>
-  </div>
-</section>
-
-<!-- 时间线 -->
-<section>
-  <h2>附：本周 AI 关键事件时间线</h2>
-  <p style="color:#888;font-size:15px;">2026-08-22 ~ 2026-08-28，按发生时间倒序。</p>
-  <ul class="tl">
-    <li class="hi">
-      <div class="date">08-28</div>
-      <div class="title">腾讯混元发布并开源 Hy4 preview</div>
-      <p class="desc">总参 770B / 激活 49B / 上下文 1M。官方称首次参与自身训练方法、数据策略、评估体系与底层算子优化，端到端推理吞吐提升 31.8%。</p>
-    </li>
-    <li class="hi">
-      <div class="date">08-28</div>
-      <div class="title">DeepSeek 寻求 74 亿美元融资，估值 740 亿美元</div>
-      <p class="desc">较 6 月首轮逾 500 亿美元估值上涨近 50%。媒体报道其年化收入（ARR）约 4 亿~5 亿美元区间——注意这是 ARR，不是全年实际营收。</p>
-    </li>
-    <li>
-      <div class="date">08-27</div>
-      <div class="title">英伟达同意以 129 亿美元收购 Hugging Face</div>
-      <p class="desc">约为 HF 年化收入（约 1.5 亿美元）的 80 倍。去年 HF 曾拒绝英伟达 5 亿美元投资（当时估值 70 亿美元）。</p>
-    </li>
-    <li>
-      <div class="date">08-27</div>
-      <div class="title">Anthropic 开放 Model Hardware Standard 研究预览</div>
-      <p class="desc">让 AI 代理并行操作显微镜、液体处理仪、机械臂等物理设备。</p>
-    </li>
-    <li>
-      <div class="date">08-27</div>
-      <div class="title">DeepMind 试点全球首个"双盲"AI 评估</div>
-      <p class="desc">在密码学安全环境运行私有基准，模型方测试前无法获知题目。</p>
-    </li>
-    <li>
-      <div class="date">08-27</div>
-      <div class="title">MiniMax 披露：8 月 ARR 超 8 亿美元</div>
-      <p class="desc">2 月约 1.5 亿美元；上半年实际收入 1.166 亿美元、同比 +283.1%；B 端占比升至 80%。</p>
-    </li>
-    <li class="hi">
-      <div class="date">08-27</div>
-      <div class="title">Rich Sutton：大模型或陷"局部最优"</div>
-      <p class="desc">指出模型上线后核心权重冻结、缺乏持续学习能力，继续堆 GPU 与 Scaling 未必是出路。</p>
-    </li>
-    <li>
-      <div class="date">08-26 晚</div>
-      <div class="title">智谱上线并开源 GLM-5.3-Flash（320B-A18B）</div>
-      <p class="desc">GLM-5 系列首个原生多模态模型，AA 综合智能指数 57 分。此前以匿名模型 Ox Alpha 在 OpenCode / OpenRouter 测试。</p>
-    </li>
-    <li>
-      <div class="date">08-26 晚</div>
-      <div class="title">阿里发布并开源 Qwen3.8-Flash / Flash-Next</div>
-      <p class="desc">主模型 125B + 51B N-gram Embedding，每 token 激活 6B。官方称训练成本较 Qwen3.7-Plus 降近 90%。Next 为 Qwen4 架构技术预览。</p>
-    </li>
-    <li>
-      <div class="date">08-25</div>
-      <div class="title">基元律动完成数千万美元融资</div>
-      <p class="desc">弘晖基金领投，同步启动 API 平台公测，定位"中国版 OpenRouter"。</p>
-    </li>
-  </ul>
-</section>
-
-<!-- 写在最后 -->
-<section>
-  <h2>写在最后</h2>
-  <p>如果把今天的消息压缩成一句话，大概是：<strong>模型开始参与制造自己了，但还远远谈不上"自己造自己"。</strong></p>
-  <p>31.8% 的推理吞吐提升，是一个安静但扎实的数字。它不像"参数突破万亿"那样夺人眼球，但它指向的是另一条曲线——当 Scaling 的边际收益开始被讨论、当"局部最优"的质疑被提出来的时候，让模型参与自己的研发与优化，可能是为数不多可以验证的替代路径之一。</p>
-  <p>这条路能走多远，取决于一个关键问题：模型能不能从"优化别人给它定好的目标"，走到"提出值得优化的目标"。这一步目前还没有任何公开证据表明已经实现。</p>
-  <p>不过话说回来，两个月一个版本的迭代节奏，意味着我们不用等太久就能看到下一个答案。</p>
-</section>
-
-<!-- 参考来源 -->
-<section>
-  <h2>参考来源</h2>
-  <ol class="refs">
-    <li>钛媒体，2026-08-28，《腾讯混元 Hy4 preview 发布并开源》</li>
-    <li>快科技（经新浪财经转引），2026-08-28，《腾讯混元 Hy4 preview 发布：770B 总参数 稳居开源第一梯队》</li>
-    <li>雷峰网，2026-08-28，《腾讯混元 Hy4 preview 发布，稳居开源模型第一梯队》（引述腾讯混元官方通稿）</li>
-    <li>36氪，2026-08-27，《Rich Sutton：大模型陷入"局部最优"，AI 必须学会持续学习》（红杉资本访谈）</li>
-    <li>IT之家 / 凤凰科技，2026-08-26，《阿里发布 Qwen3.8-Flash，开源下一代 Qwen4 架构雏形》</li>
-    <li>央广网，2026-08-28，《腾讯混元 Hy4 preview 发布 稳居开源模型第一梯队》</li>
-    <li>腾讯混元官方，2026-08-28，《Hy4 preview 正式发布，诚邀你来体验》</li>
-    <li>《华尔街日报》（经观察者网、新浪财经转引），2026-08-27~28，《DeepSeek 寻求 74 亿美元融资，估值 740 亿美元》</li>
-    <li>The Information / Business Insider（经 36氪转引），2026-08-27，《英伟达 129 亿美元收购 Hugging Face》</li>
-    <li>量子位，2026-08-27，《MiniMax ARR 暴涨 500%，B 端收入占比升至 80%》</li>
-    <li>IT之家 / 新浪财经，2026-08-26，《智谱上线并开源 GLM-5.3-Flash》</li>
-    <li>Anthropic 官方，2026-08-27，《Model Hardware Standard 研究预览》</li>
-    <li>Google DeepMind 官方博客，2026-08-27，《Gemini Omni 1.1 Flash》《Piloting the world's first double-blind AI evaluations》</li>
-  </ol>
-</section>
-
-<footer>
-  <p>本文数据均来自公开报道，仅供读者参考，不构成投资建议</p>
-  <p>2026年8月28日 · 烨然漫笔 · 艾AI</p>
-</footer>
-
-</div>
-
-<script>
-const gridColor = 'rgba(255,255,255,0.06)';
-const tickColor = '#888';
-Chart.defaults.color = tickColor;
-Chart.defaults.font.family = '-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif';
-
-// 盲测得分
-new Chart(document.getElementById('chartBlind'), {
-  type: 'bar',
-  data: {
-    labels: ['Hy4 preview', 'Kimi K3', 'GLM 5.3'],
-    datasets: [{
-      label: '内部盲测均分（满分 4）',
-      data: [2.99, 2.94, 2.92],
-      backgroundColor: ['#5ac8fa', '#3d5a6c', '#3d5a6c'],
-      borderRadius: 4,
-      barThickness: 44
-    }]
-  },
-  options: {
-    indexAxis: 'y',
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-      tooltip: { callbacks: { label: c => c.parsed.x + ' / 4.00' } }
-    },
-    scales: {
-      x: { min: 2.8, max: 3.1, grid: { color: gridColor }, ticks: { color: tickColor } },
-      y: { grid: { display: false }, ticks: { color: '#e8e8e8', font: { size: 14 } } }
-    }
-  }
-});
-
-// 价格对比
-new Chart(document.getElementById('chartPrice'), {
-  type: 'bar',
-  data: {
-    labels: ['Hy4 preview\n(770B 旗舰)', 'Qwen3.8-Flash\n(极致性价比)'],
-    datasets: [{
-      label: '输入价格（元/百万 tokens）',
-      data: [6, 1],
-      backgroundColor: ['#5ac8fa', '#ff6a00'],
-      borderRadius: 4,
-      barThickness: 56
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-      tooltip: { callbacks: { label: c => c.parsed.y + ' 元 / 百万 tokens' } }
-    },
-    scales: {
-      x: { grid: { display: false }, ticks: { color: tickColor } },
-      y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: tickColor } }
-    }
-  }
-});
-</script>
-
+  <section>
+    <h2>更新记录</h2>
+    <div class="update"><time>2026-09-08</time><p>完成一手来源重核。将“31.8% 可复现”改为“腾讯官方测量、公开材料不足以独立复现”；标题改为非结论式表达；删除未进入主论点的公司融资、并购和产品价格横向时间线；补入官方已知限制、方法附录与逐条链接。</p></div>
+    <div class="update"><time>2026-08-28</time><p>初稿发布，围绕 Hy4 preview 参与自身研发的官方披露展开。</p></div>
+    <p class="small">资料复核截止：2026-09-08。后续如腾讯发布技术报告、实验日志或第三方复现，本文将继续更新。</p>
+  </section>
+</main>
+<footer>烨然漫笔 · 把变化写清楚，也把边界写清楚</footer>
 </body>
 </html>

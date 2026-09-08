@@ -41,6 +41,15 @@
 | 目录结构调整 | 根 `README.md` 目录树 → `share/README.md` 职责表 → 本文件 + `MEMORY.md` 所有路径引用 → `articles/ai/README.md` |
 | 规范变更 | 本文件 → `MEMORY.md` → 根 `README.md` 对应章节交叉引用 |
 
+### 0.1 内容源与发布状态
+
+- **网站原文是 canonical reference edition**：保留完整证据链、可点击来源、图表/方法附录、事实截至日期与更新记录。
+- **公众号版是完整但更易读的适配版**：必须独立讲完核心观点，不以故意截断换取“阅读原文”点击；阅读原文应提供逐条信源、交互图表、更新记录或附录等真实增量。
+- 新文章应优先维护机器可读母稿（Markdown/MDX 或结构化正文），再生成 `article-full.html`、`article-wechat.html` 与 `poster.html`。存量文章在完成迁移前，任何事实修订必须同步两个 HTML 版本。
+- 发布状态必须拆分：`editorial_status`（编辑成熟度）、`website_status`（网站是否公开）、`wechat_status`（公众号状态）。不得再用一个 `status` 同时表达“内容完成、网站上线、公众号发布”。
+- `wechat_status=published` 只能依据公众号后台真实记录确认；网站页面可访问不代表公众号已经发布。
+- 微信公众号 API 自动化止于草稿箱；正式发布或定时发布必须由作者在后台人工确认。
+
 **commit 前自检**：
 
 ```bash
@@ -448,8 +457,22 @@ git push
 
 # 8. 验证部署 + 更新状态
 #    → 浏览器打开 https://yeranyang.cn/ 检查
-#    → README.md 状态"📝 待发布"→"✅ 已完成"，再提交推送
+#    → 分别更新 website_status 与 wechat_status，不再使用含义模糊的“已完成”
 ```
+
+### 公众号草稿 MVP
+
+草稿推送使用 `scripts/wechat-draft-mvp.py`。凭证从仓库外的安全文件读取，默认路径为 `~/.workbuddy/secrets/wechat_yeranmanbi.env`；禁止将 AppID、AppSecret、access token 写入仓库、文章或日志。
+
+```bash
+python3 scripts/wechat-draft-mvp.py \
+  articles/ai/YYYY-MM-DD_slug \
+  --title "公众号标题" \
+  --digest "分享摘要" \
+  --dry-run
+```
+
+确认预检通过后去掉 `--dry-run`，脚本只创建草稿并返回 `media_id`。相同内容默认禁止重复创建；正式发布仍在公众号后台人工操作。
 
 ### 关键检查点
 

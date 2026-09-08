@@ -276,10 +276,10 @@
     为普通人带来清晰易懂的AI行业洞察。
   </p>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num" id="stat-total">-</div><div class="label">篇文章</div></div>
-    <div class="hero-stat"><div class="num" id="stat-published">-</div><div class="label">已发布</div></div>
-    <div class="hero-stat"><div class="num">4 月</div><div class="label">持续创作</div></div>
-    <div class="hero-stat"><div class="num">100K+</div><div class="label">公众号读者</div></div>
+    <div class="hero-stat"><div class="num" id="stat-total">-</div><div class="label">篇网站原文</div></div>
+    <div class="hero-stat"><div class="num" id="stat-months">-</div><div class="label">个创作月份</div></div>
+    <div class="hero-stat"><div class="num">三轮</div><div class="label">发布前审核</div></div>
+    <div class="hero-stat"><div class="num">持续</div><div class="label">事实更新</div></div>
   </div>
 </header>
 
@@ -313,8 +313,8 @@
     <div class="about-text">
       <h3>关于「烨然漫笔」</h3>
       <p>
-        公众号「AI 深度解读」的内容仓库。由 <strong>艾AI</strong> 主理，追踪全球 AI 动态，产出深度原创解读。
-        风格定位：朴实、易懂、有深度、不制造焦虑。
+        公众号「烨然漫笔」的内容原文库，「AI 深度解读」是核心栏目。由 <strong>艾AI</strong> 主理，追踪全球 AI 动态，产出深度原创解读。
+        网站保留逐条信源、数据图表、更新记录与补充材料；风格定位：朴实、易懂、有深度、不制造焦虑。
       </p>
       <div class="about-links">
         <a class="about-link" href="https://yeranyang.cn" target="_blank" rel="noopener">🌐 个人网站</a>
@@ -352,15 +352,17 @@ async function loadArticles() {
   try {
     const resp = await fetch('articles.json');
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    articles = await resp.json();
+    articles = (await resp.json())
+      .filter(article => article.websiteStatus === 'published' ||
+        (!article.websiteStatus && article.status === 'published'));
 
-    // 按日期倒序排列
+    // 网站是“阅读原文”的公开参考版；公众号发布状态不在这里推断。
     articles.sort((a, b) => b.date.localeCompare(a.date));
 
-    // 更新统计数据
+    // 只展示可由网站本身验证的统计，不展示未经后台台账确认的公众号数据。
     document.getElementById('stat-total').textContent = articles.length;
-    document.getElementById('stat-published').textContent =
-      articles.filter(a => a.status === 'published').length;
+    document.getElementById('stat-months').textContent =
+      new Set(articles.map(article => article.date.slice(0, 7))).size;
 
     // 生成过滤器按钮
     renderFilters();
@@ -412,8 +414,6 @@ function renderCards(filter) {
   emptyState.classList.remove('show');
 
   grid.innerHTML = filtered.map(article => {
-    const isDraft = article.status === 'draft';
-    const draftClass = isDraft ? ' card-draft' : '';
     const tagsHtml = article.tags.map(t => {
       const meta = TAG_MAP[t];
       return meta ? `<span class="card-tag ${meta.cls}">${meta.label}</span>` : '';
@@ -423,7 +423,7 @@ function renderCards(filter) {
     const href = `${article.id}/article-full.html`;
 
     return `
-    <a class="article-card${draftClass}" href="${href}" data-tags="${article.tags.join(' ')}" target="_blank" rel="noopener">
+    <a class="article-card" href="${href}" data-tags="${article.tags.join(' ')}" target="_blank" rel="noopener">
       <div class="card-meta">
         <span class="card-date">${article.date.replace(/-/g, '.')}</span>
         ${tagsHtml}

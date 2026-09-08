@@ -30,7 +30,8 @@ yeranyang-cn/
 │   └── workbuddy-intro/     #   WorkBuddy 产品介绍 slides
 ├── scripts/                 # 自动化工具
 │   ├── new-topic.sh         #   选题脚手架生成器
-│   └── update-index.sh      #   索引更新脚本
+│   ├── update-index.sh      #   索引检查脚本
+│   └── wechat-draft-mvp.py  #   公众号草稿预检与推送（不正式发布）
 └── skills/                  # 面向智能体的可复用技能包（待开源）
     ├── README.md            #   技能包索引 + 开源待办
     └── git-history-sanitize/#   git 历史敏感信息抹除（已脱敏）
@@ -42,7 +43,7 @@ yeranyang-cn/
 
 | # | 日期 | 标题 | 状态 |
 |---|------|------|------|
-| 1 | 2026-08-28 | [模型开始造自己了：Hy4 preview 与递归自我改进的第一道裂缝](./articles/ai/2026-08-28_hy4-recursive-self-improvement/) | 📝 待发布 |
+| 1 | 2026-08-28 | [Hy4 preview 开始参与自己的研发了](./articles/ai/2026-08-28_hy4-recursive-self-improvement/) | 📝 待发布 |
 | 2 | 2026-08-21 | [营收易位：Anthropic为什么反超了OpenAI](./articles/ai/2026-08-21_anthropic-revenue-overtake/) | 📝 待发布 |
 | 3 | 2026-08-21 | [AI 越狱"实锤"了：Anthropic 回查 14 万次，揪出三起真实入侵](./articles/ai/2026-08-21_anthropic-cyber-eval-incidents/) | 📝 待发布 |
 | 4 | 2026-08-21 | [一个月七起"AI 越狱"：风险的性质，已经悄悄变了](./articles/ai/2026-08-21_ai-agent-jailbreak-overview/) | 📝 待发布 |
@@ -112,9 +113,10 @@ yeranyang-cn/
 ### 发布流程
 
 ```
-选题确定 → 脚手架生成 → 撰写正文 → 三轮审核定稿（review-log.md）
-  → 生成素材（cover/poster/illustrations）→ git commit → 粘贴公众号编辑器 → 发布
-  → 更新 README 状态 → 部署
+选题确定 → 脚手架生成 → 撰写 canonical 网站原文 → 三轮审核定稿（review-log.md）
+  → 派生公众号版与素材（cover/poster/illustrations）→ 部署网站并验证阅读原文
+  → 草稿预检 → 一键进入公众号草稿箱 → 手机终审 → 作者手动发布
+  → 分别更新网站状态与公众号状态
 ```
 
 > 📐 **内容创作与交付规范**：所有写作、排版、审核、交付、发布规范，统一见 **[`CONTENT_STANDARD.md`](./CONTENT_STANDARD.md)**（唯一真相源）。

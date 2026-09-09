@@ -8,8 +8,10 @@
     "status": "draft",
     "editorialStatus": "ready",
     "websiteStatus": "published",
-    "wechatStatus": "not_scheduled",
-    "updatedAt": "2026-09-08",
+    "wechatStatus": "drafted",
+    "wechatDraftedAt": "2026-09-08",
+    "wechatUpdatedAt": "2026-09-09",
+    "updatedAt": "2026-09-09",
     "freshnessCheckedAt": "2026-09-08",
     "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-08_ai-labor-belongs-to-us/article-full.html"
   },

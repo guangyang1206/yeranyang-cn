@@ -7,6 +7,7 @@
 <meta name="description" content="AI可以替人完成动作，却不能自动决定什么值得做。判断劳动是否仍属于人，要看劳动者能否参与目标、理解标准、修改过程，并让权力与责任相匹配。">
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#07111f;color:#dbe7f3;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;font-size:17px}a{color:#7dd3fc;text-underline-offset:3px;overflow-wrap:anywhere;word-break:break-word}.hero{position:relative;overflow:hidden;padding:92px 20px 68px;background:#081522;border-bottom:1px solid #1e3a51}.hero:before{content:"";position:absolute;inset:0;background:url("assets/cover-900x383.png") center/cover no-repeat;opacity:.22}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#081522 0%,rgba(8,21,34,.91) 42%,rgba(8,21,34,.5) 100%)}.wrap{position:relative;max-width:820px;margin:0 auto;padding:0 22px}.hero .wrap{z-index:1}.eyebrow{display:inline-block;padding:5px 13px;border:1px solid #5f6670;border-radius:20px;color:#fcd34d;font-size:13px;letter-spacing:1px}.hero h1{font-size:46px;line-height:1.28;color:#fff;margin:24px 0 18px;max-width:760px}.hero .lead{font-size:20px;color:#c7d2de;max-width:700px;margin:0 0 24px}.meta{font-size:14px;color:#8799aa}main section{padding:50px 0;border-bottom:1px solid #153048}h2{font-size:28px;line-height:1.45;color:#fff;margin:0 0 22px}h3{font-size:20px;line-height:1.5;color:#fff;margin:30px 0 12px}p{margin:0 0 18px}.opening{font-size:18px}.pause{font-size:27px;font-weight:800;color:#fff;text-align:center;margin:34px 0}.summary{padding:24px 26px;border-left:4px solid #f59e0b;background:#2a2415;border-radius:0 10px 10px 0;color:#fde68a}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0}.stat{padding:22px;border:1px solid #28465d;border-radius:12px;background:#0b1d2d}.stat strong{display:block;font-size:36px;line-height:1;color:#fbbf24;margin-bottom:12px}.stat span{display:block;font-size:15px;color:#b6c7d5}.rights{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:26px 0}.right{padding:21px;border-radius:12px;border:1px solid #27445b;background:#0b1d2d}.right b{display:block;font-size:17px;color:#fff;margin-bottom:8px}.right p{font-size:15px;color:#b8c8d5;margin:0}.right.goal{border-color:#785f1c}.right.standard{border-color:#22617c}.right.process{border-color:#24664d}.right.power{border-color:#74333b}.contrast{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0}.panel{padding:24px;border-radius:12px}.panel.good{background:#0b2b21;border:1px solid #21614c}.panel.risk{background:#301c22;border:1px solid #73333f}.panel h3{margin:0 0 14px}.panel ul{padding-left:20px;margin:0}.panel li{margin:8px 0;color:#cad6df}.quote{padding:22px 24px;background:#0d2539;border-left:4px solid #38bdf8;border-radius:0 8px 8px 0;font-size:18px;color:#d7ecf7}.callout{padding:24px;border:1px solid #856a23;border-radius:12px;background:#2a2415;color:#fde68a;text-align:center;font-size:22px;font-weight:750}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.flow div{padding:17px 12px;background:#0c2234;border:1px solid #28465d;border-radius:10px;text-align:center;color:#d8e4ec}.flow b{display:block;color:#fbbf24;margin-bottom:5px}.source{padding:20px 22px;background:#0b1d2d;border:1px solid #244158;border-radius:10px;margin:14px 0}.source p{margin:6px 0}.source .badge{display:inline-block;padding:3px 9px;border-radius:12px;background:#14384f;color:#8bdcf8;font-size:12px}.small{font-size:14px;color:#91a3b2}.update{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid #18344d}.update time{color:#fbbf24;font-weight:700}.update p{margin:0}.footer{padding:42px 22px;text-align:center;color:#8294a4;background:#06101c}@media(max-width:680px){body{font-size:16px}.hero{padding:68px 0 48px}.hero h1{font-size:34px}.hero .lead{font-size:18px}.wrap{padding:0 18px}main section{padding:38px 0}h2{font-size:24px}.stats,.rights,.contrast{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.update{grid-template-columns:1fr;gap:4px}}
+.barchart{margin:26px 0;padding:22px;border:1px solid #28465d;border-radius:12px;background:#0b1d2d}.barchart h4{font-size:17px;line-height:1.5;color:#fff;margin:0 0 4px}.barchart .src{font-size:13px;color:#8799aa;margin:0 0 18px}.barchart .row{display:flex;align-items:center;gap:12px;margin-bottom:10px}.barchart .lab{width:100px;flex:none;font-size:14px;color:#c7d2de}.barchart .track{flex:1;height:16px;background:#16324a;border-radius:8px;overflow:hidden}.barchart .fill{height:16px;background:linear-gradient(90deg,#0ea5e9,#7dd3fc);border-radius:8px}.barchart .val{width:48px;flex:none;text-align:right;font-size:14px;font-weight:700;color:#fbbf24}.barchart .note{font-size:13px;color:#93a7b8;line-height:1.8;margin:16px 0 0}
 </style>
 </head>
 <body>
@@ -15,7 +16,7 @@
     <span class="eyebrow">AI 与人的处境 · 2026-09-08</span>
     <h1>AI替我们干活之后，劳动还属于人吗</h1>
     <p class="lead">AI 可以替人完成动作，却不能自动决定什么值得做。衡量自动化的标准，不应只有效率，还应包括劳动者是否保留了真实的判断权。</p>
-    <p class="meta">烨然漫笔 · 艾AI · 资料复核至 2026-09-08</p>
+    <p class="meta">烨然漫笔 · 艾AI · 资料复核至 2026-09-09</p>
   </div>
 </header>
 <main class="wrap">
@@ -30,12 +31,21 @@
 
   <section>
     <h2>工作会消失，还是会被改造成另一种样子</h2>
-    <p>我们常把 AI 与劳动的讨论压缩成一个问题：它会不会抢走工作？这当然重要。国际劳工组织 2025 年更新的全球职业暴露指数给出了一组更克制的判断。</p>
+    <p>我们常把 AI 与劳动的讨论压缩成一个问题：它会不会抢走工作？这当然重要。国际劳工组织与波兰 NASK 在 2025 年 5 月发布的全球职业暴露指数，给出了一组更克制的判断。</p>
     <div class="stats">
       <div class="stat"><strong>1 / 4</strong><span>全球约四分之一劳动者处于某种程度的生成式 AI 职业暴露之中。</span></div>
       <div class="stat"><strong>转变</strong><span>由于多数职业仍有需要人类参与的任务，工作转变比整体消失更可能发生。</span></div>
     </div>
-    <p>这里的“暴露”不是失业预测，也不等于四分之一的岗位会被删除。它表示相关职业中的部分任务具有被生成式 AI 改变或自动化的潜力。</p>
+    <p>这里说的是“某种程度”，不是高度暴露：真正落在最高暴露档位（梯度 4）的，只占全球就业的 3.3%。而且这个比例并不平均，高收入国家约为 34%，低收入国家只有 11%。</p>
+    <div class="barchart">
+      <h4>全球就业中处于生成式 AI 暴露梯度的比例</h4>
+      <p class="src">国际劳工组织，2025-05-20 · 按国家收入分组</p>
+      <div class="row"><div class="lab">全球</div><div class="track"><div class="fill" style="width:25%"></div></div><div class="val">25%</div></div>
+      <div class="row"><div class="lab">高收入国家</div><div class="track"><div class="fill" style="width:34%"></div></div><div class="val">34%</div></div>
+      <div class="row"><div class="lab">低收入国家</div><div class="track"><div class="fill" style="width:11%"></div></div><div class="val">11%</div></div>
+      <p class="note">“暴露”指职业中的部分任务具备被生成式 AI 改变的潜力，不等于失业预测。国际劳工组织明确说明，这组数字代表可能被影响的就业上限，不是已经发生的实际影响。</p>
+    </div>
+    <p>这里的“暴露”不是失业预测，也不等于四分之一的岗位会被删除。国际劳工组织按平均暴露分数与任务差异度，把职业划分为四级暴露梯度，另有“极低暴露”与“未暴露”两类。梯度越高，职业内多数任务被生成式 AI 改变的潜力越大。</p>
     <p>真正需要追问的，于是变成了：工作会被转变成什么样？</p>
     <p>如果 AI 接手重复劳动，人能否获得更多判断、创造和协作的空间？还是说，AI 只是让管理者更细密地分配任务、监控节奏、量化表现，把人变成一个随时可替换的流程节点？</p>
     <p>两种未来，都可以叫“智能化”。但它们对人的意义完全不同。</p>
@@ -44,11 +54,11 @@
   <section>
     <h2>一、劳动不只是领取工资</h2>
     <p>两百年前，马克思讨论异化劳动时，关注的并不只是工资少、工时长或工作不稳定。</p>
-    <p>《斯坦福哲学百科全书》对《1844 年经济学哲学手稿》的梳理指出，异化劳动至少包含四种分离：劳动者与自己生产的产品分离，与生产活动分离，与其他人分离，也与自己自由、自觉、创造性劳动的能力分离。</p>
+    <p>《斯坦福哲学百科全书》对《1844 年经济学哲学手稿》的梳理指出，异化劳动包含四重分离：劳动者与自己生产的产品分离，与生产活动本身分离，与其他人分离，以及与自身作为人的本性分离——最后这一重具体表现为，人的共同体能力与自由、自觉、创造性劳动的能力同时被压抑。</p>
     <div class="quote">一份工作即使收入不错、时间有限、相对稳定，也仍然可能是异化的。问题不只在于劳动有多累，还在于劳动者能不能在自己做的事情里认出自己。</div>
     <p style="margin-top:24px">这也是为什么我不认同“劳动最好全部消失”这种轻率的想象。</p>
     <p>真正值得摆脱的，是被迫重复、被任意调度、无法理解目的、不能影响结果的劳动方式。劳动本身却可能包含另一面：人通过它发展能力、回应他人的需要、参与共同世界，并在做成一件事情时确认自己的力量。</p>
-    <p>理查德·桑内特（Richard Sennett）在《匠人》中把 craft 概括为一种基本的人类冲动：为了把事情本身做好，而愿意把它做好。他谈到的匠人并不只包括传统手艺人，也包括程序员、医生、艺术家、父母和公民。</p>
+    <p>理查德·桑内特（Richard Sennett）在《匠人》里说，匠艺指的是一种持久而基本的人类冲动：想把一件事做好，只因为它本身值得做好。他谈到的匠人并不只包括传统手艺人，也包括程序员、医生、艺术家、父母和公民。</p>
     <p>所谓劳动属于人，至少意味着，人仍然有机会对“好”负责，而不是只对“快”服从。</p>
   </section>
 
@@ -61,7 +71,8 @@
       <article class="right process"><b>3. 修改过程、提出异议</b><p>劳动者应能补充背景、调整顺序、暂停执行、要求人工复核。现场经验不能被一概视为偏离流程的噪声。</p></article>
       <article class="right power"><b>4. 让权力与责任匹配</b><p>如果人要为结果负责，就必须拥有拒绝、解释、纠错和停止的真实权力。只有责任、没有权力，不是人类负责。</p></article>
     </div>
-    <p>OECD 2025 年对法国、德国、意大利、日本、西班牙和美国 6000 多家企业的调查显示，算法管理已广泛进入普通工作场所。受访管理者看到了决策质量和自身工作满意度的改善，也同时提出责任不清、难以理解工具逻辑、对劳动者健康保护不足等担忧。</p>
+    <p>OECD 对法国、德国、意大利、日本、西班牙和美国 6000 多名中层管理者的调查（数据采集于 2024 年 6 至 8 月）显示，算法管理已广泛进入普通工作场所。受访管理者看到了决策质量和自身工作满意度的改善，也同时提出责任不清、难以理解工具逻辑、对劳动者健康保护不足等担忧。</p>
+    <p>这里有一处口径必须说清：认为“改善了”的，是管理者对自己工作的感受。OECD 明确说明，这项调查没有提供来自劳动者一侧的新证据。效率收益与劳动者的处境，不能互相替代。</p>
     <p>效率不是唯一结果。目标、标准、修改和责任这四件事，比“人有没有点最后一下按钮”更接近劳动的归属。</p>
   </section>
 
@@ -79,7 +90,20 @@
     <p>此时，AI 减少了机械动作，人保留了对作品的支配。</p>
     <h3>另一面：当工具变成看不见的管理规则</h3>
     <p>算法也可以分配任务、跟踪点击、统计击键、预测绩效，甚至参与晋升、纪律处分与解雇。如果系统缺少透明、申诉和人工复核，劳动者面对的就不再是一个工具，而是一套看不见、说不清、又会改变生计的规则。</p>
-    <p>国际劳工组织与欧盟联合研究的案例表明，算法管理可以提高生产率和服务质量，也可能带来更强的监控、更高的工作强度和更差的工作质量。不同国家与部门的结果，很大程度上受到制度保障、社会对话和劳动关系的影响。</p>
+    <p>这不是设想。OECD 对法国、德国、意大利、日本、西班牙和美国 6000 多名中层管理者的调查显示，用来指令、监控或评价劳动者的算法工具，已经相当普遍。</p>
+    <div class="barchart">
+      <h4>已采用至少一种算法管理工具的企业比例</h4>
+      <p class="src">OECD 政策简报，2025-12-19 · 六国雇主调查</p>
+      <div class="row"><div class="lab">美国</div><div class="track"><div class="fill" style="width:90%"></div></div><div class="val">90%</div></div>
+      <div class="row"><div class="lab">法国</div><div class="track"><div class="fill" style="width:81%"></div></div><div class="val">81%</div></div>
+      <div class="row"><div class="lab">德国</div><div class="track"><div class="fill" style="width:78%"></div></div><div class="val">78%</div></div>
+      <div class="row"><div class="lab">西班牙</div><div class="track"><div class="fill" style="width:78%"></div></div><div class="val">78%</div></div>
+      <div class="row"><div class="lab">意大利</div><div class="track"><div class="fill" style="width:76%"></div></div><div class="val">76%</div></div>
+      <div class="row"><div class="lab">日本</div><div class="track"><div class="fill" style="width:40%"></div></div><div class="val">40%</div></div>
+      <p class="note">同一调查中，60% 的管理者认为这些工具改善了自己的决策质量；但接近三分之二的使用者也提出担忧，最集中的三项是：决策出错时责任不清、难以理解工具的判断逻辑、对劳动者身心健康保护不足。</p>
+    </div>
+    <p>国际劳工组织 2025 年 7 月的工作论文梳理了五大洲的案例，把算法管理对劳动者的风险写得很具体：个人数据隐私、偏见与歧视，以及工作强度上升、监控加强，还有劳动者对自己工作的自主与掌控被削弱。</p>
+    <p>结果并非注定。这项比较研究指出，差别来自三个条件：雇主能否轻易退出、劳动者是否有集体声音、团结是否具有包容性。</p>
     <div class="summary">如果节省的时间只被换成更多任务，效率就会变成更密的节奏；如果数据只向管理者单向透明，透明就会变成监控；如果系统输出不能被解释和挑战，客观就会变成另一种不可申诉的权威。</div>
   </section>
 
@@ -95,7 +119,8 @@
 
   <section>
     <h2>五、好的 AI 劳动关系，应该让人重新成为作者</h2>
-    <p>国际劳工组织 2025 年关于 AI、算法管理与社会对话的全球案例研究，用了一组很准确的对照：补充而不是替代劳动者的技能，赋权而不是控制劳动者，并让新工作进入劳动与社会保障，而不是被排除在外。</p>
+    <p>国际劳工组织 2025 年 7 月的工作论文考察了五大洲的案例，发现社会对话正在推动另一条路：让 AI 补充而不是替代劳动者的技能，赋权而不是控制劳动者队伍，把新创造的工作嵌入劳动与社会保护之中，而不是把它们排除在外。</p>
+    <p>同一研究在波兰的全国性调查还给出一个更具体的观察：在引入生成式 AI 时与员工做过协商的企业里，多数员工确实在用这些工具，三分之二的人希望用得更多；而在没有这种沟通的企业里，41% 的员工明确反对采用。研究者由此判断，正在发生的转变不只是技术性的，更是组织性的。</p>
     <div class="callout">让 AI 成为工具，让劳动者仍然是作者。</div>
     <p style="margin-top:24px">这里的“作者”不只指写文章的人。</p>
     <p>一个工程师应该能解释自己为什么接受或拒绝一段 AI 生成的代码；一个教师应该能根据学生的真实状态调整系统给出的建议；一个医护人员应该能让现场判断高于模板；一个普通员工也应该知道，影响自己工作机会和评价的系统依据什么运行，并拥有提出异议的渠道。</p>
@@ -119,9 +144,11 @@
 
   <section>
     <h2>逐条来源</h2>
-    <div class="source"><span class="badge">一手 · 国际组织</span><p><strong>International Labour Organization, Generative AI and jobs: A 2025 update</strong>（2025-05-20）</p><p class="small">用于核验全球职业暴露、“工作转变比整体消失更可能”等结论及方法边界。</p><a href="https://www.ilo.org/publications/generative-ai-and-jobs-2025-update">https://www.ilo.org/publications/generative-ai-and-jobs-2025-update</a></div>
-    <div class="source"><span class="badge">一手 · 国际组织</span><p><strong>International Labour Organization, Global case studies of social dialogue on AI and algorithmic management</strong>（2025-07-10）</p><p class="small">用于核验“补充而非替代技能、赋权而非控制劳动者”等高质量转型框架。</p><a href="https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management">https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management</a></div>
+    <div class="source"><span class="badge">一手 · 国际组织</span><p><strong>ILO &amp; NASK, Generative AI and Jobs: A Refined Global Index of Occupational Exposure</strong>（工作论文 140，2025-05-20）</p><p class="small">用于核验全球 25% 就业存在某种程度的 GenAI 暴露、最高暴露档（梯度 4）仅占 3.3%、高收入国家 34%、低收入国家 11%，以及“转变是最可能的影响”这一判断。</p><a href="https://webapps.ilo.org/static/english/intserv/working-papers/wp140/index.html">https://webapps.ilo.org/static/english/intserv/working-papers/wp140/index.html</a></div>
+    <div class="source"><span class="badge">一手 · 国际组织</span><p><strong>ILO, Generative AI at work: What it means for jobs in Europe and beyond</strong>（研究员 Pawel Gmyrek 访谈）</p><p class="small">用于核验波兰全国性调查中“是否与员工协商”带来的差异（三分之二希望用得更多 vs 41% 明确反对），以及“转变不只是技术性的，更是组织性的”这一判断。</p><a href="https://www.ilo.org/resource/article/generative-ai-work-what-it-means-jobs-europe-and-beyond">https://www.ilo.org/resource/article/generative-ai-work-what-it-means-jobs-europe-and-beyond</a></div>
+    <div class="source"><span class="badge">一手 · 国际组织</span><p><strong>International Labour Organization, Global case studies of social dialogue on AI and algorithmic management</strong>（2025-07-10）</p><p class="small">用于核验社会对话推动的“补充而非替代技能、赋权而非控制劳动者队伍、把新工作嵌入劳动与社会保护”这一框架，以及算法管理对劳动者的四类风险（数据隐私、偏见歧视、强度与监控上升、自主与掌控被削弱）和三个条件性因素。</p><a href="https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management">https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management</a></div>
     <div class="source"><span class="badge">一手 · OECD</span><p><strong>OECD, Algorithmic management in the workplace: New evidence from an OECD employer survey</strong>（2025-02-06）</p><p class="small">用于核验算法管理的定义、六国 6000 多家企业调查，以及正面影响与信任风险并存的结论。</p><a href="https://www.oecd.org/en/publications/algorithmic-management-in-the-workplace_287c13c4-en.html">https://www.oecd.org/en/publications/algorithmic-management-in-the-workplace_287c13c4-en.html</a></div>
+    <div class="source"><span class="badge">一手 · OECD</span><p><strong>OECD, How widespread is algorithmic management in workplaces?</strong>（2025-12-19，政策简报）</p><p class="small">用于核验六国企业采用率（美国 90%、法国 81%、德国 78%、西班牙 78%、意大利 76%、日本 40%），以及“60% 管理者认为决策质量改善、近三分之二使用者存在担忧”这组对照结论。</p><a href="https://www.oecd.org/en/publications/how-widespread-is-algorithmic-management-in-workplaces_cda7a114-en/full-report.html">https://www.oecd.org/en/publications/how-widespread-is-algorithmic-management-in-workplaces_cda7a114-en/full-report.html</a></div>
     <div class="source"><span class="badge">哲学工具书</span><p><strong>Stanford Encyclopedia of Philosophy, Karl Marx</strong>（Summer 2026 archive）</p><p class="small">用于核验异化劳动四个维度，以及 Marx 并未把劳动本身视作不可改变的必要之恶。</p><a href="https://plato.stanford.edu/archives/sum2026/entries/marx/">https://plato.stanford.edu/archives/sum2026/entries/marx/</a></div>
     <div class="source"><span class="badge">出版社 · 经典著作</span><p><strong>Hannah Arendt, The Human Condition</strong>, University of Chicago Press</p><p class="small">用于核验该书以 labor、work、action 为核心的章节结构；本文对其与 AI 劳动的联系属于作者阐释。</p><a href="https://press.uchicago.edu/ucp/books/book/chicago/H/bo29137972">https://press.uchicago.edu/ucp/books/book/chicago/H/bo29137972</a></div>
     <div class="source"><span class="badge">出版社 · 经典著作</span><p><strong>Richard Sennett, The Craftsman</strong>, Yale University Press</p><p class="small">用于核验 craftsmanship 是“为了把事情本身做好而把它做好”的基本人类冲动，以及其适用对象不只限于传统手工艺人。</p><a href="http://drupal.yalebooks.yale.edu/book/9780300151190/craftsman">http://drupal.yalebooks.yale.edu/book/9780300151190/craftsman</a></div>
@@ -130,9 +157,10 @@
   <section>
     <h2>方法与边界</h2>
     <ol>
-      <li>统计数字只使用 ILO 与 OECD 官方页面；“暴露”不写成“替代”或“失业预测”。</li>
+      <li>统计数字只使用 ILO 与 OECD 官方页面；“暴露”不写成“替代”或“失业预测”。两张图表均取自官方页面原文，未做二次换算或估算。</li>
       <li>马克思异化劳动的四个维度使用 Stanford Encyclopedia of Philosophy 的 2026 夏季存档核验。</li>
       <li>阿伦特与 Sennett 的书目信息优先使用出版社页面。涉及二者与 AI 的联系，均标为作者阐释。</li>
+      <li>OECD 调查中“决策质量改善”一类结论，一律标明来自管理者自评；OECD 明确说明该调查未提供劳动者一侧的新证据。</li>
       <li>本次公众号草稿流程是作者参与的真实案例；不虚构人物、绩效数据或组织效果。</li>
       <li>“AI 可减轻或放大异化”是综合哲学框架与现实研究后的解释，不宣称已由单一研究证明因果。</li>
     </ol>
@@ -141,7 +169,8 @@
   <section>
     <h2>更新记录</h2>
     <div class="update"><time>2026-09-08</time><p>完成初稿、一手来源复核、公众号适配和网站版方法附录。将“劳动属于人”具体化为目标、标准、过程与权责四项判断。</p></div>
-    <p class="small" style="margin-top:18px">资料复核截止：2026-09-08。若 ILO、OECD 或相关法规后续更新统计口径，网站版将继续修订并记录。</p>
+    <div class="update"><time>2026-09-09</time><p>发布前复核：逐条重验 ILO 与 OECD 一手页面，新增两张图表（按国家收入分组的生成式 AI 暴露比例、六国算法管理工具采用率）；公众号版移除“阅读原文”提示，并重做四项权利表格的配色。</p></div>
+    <p class="small" style="margin-top:18px">资料复核截止：2026-09-09。若 ILO、OECD 或相关法规后续更新统计口径，网站版将继续修订并记录。</p>
   </section>
 </main>
 <footer class="footer">烨然漫笔 · 把变化写清楚，也把人的位置写清楚</footer>

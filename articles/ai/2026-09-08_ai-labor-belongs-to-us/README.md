@@ -8,7 +8,7 @@
 - **网站状态**：已部署并完成公开页面验证
 - **公众号状态**：草稿已生成并更新为终稿，API 反查通过；待手机预览和作者人工终审
 - **公众号草稿日期**：2026-09-08
-- **公众号终稿更新**：2026-09-09
+- **公众号终稿更新**：2026-09-09（发布前复核版：删除阅读原文提示、新增两张数据图表、重做表格配色、修正 5 处引用）
 - **自动化边界**：只进入公众号草稿箱；正式发布由作者人工决定
 - **canonical URL**：https://yeranyang.cn/articles/ai/2026-09-08_ai-labor-belongs-to-us/article-full.html
 
@@ -36,12 +36,18 @@
 
 | 声明 | 类型 | 来源/处理 |
 |---|---|---|
-| 全球约四分之一劳动者处于某种 GenAI 职业暴露 | 研究结论 | ILO 2025 官方更新；“暴露”不等于“失业” |
-| 多数工作更可能转变而非整体消失 | 研究判断 | ILO 2025；保留“更可能”限定 |
-| OECD 调查覆盖六国 6000 多家企业 | 调查事实 | OECD 2025 官方摘要 |
-| 算法管理有正面效果，也有问责、解释和健康风险 | 调查结论 | OECD 2025 官方摘要 |
-| 异化劳动包括产品、活动、他人和人性四个维度 | 哲学梳理 | Stanford Encyclopedia of Philosophy 2026 夏季存档 |
-| craft 是“为了把事情本身做好而把它做好”的冲动 | 出版社概述 | Yale University Press《The Craftsman》页面 |
+| 全球 25% 就业处于某种 GenAI 暴露；最高暴露档（梯度 4）仅 3.3% | 研究结论 | ILO/NASK 工作论文 140（2025-05-20）官方页面逐字核验；明确“某种程度”非“高度暴露” |
+| 高收入国家暴露比例 34%，低收入国家 11% | 研究结论 | 同上，官方新闻稿与论文摘要互证 |
+| 多数工作更可能转变而非整体消失 | 研究判断 | ILO 2025；原文 “transformation of jobs is the most likely impact” |
+| 引入 GenAI 时与员工协商的企业中三分之二希望用得更多；无沟通的企业 41% 明确反对 | 调查结论 | ILO 研究员访谈（波兰全国性调查）；已限定为波兰样本 |
+| 六国 6000 多名中层管理者调查，数据采集于 2024 年 6—8 月 | 调查事实 | OECD 2025-02-06 工作论文摘要 |
+| 美 90% / 法 81% / 德 78% / 西 78% / 意 76% / 日 40% 企业已采用至少一种算法管理工具 | 调查结论 | OECD 2025-12-19 政策简报官方页面 |
+| 60% 管理者认为决策质量改善；近三分之二使用者存在担忧 | 调查结论 | 同上；**已标注为管理者自评，OECD 明确说明未提供劳动者一侧证据** |
+| 算法管理风险：数据隐私、偏见歧视、强度与监控上升、自主与掌控被削弱 | 研究梳理 | ILO 工作论文 144（2025-07-10）；原“提高生产率”表述已删除，改挂 OECD |
+| 结果取决于雇主退出成本、劳动者集体声音、团结包容性 | 研究结论 | ILO 工作论文 144 原文三个条件 |
+| 社会对话推动“补充而非替代技能、赋权而非控制、把新工作嵌入劳动与社会保护” | 研究结论 | ILO 工作论文 144；已补主语，避免误读为普适现状 |
+| 异化劳动四重分离（产品、活动、他人、作为人的本性） | 哲学梳理 | Stanford Encyclopedia of Philosophy 2026 夏季存档；第四重按原文改为“与自身作为人的本性分离” |
+| craft 是“想把一件事做好，只因为它本身值得做好”的持久冲动 | 出版社概述 | Yale University Press《The Craftsman》页面 |
 | AI 可减轻或放大劳动异化 | 作者判断 | 由哲学框架与现实研究综合推导，不称为已证实因果 |
 | 目标、标准、过程、权责四项判断 | 作者框架 | 本文原创归纳 |
 
@@ -58,17 +64,21 @@
 
 ## 来源
 
-1. ILO, 2025-05-20, *Generative AI and jobs: A 2025 update*  
-   https://www.ilo.org/publications/generative-ai-and-jobs-2025-update
-2. ILO, 2025-07-10, *Global case studies of social dialogue on AI and algorithmic management*  
+1. ILO & NASK, 2025-05-20, *Generative AI and Jobs: A Refined Global Index of Occupational Exposure*, WP 140  
+   https://webapps.ilo.org/static/english/intserv/working-papers/wp140/index.html
+2. ILO, *Generative AI at work: What it means for jobs in Europe and beyond*（研究员 Pawel Gmyrek 访谈）  
+   https://www.ilo.org/resource/article/generative-ai-work-what-it-means-jobs-europe-and-beyond
+3. ILO, 2025-07-10, *Global case studies of social dialogue on AI and algorithmic management*, WP 144  
    https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management
-3. OECD, 2025-02-06, *Algorithmic management in the workplace*  
+4. OECD, 2025-02-06, *Algorithmic management in the workplace*  
    https://www.oecd.org/en/publications/algorithmic-management-in-the-workplace_287c13c4-en.html
-4. Stanford Encyclopedia of Philosophy, *Karl Marx*（Summer 2026 archive）  
+5. OECD, 2025-12-19, *How widespread is algorithmic management in workplaces?*  
+   https://www.oecd.org/en/publications/how-widespread-is-algorithmic-management-in-workplaces_cda7a114-en/full-report.html
+6. Stanford Encyclopedia of Philosophy, *Karl Marx*（Summer 2026 archive）  
    https://plato.stanford.edu/archives/sum2026/entries/marx/
-5. University of Chicago Press, *The Human Condition*  
+7. University of Chicago Press, *The Human Condition*  
    https://press.uchicago.edu/ucp/books/book/chicago/H/bo29137972
-6. Yale University Press, *The Craftsman*  
+8. Yale University Press, *The Craftsman*  
    http://drupal.yalebooks.yale.edu/book/9780300151190/craftsman
 
 ## 文件清单
@@ -95,4 +105,7 @@
 - [x] 三轮审核连续通过
 - [x] 网站已部署并核验
 - [x] 公众号草稿已生成、原地更新并反查
+- [x] 发布前第二轮事实核查完成，5 处引用已按一手源修正
+- [x] 引用数据已配图表，且图表数值与官方页面逐字一致
+- [x] 公众号正文已移除“阅读原文”文字提示（正文外链不可点）
 - [ ] 手机预览与作者人工终审

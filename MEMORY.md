@@ -92,6 +92,38 @@ deploy.deploy()
 
 ---
 
+## 坑 7：微信 `/draft/update` 报 `47001 data format error`
+
+**现象**：原地更新已存在的草稿，返回 `{"errcode":47001,"errmsg":"data format error"}`；同一份内容用 `/draft/add` 建新草稿却完全正常。
+
+**排查**：先用 `<p>probe</p>` 极简内容、再用 git HEAD 上的旧版正文分别调用 update，两者都失败 → 证明**不是内容问题**，是 payload 结构问题。
+
+**根因**：两个接口的 `articles` 字段类型不同：
+- `/draft/add` → `"articles": [ {...} ]`（**数组**）
+- `/draft/update` → `"articles": { ... }`（**对象**，配合 `media_id` + `index`）
+
+**正确 payload**：
+```python
+payload = {"media_id": media_id, "index": 0, "articles": {
+    "title": title, "author": ..., "digest": ..., "content": content,
+    "content_source_url": source_url, "thumb_media_id": thumb,
+    "need_open_comment": 1, "only_fans_can_comment": 0}}
+```
+
+**教训**：遇到 `47001` 先怀疑接口契约差异，别去改内容；排查时用「极简内容 + 已知可成功的历史内容」做对照组，能一次定位到是结构还是内容的问题。
+
+---
+
+## 坑 8：公众号正文里的「阅读原文」文字提示 + 图表撑爆字数
+
+**现象**：正文末尾加了「阅读原文：可查看逐条可点击来源……」提示块；用户指出**公众号正文中外部链接不可点击**，这类提示等于噪音，要求删除。
+
+**教训**：
+1. 公众号正文只能点击公众号生态内的链接（公众号文章、小程序、视频号），**站外 URL 在正文里点了没反应**。想引导读者去 canonical 页，只能靠 `content_source_url`（底部「阅读原文」入口），**不要在正文写文字提示**。
+2. 微信正文字数上限约 **2 万字符**。第一版图表用**嵌套 table** 实现，正文直接涨到 **19880**，几乎撞线；改成「label 段 + 独立单行条状 table」的非嵌套结构后降到 **18142**。图表一律走非嵌套方案，并在生成后立刻核对字符数。
+
+---
+
 ## 一句话教训汇总（给未来的我）
 
 1. 数据口径是红线——ARR/实际营收不分，专业性归零。
@@ -102,8 +134,10 @@ deploy.deploy()
 6. 素材生成后浏览器打开截图，别直接用 HTML 文件。
 7. 发文前全文朗读一遍——念出来比看出来更容易发现口径问题。
 8. Token 严禁放仓库目录 + `.gitignore` 兜底。
+9. 微信 draft/update 的 `articles` 是**对象**，draft/add 才是数组（47001 先看接口契约）。
+10. 公众号正文不放站外链接文字提示；图表用非嵌套 table，正文控制在 2 万字符内。
 
 ---
 
-*最后更新：2026-08-18*
+*最后更新：2026-09-09*
 *定位：纯踩坑日志；规范见 CONTENT_STANDARD.md*

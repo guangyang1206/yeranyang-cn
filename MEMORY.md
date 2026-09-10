@@ -128,6 +128,18 @@ payload = {"media_id": media_id, "index": 0, "articles": {
 
 ---
 
+## 坑 9：编辑器注入 data-page-node-id 撑爆正文 + CDN 缓存旧页面
+
+**现象（一次任务里两个独立问题）**：
+1. 公众号 HTML 被某带「页面节点 id」追踪的可视化编辑器打开过后，**每个标签都被注入 `data-page-node-id="..."` 属性**，文件字节从 25963 涨到 33610、正文从 19200 撑到 26467 字符（**超过微信 2 万上限**），且清理后会被该工具**反复重新注入**。
+2. 推送后验证 `yeranyang.cn` 线上页面，一直是旧字节数（31555），但 `raw.githubusercontent.com` 和带 `?v=` 参数的请求已经是新内容（33214）。
+
+**教训**：
+1. 写公众号 HTML 时**避开带「页面节点 id」追踪的可视化编辑器**；若文件已被污染，最干净的做法是 `git checkout` 恢复 HEAD 干净版本（比正则清理更彻底，还能防外部进程反复重写）。保存后务必跑一次「残留 `data-page-node-id` + 正文字符数」校验。
+2. **自家站点 `yeranyang.cn` 走 EdgeOne CDN**：`eo-cache-status: HIT` 会长时间命中旧页面。判断「是否真的部署成功」要分开看——① commit 是否在 remote（看 `raw.githubusercontent.com/.../main/...` 字节数）；② GitHub Pages 是否构建完（raw 已新但正式域名旧 = 只是 CDN 没刷新，等 `max-age=600` 过期即可）；③ 正式域名可带 `?v=<日期>` 参数绕过缓存确认源站。**不要误判成「push 失败」去重复 push。**
+
+---
+
 ## 一句话教训汇总（给未来的我）
 
 1. 数据口径是红线——ARR/实际营收不分，专业性归零。
@@ -140,8 +152,10 @@ payload = {"media_id": media_id, "index": 0, "articles": {
 8. Token 严禁放仓库目录 + `.gitignore` 兜底。
 9. 微信 draft/update 的 `articles` 是**对象**，draft/add 才是数组（47001 先看接口契约）。
 10. 公众号正文不放站外链接文字提示；条形图用 inline-block section（td 百分比宽度会被微信编辑器忽略），正文控制在 2 万字符内。
+11. 别用带「页面节点 id」追踪的可视化编辑器写公众号 HTML——会注入 `data-page-node-id` 撑爆正文；被污染后 `git checkout` 恢复最干净。
+12. 验证部署别只看正式域名：`yeranyang.cn` 有 EdgeOne 缓存，raw + `?v=` 参数判断源站，正式域名等 `max-age=600` 过期。
 
 ---
 
-*最后更新：2026-09-09*
+*最后更新：2026-09-10*
 *定位：纯踩坑日志；规范见 CONTENT_STANDARD.md*

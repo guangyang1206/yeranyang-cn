@@ -1,5 +1,16 @@
 [
   {
+    "id": "2026-09-11_gpt6-astra-safety-rift",
+    "date": "2026-09-11",
+    "title": "GPT-6 Astra发布与安全共识裂痕：能力越强，行业为什么越不安？",
+    "desc": "OpenAI喊出\"欢迎来到AGI时代\"，Astra触及网络安全\"关键\"风险阈值；六天后Anthropic研究员公开辞职警告AI有超10%概率致人类灭绝。",
+    "tags": [
+      "security",
+      "company"
+    ],
+    "status": "draft"
+  },
+  {
     "id": "2026-08-28_hy4-recursive-self-improvement",
     "date": "2026-08-28",
     "title": "模型开始造自己了：Hy4 preview 与递归自我改进的第一道裂缝",

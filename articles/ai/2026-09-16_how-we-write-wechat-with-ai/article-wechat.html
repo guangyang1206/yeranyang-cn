@@ -63,7 +63,28 @@
 </section>
 
 <section style="padding:30px 24px;background-color:#ffffff">
-  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">四、我们把边界写进了规范</h2>
+  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">四、我们的工具链：你可以照着搭一套</h2>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0">前面讲的是「思路」，这一节讲「家伙」。下面这些工具都是我们自己日常在用的，名字和作用都摆出来，方便你对照着搭一套。它们都不复杂，关键不在工具本身，而在每一样工具负责的边界都很清楚。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">选题脚手架</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">new-topic.sh</span>）—— 输入标题，自动生成一篇文章的标准目录：元数据、公众号版模板、网站版模板、素材与生图提示词文件夹，让每篇新文章从同一种骨架起步。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">图表生成</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">draw-handdrawn-charts.cjs</span> 与 <span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">screenshot-charts.mjs</span>）—— 把核对过的数据画成手绘风格的数据图并导出图片，让数字从表格变成能直接看懂的图。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">索引更新</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">update-index.sh</span>）—— 文章写完后把新文章登记进网站首页列表、元数据清单与目录文件，一次同步到位，避免「文章写好了、首页忘了挂入口」。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">草稿推送</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">wechat-draft-mvp.py</span>）—— 先跑预检（标题长度、正文字数、有无脚本或占位符），再通过接口把文章送进公众号草稿箱，封面、摘要、阅读原文链接一并配好。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">内容规范</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">CONTENT_STANDARD.md</span>）—— 唯一的标准文件，写作口径、排版规则、三轮审核、发布流程都写在这里，让人和工具照着同一份规则干活。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">技能包</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">skills/</span> 目录）—— 把反复用到的手艺沉淀成可复用的步骤说明，让踩过的坑变成下一次的台阶。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0"><strong style="color:#0f172a">版本管理</strong>—— 严格说不是「工具」，但比任何工具都重要。每一处改动都放进 git，出了错能一键回到上一个干净的版本，前面讲的第二个坑能那么快恢复，靠的就是它。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0">这七样东西加起来，就是我们的全部家当。它们没有一样是「黑科技」，也没有一样替我们做了决定，只是把「查证、排版、送草稿、自检」这四件边界清晰的事，一件件落实成了能重复执行的工具。而「写什么、怎么写、发不发」，始终在工具够不着的地方——人手里。</p>
+</section>
+
+<section style="padding:30px 24px;background-color:#f8fafc">
+  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">五、我们把边界写进了规范</h2>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">这套做法慢慢稳定下来之后，我们做了一件看起来很「重」的事：把边界和纪律写进了一份规范文件，当成唯一的标准，而不是靠记忆和默契。</p>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">为什么？因为踩过的坑如果不写下来，就会再踩一遍。规范里写得最清楚的一条，是这条铁律：</p>
   <section style="padding:22px;background-color:#eef6ff;border-left:4px solid #0284c7;margin:20px 0">
@@ -74,7 +95,7 @@
 </section>
 
 <section style="padding:30px 24px;background-color:#f8fafc">
-  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">五、说到底，还是那个问题</h2>
+  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">六、说到底，还是那个问题</h2>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">写这篇文章的过程，本身就是我在说的这件事的一个样本：选题是我定的，结构是我搭的，哪些坑值得讲、哪些细节不能省，也是我判断的。AI 帮我查证、帮我排版、帮我检查，但它没替我做任何一个真正的决定。</p>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">所以回到上一篇文章的那句话——AI 时代最重要的问题，不是人还要不要劳动，而是劳动还是否属于人。</p>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">写公众号这件小事，也是一样的道理。AI 可以帮你把字排得漂亮、把数据核得干净、把草稿送进后台。但一篇文章该不该写、写出来是不是你想说的话、最后要不要按下发布，这些只能由你自己来。</p>

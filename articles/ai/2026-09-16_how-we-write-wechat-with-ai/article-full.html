@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我们如何用 AI 写公众号｜烨然漫笔</title>
+<meta name="description" content="AI 负责把动作做对，人负责把事情做对。这篇复盘讲清楚我们用 AI 查证、排版、送草稿，却把选题、判断与发布始终留在人手里的完整做法。">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#07111f;color:#dbe7f3;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;font-size:17px}a{color:#7dd3fc;text-underline-offset:3px;overflow-wrap:anywhere;word-break:break-word}.hero{position:relative;overflow:hidden;padding:92px 20px 68px;background:#081522;border-bottom:1px solid #1e3a51}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,#0a1f33 0%,#081522 60%)}.wrap{position:relative;max-width:820px;margin:0 auto;padding:0 22px}.hero .wrap{z-index:1}.eyebrow{display:inline-block;padding:5px 13px;border:1px solid #5f6670;border-radius:20px;color:#fcd34d;font-size:13px;letter-spacing:1px}.hero h1{font-size:46px;line-height:1.28;color:#fff;margin:24px 0 18px;max-width:760px}.hero .lead{font-size:20px;color:#c7d2de;max-width:700px;margin:0 0 24px}.meta{font-size:14px;color:#8799aa}main section{padding:50px 0;border-bottom:1px solid #153048}h2{font-size:28px;line-height:1.45;color:#fff;margin:0 0 22px}h3{font-size:20px;line-height:1.5;color:#fff;margin:30px 0 12px}p{margin:0 0 18px}.opening{font-size:18px}.pause{font-size:27px;font-weight:800;color:#fff;text-align:center;margin:34px 0}.summary{padding:24px 26px;border-left:4px solid #f59e0b;background:#2a2415;border-radius:0 10px 10px 0;color:#fde68a}.flow{display:grid;grid-template-columns:1fr;gap:14px;margin:26px 0}.step{display:flex;gap:16px;padding:20px 22px;border:1px solid #28465d;border-radius:12px;background:#0b1d2d}.step .n{flex:none;width:34px;height:34px;border-radius:50%;background:#0ea5e9;color:#04121f;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}.step .b{font-size:15px;color:#dbe7f3}.step .b strong{color:#fff}.step.human .n{background:#fbbf24}.step .tag{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:10px;font-size:12px;color:#04121f;background:#0ea5e9;vertical-align:middle}.step.human .tag{background:#fbbf24}.pit{padding:24px 26px;border:1px solid #3a2c20;border-radius:12px;background:#1a1309;margin:0 0 20px}.pit h3{margin:0 0 10px;color:#fbbf24;font-size:19px}.pit p{color:#e6d9c2;font-size:15.5px}.pit .lesson{color:#7dd3fc;font-weight:600}.quote{font-size:24px;font-weight:800;color:#fff;text-align:center;line-height:1.5;margin:36px 0;padding:26px;border:1px solid #28465d;border-radius:14px;background:#0b1d2d}.source{padding:16px 20px;border-left:3px solid #5f6670;margin:0 0 14px;border-radius:0 8px 8px 0;background:#0b1d2d}.source p{margin:0 0 6px}.source a{font-size:14px}.source .small{font-size:13.5px;color:#93a7b8}.badge{display:inline-block;font-size:12px;color:#04121f;background:#0ea5e9;border-radius:10px;padding:1px 9px;margin-right:8px}.update{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #153048}.update time{flex:none;color:#fbbf24;font-weight:700;font-size:14px}.update p{margin:0;font-size:14.5px;color:#b6c7d5}.small{font-size:13.5px;color:#8799aa}.footer{padding:40px 22px;text-align:center;color:#8799aa;font-size:14px}@media(max-width:640px){.hero h1{font-size:32px}.hero .lead{font-size:17px}h2{font-size:24px}.flow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">AI 与人的处境 · 2026-09-16</span>
+    <h1>我们如何用 AI 写公众号</h1>
+    <p class="lead">AI 负责把动作做对，人负责把事情做对。这篇复盘讲清楚我们用 AI 查证、排版、送草稿，却把选题、判断与发布始终留在人手里的完整做法。</p>
+    <p class="meta">烨然漫笔 · 艾AI · 写作于 2026-09-16</p>
+  </div>
+</header>
+<main class="wrap">
+  <section class="opening">
+    <p>上一篇文章结尾，我留了一句话：这套「AI 干活、人把方向」的做法，改天专门写一篇。今天就来兑现。</p>
+    <p>先把边界说清楚，免得误会。这篇文章不教你用 AI 批量生产爆款——那件事我也不擅长。我要讲的，是我们自己这两三个月摸出来的一套小流程：用 AI 帮着查证、排版、送草稿，但把「写什么、怎么写、发不发」这三件事，始终留在人手里。</p>
+    <p>如果你也在运营一个个人公众号，或者想用 AI 提高写作效率、又不想被它牵着走，这套做法也许能给你一点参考。</p>
+    <div class="summary"><strong>一句话：</strong>AI 负责把动作做对，人负责把事情做对。动作可以交给机器，判断必须留给自己。</div>
+  </section>
+
+  <section>
+    <h2>一、AI 替我们干了什么，没干什么</h2>
+    <p>很多人一提到「用 AI 写公众号」，脑子里是另一幅画面：给个标题，AI 哗啦吐出一篇，人复制粘贴，点发布。那是另一条路，也很常见。但我们的做法不一样。</p>
+    <h3>AI 干的，是四件边界清晰的事</h3>
+    <p><strong>查证</strong>——写作前把每个数字、每处引用回到一手来源逐字核对，追不到就降级或删掉。</p>
+    <p><strong>排版</strong>——把内容分别做成两个版本：一个给网站，一个给公众号，后者要做到复制进编辑器样式不变。</p>
+    <p><strong>送草稿</strong>——把公众号版自动推送到草稿箱，封面、摘要、阅读原文链接一次配齐。</p>
+    <p><strong>自检</strong>——推送前跑一遍校验：标题长度、字数上限、有没有不该出现的脚本或占位符。</p>
+    <h3>AI 一律不碰的三件事</h3>
+    <p><strong>选题</strong>——这篇文章该不该写，不归它。<strong>判断</strong>——哪个数据能用、哪个口径有风险，不归它。<strong>发布</strong>——草稿进了后台，正式点下「群发」的那一下，永远是人。</p>
+  </section>
+
+  <section>
+    <h2>二、整条链路长什么样</h2>
+    <p>用一次真实的发布流程来还原，大致是五步。其中只有第一步和第五步需要人全程在场，中间三步 AI 可以配合完成——但它做的每一步，人都能看见、能叫停、能推翻。</p>
+    <div class="flow">
+      <div class="step human"><div class="n">1</div><div class="b"><strong>写作</strong><span class="tag">人在场</span><br>先有母稿，一份纯文字的稿子，把想说的话完整写下来。这是整条链路的起点，也是唯一不依赖工具、纯靠人脑的部分。</div></div>
+      <div class="step"><div class="n">2</div><div class="b"><strong>事实核查</strong><span class="tag">AI 配合</span><br>最花时间也最不能省。任何数字先在一手机构页面找到，再进文章；二手聚合网站只用来找线索，不用来下结论。</div></div>
+      <div class="step"><div class="n">3</div><div class="b"><strong>双版本排版</strong><span class="tag">AI 配合</span><br>网站版放在自己的域名下，保留完整证据链、方法说明与更新记录；公众号版把核心观点完整讲清楚，做成复制进微信编辑器样式也不变的格式。</div></div>
+      <div class="step"><div class="n">4</div><div class="b"><strong>推送草稿</strong><span class="tag">AI 配合</span><br>公众号版经校验后，通过微信接口自动送进草稿箱，封面、摘要、阅读原文链接一并配好。</div></div>
+      <div class="step human"><div class="n">5</div><div class="b"><strong>人工发布</strong><span class="tag">人在场</span><br>人在后台打开草稿，手机预览一遍，确认排版和数据都没问题，再决定发不发、什么时候发。</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>三、三个让我印象最深的坑</h2>
+    <p>工具和流程听起来都顺，真跑起来全是坑。挑三个最有代表性的讲。</p>
+    <div class="pit">
+      <h3>坑一：公众号编辑器会悄悄「吃掉」排版</h3>
+      <p>我们给文章配过两张数据图，用条形表示比例。本地浏览器里看比例完美，一进微信编辑器，九根条全变成一样长。查了半天才发现：微信编辑器会忽略表格单元格上的百分比宽度，把两列重新均分。</p>
+      <p class="lesson">教训：本地看起来对，不等于在微信里就对。凡是要在微信里呈现比例，一律用微信能认的结构，草稿更新后还要在手机上再肉眼确认一遍。</p>
+    </div>
+    <div class="pit">
+      <h3>坑二：一个普通编辑器，差点把文章撑爆</h3>
+      <p>公众号版被某个带「页面节点追踪」功能的编辑器打开过后，悄悄给每个标签都加了一串追踪属性，文件凭空胖了一大截，正文字符数从一万九涨到两万六，超过了微信两万字符的上限。</p>
+      <p class="lesson">教训：第一反应是从版本库恢复干净版本，比逐条删属性更彻底。坚持把内容放进版本管理——出了问题，能回到上一个对的版本。</p>
+    </div>
+    <div class="pit">
+      <h3>坑三：AI 会把「能做成」误当成「该做」</h3>
+      <p>有一次整套流程跑通，草稿也顺利进了后台。临到发布，我停下来确认了一件事：这篇文章以前是不是发过？确认发过之后，我把它按下了。</p>
+      <p class="lesson">教训：这个决定没有任何技术含量，却恰恰是整条链路里最值钱的一环。工具能证明一件事能做，不能证明它该做。前者归机器，后者归人。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>四、我们把边界写进了规范</h2>
+    <p>这套做法慢慢稳定下来之后，我们做了一件看起来很「重」的事：把边界和纪律写进了一份规范文件，当成唯一的标准，而不是靠记忆和默契。因为踩过的坑如果不写下来，就会再踩一遍。</p>
+    <div class="quote">自动化止于草稿箱，<br>正式发布由人在后台人工确认。</div>
+    <p>这不是技术做不到自动发布——接口是有的。而是我们刻意把「最后一步」留给了人。理由也很简单：一旦把发布也自动化，人就从一个做判断的作者，退化成一个看结果的旁观者。而判断，恰恰是我们最不想交出去的东西。</p>
+    <p>规范里还写了很多别的：数据口径怎么核、标题怎么取才不标题党、公众号版哪些样式能用哪些会被过滤、发布前要过几轮审核。这些看起来琐碎，但它们是让一套「AI 干活、人把方向」的流程能稳定跑下去的地基。</p>
+  </section>
+
+  <section>
+    <h2>五、说到底，还是那个问题</h2>
+    <p>写这篇文章的过程，本身就是我在说的这件事的一个样本：选题是我定的，结构是我搭的，哪些坑值得讲、哪些细节不能省，也是我判断的。AI 帮我查证、帮我排版、帮我检查，但它没替我做任何一个真正的决定。</p>
+    <p>所以回到上一篇文章的那句话——AI 时代最重要的问题，不是人还要不要劳动，而是劳动还是否属于人。</p>
+    <p>写公众号这件小事，也是一样的道理。AI 可以帮你把字排得漂亮、把数据核得干净、把草稿送进后台。但一篇文章该不该写、写出来是不是你想说的话、最后要不要按下发布，这些只能由你自己来。</p>
+    <p>工具越聪明，人越要清楚：哪些东西可以交给它，哪些东西必须留给自己。</p>
+    <div class="quote">我选择把判断留给自己。</div>
+  </section>
+
+  <section>
+    <h2>方法与边界</h2>
+    <ol style="color:#c7d2de;font-size:15.5px;padding-left:22px;line-height:1.9">
+      <li>本文所描述的工具链与踩坑，均来自「烨然漫笔」过去数月的真实实践，不虚构任何产品名、数据或效果。</li>
+      <li>文中「AI 负责动作、人负责判断」的边界，是作者在真实流程中确立的原则，不表述为行业通用标准。</li>
+      <li>涉及的公众号流程止于草稿箱，正式发布始终由作者人工完成。</li>
+      <li>文中不点名任何具体 AI 产品或第三方服务。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>更新记录</h2>
+    <div class="update"><time>2026-09-16</time><p>完成初稿。经验复盘式，覆盖四件交给 AI 的事、三件不交的事、五步链路、三个坑与自动化边界。</p></div>
+    <p class="small" style="margin-top:18px">本文为「AI 与人的处境」栏目方法论篇，是上一篇文章文末所留「分享钩子」的兑现。</p>
+  </section>
+</main>
+<footer class="footer">烨然漫笔 · 把变化写清楚，也把人的位置写清楚</footer>
+</body>
+</html>

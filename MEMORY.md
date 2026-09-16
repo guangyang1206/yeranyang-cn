@@ -140,6 +140,23 @@ payload = {"media_id": media_id, "index": 0, "articles": {
 
 ---
 
+## 坑 10：xcrun 架构错导致 git／python3 全挂 + 出口 IP 每次都可能变
+
+**现象（两个独立问题）**：
+1. 所有 `git` 与 `/usr/bin/python3` 命令报 `xcrun: error: unable to load libxcrun ... (have 'x86_64', need 'arm64e')`，一度以为要重装 CommandLineTools。
+2. 推草稿再次撞 `40164`：这次出口 IP 是 `112.94.174.161`，而上一次加白的是 `59.37.125.65`。
+
+**根因**：
+1. `/usr/bin/git` 与 `/usr/bin/python3` 依赖 `/Library/Developer/CommandLineTools`（x86_64），与 arm64e 环境不匹配。**但 `/usr/local/bin/git`（Homebrew 2.46.0）自带库、不依赖它，完全可用。**
+2. 出口 IP 属运营商动态分配，**换网络、换时段都可能变**，不存在「加过一次就永久有效」。
+
+**教训**：
+1. 报 xcrun 架构错时，别急着修 CommandLineTools——先 `which -a git` / `which -a python3` 找不依赖它的替代二进制：`/usr/local/bin/git` + managed Python（`~/.workbuddy/binaries/python/versions/*/bin/python3`）。
+2. 推草稿前可先主动查一次当前出口 IP，把「加白」当成每次推送的前置检查项，而不是一次性配置。`40164` 报错信息里直接带当前 IP，照着加即可。
+3. 幂等守卫在 `40164` 失败时不会落盘 hash，**加白后原样重跑即可**，不会产生重复草稿。
+
+---
+
 ## 一句话教训汇总（给未来的我）
 
 1. 数据口径是红线——ARR/实际营收不分，专业性归零。
@@ -154,8 +171,10 @@ payload = {"media_id": media_id, "index": 0, "articles": {
 10. 公众号正文不放站外链接文字提示；条形图用 inline-block section（td 百分比宽度会被微信编辑器忽略），正文控制在 2 万字符内。
 11. 别用带「页面节点 id」追踪的可视化编辑器写公众号 HTML——会注入 `data-page-node-id` 撑爆正文；被污染后 `git checkout` 恢复最干净。
 12. 验证部署别只看正式域名：`yeranyang.cn` 有 EdgeOne 缓存，raw + `?v=` 参数判断源站，正式域名等 `max-age=600` 过期。
+13. 出口 IP 每次推送都可能变——`40164` 是常态不是故障，报错信息自带当前 IP，加白后原样重跑（hash 未落盘，不会重复）。
+14. xcrun 架构错别修 CommandLineTools，换用 `/usr/local/bin/git` + managed Python。
 
 ---
 
-*最后更新：2026-09-10*
+*最后更新：2026-09-17*
 *定位：纯踩坑日志；规范见 CONTENT_STANDARD.md*

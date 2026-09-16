@@ -3,65 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我们如何用 AI 写公众号｜烨然漫笔</title>
-<meta name="description" content="AI 负责把动作做对，人负责把事情做对。这篇复盘讲清楚我们用 AI 查证、排版、送草稿，却把选题、判断与发布始终留在人手里的完整做法。">
+<title>我是怎么用 AI 写公众号的｜烨然漫笔</title>
+<meta name="description" content="AI 负责把动作做对，我负责把事情做对。一份刚跑顺的记录：四件交给 AI 的事、五步链路、三个坑、装了哪些 skill，以及微信后台那几项配置。">
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#07111f;color:#dbe7f3;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;font-size:17px}a{color:#7dd3fc;text-underline-offset:3px;overflow-wrap:anywhere;word-break:break-word}.hero{position:relative;overflow:hidden;padding:92px 20px 68px;background:#081522;border-bottom:1px solid #1e3a51}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,#0a1f33 0%,#081522 60%)}.wrap{position:relative;max-width:820px;margin:0 auto;padding:0 22px}.hero .wrap{z-index:1}.eyebrow{display:inline-block;padding:5px 13px;border:1px solid #5f6670;border-radius:20px;color:#fcd34d;font-size:13px;letter-spacing:1px}.hero h1{font-size:46px;line-height:1.28;color:#fff;margin:24px 0 18px;max-width:760px}.hero .lead{font-size:20px;color:#c7d2de;max-width:700px;margin:0 0 24px}.meta{font-size:14px;color:#8799aa}main section{padding:50px 0;border-bottom:1px solid #153048}h2{font-size:28px;line-height:1.45;color:#fff;margin:0 0 22px}h3{font-size:20px;line-height:1.5;color:#fff;margin:30px 0 12px}p{margin:0 0 18px}.opening{font-size:18px}.pause{font-size:27px;font-weight:800;color:#fff;text-align:center;margin:34px 0}.summary{padding:24px 26px;border-left:4px solid #f59e0b;background:#2a2415;border-radius:0 10px 10px 0;color:#fde68a}.flow{display:grid;grid-template-columns:1fr;gap:14px;margin:26px 0}.step{display:flex;gap:16px;padding:20px 22px;border:1px solid #28465d;border-radius:12px;background:#0b1d2d}.step .n{flex:none;width:34px;height:34px;border-radius:50%;background:#0ea5e9;color:#04121f;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}.step .b{font-size:15px;color:#dbe7f3}.step .b strong{color:#fff}code{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;color:#7dd3fc;background:#0e2438;padding:1px 6px;border-radius:5px;word-break:break-all}.step .b code{display:inline-block;margin-top:4px}.step.human .n{background:#fbbf24}.step .tag{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:10px;font-size:12px;color:#04121f;background:#0ea5e9;vertical-align:middle}.step.human .tag{background:#fbbf24}.pit{padding:24px 26px;border:1px solid #3a2c20;border-radius:12px;background:#1a1309;margin:0 0 20px}.pit h3{margin:0 0 10px;color:#fbbf24;font-size:19px}.pit p{color:#e6d9c2;font-size:15.5px}.pit .lesson{color:#7dd3fc;font-weight:600}.quote{font-size:24px;font-weight:800;color:#fff;text-align:center;line-height:1.5;margin:36px 0;padding:26px;border:1px solid #28465d;border-radius:14px;background:#0b1d2d}.source{padding:16px 20px;border-left:3px solid #5f6670;margin:0 0 14px;border-radius:0 8px 8px 0;background:#0b1d2d}.source p{margin:0 0 6px}.source a{font-size:14px}.source .small{font-size:13.5px;color:#93a7b8}.badge{display:inline-block;font-size:12px;color:#04121f;background:#0ea5e9;border-radius:10px;padding:1px 9px;margin-right:8px}.update{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #153048}.update time{flex:none;color:#fbbf24;font-weight:700;font-size:14px}.update p{margin:0;font-size:14.5px;color:#b6c7d5}.small{font-size:13.5px;color:#8799aa}.footer{padding:40px 22px;text-align:center;color:#8799aa;font-size:14px}@media(max-width:640px){.hero h1{font-size:32px}.hero .lead{font-size:17px}h2{font-size:24px}.flow{grid-template-columns:1fr}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#07111f;color:#dbe7f3;
+     font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+     line-height:1.9;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:#7dd3fc;text-underline-offset:3px;overflow-wrap:anywhere;word-break:break-word}
+code{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;
+     color:#7dd3fc;background:#0e2438;padding:2px 7px;border-radius:5px;
+     word-break:break-all;border:1px solid #17324a}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding:88px 20px 60px;background:#0b1727;
+      border-bottom:1px solid #1e3a51}
+.hero .halo{position:absolute;top:-200px;left:-140px;width:640px;height:640px;border-radius:50%;
+            background:#12324c;opacity:.5}
+.wrap{position:relative;max-width:820px;margin:0 auto;padding:0 22px}
+.hero .wrap{z-index:1}
+.eyebrow{display:inline-block;padding:5px 14px;border:1px solid #3d566e;border-radius:20px;
+         color:#fcd34d;font-size:13px;letter-spacing:1.5px}
+.hero h1{font-size:46px;line-height:1.26;color:#fff;margin:22px 0 18px;max-width:760px;
+         letter-spacing:-.5px}
+.hero .lead{font-size:19.5px;color:#c2d2e0;max-width:700px;margin:0 0 22px}
+.meta{font-size:14px;color:#7e93a8}
+.meta .sep{color:#3d566e;margin:0 8px}
+
+/* ---------- 目录 ---------- */
+.toc{background:#0a1a2b;border-bottom:1px solid #17324a;padding:18px 0}
+.toc ol{max-width:820px;margin:0 auto;padding:0 22px;list-style:none;
+        display:flex;flex-wrap:wrap;gap:8px 10px;font-size:14px}
+.toc a{display:inline-block;padding:5px 13px;border:1px solid #23415c;border-radius:16px;
+       color:#a7bed2;text-decoration:none;transition:.18s}
+.toc a:hover{border-color:#38bdf8;color:#7dd3fc;background:#0e2438}
+.toc .i{color:#fbbf24;font-weight:700;margin-right:5px}
+
+/* ---------- Section ---------- */
+main section{padding:48px 0;border-bottom:1px solid #12293d}
+main section:last-child{border-bottom:none}
+h2{font-size:27px;line-height:1.45;color:#fff;margin:0 0 20px;letter-spacing:-.3px;
+   display:flex;align-items:baseline;gap:12px}
+h2 .num{flex:none;font-size:14px;font-weight:800;color:#0f172a;background:#fbbf24;
+        border-radius:6px;padding:3px 9px;letter-spacing:0;transform:translateY(-3px)}
+h3{font-size:19.5px;line-height:1.5;color:#fff;margin:32px 0 12px}
+p{margin:0 0 18px}
+.opening{font-size:18px}
+.opening p:last-child{margin-bottom:0}
+
+/* ---------- 组件 ---------- */
+.summary{padding:22px 26px;border-left:4px solid #fbbf24;background:#211d12;
+         border-radius:0 10px 10px 0;color:#fde68a;font-size:17px;margin:26px 0 0}
+.note{padding:18px 22px;border:1px dashed #2c4a64;border-radius:10px;background:#0a1a2b;
+      color:#a7bed2;font-size:15.5px;margin:0 0 18px}
+.quote{margin:30px 0;padding:26px 28px;background:#0d2337;border:1px solid #23415c;
+       border-left:4px solid #38bdf8;border-radius:0 12px 12px 0;
+       font-size:21px;font-weight:700;color:#e8f4ff;line-height:1.72;text-align:center}
+.closing{margin:34px 0 0;font-size:24px;font-weight:800;color:#fff;text-align:center}
+
+/* 分工两栏 */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 0}
+.col{border:1px solid #23415c;border-radius:12px;padding:20px 22px;background:#0b1d2d}
+.col.no{border-color:#4a3a22;background:#1c1710}
+.col h4{margin:0 0 14px;font-size:16px;color:#7dd3fc;letter-spacing:.5px}
+.col.no h4{color:#fbbf24}
+.col ul{margin:0;padding-left:20px;font-size:15px;color:#c2d2e0}
+.col li{margin-bottom:9px;line-height:1.75}
+.col li:last-child{margin-bottom:0}
+.col li strong{color:#fff}
+
+/* 五步链路 */
+.flow{display:grid;grid-template-columns:1fr;gap:13px;margin:24px 0 0}
+.step{display:flex;gap:15px;padding:18px 20px;border:1px solid #23415c;border-radius:12px;
+      background:#0b1d2d}
+.step .n{flex:none;width:32px;height:32px;border-radius:50%;background:#0d2337;
+         border:2px solid #38bdf8;color:#38bdf8;font-weight:800;font-size:15px;
+         display:flex;align-items:center;justify-content:center}
+.step.human{border-color:#4a3a22;background:#1c1710}
+.step.human .n{background:#fbbf24;border-color:#fbbf24;color:#0f172a}
+.step .b{font-size:15px;color:#c8d8e6}
+.step .b strong{color:#fff}
+.tag{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:10px;font-size:12px;
+     color:#04121f;background:#38bdf8;vertical-align:middle;font-weight:600}
+.step.human .tag{background:#fbbf24}
+
+/* 坑卡片 */
+.pit{padding:22px 24px;border:1px solid #3a2c20;border-radius:12px;background:#17120d;
+     margin:0 0 16px}
+.pit:last-child{margin-bottom:0}
+.pit h3{margin:0 0 12px;font-size:18px;color:#fcd34d}
+.pit p{font-size:15px;color:#c2d2e0;margin:0 0 12px}
+.pit .lesson{margin:0;padding:13px 16px;background:#0e2438;border-left:3px solid #38bdf8;
+             border-radius:0 8px 8px 0;color:#bfe3fb;font-size:14.5px}
+
+/* skill 表 */
+.tbl-wrap{overflow-x:auto;margin:24px 0 0;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+thead th{background:#0f172a;color:#fff;text-align:left;padding:13px 14px;
+         font-size:13.5px;letter-spacing:.5px;border-bottom:2px solid #23415c;font-weight:700}
+tbody td{padding:13px 14px;border-bottom:1px solid #16304a;color:#c2d2e0;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#0a1a2b}
+td code{font-size:13px}
+.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;
+       font-weight:600;white-space:nowrap}
+.badge.own{background:#2a2415;color:#fcd34d;border:1px solid #4a3a22}
+.badge.ext{background:#0e2438;color:#7dd3fc;border:1px solid #23415c}
+
+/* 有序步骤（配置） */
+.steps-ol{margin:24px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps-ol li{position:relative;padding:0 0 20px 46px;counter-increment:s}
+.steps-ol li:last-child{padding-bottom:0}
+.steps-ol li:before{content:counter(s);position:absolute;left:0;top:1px;
+                    width:30px;height:30px;border-radius:8px;background:#0e2438;
+                    border:1px solid #23415c;color:#7dd3fc;font-weight:800;font-size:14px;
+                    display:flex;align-items:center;justify-content:center}
+.steps-ol strong{color:#fff}
+.steps-ol p{font-size:15.5px;color:#c2d2e0;margin:0}
+
+/* 方法与边界 / 更新记录 */
+.bounds{margin:0;padding-left:22px;color:#b3c6d6;font-size:15.5px;line-height:1.9}
+.bounds li{margin-bottom:10px}
+.update{padding:15px 18px;border-left:3px solid #2c4a64;background:#0a1a2b;
+        border-radius:0 8px 8px 0;margin:0 0 12px}
+.update time{display:block;font-size:13px;color:#fbbf24;font-weight:700;margin-bottom:5px;
+             font-family:ui-monospace,Menlo,monospace}
+.update p{margin:0;font-size:15px;color:#b3c6d6}
+.small{font-size:14px;color:#7e93a8}
+.footer{padding:34px 22px 44px;text-align:center;color:#6d8399;font-size:14px;
+        background:#0a1a2b;border-top:1px solid #17324a}
+
+@media(max-width:640px){
+  body{font-size:16px}
+  .hero{padding:58px 18px 42px}
+  .hero h1{font-size:31px}
+  .hero .lead{font-size:17px}
+  .wrap{padding:0 18px}
+  h2{font-size:23px;gap:10px}
+  main section{padding:38px 0}
+  .split{grid-template-columns:1fr;gap:13px}
+  .quote{font-size:18px;padding:22px 20px}
+  .closing{font-size:21px}
+  .toc ol{font-size:13px;gap:7px 8px}
+  .pit{padding:18px 18px}
+}
 </style>
 </head>
 <body>
+
 <header class="hero">
+  <div class="halo"></div>
   <div class="wrap">
-    <span class="eyebrow">AI 与人的处境 · 2026-09-16</span>
-    <h1>我们如何用 AI 写公众号</h1>
-    <p class="lead">AI 负责把动作做对，人负责把事情做对。这篇复盘讲清楚我们用 AI 查证、排版、送草稿，却把选题、判断与发布始终留在人手里的完整做法。</p>
-    <p class="meta">烨然漫笔 · 艾AI · 写作于 2026-09-16</p>
+    <span class="eyebrow">AI 与人的处境</span>
+    <h1>我是怎么用 AI 写公众号的</h1>
+    <p class="lead">AI 负责把动作做对，我负责把事情做对。一份刚跑顺、坑还热着的记录——不是成熟方案。</p>
+    <p class="meta">烨然漫笔<span class="sep">·</span>艾AI<span class="sep">·</span>2026-09-16</p>
   </div>
 </header>
+
+<nav class="toc">
+  <ol>
+    <li><a href="#s1"><span class="i">01</span>干了什么，没干什么</a></li>
+    <li><a href="#s2"><span class="i">02</span>整条链路</a></li>
+    <li><a href="#s3"><span class="i">03</span>三个坑</a></li>
+    <li><a href="#s4"><span class="i">04</span>装了哪些 skill</a></li>
+    <li><a href="#s5"><span class="i">05</span>微信后台配置</a></li>
+    <li><a href="#s6"><span class="i">06</span>边界与规范</a></li>
+    <li><a href="#s7"><span class="i">07</span>还是那个问题</a></li>
+  </ol>
+</nav>
+
 <main class="wrap">
   <section class="opening">
     <p>上一篇文章结尾，我留了一句话：这套「AI 干活、人把方向」的做法，改天专门写一篇。今天就来兑现。</p>
-    <p>先把边界说清楚，免得误会。这篇文章不教你用 AI 批量生产爆款——那件事我也不擅长。我要讲的，是我们自己这两三个月摸出来的一套小流程：用 AI 帮着查证、排版、送草稿，但把「写什么、怎么写、发不发」这三件事，始终留在人手里。</p>
-    <p>如果你也在运营一个个人公众号，或者想用 AI 提高写作效率、又不想被它牵着走，这套做法也许能给你一点参考。</p>
-    <div class="summary"><strong>一句话：</strong>AI 负责把动作做对，人负责把事情做对。动作可以交给机器，判断必须留给自己。</div>
+    <p>先把边界说清楚，免得误会。这篇文章不教你用 AI 批量生产爆款——那件事我也不擅长。我要讲的，是我自己一点点摸出来的一套小流程：用 AI 帮着查证、排版、送草稿，但把「写什么、怎么写、发不发」这三件事，始终留在自己手里。</p>
+    <div class="note">还要再交代一句，免得把话说大：写文章这件事我做了几个月，写作和排版的规矩也是一路磨出来的；但「自动把稿子送进草稿箱」这一环，其实是最近才跑通的，还在验证期。所以下面是一份刚刚跑顺、坑还热着的记录，不是什么成熟方案。</div>
+    <div class="summary"><strong>一句话：</strong>AI 负责把动作做对，我负责把事情做对。动作可以交给机器，判断留给自己。</div>
   </section>
 
-  <section>
-    <h2>一、AI 替我们干了什么，没干什么</h2>
-    <p>很多人一提到「用 AI 写公众号」，脑子里是另一幅画面：给个标题，AI 哗啦吐出一篇，人复制粘贴，点发布。那是另一条路，也很常见。但我们的做法不一样。</p>
-    <h3>AI 干的，是四件边界清晰的事</h3>
-    <p><strong>查证</strong>——写作前把每个数字、每处引用回到一手来源逐字核对，追不到就降级或删掉。</p>
-    <p><strong>排版</strong>——把内容分别做成两个版本：一个给网站，一个给公众号，后者要做到复制进编辑器样式不变。</p>
-    <p><strong>送草稿</strong>——把公众号版自动推送到草稿箱，封面、摘要、阅读原文链接一次配齐。</p>
-    <p><strong>自检</strong>——推送前跑一遍校验：标题长度、字数上限、有没有不该出现的脚本或占位符。</p>
-    <h3>AI 一律不碰的三件事</h3>
-    <p><strong>选题</strong>——这篇文章该不该写，不归它。<strong>判断</strong>——哪个数据能用、哪个口径有风险，不归它。<strong>发布</strong>——草稿进了后台，正式点下「群发」的那一下，永远是人。</p>
-  </section>
-
-  <section>
-    <h2>二、整条链路长什么样</h2>
-    <p>用一次真实的发布流程来还原，大致是五步。其中只有第一步和第五步需要人全程在场，中间三步 AI 可以配合完成——但它做的每一步，人都能看见、能叫停、能推翻。</p>
-    <div class="flow">
-      <div class="step human"><div class="n">1</div><div class="b"><strong>写作</strong><span class="tag">人在场</span><br>先有母稿，一份纯文字的稿子，把想说的话完整写下来。这是整条链路的起点，也是唯一不依赖工具、纯靠人脑的部分。</div></div>
-      <div class="step"><div class="n">2</div><div class="b"><strong>事实核查</strong><span class="tag">AI 配合</span><br>最花时间也最不能省。任何数字先在一手机构页面找到，再进文章；二手聚合网站只用来找线索，不用来下结论。</div></div>
-      <div class="step"><div class="n">3</div><div class="b"><strong>双版本排版</strong><span class="tag">AI 配合</span><br>网站版放在自己的域名下，保留完整证据链、方法说明与更新记录；公众号版把核心观点完整讲清楚，做成复制进微信编辑器样式也不变的格式。</div></div>
-      <div class="step"><div class="n">4</div><div class="b"><strong>推送草稿</strong><span class="tag">AI 配合</span><br>公众号版经校验后，通过微信接口自动送进草稿箱，封面、摘要、阅读原文链接一并配好。</div></div>
-      <div class="step human"><div class="n">5</div><div class="b"><strong>人工发布</strong><span class="tag">人在场</span><br>人在后台打开草稿，手机预览一遍，确认排版和数据都没问题，再决定发不发、什么时候发。</div></div>
+  <section id="s1">
+    <h2><span class="num">01</span>AI 替我干了什么，没干什么</h2>
+    <p>很多人一提到「用 AI 写公众号」，脑子里是另一幅画面：给个标题，AI 哗啦吐出一篇，人复制粘贴，点发布。那是另一条路，也很常见。我走的不是这条。</p>
+    <div class="split">
+      <div class="col">
+        <h4>交给 AI 的四件事</h4>
+        <ul>
+          <li><strong>查证</strong>：每个数字、每处引用回到一手来源逐字核对，追不到就降级或删掉。</li>
+          <li><strong>排版</strong>：同一份内容做成两版，一个给网站，一个给公众号，后者复制进编辑器样式不变。</li>
+          <li><strong>送草稿</strong>：推送到草稿箱，封面、摘要、阅读原文链接一次配齐。</li>
+          <li><strong>自检</strong>：标题长度、字数上限、有没有不该出现的脚本或占位符。</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h4>没交给它的三件事</h4>
+        <ul>
+          <li><strong>选题</strong>：这篇文章该不该写，我自己定。</li>
+          <li><strong>判断</strong>：哪个数据能用、哪个口径有风险，我自己拍。</li>
+          <li><strong>发布</strong>：草稿进了后台，正式点下「群发」的那一下，是我按的。</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>三、三个让我印象最深的坑</h2>
+  <section id="s2">
+    <h2><span class="num">02</span>整条链路长什么样</h2>
+    <p>用一次真实的发布流程来还原，大致是五步。只有第一步和第五步需要我全程在场；中间三步 AI 可以配合完成——但它做的每一步，我都能看见、能叫停、能推翻。</p>
+    <div class="flow">
+      <div class="step human"><div class="n">1</div><div class="b"><strong>写作</strong><span class="tag">我在场</span><br>先有母稿，一份纯文字的 Markdown，把想说的话完整写下来。这是起点，也是唯一不依赖工具、纯靠人脑的部分。</div></div>
+      <div class="step"><div class="n">2</div><div class="b"><strong>事实核查</strong><span class="tag">AI 配合</span><br>最花时间也最不能省。任何数字先在一手机构页面找到，再进文章；二手聚合网站只用来找线索，不用来下结论。</div></div>
+      <div class="step"><div class="n">3</div><div class="b"><strong>双版本排版</strong><span class="tag">AI 配合</span><br>网站版放在自己的域名下，保留完整证据链、方法说明与更新记录；公众号版把核心观点完整讲清楚，做成进微信编辑器样式也不变的格式。</div></div>
+      <div class="step"><div class="n">4</div><div class="b"><strong>推送草稿</strong><span class="tag">AI 配合</span><br>经校验后通过微信接口送进草稿箱，封面、摘要、阅读原文链接一并配好。</div></div>
+      <div class="step human"><div class="n">5</div><div class="b"><strong>人工发布</strong><span class="tag">我在场</span><br>我在后台打开草稿，手机预览一遍，确认排版和数据都没问题，再决定发不发、什么时候发。</div></div>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2><span class="num">03</span>三个让我印象最深的坑</h2>
     <p>工具和流程听起来都顺，真跑起来全是坑。挑三个最有代表性的讲。</p>
     <div class="pit">
       <h3>坑一：公众号编辑器会悄悄「吃掉」排版</h3>
-      <p>我们给文章配过两张数据图，用条形表示比例。本地浏览器里看比例完美，一进微信编辑器，九根条全变成一样长。查了半天才发现：微信编辑器会忽略表格单元格上的百分比宽度，把两列重新均分。</p>
-      <p class="lesson">教训：本地看起来对，不等于在微信里就对。凡是要在微信里呈现比例，一律用微信能认的结构，草稿更新后还要在手机上再肉眼确认一遍。</p>
+      <p>我给文章配过两张数据图，用条形表示比例。本地浏览器里看比例完美，一进微信编辑器，九根条全变成一样长。查了半天才发现：微信编辑器会忽略表格单元格上的百分比宽度，把两列重新均分。</p>
+      <p class="lesson">教训：本地看起来对，不等于在微信里就对。后来凡是要在微信里呈现比例，我一律用微信能认的结构来做，草稿更新后还要在手机上再肉眼确认一遍。</p>
     </div>
     <div class="pit">
       <h3>坑二：一个普通编辑器，差点把文章撑爆</h3>
-      <p>公众号版被某个带「页面节点追踪」功能的编辑器打开过后，悄悄给每个标签都加了一串追踪属性，文件凭空胖了一大截，正文字符数从一万九涨到两万六，超过了微信两万字符的上限。</p>
-      <p class="lesson">教训：第一反应是从版本库恢复干净版本，比逐条删属性更彻底。坚持把内容放进版本管理——出了问题，能回到上一个对的版本。</p>
+      <p>公众号版的 HTML 被某个带「页面节点追踪」功能的编辑器打开过后，它悄悄给每个标签都加了一串追踪属性，文件凭空胖了一大截，正文字符数从一万九涨到两万六，超过了微信两万字符的上限。</p>
+      <p class="lesson">教训：第一反应是从版本库恢复干净版本，比逐条删属性更彻底。这也是我坚持把内容放进版本管理的原因——出了问题，能回到上一个对的版本。</p>
     </div>
     <div class="pit">
       <h3>坑三：AI 会把「能做成」误当成「该做」</h3>
@@ -70,54 +238,72 @@
     </div>
   </section>
 
-  <section>
-    <h2>四、我们的工具链：你可以照着搭一套</h2>
-    <p>前面讲的是「思路」，这一节讲「家伙」。我会尽量说清楚两件事：我们用了什么通用的工具，以及你要把「自动保存草稿」这一步跑通，需要自己在微信那边做哪些配置。这样你看完，至少知道从哪儿下手，而不是只得到一个「我们很能干」的印象。</p>
-    <p>先交个底：我们这套做法，核心不是自己造了什么独门工具，而是把几个现成的东西串起来用。真正值钱的不是工具，是「哪些事交给机器、哪些事留给人」这条边界。工具随时能换，边界才是骨架。</p>
-    <div class="flow">
-      <div class="step"><div class="n">1</div><div class="b"><strong>通用的 AI 助手</strong><span class="tag">WorkBuddy</span><br>能读写文件、查网页、按「技能」调度的 AI 助手，负责查证、排版、送草稿、自检这四件边界清晰的事。它干的每一步人都能看见、能叫停、能推翻，从不自己「拍板」。</div></div>
-      <div class="step"><div class="n">2</div><div class="b"><strong>助手里的「技能」</strong><span class="tag">skill</span><br>一段写好的、可反复调用的操作说明。常用几种：事实核查类（数字逐条回到一手来源）、公众号兼容排版类（做成进微信样式不变）、草稿推送类（送草稿并配封面/摘要/阅读原文）、去「AI 味」类（把文字打磨得像人写的）。</div></div>
-      <div class="step"><div class="n">3</div><div class="b"><strong>「专家」功能</strong><span class="tag">专家团</span><br>成组的专家角色——比如一个覆盖十几个平台的内容分发专家团，内含懂平台规则、懂排期、懂数据分析的不同成员。写作时只让事实核查与排版上场，要发小红书、B 站、视频号时再按需调用分发能力。</div></div>
-      <div class="step human"><div class="n">4</div><div class="b"><strong>微信开发者平台配置</strong><span class="tag">你要自己做</span><br>打通「自动保存草稿」的前提：①在「设置与开发 → 基本配置」拿 AppID 与 AppSecret；②把调用方出口 IP 加进「IP 白名单」（否则报 <code>40164</code>，且 IP 可能随时变）；③只调「草稿」接口，不碰「群发」接口。</div></div>
-      <div class="step"><div class="n">5</div><div class="b"><strong>版本管理</strong><span class="tag">兜底</span><br>每一处改动都进版本管理，出了问题能一键回到上一个干净的版本——第二个坑能那么快恢复，靠的就是它。几乎零成本，任何人都别省。</div></div>
+  <section id="s4">
+    <h2><span class="num">04</span>具体装了哪些 skill</h2>
+    <p>我用的是 WorkBuddy。比「用了什么工具」更值得说的是这些 skill 的来历——七个里有六个是踩坑之后自己攒出来的，只有一个是现成拿来用的。这个比例大概就是实际情况：skill 不是装出来的，是攒出来的。</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>skill</th><th>干什么用</th><th>来历</th></tr></thead>
+        <tbody>
+          <tr><td><code>wechat-canonical-draft-pipeline</code></td><td>主流水线：网站原文先上线，再把公众号版送进草稿箱，含幂等与校验</td><td><span class="badge own">自己沉淀</span></td></tr>
+          <tr><td><code>ai-industry-article-fact-review</code></td><td>事实核查：数字、引用逐条回到一手机构页面</td><td><span class="badge own">自己沉淀</span></td></tr>
+          <tr><td><code>wechat-compatible-article-html</code></td><td>公众号兼容排版：复制进编辑器样式不变</td><td><span class="badge own">自己沉淀</span></td></tr>
+          <tr><td><code>wechat-cover-refinement</code></td><td>封面精简：文字太挤、层次不清时重做</td><td><span class="badge own">自己沉淀</span></td></tr>
+          <tr><td><code>canvas-infographic-review</code></td><td>配图可读性审查：图表在手机上是否还看得清</td><td><span class="badge own">自己沉淀</span></td></tr>
+          <tr><td><code>pre-opensource-sanitization-audit</code></td><td>发布前敏感信息审查：凭证、内部信息、个人路径</td><td><span class="badge own">自己沉淀</span></td></tr>
+          <tr><td><code>humanizer</code></td><td>去掉 AI 写作痕迹，让文字读起来像人写的</td><td><span class="badge ext">现成的</span></td></tr>
+        </tbody>
+      </table>
     </div>
-    <p>这五样加起来，就是我们的全部家当。没有一样是「黑科技」：一个通用助手、几个公开技能、一个按需上场的专家团、几项微信后台配置，再加一个版本管理。它们只是把「查证、排版、送草稿、自检」这四件边界清晰的事，一件件落到了实处。而「写什么、怎么写、发不发」，始终在工具够不着的地方——人手里。</p>
+    <p style="margin-top:22px">沉淀 skill 的时机，基本都是踩了坑的当天。比如上面第一个坑——条形图被微信编辑器均分——修完之后，「比例类样式必须用微信认的结构实现」这条就写进了公众号排版那个 skill 里；第二个坑修完，「被污染的 HTML 优先用版本库恢复」也跟着进去了。所以这些 skill 现在读起来都有点像事故报告，而不像教程。</p>
+    <p style="margin-bottom:0">还有个我自己没料到的地方：这些 skill 里写得最多的不是「怎么做」，而是「不要怎么做」和「做完怎么验证」。真正会出事的地方，往往不是不知道该做什么，而是以为自己做对了。</p>
   </section>
 
-  <section>
-    <h2>五、我们把边界写进了规范</h2>
-    <p>这套做法慢慢稳定下来之后，我们做了一件看起来很「重」的事：把边界和纪律写进了一份规范文件，当成唯一的标准，而不是靠记忆和默契。因为踩过的坑如果不写下来，就会再踩一遍。</p>
+  <section id="s5">
+    <h2><span class="num">05</span>微信后台那几项配置</h2>
+    <p>「自动把稿子送进草稿箱」这一步最容易卡住，卡点基本都不在代码，在配置。记录一下我实际动过的地方。</p>
+    <ol class="steps-ol">
+      <li><p><strong>开发者凭证。</strong>在微信公众平台后台「设置与开发 → 基本配置」里拿 AppID 和 AppSecret。这两个串是程序调接口的钥匙，AppSecret 我是当密码存的，放在仓库外面，没写进代码或文章。</p></li>
+      <li><p><strong>IP 白名单。</strong>同一个后台有「IP 白名单」设置。程序调微信接口时用的是机器的出口 IP，这个 IP 不在白名单里，接口直接报 <code>40164</code>。我第一次撞上时还以为是代码写错了，查了一圈才发现是白名单。更麻烦的是这个 IP 会变——换个网络、换台机器都可能变。现在我看到 <code>40164</code> 的第一反应，是先去看当前出口 IP 是什么。</p></li>
+      <li><p><strong>只调草稿接口。</strong>微信把「保存草稿」和「群发」分成了两类接口。我只调前者，把文章送进草稿箱就停下，剩下的自己去后台点。这是刻意的——技术上完全能接着调发布接口，但我不想那样。</p></li>
+    </ol>
+  </section>
+
+  <section id="s6">
+    <h2><span class="num">06</span>边界写在了规范里</h2>
+    <p>这套做法稳定下来之后，我做了件看起来很「重」的事：把边界和纪律写进一份规范文件，当成唯一的标准，而不是靠记忆和默契。因为踩过的坑如果不写下来，就会再踩一遍。规范里写得最清楚的一条是：</p>
     <div class="quote">自动化止于草稿箱，<br>正式发布由人在后台人工确认。</div>
-    <p>这不是技术做不到自动发布——接口是有的。而是我们刻意把「最后一步」留给了人。理由也很简单：一旦把发布也自动化，人就从一个做判断的作者，退化成一个看结果的旁观者。而判断，恰恰是我们最不想交出去的东西。</p>
-    <p>规范里还写了很多别的：数据口径怎么核、标题怎么取才不标题党、公众号版哪些样式能用哪些会被过滤、发布前要过几轮审核。这些看起来琐碎，但它们是让一套「AI 干活、人把方向」的流程能稳定跑下去的地基。</p>
+    <p style="margin-bottom:0">这不是技术做不到自动发布——接口是有的。而是我刻意把「最后一步」留给了自己。理由也简单：一旦把发布也自动化，人就从一个做判断的作者，退化成一个看结果的旁观者。而判断，恰恰是我最不想交出去的东西。</p>
   </section>
 
-  <section>
-    <h2>六、说到底，还是那个问题</h2>
+  <section id="s7">
+    <h2><span class="num">07</span>说到底，还是那个问题</h2>
     <p>写这篇文章的过程，本身就是我在说的这件事的一个样本：选题是我定的，结构是我搭的，哪些坑值得讲、哪些细节不能省，也是我判断的。AI 帮我查证、帮我排版、帮我检查，但它没替我做任何一个真正的决定。</p>
     <p>所以回到上一篇文章的那句话——AI 时代最重要的问题，不是人还要不要劳动，而是劳动还是否属于人。</p>
-    <p>写公众号这件小事，也是一样的道理。AI 可以帮你把字排得漂亮、把数据核得干净、把草稿送进后台。但一篇文章该不该写、写出来是不是你想说的话、最后要不要按下发布，这些只能由你自己来。</p>
-    <p>工具越聪明，人越要清楚：哪些东西可以交给它，哪些东西必须留给自己。</p>
-    <div class="quote">我选择把判断留给自己。</div>
+    <p>写公众号这件小事，也是一样的道理。AI 可以把字排得漂亮、把数据核得干净、把草稿送进后台。但一篇文章该不该写、写出来是不是自己想说的话、最后要不要按下发布，这些只能自己来。</p>
+    <p>工具越聪明，越要想清楚：哪些东西可以交给它，哪些东西得留在自己手里。</p>
+    <p class="closing">我选择把判断留给自己。</p>
   </section>
 
   <section>
     <h2>方法与边界</h2>
-    <ol style="color:#c7d2de;font-size:15.5px;padding-left:22px;line-height:1.9">
-      <li>本文所描述的工具链与踩坑，均来自「烨然漫笔」过去数月的真实实践，不虚构任何产品名、数据或效果。</li>
-      <li>文中「AI 负责动作、人负责判断」的边界，是作者在真实流程中确立的原则，不表述为行业通用标准。</li>
-      <li>涉及的公众号流程止于草稿箱，正式发布始终由作者人工完成。</li>
-      <li>文中不点名任何具体 AI 产品或第三方服务。</li>
+    <ol class="bounds">
+      <li>本文所描述的工具链与踩坑，均来自「烨然漫笔」的真实实践，不虚构任何数据或效果。</li>
+      <li>文中「AI 负责动作、人负责判断」的边界，是我在真实流程中确立的原则，不表述为行业通用标准。</li>
+      <li>涉及的公众号流程止于草稿箱，正式发布始终由我人工完成。</li>
+      <li>文中提到的工具和 skill 是我自己在用的，不构成推荐，也没有任何合作或推广关系；除此之外不点名其他第三方产品。</li>
+      <li>内容创作流程自 2026 年 4 月起逐步成形，写作与交付规范于 2026 年 8 月沉淀为单一标准文件；「自动送草稿」这一环在 2026 年 9 月才跑通，尚在验证期。</li>
     </ol>
   </section>
 
   <section>
     <h2>更新记录</h2>
-    <div class="update"><time>2026-09-16</time><p>完成初稿。经验复盘式，覆盖四件交给 AI 的事、三件不交的事、五步链路、三个坑与自动化边界。</p></div>
-    <div class="update"><time>2026-09-16</time><p>新增「四、我们的工具链」实操章节（选题脚手架、图表生成、索引更新、草稿推送、内容规范、技能包、版本管理七样家当，命名+一句话作用），方便读者对照搭建。</p></div>
-    <p class="small" style="margin-top:18px">本文为「AI 与人的处境」栏目方法论篇，是上一篇文章文末所留「分享钩子」的兑现。</p>
+    <div class="update"><time>2026-09-16</time><p>完成初稿。覆盖四件交给 AI 的事、五步链路、三个坑与自动化边界。</p></div>
+    <div class="update"><time>2026-09-16</time><p>新增实操内容：具名列出实际装的 7 个 skill 及其来历（6 个自己沉淀、1 个现成），并补充微信后台三项配置（AppID/AppSecret、IP 白名单与 <code>40164</code>、只调草稿接口）。全文人称统一为第一人称，口吻改为记录式。</p></div>
+    <p class="small" style="margin-top:16px">本文为「AI 与人的处境」栏目方法论篇，是上一篇文章文末所留分享钩子的兑现。</p>
   </section>
 </main>
+
 <footer class="footer">烨然漫笔 · 把变化写清楚，也把人的位置写清楚</footer>
 </body>
 </html>

@@ -2,8 +2,8 @@
   {
     "id": "2026-09-16_how-we-write-wechat-with-ai",
     "date": "2026-09-16",
-    "title": "我们如何用 AI 写公众号",
-    "desc": "AI 负责把动作做对，人负责把事情做对。这篇复盘讲清楚我们用 AI 查证、排版、送草稿，却把选题、判断与发布始终留在人手里的完整做法。",
+    "title": "我是怎么用 AI 写公众号的",
+    "desc": "AI 负责把动作做对，我负责把事情做对。一份刚跑顺的记录：四件交给 AI 的事、五步链路、三个坑、具体装了哪些 skill，以及微信后台那几项配置。",
     "tags": ["scope", "tech"],
     "status": "draft",
     "editorialStatus": "ready",

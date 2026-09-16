@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:900px;height:383px;overflow:hidden;
+       font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+       background:#0f172a}
+  .wrap{position:relative;width:900px;height:383px;overflow:hidden}
+  /* 极简几何底纹：细网格 */
+  .grid{position:absolute;inset:0;
+        background-image:linear-gradient(#16304a 1px,transparent 1px),
+                         linear-gradient(90deg,#16304a 1px,transparent 1px);
+        background-size:45px 45px;opacity:.5}
+  /* 左上淡光 */
+  .glow{position:absolute;top:-140px;left:-90px;width:520px;height:520px;border-radius:50%;
+        background:#12354f;opacity:.55;filter:blur(10px)}
+  .inner{position:relative;height:100%;display:flex;align-items:center;
+         padding:0 62px;gap:56px}
+  .left{flex:1}
+  .kicker{display:inline-block;padding:5px 15px;border:1px solid #3d566e;border-radius:20px;
+          font-size:14px;color:#fbbf24;letter-spacing:2px}
+  h1{margin:22px 0 0;font-size:52px;line-height:1.24;color:#ffffff;font-weight:800;
+     letter-spacing:-1px}
+  h1 .em{color:#38bdf8}
+  .rule{width:64px;height:4px;background:#fbbf24;border-radius:2px;margin:26px 0 16px}
+  .sub{font-size:19px;color:#93a9be;line-height:1.6}
+  /* 右侧：五步链路，最后一步为人（琥珀色实心） */
+  .chain{flex:none;width:214px;display:flex;flex-direction:column;gap:15px}
+  .node{display:flex;align-items:center;gap:13px}
+  .dot{flex:none;width:34px;height:34px;border-radius:50%;
+       border:2px solid #38bdf8;background:#0d2337;
+       display:flex;align-items:center;justify-content:center;
+       font-size:15px;font-weight:800;color:#38bdf8}
+  .node.human .dot{background:#fbbf24;border-color:#fbbf24;color:#0f172a}
+  .bar{height:9px;border-radius:5px;background:#24455f}
+  .node.human .bar{background:#fbbf24}
+  .w1{width:118px}.w2{width:136px}.w3{width:104px}.w4{width:126px}.w5{width:150px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="inner">
+    <div class="left">
+      <span class="kicker">烨然漫笔</span>
+      <h1>AI 负责把动作做对<br><span class="em">我</span>负责把事情做对</h1>
+      <div class="rule"></div>
+      <p class="sub">一份刚跑顺的记录</p>
+    </div>
+    <div class="chain">
+      <div class="node"><div class="dot">1</div><div class="bar w1"></div></div>
+      <div class="node"><div class="dot">2</div><div class="bar w2"></div></div>
+      <div class="node"><div class="dot">3</div><div class="bar w3"></div></div>
+      <div class="node"><div class="dot">4</div><div class="bar w4"></div></div>
+      <div class="node human"><div class="dot">5</div><div class="bar w5"></div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

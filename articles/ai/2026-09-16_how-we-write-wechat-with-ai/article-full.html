@@ -72,17 +72,16 @@
 
   <section>
     <h2>四、我们的工具链：你可以照着搭一套</h2>
-    <p>前面讲的是「思路」，这一节讲「家伙」。下面这些工具，都是我们自己日常在用的，名字和作用都摆出来，方便你对照着搭一套自己的。它们都不复杂，关键也不在工具本身，而在每一样工具负责的边界都很清楚。</p>
+    <p>前面讲的是「思路」，这一节讲「家伙」。我会尽量说清楚两件事：我们用了什么通用的工具，以及你要把「自动保存草稿」这一步跑通，需要自己在微信那边做哪些配置。这样你看完，至少知道从哪儿下手，而不是只得到一个「我们很能干」的印象。</p>
+    <p>先交个底：我们这套做法，核心不是自己造了什么独门工具，而是把几个现成的东西串起来用。真正值钱的不是工具，是「哪些事交给机器、哪些事留给人」这条边界。工具随时能换，边界才是骨架。</p>
     <div class="flow">
-      <div class="step"><div class="n">A</div><div class="b"><strong>选题脚手架</strong><span class="tag">脚本</span><br><code>new-topic.sh</code> —— 输入标题，自动生成一篇文章的标准目录（元数据、公众号版模板、网站版模板、素材与生图提示词文件夹），让每篇新文章从同一种骨架起步。</div></div>
-      <div class="step"><div class="n">B</div><div class="b"><strong>图表生成</strong><span class="tag">脚本</span><br><code>draw-handdrawn-charts.cjs</code> 与 <code>screenshot-charts.mjs</code> —— 把核对过的数据画成手绘风格的数据图并导出图片，让数字从表格变成能直接看懂的图。</div></div>
-      <div class="step"><div class="n">C</div><div class="b"><strong>索引更新</strong><span class="tag">脚本</span><br><code>update-index.sh</code> —— 文章写完后把新文章登记进网站首页列表、元数据清单与目录文件，一次同步到位，避免「文章写好了、首页忘了挂入口」。</div></div>
-      <div class="step"><div class="n">D</div><div class="b"><strong>草稿推送</strong><span class="tag">脚本</span><br><code>wechat-draft-mvp.py</code> —— 先跑预检（标题长度、正文字数、有无脚本或占位符），再通过接口把文章送进公众号草稿箱，封面、摘要、阅读原文链接一并配好。</div></div>
-      <div class="step"><div class="n">E</div><div class="b"><strong>内容规范</strong><span class="tag">文档</span><br><code>CONTENT_STANDARD.md</code> —— 唯一的标准文件，写作口径、排版规则、三轮审核、发布流程都写在这里，让人和工具照着同一份规则干活。</div></div>
-      <div class="step"><div class="n">F</div><div class="b"><strong>技能包</strong><span class="tag">skill</span><br><code>skills/</code> 目录 —— 把反复用到的手艺沉淀成可复用的步骤说明，让踩过的坑变成下一次的台阶。</div></div>
-      <div class="step human"><div class="n">G</div><div class="b"><strong>版本管理</strong><span class="tag">兜底</span><br>严格说不是「工具」，但比任何工具都重要。每一处改动都放进 git，出了错能一键回到上一个干净的版本——第二个坑能那么快恢复，靠的就是它。</div></div>
+      <div class="step"><div class="n">1</div><div class="b"><strong>通用的 AI 助手</strong><span class="tag">WorkBuddy</span><br>能读写文件、查网页、按「技能」调度的 AI 助手，负责查证、排版、送草稿、自检这四件边界清晰的事。它干的每一步人都能看见、能叫停、能推翻，从不自己「拍板」。</div></div>
+      <div class="step"><div class="n">2</div><div class="b"><strong>助手里的「技能」</strong><span class="tag">skill</span><br>一段写好的、可反复调用的操作说明。常用几种：事实核查类（数字逐条回到一手来源）、公众号兼容排版类（做成进微信样式不变）、草稿推送类（送草稿并配封面/摘要/阅读原文）、去「AI 味」类（把文字打磨得像人写的）。</div></div>
+      <div class="step"><div class="n">3</div><div class="b"><strong>「专家」功能</strong><span class="tag">专家团</span><br>成组的专家角色——比如一个覆盖十几个平台的内容分发专家团，内含懂平台规则、懂排期、懂数据分析的不同成员。写作时只让事实核查与排版上场，要发小红书、B 站、视频号时再按需调用分发能力。</div></div>
+      <div class="step human"><div class="n">4</div><div class="b"><strong>微信开发者平台配置</strong><span class="tag">你要自己做</span><br>打通「自动保存草稿」的前提：①在「设置与开发 → 基本配置」拿 AppID 与 AppSecret；②把调用方出口 IP 加进「IP 白名单」（否则报 <code>40164</code>，且 IP 可能随时变）；③只调「草稿」接口，不碰「群发」接口。</div></div>
+      <div class="step"><div class="n">5</div><div class="b"><strong>版本管理</strong><span class="tag">兜底</span><br>每一处改动都进版本管理，出了问题能一键回到上一个干净的版本——第二个坑能那么快恢复，靠的就是它。几乎零成本，任何人都别省。</div></div>
     </div>
-    <p>这七样东西加起来，就是我们的全部家当。它们没有一样是「黑科技」，也没有一样替我们做了决定，只是把「查证、排版、送草稿、自检」这四件边界清晰的事，一件件落实成了能重复执行的工具。而「写什么、怎么写、发不发」，始终在工具够不着的地方——人手里。</p>
+    <p>这五样加起来，就是我们的全部家当。没有一样是「黑科技」：一个通用助手、几个公开技能、一个按需上场的专家团、几项微信后台配置，再加一个版本管理。它们只是把「查证、排版、送草稿、自检」这四件边界清晰的事，一件件落到了实处。而「写什么、怎么写、发不发」，始终在工具够不着的地方——人手里。</p>
   </section>
 
   <section>

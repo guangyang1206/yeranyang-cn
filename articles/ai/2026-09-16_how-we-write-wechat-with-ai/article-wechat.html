@@ -64,23 +64,26 @@
 
 <section style="padding:30px 24px;background-color:#ffffff">
   <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">四、我们的工具链：你可以照着搭一套</h2>
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0">前面讲的是「思路」，这一节讲「家伙」。下面这些工具都是我们自己日常在用的，名字和作用都摆出来，方便你对照着搭一套。它们都不复杂，关键不在工具本身，而在每一样工具负责的边界都很清楚。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 16px 0">前面讲的是「思路」，这一节讲「家伙」。我会尽量说清楚两件事：我们用了什么通用的工具，以及你要把「自动保存草稿」这一步跑通，需要自己在微信那边做哪些配置。这样你看完，至少知道从哪儿下手。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0">先交个底：这套做法的核心，不是自己造了什么独门工具，而是把几个现成的东西串起来用。真正值钱的不是工具，是「哪些事交给机器、哪些事留给人」这条边界——工具随时能换，边界才是骨架。</p>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">选题脚手架</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">new-topic.sh</span>）—— 输入标题，自动生成一篇文章的标准目录：元数据、公众号版模板、网站版模板、素材与生图提示词文件夹，让每篇新文章从同一种骨架起步。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">第一，一个通用的 AI 助手。</strong>我们用的是 WorkBuddy——一个能读写文件、查网页、按「技能」调度的 AI 助手。它负责查证、排版、送草稿、自检这四件边界清晰的事。它干的每一步人都能看见、能叫停、能推翻，从不自己「拍板」。</p>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">图表生成</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">draw-handdrawn-charts.cjs</span> 与 <span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">screenshot-charts.mjs</span>）—— 把核对过的数据画成手绘风格的数据图并导出图片，让数字从表格变成能直接看懂的图。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">第二，装在助手里的「技能」。</strong>WorkBuddy 里有一类叫「skill」的东西，可以理解成一段写好的、可反复调用的操作说明。常用的有：事实核查类（把数字逐个回到一手来源核对）、公众号兼容排版类（做成复制进微信样式也不变）、草稿推送类（送进草稿箱并配好封面、摘要、阅读原文）、去「AI 味」类（把文字打磨得更像人写的）。这些技能都是公开可获取的，不是我们私有的。</p>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">索引更新</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">update-index.sh</span>）—— 文章写完后把新文章登记进网站首页列表、元数据清单与目录文件，一次同步到位，避免「文章写好了、首页忘了挂入口」。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">第三，WorkBuddy 里的「专家」功能。</strong>除了单个技能，它还能挂上成组的「专家」——比如一个覆盖十几个平台的内容分发专家团，里面有懂各平台规则、懂排期、懂数据分析的不同角色。写作时只让事实核查和排版上场，要往小红书、B 站、视频号分发时，再按需把分发能力用起来。</p>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">草稿推送</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">wechat-draft-mvp.py</span>）—— 先跑预检（标题长度、正文字数、有无脚本或占位符），再通过接口把文章送进公众号草稿箱，封面、摘要、阅读原文链接一并配好。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0"><strong style="color:#0f172a">第四，要打通「自动保存草稿」，你自己得在微信那边做几件事。</strong>这是最容易卡住的一步，也最值得先说：</p>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">内容规范</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">CONTENT_STANDARD.md</span>）—— 唯一的标准文件，写作口径、排版规则、三轮审核、发布流程都写在这里，让人和工具照着同一份规则干活。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 8px 0"><strong style="color:#0f172a">1. 拿到开发者凭证。</strong>在微信公众平台后台，进「设置与开发 → 基本配置」，找到 AppID 和 AppSecret。这是程序调接口的钥匙，AppSecret 尤其要当密码保管，绝不能写进代码、文章或任何会公开的地方。</p>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">技能包</strong>（<span style="font-family:Menlo,Consolas,monospace;font-size:13.5px;color:#0284c7;background-color:#f0f6fc;padding:1px 6px;border-radius:5px">skills/</span> 目录）—— 把反复用到的手艺沉淀成可复用的步骤说明，让踩过的坑变成下一次的台阶。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 8px 0"><strong style="color:#0f172a">2. 把调用方的出口 IP 加进白名单。</strong>同一个后台有个「IP 白名单」。程序从你的电脑或服务器调接口时，用的是那个出口 IP；它没进白名单，接口就报错（错误码 40164，意思是「IP 不在白名单」）。所以先要知道自己的出口 IP 并加进去。注意这个 IP 不是永远不变的——换网络、换机器都会变，报 40164 了，第一反应不是怀疑程序，而是去把新 IP 加进白名单。</p>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0"><strong style="color:#0f172a">版本管理</strong>—— 严格说不是「工具」，但比任何工具都重要。每一处改动都放进 git，出了错能一键回到上一个干净的版本，前面讲的第二个坑能那么快恢复，靠的就是它。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0"><strong style="color:#0f172a">3. 只调「草稿」接口，不碰「发布」接口。</strong>微信把「保存草稿」和「群发」是分开的两类接口。我们只调前者，把文章送进草稿箱，剩下的人去后台点「群发」。这是刻意的，也是整套做法里最重要的一条纪律。</p>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0">这七样东西加起来，就是我们的全部家当。它们没有一样是「黑科技」，也没有一样替我们做了决定，只是把「查证、排版、送草稿、自检」这四件边界清晰的事，一件件落实成了能重复执行的工具。而「写什么、怎么写、发不发」，始终在工具够不着的地方——人手里。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0"><strong style="color:#0f172a">第五，版本管理兜底。</strong>前面第二个坑——文章被编辑器撑爆——能那么快恢复，靠的是每一处改动都进了版本管理，出了问题能一键回到上一个干净的版本。这一步几乎零成本，建议任何人都别省。</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0">这五样加起来，就是我们的全部家当：一个通用助手、几个公开技能、一个按需上场的专家团、几项微信后台配置，再加一个版本管理。没有一样是「黑科技」，它们只是把「查证、排版、送草稿、自检」这四件边界清晰的事，一件件落到了实处。而「写什么、怎么写、发不发」，始终在工具够不着的地方——人手里。</p>
 </section>
 
 <section style="padding:30px 24px;background-color:#f8fafc">

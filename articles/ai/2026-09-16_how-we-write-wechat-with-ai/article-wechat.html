@@ -70,7 +70,7 @@
 
 <section style="padding:30px 24px;background-color:#ffffff">
   <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">四、具体装了哪些 skill</h2>
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0">我用的是 WorkBuddy。比「用了什么工具」更值得说的是这些 skill 的来历——七个里有六个是踩坑之后自己攒出来的，只有一个是现成拿来用的。这个比例大概就是实际情况：<strong style="color:#0f172a">skill 不是装出来的，是攒出来的。</strong></p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0">我用的是 WorkBuddy。这条流水线上真正跑起来的是七个 skill，六个是我自己攒的，一个是现成的：</p>
 
   <section style="padding:15px 18px;background-color:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin:0 0 10px 0">
     <p style="font-size:14px;color:#0f172a;font-weight:700;line-height:1.7;margin:0 0 4px 0">wechat-canonical-draft-pipeline<span style="display:inline-block;margin-left:8px;padding:1px 9px;background-color:#fef3c7;color:#92400e;border-radius:10px;font-size:11.5px;font-weight:600">自己沉淀</span></p>
@@ -107,12 +107,31 @@
     <p style="font-size:14px;color:#64748b;line-height:1.8;margin:0">去掉 AI 写作痕迹，让文字读起来像人写的</p>
   </section>
 
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">沉淀 skill 的时机，基本都是踩了坑的当天。比如上面第一个坑——条形图被微信编辑器均分——修完之后，「比例类样式必须用微信认的结构实现」这条就写进了公众号排版那个 skill 里；第二个坑修完，「被污染的 HTML 优先用版本库恢复」也跟着进去了。所以这些 skill 现在读起来都有点像事故报告，而不像教程。</p>
-  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0">还有个我自己没料到的地方：这些 skill 里写得最多的不是「怎么做」，而是「不要怎么做」和「做完怎么验证」。真正会出事的地方，往往不是不知道该做什么，而是以为自己做对了。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">有件事得说实话：公众号相关的现成 skill，我其实装了不少——一键推草稿的、多账号切换的、Markdown 直接发的、按公众号风格写作的、搜同类文章的，加起来有六七个。但这条流水线最后一个都没用上。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0">不是它们不好，是我的要求有点别扭：我要「网站原文先上线，再拿它当阅读原文去推草稿」，要「按内容指纹判重、同一篇改十遍也只占一条草稿」，还要「明确停在草稿箱、绝不碰群发接口」。这三条现成的都不带，我只好自己写一个把它们串起来。所以那六个不是被淘汰，是被我的偏执挤掉了。</p>
 </section>
 
 <section style="padding:30px 24px;background-color:#f8fafc">
-  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">五、微信后台那几项配置</h2>
+  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">五、这些 skill 是怎么攒出来的</h2>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">既然六个都是自己写的，那顺便说说是怎么写的。其实没什么门道，就两件事：<strong style="color:#0f172a">结构固定，时机固定。</strong></p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 16px 0">结构是四段：什么时候该用它、步骤、坑、做完怎么验证。写法上我基本不手打，是让 AI 把刚修完的问题整理成这四段——WorkBuddy 自带做 skill 的能力，说一句「把这次的教训存成 skill」就行。</p>
+
+  <section style="padding:18px 20px;background-color:#fffbeb;border-left:4px solid #f59e0b;margin:0 0 18px 0">
+    <p style="font-size:15px;color:#475569;line-height:1.9;margin:0"><strong style="color:#0f172a">一个挺说明问题的数字：</strong>主流水线那个 skill 一共 115 行，「步骤」占 59 行，而「坑 + 验证」加起来 37 行，是步骤的六成。写「别踩什么、做完怎么查」花的笔墨，快赶上写「怎么做」了。</p>
+  </section>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0">时机就是踩坑的当天，不留到第二天。这一点翻记录能看出来：</p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 5px 0"><strong style="color:#0f172a">2026-05-23</strong>　一天做了两个：事实核查、配图可读性审查</p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 5px 0"><strong style="color:#0f172a">2026-05-31</strong>　又是一天两个：公众号排版、封面精简</p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 5px 0"><strong style="color:#0f172a">2026-08-04</strong>　发布前敏感信息审查</p>
+  <p style="font-size:15px;color:#475569;line-height:1.9;margin:0 0 16px 0"><strong style="color:#0f172a">2026-09-08</strong>　主流水线，最后才补上</p>
+
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">同一天冒出两个 skill，基本就是那天连着栽了两个跟头。前后拖了快四个月，才凑齐这一套。</p>
+  <p style="font-size:15px;color:#475569;line-height:1.95;margin:0">所以这些 skill 现在读起来都有点像事故报告，不太像教程。我自己也没料到的是：里面写得最多的不是「怎么做」，而是「不要怎么做」和「做完怎么验证」。真正会出事的地方，往往不是不知道该做什么，而是以为自己做对了。</p>
+</section>
+
+<section style="padding:30px 24px;background-color:#ffffff">
+  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">六、微信后台那几项配置</h2>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 18px 0">「自动把稿子送进草稿箱」这一步最容易卡住，卡点基本都不在代码，在配置。记录一下我实际动过的地方：</p>
 
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 12px 0"><strong style="color:#0f172a">1. 开发者凭证。</strong>在微信公众平台后台「设置与开发 → 基本配置」里拿 AppID 和 AppSecret。这两个串是程序调接口的钥匙，AppSecret 我是当密码存的，放在仓库外面，没写进代码或文章。</p>
@@ -122,8 +141,8 @@
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0"><strong style="color:#0f172a">3. 只调草稿接口。</strong>微信把「保存草稿」和「群发」分成了两类接口。我只调前者，把文章送进草稿箱就停下，剩下的自己去后台点。这是刻意的——技术上完全能接着调发布接口，但我不想那样。</p>
 </section>
 
-<section style="padding:30px 24px;background-color:#ffffff">
-  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">六、边界写在了规范里</h2>
+<section style="padding:30px 24px;background-color:#f8fafc">
+  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">七、边界写在了规范里</h2>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">这套做法稳定下来之后，我做了件看起来很「重」的事：把边界和纪律写进一份规范文件，当成唯一的标准，而不是靠记忆和默契。因为踩过的坑如果不写下来，就会再踩一遍。规范里写得最清楚的一条是：</p>
   <section style="padding:22px;background-color:#eef6ff;border-left:4px solid #0284c7;margin:20px 0">
     <p style="font-size:18px;color:#0c4a6e;font-weight:750;line-height:1.8;margin:0;text-align:center">自动化止于草稿箱，<br>正式发布由人在后台人工确认。</p>
@@ -131,8 +150,8 @@
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0">这不是技术做不到自动发布——接口是有的。而是我刻意把「最后一步」留给了自己。理由也简单：一旦把发布也自动化，人就从一个做判断的作者，退化成一个看结果的旁观者。而判断，恰恰是我最不想交出去的东西。</p>
 </section>
 
-<section style="padding:30px 24px;background-color:#f8fafc">
-  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">七、说到底，还是那个问题</h2>
+<section style="padding:30px 24px;background-color:#ffffff">
+  <h2 style="font-size:21px;font-weight:750;color:#0f172a;margin:0 0 16px 0">八、说到底，还是那个问题</h2>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">写这篇文章的过程，本身就是我在说的这件事的一个样本：选题是我定的，结构是我搭的，哪些坑值得讲、哪些细节不能省，也是我判断的。AI 帮我查证、帮我排版、帮我检查，但它没替我做任何一个真正的决定。</p>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">所以回到上一篇文章的那句话——AI 时代最重要的问题，不是人还要不要劳动，而是劳动还是否属于人。</p>
   <p style="font-size:15px;color:#475569;line-height:1.95;margin:0 0 14px 0">写公众号这件小事，也是一样的道理。AI 可以把字排得漂亮、把数据核得干净、把草稿送进后台。但一篇文章该不该写、写出来是不是自己想说的话、最后要不要按下发布，这些只能自己来。</p>

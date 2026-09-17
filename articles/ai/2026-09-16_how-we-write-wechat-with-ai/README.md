@@ -18,15 +18,28 @@
 
 ## 文章定位
 
-上一篇文章《AI替我们干活之后，劳动还属于人吗》结尾留下分享钩子——「改天专门写一篇如何用 AI 写公众号」。本文是该钩子的兑现，第一人称记录式，共七节：
+上一篇文章《AI替我们干活之后，劳动还属于人吗》结尾留下分享钩子——「改天专门写一篇如何用 AI 写公众号」。本文是该钩子的兑现，第一人称记录式，共八节：
 
 1. AI 替我干的四件事（查证、排版、送草稿、自检）与没交给它的三件事（选题、判断、发布）；
 2. 五步链路（写作 → 事实核查 → 双版本排版 → 推送草稿 → 人工发布）；
 3. 三个真实踩坑（td 宽度失效、编辑器注入撑爆字符、AI 把「能做成」当「该做」）；
-4. 具体装了哪些 skill——7 个具名 skill 及其来历（6 个自己沉淀、1 个现成）；
-5. 微信后台那几项配置（AppID/AppSecret、IP 白名单与 `40164`、只调草稿接口）；
-6. 边界写在规范里（自动化止于草稿箱）；
-7. 回到「劳动是否属于人」。
+4. 具体装了哪些 skill——7 个具名 skill 及其来历（6 个自己沉淀、1 个现成），并交代还装了六七个现成公众号 skill 但都没用上的原因；
+5. 这些 skill 是怎么攒出来的——四段式结构、坑与验证占步骤六成、踩坑当天沉淀的日期证据；
+6. 微信后台那几项配置（AppID/AppSecret、IP 白名单与 `40164`、只调草稿接口）；
+7. 边界写在规范里（自动化止于草稿箱）；
+8. 回到「劳动是否属于人」。
+
+## 装了但这条流水线未使用的现成公众号 skill
+
+诚实交代口径：以下均已安装，但本流水线未调用，原因是缺少「canonical 先上线 → 再推草稿」「按内容指纹幂等判重」「明确止于草稿箱、不碰群发」三条约束。
+
+`wechat-draft-push`、`wechat-draft-pusher`、`wechat-publisher-pro`、`wechat-official-account`、`wechat-article-search`、`wechat-article-spider`（均为现成 skill，非自沉淀）。
+
+## skill 制作方式（第 05 节依据）
+
+- 四段式结构：When to use / Steps / Pitfalls / Verification（frontmatter 含 `name`、`description`、`description_zh`、`description_en`、`agent_created`）。
+- 真实行数（`wechat-canonical-draft-pipeline`）：共 115 行，Steps 59 行，Pitfalls 19 + Verification 18 = 37 行，为 Steps 的约 63%。
+- 沉淀时机（取自 `agent-created-skills.json` 创建日期）：2026-05-23 两个（事实核查、配图审查）、2026-05-31 两个（公众号排版、封面精简）、2026-08-04 一个（敏感信息审查）、2026-09-08 一个（主流水线）。同日两个即当天连踩两坑。
 
 ## 实际使用的 skill 清单
 

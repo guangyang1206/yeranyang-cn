@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>烨然漫笔 · AI 深度解读</title>
-<meta name="description" content="分享有用的 AI 知识，真诚、不装、有点幽默。追踪全球 AI 动态，产出深度原创解读。">
+<title>烨然漫笔 · 为理想主义者鼓与呼</title>
+<meta name="description" content="积累知识，感受生活，传递信息，共鸣时代。AI 与技术解读、劳动与人的处境、公开分享 slides，全部在这里。">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
   :root {
     --bg: #08090a;
     --surface: #111316;
@@ -74,8 +75,9 @@
   .hero h1 .highlight { color: var(--green); }
   .hero .hero-desc {
     font-size: 17px; color: var(--text2); line-height: 1.7;
-    max-width: 580px; margin: 0 auto 32px;
+    max-width: 620px; margin: 0 auto 32px;
   }
+  .hero .hero-desc .hero-claim { color: var(--green); font-weight: 600; }
   .hero-stats {
     display: flex; justify-content: center; gap: 48px;
     flex-wrap: wrap;
@@ -91,20 +93,6 @@
     font-size: 12px; color: var(--text3); margin-top: 4px;
     letter-spacing: 0.5px;
   }
-
-  /* ── Category Filter ── */
-  .filter-bar {
-    max-width: 1200px; margin: 0 auto; padding: 0 24px 48px;
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
-  }
-  .filter-btn {
-    padding: 8px 18px; border-radius: 100px;
-    font-size: 13px; cursor: pointer; border: 1px solid var(--border);
-    background: transparent; color: var(--text3);
-    transition: all 0.2s; font-family: inherit;
-  }
-  .filter-btn:hover { border-color: var(--text3); color: var(--text2); }
-  .filter-btn.active { background: var(--green); border-color: var(--green); color: #000; font-weight: 600; }
 
   /* ── Article Grid ── */
   .articles-section {
@@ -184,18 +172,6 @@
   .card-read .arrow { transition: transform 0.2s; }
   .article-card:hover .card-read .arrow { transform: translateX(3px); }
 
-  .card-draft {
-    position: relative;
-  }
-  .card-draft::after {
-    content: "即将发布";
-    position: absolute; top: 16px; right: 16px;
-    font-size: 10px; color: var(--amber); background: rgba(245,158,11,0.1);
-    padding: 3px 10px; border-radius: 4px;
-    border: 1px solid rgba(245,158,11,0.2);
-    letter-spacing: 0.5px;
-  }
-
   /* ── About ── */
   .about-section {
     max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;
@@ -244,19 +220,101 @@
     .hero-stats { gap: 28px; }
     .hero-stat .num { font-size: 24px; }
     .articles-grid { grid-template-columns: 1fr; }
+    .share-grid { grid-template-columns: 1fr; }
+    .share-section { padding: 0 20px 56px; }
+    .articles-section { padding: 0 20px 64px; }
+    .about-section { padding: 0 20px 64px; }
     .about-box { padding: 32px 24px; flex-direction: column; text-align: center; }
     .about-links { justify-content: center; }
   }
 
-  /* ── Hidden filter ── */
-  .article-card.hidden { display: none; }
-
-  /* ── Empty state ── */
-  .empty-state {
-    display: none; text-align: center; padding: 60px 20px; color: var(--text3);
+  /* ── Section lead ── */
+  .section-lead {
+    font-size: 13px; color: var(--text3); line-height: 1.7;
+    margin: -14px 0 24px;
   }
-  .empty-state.show { display: block; }
-  .empty-state .big-icon { font-size: 48px; margin-bottom: 12px; }
+
+  /* ── Share / 分享 ── */
+  .share-section { max-width: 1200px; margin: 0 auto; padding: 0 24px 72px; }
+  .share-group { margin-bottom: 8px; }
+  .share-group-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .share-group-head h3 {
+    font-size: 15px; font-weight: 700; color: var(--text);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .share-group-head h3::before {
+    content: ""; width: 3px; height: 14px; border-radius: 2px;
+    background: var(--green); display: inline-block;
+  }
+  .share-group-head .g-desc { font-size: 12px; color: var(--text3); }
+  .share-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px; margin-bottom: 40px;
+  }
+  .share-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px;
+    text-decoration: none; color: inherit;
+    display: flex; gap: 16px; align-items: flex-start;
+    transition: all 0.25s ease;
+  }
+  .share-card:hover {
+    border-color: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+  }
+  .share-thumb {
+    width: 62px; height: 62px; border-radius: 12px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; line-height: 1;
+  }
+  .share-thumb .glyph { display: block; transform: translateY(-1px); }
+  .share-body { flex: 1; min-width: 0; }
+  .share-title {
+    font-size: 15px; font-weight: 700; color: var(--text);
+    line-height: 1.4; margin-bottom: 6px; letter-spacing: -0.2px;
+  }
+  .share-desc {
+    font-size: 12.5px; color: var(--text2); line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .share-foot {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    font-size: 11px; color: var(--text3);
+  }
+  .share-format {
+    padding: 2px 8px; border-radius: 5px;
+    border: 1px solid var(--border);
+  }
+  .share-go { transition: color 0.2s; }
+  .share-card:hover .share-go { color: var(--text); }
+
+  /* ── View all ── */
+  .view-all-wrap { display: flex; justify-content: center; margin-top: 36px; }
+  .view-all {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 30px; border-radius: 100px;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--text2); font-size: 14px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .view-all:hover {
+    border-color: var(--green); color: var(--green);
+    background: rgba(16,185,129,0.06);
+  }
+  .view-all .arrow { transition: transform 0.2s; }
+  .view-all:hover .arrow { transform: translateX(3px); }
+
+  /* ── Load error ── */
+  .load-error {
+    display: none; text-align: center; padding: 40px 20px;
+    color: var(--text3); font-size: 13px; line-height: 1.7;
+  }
+  .load-error.show { display: block; }
 </style>
 </head>
 <body>
@@ -265,7 +323,8 @@
   <div class="nav-inner">
     <a class="nav-logo" href="/">烨然漫笔<span class="dot">.</span></a>
     <div class="nav-links">
-      <a href="#" class="active">文章</a>
+      <a href="#articles" class="active">文章</a>
+      <a href="#share">分享</a>
       <a href="#about">关于</a>
     </div>
   </div>
@@ -276,183 +335,40 @@
   <h1>AI 浪潮中<br><span class="highlight">深度思考的声音</span></h1>
   <p class="hero-desc">
     不追热点，只追趋势背后的真相。<br>
-    为普通人带来清晰易懂的AI行业洞察。
+    也记录劳动、教育与人的处境——<span class="hero-claim">为理想主义者鼓与呼</span>。
   </p>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num">18</div><div class="label">篇文章</div></div>
-    <div class="hero-stat"><div class="num">10</div><div class="label">已发布</div></div>
-    <div class="hero-stat"><div class="num">4 月</div><div class="label">持续创作</div></div>
-    <div class="hero-stat"><div class="num">100K+</div><div class="label">公众号读者</div></div>
+    <div class="hero-stat"><div class="num" id="stat-articles">—</div><div class="label">篇文章</div></div>
+    <div class="hero-stat"><div class="num" id="stat-shares">—</div><div class="label">个分享</div></div>
+    <div class="hero-stat"><div class="num" id="stat-topics">—</div><div class="label">个主题方向</div></div>
+    <div class="hero-stat"><div class="num" id="stat-months">—</div><div class="label">个月有更新</div></div>
   </div>
 </header>
 
-<div class="filter-bar">
-  <button class="filter-btn active" data-filter="all">全部</button>
-  <button class="filter-btn" data-filter="scope">🔮 产业趋势</button>
-  <button class="filter-btn" data-filter="company">🏢 公司拆解</button>
-  <button class="filter-btn" data-filter="tech">⚡ 技术深度</button>
-  <button class="filter-btn" data-filter="business">📊 商业分析</button>
-  <button class="filter-btn" data-filter="policy">🛡️ 治理安全</button>
-  <button class="filter-btn" data-filter="data">📈 数据解读</button>
-</div>
-
-<section class="articles-section">
+<section class="articles-section" id="articles">
   <div class="section-header">
-    <h2>📡 全部文章</h2>
-    <span class="count" id="article-count">18 篇</span>
+    <h2>📡 最新文章</h2>
+    <span class="count" id="article-count"></span>
   </div>
+  <p class="section-lead">只列出已上线公开版本的文章。全部文章、按方向筛选，都在文章列表页。</p>
 
-  <div class="articles-grid" id="articles-grid">
+  <div class="articles-grid" id="articles-grid"></div>
+  <div class="load-error" id="articles-error">文章数据加载失败，请刷新页面重试。</div>
 
-        <!-- 1. 2026.08.01 AI 长周期任务 -->
-    <a class="article-card" href="articles/ai/2026-08-01_ai-long-horizon/article-full.html" data-tags="tech scope" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.08.01</span><span class="card-tag tag-tech">技术深度</span><span class="card-tag-styles tag-scope">产业趋势</span></div>
-      <div class="card-title">AI 正在学会处理需要好几天才能完成的任务</div>
-      <div class="card-desc">从秒回到干活：OpenAI Astra、Claude Code、DeepSeek V4 三路并发，长周期智能体时代来了。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 2. 2026.08.01 AI 基础设施账单 -->
-    <a class="article-card" href="articles/ai/2026-08-01_ai-capex-bill/article-wechat.html" data-tags="data business" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.08.01</span><span class="card-tag tag-data">数据解读</span></div>
-      <div class="card-title">7000 亿美元的账单：科技巨头 AI 投入到底花在哪了</div>
-      <div class="card-desc">芯片、数据中心、电力、人才——四大巨头 2026 年投入超 7600 亿，逐项拆解。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 3. 2026.07.20 WAIC -->
-    <a class="article-card" href="articles/ai/2026-07-20_waic-2026-aftermath/article-wechat.html" data-tags="scope" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.07.20</span><span class="card-tag tag-scope">产业趋势</span></div>
-      <div class="card-title">WAIC 散场了，真正的问题才开始</div>
-      <div class="card-desc">一场10万平米展会背后，开源与闭源、机器人打工、治理竞争力三条暗线正在定义 AI 的下半场。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 4. 2026.06.07 AI军备竞赛 -->
-    <a class="article-card" href="articles/ai/2026-06-07_ai-infra-cost/article-full.html" data-tags="data business" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.06.07</span><span class="card-tag tag-data">数据解读</span></div>
-      <div class="card-title">AI军备竞赛到底有多烧钱？——800亿美元能建什么？</div>
-      <div class="card-desc">一面是巨头疯狂砸钱，一面是城市开始说"不"。全球AI基础设施投资全景图。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 5. 2026.06.07 AI 安全伦敦宣言 (draft) -->
-    <a class="article-card card-draft" href="articles/ai/2026-06-07_ai-safety-london-declaration/article-full.html" data-tags="policy" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.06.07</span><span class="card-tag tag-policy">治理安全</span></div>
-      <div class="card-title">AI安全：科学家们坐不住了——解读《IDAIS伦敦宣言》</div>
-      <div class="card-desc">姚期智、Bengio联署，全球最懂AI的人到底在担心什么？</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 6. 2026.06.07 Anthropic IPO (draft) -->
-    <a class="article-card card-draft" href="articles/ai/2026-06-07_anthropic-ipo/article-full.html" data-tags="company business" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.06.07</span><span class="card-tag tag-company">公司拆解</span></div>
-      <div class="card-title">Anthropic 要 IPO 了：AI公司的"成人礼"</div>
-      <div class="card-desc">从"理想主义"到"上市公司"——当AI公司开始谈财报。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 7. 2026.06.07 苹果 Siri (draft) -->
-    <a class="article-card card-draft" href="articles/ai/2026-06-07_apple-wwdc-siri/article-full.html" data-tags="company tech" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.06.07</span><span class="card-tag tag-company">公司拆解</span></div>
-      <div class="card-title">苹果 WWDC 2026：Siri 的"救赎之战"</div>
-      <div class="card-desc">全球最有钱的公司，为什么做不好AI？从Siri十年困局看苹果的AI战略。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 8. 2026.06.07 英伟达 RTX Spark (draft) -->
-    <a class="article-card card-draft" href="articles/ai/2026-06-07_nvidia-rtx-spark/article-full.html" data-tags="tech company" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.06.07</span><span class="card-tag tag-tech">技术深度</span></div>
-      <div class="card-title">英伟达造CPU了：RTX Spark 意味着什么？</div>
-      <div class="card-desc">40年来，你的电脑第一次可能不再用Intel或AMD的芯片。ARM+GPU路线图全解析。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 9. 2026.05.26 AI 时代互联网增长公式失效 -->
-    <a class="article-card" href="articles/ai/2026-05-26_ai-internet-rules-fail/article-full.html" data-tags="scope" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.05.26</span><span class="card-tag tag-scope">产业趋势</span></div>
-      <div class="card-title">AI 时代，互联网增长公式正在失效</div>
-      <div class="card-desc">从腾讯财报会5个反共识出发，提炼出5条适用于所有AI产品、创业、投资的通用判断。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 10. 2026.05.23 IPO三国杀 -->
-    <a class="article-card" href="articles/ai/2026-05-23_ai-ipo-era/article-full.html" data-tags="scope company" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.05.23</span><span class="card-tag tag-scope">产业趋势</span></div>
-      <div class="card-title">5月IPO三国杀：SpaceX带着22万张GPU入场</div>
-      <div class="card-desc">SpaceX、OpenAI、Anthropic三家公司几乎同时启动IPO——AI产业从技术叙事切换到算力成本倒逼上市。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 11. 2026.05.23 AI 数学证明 -->
-    <a class="article-card" href="articles/ai/2026-05-23_ai-math-proof/article-full.html" data-tags="tech" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.05.23</span><span class="card-tag tag-tech">技术深度</span></div>
-      <div class="card-title">AI 和数学家一起，解开了一道 80 年的数学谜题</div>
-      <div class="card-desc">OpenAI 通用推理模型推翻了埃尔德什1946年的猜想。一次教科书级的人机协作。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 12. 2026.05.21 DeepSeek 战略转向 -->
-    <a class="article-card" href="articles/ai/2026-05-21_deepseek-harness-funding/article-full.html" data-tags="company" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.05.21</span><span class="card-tag tag-company">公司拆解</span></div>
-      <div class="card-title">DeepSeek 战略转向：从"不融资"到"融对资"</div>
-      <div class="card-desc">500亿融资拆解、Harness团队对标Claude Code、创始人200亿自掏，国产大模型格局巨变。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 13. 2026.05.18 DeepSeek 融资 -->
-    <a class="article-card" href="articles/ai/2026-05-18_deepseek-funding/article-full.html" data-tags="company business" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.05.18</span><span class="card-tag tag-company">公司拆解</span></div>
-      <div class="card-title">DeepSeek 融资拆解：500亿背后的战略棋局</div>
-      <div class="card-desc">从"不融资"到"500亿"，DeepSeek的进化之路。创始人200亿自掏、国产大模型格局深度分析。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 14. 2026.05.17 Anthropic 估值 -->
-    <a class="article-card" href="articles/ai/2026-05-17_anthropic-900b-valuation/article-full.html" data-tags="company business" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.05.17</span><span class="card-tag tag-company">公司拆解</span></div>
-      <div class="card-title">Anthropic 估值 $9000 亿超越 OpenAI</div>
-      <div class="card-desc">4 个月翻近 3 倍的估值飞轮、$300 亿融资内幕、Claude Code 收入引擎、两条路线之争。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 15. 2026.05.17 AI 编码 Agent -->
-    <a class="article-card" href="articles/ai/2026-05-17_ai-coding-agent-war/article-full.html" data-tags="tech business" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.05.17</span><span class="card-tag tag-tech">技术深度</span></div>
-      <div class="card-title">AI 编码 Agent 终端战争</div>
-      <div class="card-desc">Claude Code / Cursor / Copilot / Windsurf / Grok Build 五强争霸。从补全到对话到Agent的范式变迁。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 16. 2026.05.03 部署踩坑 -->
-    <a class="article-card" href="articles/ai/2026-05-03_deploy-static-site-lessons/article-full.html" data-tags="tech" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.05.03</span><span class="card-tag tag-tech">技术深度</span></div>
-      <div class="card-title">部署静态网站踩坑实录</div>
-      <div class="card-desc">静态站点托管、Nginx 反代、EdgeOne CDN、SSH 安全加固全流程踩坑记录。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 17. 2026.04.29 ChatGPT 广告 -->
-    <a class="article-card" href="articles/ai/2026-04-29_chatgpt-ads-breakdown/article-full.html" data-tags="business tech" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.04.29</span><span class="card-tag tag-business">商业分析</span></div>
-      <div class="card-title">ChatGPT 开始投放广告了</div>
-      <div class="card-desc">完整技术链路拆解：SSE 注入机制、4层 Fernet 加密归因、OAIQ SDK 追踪闭环。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
-
-    <!-- 18. 2026.04.24 DeepSeek V4 -->
-    <a class="article-card" href="articles/ai/2026-04-24_deepseek-v4-deep-dive/article-full.html" data-tags="tech" target="_blank" rel="noopener">
-      <div class="card-meta"><span class="card-date">2026.04.24</span><span class="card-tag tag-tech">技术深度</span></div>
-      <div class="card-title">DeepSeek V4 深度解读</div>
-      <div class="card-desc">58页技术报告拆解 × 六大旗舰横评。Pro版1.6T参数，推理成本仅V3.2的27%，MIT开源。</div>
-      <div class="card-read">阅读全文 <span class="arrow">→</span></div>
-    </a>
+  <div class="view-all-wrap">
+    <a class="view-all" href="articles/ai/index.html">查看全部文章 <span class="arrow">→</span></a>
   </div>
+</section>
 
-  <div class="empty-state" id="empty-state">
-    <div class="big-icon">🔍</div>
-    <p>没有找到这个分类的文章</p>
+<section class="share-section" id="share">
+  <div class="section-header">
+    <h2>🎤 公开分享</h2>
+    <span class="count" id="share-count"></span>
   </div>
+  <p class="section-lead">讲座、科普、产品、读谱材料——讲给具体的人听的内容。每一个都是独立页面，可扫码自取。</p>
+
+  <div id="share-groups"></div>
+  <div class="load-error" id="share-error">分享数据加载失败，请刷新页面重试。</div>
 </section>
 
 <section class="about-section" id="about">
@@ -461,8 +377,8 @@
     <div class="about-text">
       <h3>关于「烨然漫笔」</h3>
       <p>
-        记录 AI 深度解读与个人分享的内容仓库。由 <strong>艾AI</strong> 主理，追踪全球 AI 动态，产出深度原创解读，也分享技术与生活。
-        风格定位：朴实、易懂、有深度、不制造焦虑。
+        由 <strong>艾AI</strong> 主理。写 AI 与技术解读，也写劳动、教育与人的处境；做面向现场观众的分享 slides，也做读谱这样的生活材料。
+        积累知识，感受生活，传递信息，共鸣时代——<strong>为理想主义者鼓与呼</strong>。
       </p>
       <div class="about-links">
         <a class="about-link" href="https://yeranyang.cn" target="_blank" rel="noopener">🌐 个人网站</a>
@@ -478,33 +394,309 @@
 </footer>
 
 <script>
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.article-card');
-  const countEl = document.getElementById('article-count');
-  const emptyState = document.getElementById('empty-state');
+  /* ── 口径与文章列表页保持一致 ──
+     只展示网站本身可验证的已上线内容；公众号发布状态不在这里推断。
+     统计只算能从 articles.json / shares.json 直接推导的数字。 */
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      let visible = 0;
-      cards.forEach(card => {
-        if (filter === 'all' || card.dataset.tags.split(' ').includes(filter)) {
-          card.classList.remove('hidden');
-          visible++;
-        } else {
-          card.classList.add('hidden');
+  const TAG_MAP = {
+    scope:    { label: '\u{1F52E} \u4EA7\u4E1A\u8D8B\u52BF', cls: 'tag-scope' },
+    company:  { label: '\u{1F3E2} \u516C\u53F8\u62C6\u89E3', cls: 'tag-company' },
+    tech:     { label: '\u26A1 \u6280\u672F\u6DF1\u5EA6', cls: 'tag-tech' },
+    business: { label: '\u{1F4CA} \u5546\u4E1A\u5206\u6790', cls: 'tag-business' },
+    policy:   { label: '\u{1F6E1}\uFE0F \u6CBB\u7406\u5B89\u5168', cls: 'tag-policy' },
+    data:     { label: '\u{1F4C8} \u6570\u636E\u89E3\u8BFB', cls: 'tag-data' },
+  };
+
+  const ACCENT = {
+    green:  { bg: 'rgba(16,185,129,0.10)',  fg: '#10b981', bd: 'rgba(16,185,129,0.22)' },
+    blue:   { bg: 'rgba(59,130,246,0.10)',  fg: '#3b82f6', bd: 'rgba(59,130,246,0.22)' },
+    purple: { bg: 'rgba(139,92,246,0.10)',  fg: '#8b5cf6', bd: 'rgba(139,92,246,0.22)' },
+    amber:  { bg: 'rgba(245,158,11,0.10)',  fg: '#f59e0b', bd: 'rgba(245,158,11,0.22)' },
+    rose:   { bg: 'rgba(244,63,94,0.10)',   fg: '#f43f5e', bd: 'rgba(244,63,94,0.22)' },
+  };
+
+  const HOME_ARTICLE_LIMIT = 6;
+
+  /* fetch \u5931\u8D25\u65F6\u7684\u514C\u5E95\u5FEB\u7167\uFF0C\u7531 articles.json / shares.json \u751F\u6210\uFF0C\u4E0D\u624B\u5DE5\u7EF4\u62A4 */
+  const FALLBACK = {
+      "stats": { "articles": 15, "topics": 6, "months": 6 },
+      "articles": [
+        {
+          "id": "2026-09-16_how-we-write-wechat-with-ai",
+          "date": "2026-09-16",
+          "title": "我是怎么用 AI 写公众号的",
+          "desc": "AI 负责把动作做对，我负责把事情做对。一份刚跑顺的记录：四件交给 AI 的事、五步链路、三个坑、具体装了哪些 skill，以及微信后台那几项配置。",
+          "tags": [
+            "scope",
+            "tech"
+          ],
+          "status": "draft",
+          "websiteStatus": "published"
+        },
+        {
+          "id": "2026-09-08_ai-labor-belongs-to-us",
+          "date": "2026-09-08",
+          "title": "AI替我们干活之后，劳动还属于人吗",
+          "desc": "AI可以替人完成动作，却不能自动决定什么值得做。衡量自动化不应只有效率，还要看人能否参与目标、理解标准、修改过程，并让权力与责任相匹配。",
+          "tags": [
+            "scope",
+            "policy"
+          ],
+          "status": "published",
+          "websiteStatus": "published"
+        },
+        {
+          "id": "2026-08-28_hy4-recursive-self-improvement",
+          "date": "2026-08-28",
+          "title": "Hy4 preview 开始参与自己的研发了",
+          "desc": "腾讯称 Hy4 preview 首次参与自身研发流程，并在内部基线下测得 31.8% 的端到端吞吐提升；这是研发自动化进展，不是自主进化或部署后的持续学习。",
+          "tags": [
+            "tech",
+            "company"
+          ],
+          "status": "draft",
+          "websiteStatus": "published"
+        },
+        {
+          "id": "2026-07-20_waic-2026-aftermath",
+          "date": "2026-07-20",
+          "title": "WAIC 散场了，真正的问题才开始",
+          "desc": "一场10万平米展会背后，开源与闭源、机器人打工、治理竞争力三条暗线正在定义 AI 的下半场。",
+          "tags": [
+            "scope"
+          ],
+          "status": "published",
+          "websiteStatus": null
+        },
+        {
+          "id": "2026-06-07_ai-infra-cost",
+          "date": "2026-06-07",
+          "title": "AI军备竞赛到底有多烧钱？——800亿美元能建什么？",
+          "desc": "一面是巨头疯狂砸钱，一面是城市开始说「不」。全球AI基础设施投资全景图。",
+          "tags": [
+            "data",
+            "business"
+          ],
+          "status": "published",
+          "websiteStatus": null
+        },
+        {
+          "id": "2026-06-07_alibaba-qwen-agent",
+          "date": "2026-06-07",
+          "title": "阿里千问开放第三方Agent，微信AI同日开放开发者接入——AI助手开始「能办事」了",
+          "desc": "两大平台同日开放Agent生态，AI助手从「会聊天」到「能办事」的转折点。",
+          "tags": [
+            "scope",
+            "tech"
+          ],
+          "status": "published",
+          "websiteStatus": null
         }
-      });
-      countEl.textContent = visible + ' 篇';
-      if (visible === 0) {
-        emptyState.classList.add('show');
-      } else {
-        emptyState.classList.remove('show');
+      ],
+      "shares": {
+        "_comment": "首页「分享」板块的唯一数据源。新增分享时：① 在 share/<slug>/ 放好页面 ② 在这里登记一条 ③ 在 share/README.md 表格补一行。accent 取值：green / blue / purple / amber / rose。glyph 为缩略图上的几何符号，用简洁符号，不用 emoji 面孔。",
+        "updatedAt": "2026-09-18",
+        "groups": [
+          {
+            "id": "talk",
+            "label": "演讲与分享",
+            "desc": "面向现场观众的 slides，可扫码自取",
+            "items": [
+              {
+                "slug": "xauat-2026",
+                "title": "当人工智能开始涌现，人往何处",
+                "desc": "西安建筑科技大学校友分享。从大模型到 Agent，一个工科毕业生的观察与再思考。",
+                "url": "share/xauat-2026/",
+                "date": "2026-07",
+                "format": "Web slides",
+                "accent": "green",
+                "glyph": "◇"
+              }
+            ]
+          },
+          {
+            "id": "primer",
+            "label": "科普与产品",
+            "desc": "讲给非技术听众听的入门内容",
+            "items": [
+              {
+                "slug": "ai-enlightenment",
+                "title": "AI 启蒙：从零理解 AI",
+                "desc": "面向非技术观众的科普 slides，中英双语，不预设任何技术背景。",
+                "url": "share/ai-enlightenment/",
+                "date": "2025",
+                "note": "2026-08 更新",
+                "format": "Web slides · 双语",
+                "accent": "blue",
+                "glyph": "◈"
+              },
+              {
+                "slug": "workbuddy-intro",
+                "title": "WorkBuddy：你的 AI 专家团",
+                "desc": "12 页中文产品 slides，讲清它是什么、能做什么、适合谁。",
+                "url": "share/workbuddy-intro/",
+                "date": "2026-08",
+                "format": "Web slides",
+                "accent": "purple",
+                "glyph": "◆"
+              }
+            ]
+          },
+          {
+            "id": "music",
+            "label": "音乐与生活",
+            "desc": "给企鹅合唱团团员写的读谱材料",
+            "items": [
+              {
+                "slug": "ylgl",
+                "title": "《韵乐共流》五线谱通俗导读",
+                "desc": "给零基础团员的完整版导读，从五线谱怎么看到简谱怎么对。",
+                "url": "share/ylgl/",
+                "date": "2026-08",
+                "note": "既有内容迁入",
+                "format": "导读页",
+                "accent": "amber",
+                "glyph": "◎"
+              },
+              {
+                "slug": "ylgl-brief",
+                "title": "《韵乐共流》读谱要点速览",
+                "desc": "同一份导读的精简版，一页看完排练前必须记住的要点。",
+                "url": "share/ylgl-brief/",
+                "date": "2026-08",
+                "note": "既有内容迁入",
+                "format": "速览页",
+                "accent": "rose",
+                "glyph": "○"
+              }
+            ]
+          }
+        ]
       }
-    });
-  });
+    };
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str == null ? '' : String(str);
+    return div.innerHTML;
+  }
+
+  function isPublic(article) {
+    return article.websiteStatus === 'published' ||
+      (!article.websiteStatus && article.status === 'published');
+  }
+
+  function byDateDesc(a, b) {
+    return String(b.date).localeCompare(String(a.date));
+  }
+
+  function renderArticles(list) {
+    const grid = document.getElementById('articles-grid');
+    grid.innerHTML = list.slice(0, HOME_ARTICLE_LIMIT).map(article => {
+      const tagsHtml = (article.tags || []).map(t => {
+        const meta = TAG_MAP[t];
+        return meta ? `<span class="card-tag ${meta.cls}">${meta.label}</span>` : '';
+      }).join('');
+      return `
+      <a class="article-card" href="articles/ai/${escapeHtml(article.id)}/article-full.html" target="_blank" rel="noopener">
+        <div class="card-meta">
+          <span class="card-date">${escapeHtml(String(article.date).replace(/-/g, '.'))}</span>
+          ${tagsHtml}
+        </div>
+        <div class="card-title">${escapeHtml(article.title)}</div>
+        <div class="card-desc">${escapeHtml(article.desc)}</div>
+        <div class="card-read">\u9605\u8BFB\u5168\u6587 <span class="arrow">\u2192</span></div>
+      </a>`;
+    }).join('');
+  }
+
+  function renderShares(data) {
+    const wrap = document.getElementById('share-groups');
+    let count = 0;
+    wrap.innerHTML = (data.groups || []).map(group => {
+      const items = group.items || [];
+      count += items.length;
+      const cards = items.map(item => {
+        const accent = ACCENT[item.accent] || ACCENT.green;
+        const meta = [];
+        if (item.date) meta.push(escapeHtml(item.date));
+        if (item.format) meta.push(`<span class="share-format">${escapeHtml(item.format)}</span>`);
+        if (item.note) meta.push(escapeHtml(item.note));
+        return `
+        <a class="share-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">
+          <div class="share-thumb" style="background:${accent.bg};color:${accent.fg};border:1px solid ${accent.bd}">
+            <span class="glyph">${escapeHtml(item.glyph || '\u25C7')}</span>
+          </div>
+          <div class="share-body">
+            <div class="share-title">${escapeHtml(item.title)}</div>
+            <div class="share-desc">${escapeHtml(item.desc)}</div>
+            <div class="share-foot">${meta.join('')}<span class="share-go">\u6253\u5F00 \u2192</span></div>
+          </div>
+        </a>`;
+      }).join('');
+      return `
+      <div class="share-group">
+        <div class="share-group-head">
+          <h3>${escapeHtml(group.label)}</h3>
+          <span class="g-desc">${escapeHtml(group.desc || '')}</span>
+        </div>
+        <div class="share-grid">${cards}</div>
+      </div>`;
+    }).join('');
+    document.getElementById('share-count').textContent = count + ' \u4E2A';
+    return count;
+  }
+
+  function setStats(articles, shareCount, snapshotStats) {
+    // 在线时按实际数据算；降级时用快照里带的统计，避免离线把数字算小。
+    const stats = snapshotStats || {
+      articles: articles.length,
+      topics: new Set(articles.flatMap(a => a.tags || [])).size,
+      months: new Set(articles.map(a => String(a.date).slice(0, 7))).size,
+    };
+    document.getElementById('stat-articles').textContent = stats.articles;
+    document.getElementById('stat-shares').textContent = shareCount;
+    document.getElementById('stat-topics').textContent = stats.topics;
+    document.getElementById('stat-months').textContent = stats.months;
+  }
+
+  function degrade(id, what) {
+    const el = document.getElementById(id);
+    el.textContent = `${what}\u6570\u636E\u52A0\u8F7D\u5931\u8D25\uFF0C\u4E0B\u9762\u662F\u5185\u7F6E\u5FEB\u7167\uFF0C\u53EF\u80FD\u4E0D\u662F\u6700\u65B0\u3002`;
+    el.classList.add('show');
+  }
+
+  async function boot() {
+    let articles, shares, snapshotStats = null;
+
+    try {
+      const resp = await fetch('articles/ai/articles.json');
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      articles = (await resp.json()).filter(isPublic).sort(byDateDesc);
+    } catch (err) {
+      console.error('\u52A0\u8F7D\u6587\u7AE0\u6570\u636E\u5931\u8D25:', err);
+      articles = FALLBACK.articles.filter(isPublic).sort(byDateDesc);
+      snapshotStats = FALLBACK.stats;
+      degrade('articles-error', '\u6587\u7AE0');
+    }
+
+    try {
+      const resp = await fetch('shares.json');
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      shares = await resp.json();
+    } catch (err) {
+      console.error('\u52A0\u8F7D\u5206\u4EAB\u6570\u636E\u5931\u8D25:', err);
+      shares = FALLBACK.shares;
+      degrade('share-error', '\u5206\u4EAB');
+    }
+
+    document.getElementById('article-count').textContent =
+      (snapshotStats ? snapshotStats.articles : articles.length) + ' \u7BC7';
+    renderArticles(articles);
+    setStats(articles, renderShares(shares), snapshotStats);
+  }
+
+  boot();
 </script>
 
 </body>

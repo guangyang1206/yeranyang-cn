@@ -1,0 +1,80 @@
+{
+  "_comment": "首页「分享」板块的唯一数据源。新增分享时：① 在 share/<slug>/ 放好页面 ② 在这里登记一条 ③ 在 share/README.md 表格补一行。accent 取值：green / blue / purple / amber / rose。glyph 为缩略图上的几何符号，用简洁符号，不用 emoji 面孔。",
+  "updatedAt": "2026-09-18",
+  "groups": [
+    {
+      "id": "talk",
+      "label": "演讲与分享",
+      "desc": "面向现场观众的 slides，可扫码自取",
+      "items": [
+        {
+          "slug": "xauat-2026",
+          "title": "当人工智能开始涌现，人往何处",
+          "desc": "西安建筑科技大学校友分享。从大模型到 Agent，一个工科毕业生的观察与再思考。",
+          "url": "share/xauat-2026/",
+          "date": "2026-07",
+          "format": "Web slides",
+          "accent": "green",
+          "glyph": "◇"
+        }
+      ]
+    },
+    {
+      "id": "primer",
+      "label": "科普与产品",
+      "desc": "讲给非技术听众听的入门内容",
+      "items": [
+        {
+          "slug": "ai-enlightenment",
+          "title": "AI 启蒙：从零理解 AI",
+          "desc": "面向非技术观众的科普 slides，中英双语，不预设任何技术背景。",
+          "url": "share/ai-enlightenment/",
+          "date": "2025",
+          "note": "2026-08 更新",
+          "format": "Web slides · 双语",
+          "accent": "blue",
+          "glyph": "◈"
+        },
+        {
+          "slug": "workbuddy-intro",
+          "title": "WorkBuddy：你的 AI 专家团",
+          "desc": "12 页中文产品 slides，讲清它是什么、能做什么、适合谁。",
+          "url": "share/workbuddy-intro/",
+          "date": "2026-08",
+          "format": "Web slides",
+          "accent": "purple",
+          "glyph": "◆"
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "label": "音乐与生活",
+      "desc": "给企鹅合唱团团员写的读谱材料",
+      "items": [
+        {
+          "slug": "ylgl",
+          "title": "《韵乐共流》五线谱通俗导读",
+          "desc": "给零基础团员的完整版导读，从五线谱怎么看到简谱怎么对。",
+          "url": "share/ylgl/",
+          "date": "2026-08",
+          "note": "既有内容迁入",
+          "format": "导读页",
+          "accent": "amber",
+          "glyph": "◎"
+        },
+        {
+          "slug": "ylgl-brief",
+          "title": "《韵乐共流》读谱要点速览",
+          "desc": "同一份导读的精简版，一页看完排练前必须记住的要点。",
+          "url": "share/ylgl-brief/",
+          "date": "2026-08",
+          "note": "既有内容迁入",
+          "format": "速览页",
+          "accent": "rose",
+          "glyph": "○"
+        }
+      ]
+    }
+  ]
+}

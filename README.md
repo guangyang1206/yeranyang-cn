@@ -14,7 +14,8 @@
 ```
 yeranyang-cn/
 ├── CNAME                    # 域名 yeranyang.cn
-├── index.html               # 站点首页（导航到各分区）
+├── index.html               # 站点首页（内容主页：最新文章 + 公开分享 + 关于）
+├── shares.json              # 首页「公开分享」板块数据源（唯一真相源）
 ├── README.md                # 仓库总说明（本文件）
 ├── CONTENT_STANDARD.md      # 内容创作与交付规范（唯一真相源）
 ├── MEMORY.md                # 踩坑日志与历史经验（Agent 工作用）
@@ -39,6 +40,32 @@ yeranyang-cn/
     ├── README.md            #   技能包索引 + 开源待办
     └── git-history-sanitize/#   git 历史敏感信息抹除（已脱敏）
 ```
+
+---
+
+## 🏠 首页结构（index.html）
+
+首页是**内容主页**，不是文章列表。四个区块自上而下：
+
+| 区块 | 内容 | 数据来源 |
+|-----|-----|---------|
+| Hero | 定位主张 + 四项统计 | 统计由 JS 从下面两个 JSON 算出，不写死 |
+| 📡 最新文章 | 最近 **6** 篇，卡片 + 底部「查看全部文章」 | `articles/ai/articles.json` |
+| 🎤 公开分享 | 5 个分享，分「演讲与分享 / 科普与产品 / 音乐与生活」三组 | `shares.json` |
+| 关于 | 主理人、定位、外链 | 静态文案 |
+
+**「查看全部文章」进入 `articles/ai/index.html`**，那里是完整的 15 篇（含按方向筛选）。
+
+### 两条必须遵守的口径
+
+1. **只展示网站本身可验证的已上线内容**：`websiteStatus === 'published'`，或 `websiteStatus` 为空且 `status === 'published'`。这与 `articles/ai/index.html` 的过滤逻辑**必须一致**，否则会出现「首页有、列表页没有」。
+2. **统计只算能推导的数字**：文章数 / 分享数 / 主题方向数 / 有更新的月份数。不要放「公众号读者数」之类未经后台台账确认的数字（旧的 `100K+` 已移除）。
+
+### 数据驱动与降级
+
+首页在运行时 `fetch` 两个 JSON，所以**新增文章不需要改首页**。若 `fetch` 失败（例如本地用 `file://` 直接打开），会退到 `index.html` 内置的快照，并明确提示「下面是内置快照，可能不是最新」。
+
+> ⚠️ 快照是**生成**出来的，不是手工维护的。改动 `articles.json` 或 `shares.json` 后，如要刷新快照，需重新生成 `index.html` 里的 `FALLBACK` 常量（含 `stats` / `articles` / `shares` 三段）。
 
 ---
 

@@ -35,7 +35,25 @@
 1. **本地准备**：在工作目录里做好完整的 deck / 页面（例如 `***REMOVED***WorkBuddy/<project>/xxx-deck/`）
 2. **拷贝到 `share/<slug>/`**：`slug` 用**日期+主题**式短标识（如 `xauat-2026`、`2027-agent-day`）
 3. **在本 README 表格里登记一行**
-4. **commit + push**，Pages 会自动构建
+4. **⚠️ 同时在根目录 `shares.json` 里登记一条**——首页「公开分享」板块只读这个文件，不扫目录。漏了这一步，分享**不会出现在首页**。
+5. **commit + push**，Pages 会自动构建
+
+`shares.json` 的字段（`accent` 取 `green` / `blue` / `purple` / `amber` / `rose`，`glyph` 用简洁几何符号）：
+
+```json
+{
+  "slug": "2027-agent-day",
+  "title": "标题",
+  "desc": "一句话说明，讲给谁听、讲什么",
+  "url": "share/2027-agent-day/",
+  "date": "2027-03",
+  "format": "Web slides",
+  "accent": "green",
+  "glyph": "◇"
+}
+```
+
+> 新增分享后，首页内置的离线快照不会自动更新，需重新生成 `index.html` 里的 `FALLBACK.shares`。在线访问不受影响。
 
 ## ✋ 关于文件丢失
 

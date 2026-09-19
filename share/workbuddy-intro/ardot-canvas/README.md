@@ -17,4 +17,4 @@ This was a design exploration for WorkBuddy external-facing slides, created on A
 
 ## Original Ardot Link
 
-https://ardot.tencent.com/file/713307645630537
+（内网设计平台链接已移除：该地址为内部域名，公网不可访问）

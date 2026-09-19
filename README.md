@@ -69,19 +69,20 @@ yeranyang-cn/
 
 ---
 
-## 📡 AI 文章列表（32 篇）
+## 📡 AI 文章列表（34 篇）
 
 | # | 日期 | 标题 | 状态 |
 |---|------|------|------|
 | 1 | 2026-09-16 | [我是怎么用 AI 写公众号的](./articles/ai/2026-09-16_how-we-write-wechat-with-ai/) | 📝 待发布 |
 | 2 | 2026-09-08 | [AI替我们干活之后，劳动还属于人吗](./articles/ai/2026-09-08_ai-labor-belongs-to-us/) | ✅ 已发布 |
+| 2.1 | 2026-09-11 | [GPT-6 Astra发布与安全共识裂痕：能力越强，行业为什么越不安？](./articles/ai/2026-09-11_gpt6-astra-safety-rift/) | 📝 待发布 |
 | 3 | 2026-08-28 | [Hy4 preview 开始参与自己的研发了](./articles/ai/2026-08-28_hy4-recursive-self-improvement/) | 📝 待发布 |
 | 4 | 2026-08-21 | [营收易位：Anthropic为什么反超了OpenAI](./articles/ai/2026-08-21_anthropic-revenue-overtake/) | 📝 待发布 |
-| 5 | 2026-08-21 | [AI 越狱"实锤"了：Anthropic 回查 14 万次，揪出三起真实入侵](./articles/ai/2026-08-21_anthropic-cyber-eval-incidents/) | 📝 待发布 |
+| 5 | 2026-07-30 | [AI 越狱"实锤"了：Anthropic 回查 14 万次，揪出三起真实入侵](./articles/ai/2026-07-30_anthropic-cyber-eval-incidents/) | 📝 待发布 |
 | 6 | 2026-08-21 | [一个月七起"AI 越狱"：风险的性质，已经悄悄变了](./articles/ai/2026-08-21_ai-agent-jailbreak-overview/) | 📝 待发布 |
 | 7 | 2026-08-14 | [谷歌AI危机延烧：布林重回一线，Gemini 3.5 Pro被曝取消](./articles/ai/2026-08-14_google-gemini-crisis/) | 📝 待发布 |
-| 8 | 2026-08-07 | [谷歌AI一日双震：哈萨比斯转任董事长，Jeff Dean 27年后离职创业](./articles/ai/2026-08-07_google-deepmind-shakeup/) | 📝 待发布 |
-| 9 | 2026-08-04 | [阿里 Qwen3.8 发布：16 天，265 次提交，全程无人值守](./articles/ai/2026-08-04_alibaba-qwen3.8/) | 📝 待发布 |
+| 8 | 2026-08-05 | [谷歌AI一日双震：哈萨比斯转任董事长，Jeff Dean 27年后离职创业](./articles/ai/2026-08-05_google-deepmind-shakeup/) | 📝 待发布 |
+| 9 | 2026-08-03 | [阿里 Qwen3.8 发布：16 天，265 次提交，全程无人值守](./articles/ai/2026-08-03_alibaba-qwen3.8/) | 📝 待发布 |
 | 10 | 2026-08-01 | [AI 正在学会处理需要好几天才能完成的任务](./articles/ai/2026-08-01_ai-long-horizon/) | 📝 待发布 |
 | 11 | 2026-08-01 | [7000 亿美元的账单：科技巨头 AI 投入到底花在哪了](./articles/ai/2026-08-01_ai-capex-bill/) | 📝 待发布 |
 | 12 | 2026-07-24 | [Claude Opus 5 发布：能力逼近 Fable 5，价格一分不涨](./articles/ai/2026-07-24_claude-opus-5/) | 📝 待发布 |
@@ -90,11 +91,12 @@ yeranyang-cn/
 | 15 | 2026-07-01 | [英伟达 ASPIRE：机器人的「Skill 时刻」](./articles/ai/2026-07-01_nvidia-aspire-robotics/) | 📝 待发布 |
 | 16 | 2026-07-20 | [WAIC 散场了，真正的问题才开始](./articles/ai/2026-07-20_waic-2026-aftermath/) | ✅ 已完成 |
 | 17 | 2026-06-07 | [AI军备竞赛到底有多烧钱？——800亿美元能建什么？](./articles/ai/2026-06-07_ai-infra-cost/) | ✅ 已完成 |
-| 18 | 2026-06-07 | [AI安全：科学家们坐不住了——解读《IDAIS伦敦宣言》](./articles/ai/2026-06-07_ai-safety-london-declaration/) | 📝 待发布 |
-| 19 | 2026-06-07 | [Anthropic 要 IPO 了：AI公司的「成人礼」](./articles/ai/2026-06-07_anthropic-ipo/) | 📝 待发布 |
-| 20 | 2026-06-07 | [苹果 WWDC 2026：Siri 的「救赎之战」](./articles/ai/2026-06-07_apple-wwdc-siri/) | 📝 待发布 |
-| 21 | 2026-06-07 | [英伟达造CPU了：RTX Spark 意味着什么？](./articles/ai/2026-06-07_nvidia-rtx-spark/) | 📝 待发布 |
-| 22 | 2026-06-07 | [阿里千问开放第三方Agent，微信AI同日开放开发者接入——AI助手开始「能办事」了](./articles/ai/2026-06-07_alibaba-qwen-agent/) | ✅ 已完成 |
+| 18 | 2026-04-17 | [AI安全：科学家们坐不住了——解读《IDAIS伦敦宣言》](./articles/ai/2026-04-17_ai-safety-london-declaration/) | 📝 待发布 |
+| 19 | 2026-06-01 | [Anthropic 要 IPO 了：AI公司的「成人礼」](./articles/ai/2026-06-01_anthropic-ipo/) | 📝 待发布 |
+| 20 | 2026-06-08 | [苹果 WWDC 2026：Siri 的「救赎之战」](./articles/ai/2026-06-08_apple-wwdc-siri/) | 📝 待发布 |
+| 21 | 2026-06-01 | [英伟达造CPU了：RTX Spark 意味着什么？](./articles/ai/2026-06-01_nvidia-rtx-spark/) | 📝 待发布 |
+| 22 | 2026-06-08 | [阿里千问开放第三方Agent，微信AI同日开放开发者接入——AI助手开始「能办事」了](./articles/ai/2026-06-08_alibaba-qwen-agent/) | ✅ 已完成 |
+| 22.1 | 2026-06-09 | [Claude Fable 5：最强模型，第一次戴着手铐出门](./articles/ai/2026-06-09_claude-fable-5/) | 📝 待发布 |
 | 23 | 2026-05-26 | [AI 时代，互联网增长公式正在失效](./articles/ai/2026-05-26_ai-internet-rules-fail/) | 📝 待发布 |
 | 24 | 2026-05-23 | [5月IPO三国杀：SpaceX带着22万张GPU入场](./articles/ai/2026-05-23_ai-ipo-era/) | ✅ 已完成 |
 | 25 | 2026-05-23 | [AI 和数学家一起，解开了一道 80 年的数学谜题](./articles/ai/2026-05-23_ai-math-proof/) | ✅ 已完成 |

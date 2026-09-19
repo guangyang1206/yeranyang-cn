@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Fable 5 · 竖版长图</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; }
+  body {
+    font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
+    background:#0a0a0f; display:flex; justify-content:center; -webkit-font-smoothing:antialiased;
+  }
+  .poster {
+    width:100%; max-width:1080px;
+    background:linear-gradient(175deg,#0c0c1a 0%,#0f1029 25%,#0a0f2e 50%,#0d0a25 75%,#0a0a0f 100%);
+    position:relative; overflow:hidden;
+  }
+  .poster::before{content:'';position:absolute;top:-220px;right:-220px;width:820px;height:820px;
+    background:radial-gradient(circle,rgba(255,107,53,.13) 0%,rgba(255,107,53,.03) 40%,transparent 70%);pointer-events:none;}
+  .poster::after{content:'';position:absolute;bottom:120px;left:-320px;width:720px;height:720px;
+    background:radial-gradient(circle,rgba(100,80,200,.09) 0%,transparent 60%);pointer-events:none;}
+  .content{position:relative;z-index:1;padding:9vw 6vw 7vw;}
+
+  .header{text-align:center;margin-bottom:7vw;}
+  .brand{display:inline-block;letter-spacing:3px;font-size:clamp(11px,2.8vw,15px);color:#ff6b35;
+    font-weight:500;margin-bottom:3.2vw;}
+  .main-title{font-size:clamp(30px,8vw,58px);font-weight:900;color:#fff;line-height:1.28;letter-spacing:-.5px;}
+  .main-title .hl{background:linear-gradient(135deg,#ff6b35,#ffa06b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .sub-title{font-size:clamp(15px,3.9vw,28px);color:rgba(255,255,255,.55);font-weight:300;letter-spacing:1px;margin-top:14px;line-height:1.6;}
+  .date-line{font-size:clamp(12px,2.7vw,16px);color:rgba(255,255,255,.35);margin-top:18px;letter-spacing:1px;}
+
+  .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,107,53,.35),transparent);margin:6vw 0;}
+
+  .sec-label{display:flex;align-items:center;gap:10px;margin-bottom:3.4vw;}
+  .badge-num{width:clamp(26px,5vw,34px);height:clamp(26px,5vw,34px);border-radius:8px;
+    background:linear-gradient(135deg,#ff6b35,#c9521f);display:flex;align-items:center;justify-content:center;
+    font-size:clamp(13px,3vw,17px);font-weight:700;color:#fff;flex-shrink:0;}
+  .badge-label{font-size:clamp(16px,3.8vw,23px);font-weight:700;color:#fff;letter-spacing:1px;}
+
+  .key-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2vw,16px);}
+  .data-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);
+    border-radius:clamp(10px,2.4vw,16px);padding:clamp(16px,3.4vw,26px) clamp(14px,3vw,24px);}
+  .data-card .icon{font-size:clamp(18px,4vw,26px);margin-bottom:clamp(8px,1.8vw,14px);}
+  .data-card .data-label{font-size:clamp(11px,2.4vw,14px);color:rgba(255,255,255,.42);margin-bottom:4px;line-height:1.5;}
+  .data-card .data-value{font-size:clamp(20px,4.6vw,30px);font-weight:800;color:#fff;line-height:1.25;}
+  .data-card .data-value .unit{font-size:clamp(11px,2.3vw,14px);font-weight:400;color:rgba(255,255,255,.42);margin-left:4px;}
+
+  .body-text{font-size:clamp(14px,3.2vw,19px);color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:clamp(12px,2.6vw,18px);}
+  .body-text strong{color:#fff;font-weight:700;}
+
+  .headline-box{background:linear-gradient(135deg,rgba(255,107,53,.09),rgba(255,107,53,.03));
+    border:1px solid rgba(255,107,53,.18);border-radius:clamp(12px,2.8vw,18px);
+    padding:clamp(18px,4vw,30px);margin:clamp(16px,3.4vw,26px) 0;}
+  .headline-box .h-text{font-size:clamp(15px,3.6vw,22px);color:#fff;font-weight:500;line-height:1.7;}
+
+  .tl{position:relative;padding-left:clamp(22px,5vw,34px);}
+  .tl::before{content:'';position:absolute;left:clamp(6px,1.4vw,10px);top:8px;bottom:8px;width:2px;
+    background:linear-gradient(180deg,#ff6b35,rgba(255,107,53,.15));border-radius:2px;}
+  .tl-item{position:relative;padding:clamp(10px,2.2vw,16px) 0;}
+  .tl-item::before{content:'';position:absolute;left:calc(-1 * clamp(22px,5vw,34px) + clamp(1px,0.3vw,3px));
+    top:clamp(16px,3.4vw,24px);width:clamp(9px,2vw,13px);height:clamp(9px,2vw,13px);border-radius:50%;
+    background:#ff6b35;border:2px solid #0c0c1a;}
+  .tl-date{font-size:clamp(13px,3vw,17px);font-weight:800;color:#ff6b35;margin-bottom:3px;letter-spacing:.5px;}
+  .tl-title{font-size:clamp(14px,3.2vw,19px);color:#fff;font-weight:600;margin-bottom:3px;line-height:1.5;}
+  .tl-desc{font-size:clamp(12px,2.8vw,16px);color:rgba(255,255,255,.55);line-height:1.7;}
+
+  .cmp{width:100%;border-collapse:collapse;margin:clamp(14px,3vw,22px) 0;font-size:clamp(12px,2.8vw,16px);}
+  .cmp th{background:rgba(255,107,53,.12);color:#ff6b35;font-weight:700;
+    padding:clamp(9px,2vw,14px) clamp(8px,1.8vw,14px);text-align:left;}
+  .cmp td{padding:clamp(9px,2vw,14px) clamp(8px,1.8vw,14px);color:rgba(255,255,255,.75);
+    border-bottom:1px solid rgba(255,255,255,.06);}
+  .cmp tr:last-child td{border-bottom:none;}
+
+  .footer{margin-top:clamp(24px,5vw,40px);padding-top:clamp(18px,4vw,28px);
+    border-top:1px solid rgba(255,255,255,.08);text-align:center;}
+  .footer .f-brand{font-size:clamp(13px,3vw,17px);color:#ff6b35;font-weight:700;letter-spacing:2px;margin-bottom:8px;}
+  .footer .f-slogan{font-size:clamp(11px,2.6vw,15px);color:rgba(255,255,255,.4);line-height:1.8;}
+  .footer .f-refs{margin-top:clamp(12px,2.6vw,18px);font-size:clamp(10px,2.2vw,13px);
+    color:rgba(255,255,255,.28);line-height:1.8;}
+</style>
+</head>
+<body>
+<div class="poster">
+<div class="content">
+
+  <div class="header">
+    <div class="brand">深度解读 · 大模型</div>
+    <div class="main-title">Claude <span class="hl">Fable 5</span></div>
+    <div class="sub-title">最强模型，第一次戴着手铐出门</div>
+    <div class="date-line">2026 年 6 月 9 日发布 · 72 小时后被出口管制叫停</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">
+    <div class="badge-num">1</div>
+    <div class="badge-label">它到底强在哪</div>
+  </div>
+
+  <div class="key-grid">
+    <div class="data-card">
+      <div class="icon">🏆</div>
+      <div class="data-label">SWE-Bench Pro</div>
+      <div class="data-value">80.3<span class="unit">%</span></div>
+    </div>
+    <div class="data-card">
+      <div class="icon">🚀</div>
+      <div class="data-label">FrontierCode</div>
+      <div class="data-value">29.3<span class="unit">%</span></div>
+    </div>
+    <div class="data-card">
+      <div class="icon">🧠</div>
+      <div class="data-label">上下文长度</div>
+      <div class="data-value">100<span class="unit">万 token</span></div>
+    </div>
+    <div class="data-card">
+      <div class="icon">💰</div>
+      <div class="data-label">输出定价（每百万 token）</div>
+      <div class="data-value">$50<span class="unit">上代 2 倍</span></div>
+    </div>
+  </div>
+
+  <p class="body-text" style="margin-top:clamp(14px,3vw,22px)">
+    <strong>80.3% 是代际差距，不是微弱领先。</strong>比自家的 Opus 4.8（69.2%）高出 11.1 个百分点，比 GPT-5.5（58.6%）高出 21.7 个百分点。
+  </p>
+  <p class="body-text">
+    <strong>FrontierCode 才是更狠的那个。</strong>它专挑最难的题——抽象算法、新型数据结构、性能优化。在这个天花板约 30% 的基准上拿到 29.3%，等于顶着天花板在跑。
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">
+    <div class="badge-num">2</div>
+    <div class="badge-label">为什么它敢公开发布</div>
+  </div>
+
+  <div class="headline-box">
+    <div class="h-text">
+      Mythos 级的能力，4 月时还被认为「不适合公开释放」。<br>
+      Fable 5 的做法是：<strong>加一道门禁，然后放行</strong>。
+    </div>
+  </div>
+
+  <table class="cmp">
+    <tr><th>对比项</th><th>Fable 5</th><th>Mythos 5</th></tr>
+    <tr><td>底层能力</td><td>同一模型</td><td>同一模型</td></tr>
+    <tr><td>安全分类器</td><td>有，主动拒答</td><td>无</td></tr>
+    <tr><td>谁可以用</td><td>所有公众</td><td>审批伙伴</td></tr>
+  </table>
+
+  <p class="body-text">
+    门禁拦三类：<strong>网络安全</strong>、<strong>生物与化学</strong>、<strong>模型蒸馏</strong>。
+  </p>
+  <p class="body-text">
+    关键设计：拦截不是「拒绝」而是<strong>「降级」</strong>——回退给 Opus 4.8 作答。官方称超过 95% 的会话完全不触发回退。
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">
+    <div class="badge-num">3</div>
+    <div class="badge-label">72 小时：从发布到被叫停</div>
+  </div>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-date">6 月 9 日</div>
+      <div class="tl-title">Fable 5 与 Mythos 5 同步发布</div>
+      <div class="tl-desc">上线 Claude API、AWS Bedrock、Vertex AI、Microsoft Foundry</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">6 月 12 日</div>
+      <div class="tl-title">收到美国商务部出口管制指令</div>
+      <div class="tl-desc">美东时间下午 5 点 21 分，要求限制外国公民访问</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">6 月 13 日</div>
+      <div class="tl-title">对全球所有用户暂停</div>
+      <div class="tl-desc">无法实时核验用户国籍，只能一刀切</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">7 月 1 日</div>
+      <div class="tl-title">管制解除，恢复全球访问</div>
+      <div class="tl-desc">6 月 30 日解除，同时上线针对特定越狱手法的新分类器</div>
+    </div>
+  </div>
+
+  <div class="headline-box">
+    <div class="h-text">
+      政府要求的是「限制外国人」，Anthropic 做成了「对所有人下架」。<br>
+      因为——你没办法实时核验一个 API 调用者的国籍。
+    </div>
+  </div>
+
+  <p class="body-text">
+    <strong>这是美国第一次用出口管制叫停一款已商业部署的前沿 AI 模型。</strong>它开创的先例是：模型远程访问权，可被当作「技术出口」来管。
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">
+    <div class="badge-num">4</div>
+    <div class="badge-label">一个半月后，被自家替代</div>
+  </div>
+
+  <table class="cmp">
+    <tr><th>时间</th><th>动作</th><th>定价</th></tr>
+    <tr><td>5-28</td><td>Opus 4.8</td><td>$5 / $25</td></tr>
+    <tr><td>6-09</td><td><strong>Fable 5</strong>（顶级旗舰）</td><td>$10 / $50</td></tr>
+    <tr><td>7-24</td><td><strong>Opus 5</strong>（逼近 Fable 5）</td><td>$5 / $25</td></tr>
+  </table>
+
+  <div class="headline-box">
+    <div class="h-text">
+      旗舰立天花板，次旗舰跑量。<br>
+      花一半的钱，拿到接近旗舰的能力。
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">
+    <div class="badge-num">5</div>
+    <div class="badge-label">写在最后</div>
+  </div>
+
+  <p class="body-text">
+    Fable 5 值得被记住，不是因为 80.3% 这个数字。
+  </p>
+  <p class="body-text">
+    而是因为它同时踩中了两个命题：<strong>能力如何被安全地放出来</strong>，以及<strong>模型到底归谁管</strong>。
+  </p>
+  <p class="body-text">
+    当一款商业模型可以在上线 72 小时后被一纸行政命令全球下架，所有在美部署前沿模型的企业都得重新算一笔账——<strong>你的技术栈，可能不完全由你决定</strong>。
+  </p>
+
+  <div class="footer">
+    <div class="f-brand">AI 深度解读</div>
+    <div class="f-slogan">不制造焦虑，只追趋势背后的真相</div>
+    <div class="f-refs">
+      数据来源：Anthropic 官方公告与模型文档 · DataLearner 模型库 · 美国商务部出口管制相关报道 · 本号《Claude Opus 5 发布》一文<br>
+      评测成绩为官方公布数据
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

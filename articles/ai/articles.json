@@ -18,6 +18,18 @@
     "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-16_how-we-write-wechat-with-ai/article-full.html"
   },
   {
+    "id": "2026-09-11_gpt6-astra-safety-rift",
+    "date": "2026-09-11",
+    "title": "GPT-6 Astra发布与安全共识裂痕：能力越强，行业为什么越不安？",
+    "desc": "OpenAI喊出\"欢迎来到AGI时代\"，Astra触及网络安全\"关键\"风险阈值；六天后Anthropic研究员公开辞职警告AI有超10%概率致人类灭绝。",
+    "tags": [
+      "security",
+      "company"
+    ],
+    "status": "draft",
+    "websiteStatus": "pending"
+  },
+  {
     "id": "2026-09-08_ai-labor-belongs-to-us",
     "date": "2026-09-08",
     "title": "AI替我们干活之后，劳动还属于人吗",
@@ -64,18 +76,20 @@
       "business",
       "company"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-21_anthropic-revenue-overtake/article-full.html"
   },
   {
-    "id": "2026-08-21_anthropic-cyber-eval-incidents",
-    "date": "2026-08-21",
+    "id": "2026-07-30_anthropic-cyber-eval-incidents",
+    "date": "2026-07-30",
     "title": "AI 越狱\"实锤\"了：Anthropic 回查 14 万次，揪出三起真实入侵",
     "desc": "141,006次评测回溯，三起Claude越界入侵真实企业系统。根因是环境隔离失效，而非模型主动作恶。",
     "tags": [
       "security",
       "tech"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-30_anthropic-cyber-eval-incidents/article-full.html"
   },
   {
     "id": "2026-08-21_ai-agent-jailbreak-overview",
@@ -86,7 +100,8 @@
       "security",
       "scope"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-21_ai-agent-jailbreak-overview/article-full.html"
   },
   {
     "id": "2026-08-14_google-gemini-crisis",
@@ -97,29 +112,32 @@
       "scope",
       "business"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-14_google-gemini-crisis/article-full.html"
   },
   {
-    "id": "2026-08-07_google-deepmind-shakeup",
-    "date": "2026-08-07",
+    "id": "2026-08-05_google-deepmind-shakeup",
+    "date": "2026-08-05",
     "title": "谷歌AI一日双震：哈萨比斯转任董事长，Jeff Dean 27年后离职创业",
     "desc": "Google DeepMind 重组、Hassabis 转任首席科学家、Jeff Dean 带团队出走创业，一天之内谷歌 AI 权力格局巨变。",
     "tags": [
       "scope",
       "business"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-05_google-deepmind-shakeup/article-full.html"
   },
   {
-    "id": "2026-08-04_alibaba-qwen3.8",
-    "date": "2026-08-04",
+    "id": "2026-08-03_alibaba-qwen3.8",
+    "date": "2026-08-03",
     "title": "阿里 Qwen3.8 发布：16 天，265 次提交，全程无人值守",
     "desc": "2.4T 参数的 Qwen3.8-Max 在 oh-my-cli 仓库完成了国产旗舰首次可公开验证的长程自主交付。",
     "tags": [
       "tech",
       "scope"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-03_alibaba-qwen3.8/article-full.html"
   },
   {
     "id": "2026-08-01_ai-long-horizon",
@@ -130,7 +148,8 @@
       "tech",
       "scope"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-01_ai-long-horizon/article-full.html"
   },
   {
     "id": "2026-08-01_ai-capex-bill",
@@ -141,7 +160,8 @@
       "data",
       "business"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-01_ai-capex-bill/article-full.html"
   },
   {
     "id": "2026-07-24_claude-opus-5",
@@ -152,7 +172,19 @@
       "tech",
       "company"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-24_claude-opus-5/article-full.html"
+  },
+  {
+    "id": "2026-07-20_waic-2026-aftermath",
+    "date": "2026-07-20",
+    "title": "WAIC 散场了，真正的问题才开始",
+    "desc": "一场10万平米展会背后，开源与闭源、机器人打工、治理竞争力三条暗线正在定义 AI 的下半场。",
+    "tags": [
+      "scope"
+    ],
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-20_waic-2026-aftermath/article-full.html"
   },
   {
     "id": "2026-07-15_ai-companion-regulation",
@@ -162,7 +194,8 @@
     "tags": [
       "policy"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-15_ai-companion-regulation/article-full.html"
   },
   {
     "id": "2026-07-09_gpt-5-6-launch",
@@ -173,7 +206,8 @@
       "tech",
       "company"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-09_gpt-5-6-launch/article-full.html"
   },
   {
     "id": "2026-07-01_nvidia-aspire-robotics",
@@ -183,15 +217,18 @@
     "tags": [
       "tech"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-01_nvidia-aspire-robotics/article-full.html"
   },
   {
-    "id": "2026-07-20_waic-2026-aftermath",
-    "date": "2026-07-20",
-    "title": "WAIC 散场了，真正的问题才开始",
-    "desc": "一场10万平米展会背后，开源与闭源、机器人打工、治理竞争力三条暗线正在定义 AI 的下半场。",
+    "id": "2026-06-09_claude-fable-5",
+    "date": "2026-06-09",
+    "title": "Claude Fable 5：最强模型，第一次戴着手铐出门",
+    "desc": "Mythos 级能力首次公开，发布 72 小时后被美国出口管制叫停",
     "tags": [
-      "scope"
+      "大模型",
+      "Anthropic",
+      "出口管制"
     ],
     "status": "published"
   },
@@ -204,61 +241,67 @@
       "data",
       "business"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-07_ai-infra-cost/article-full.html"
   },
   {
-    "id": "2026-06-07_ai-safety-london-declaration",
-    "date": "2026-06-07",
+    "id": "2026-04-17_ai-safety-london-declaration",
+    "date": "2026-04-17",
     "title": "AI安全：科学家们坐不住了——解读《IDAIS伦敦宣言》",
     "desc": "姚期智、Bengio联署，全球最懂AI的人到底在担心什么？",
     "tags": [
       "policy"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-04-17_ai-safety-london-declaration/article-full.html"
   },
   {
-    "id": "2026-06-07_anthropic-ipo",
-    "date": "2026-06-07",
+    "id": "2026-06-01_anthropic-ipo",
+    "date": "2026-06-01",
     "title": "Anthropic 要 IPO 了：AI公司的「成人礼」",
     "desc": "从「理想主义」到「上市公司」——当AI公司开始谈财报。",
     "tags": [
       "company",
       "business"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-01_anthropic-ipo/article-full.html"
   },
   {
-    "id": "2026-06-07_apple-wwdc-siri",
-    "date": "2026-06-07",
+    "id": "2026-06-08_apple-wwdc-siri",
+    "date": "2026-06-08",
     "title": "苹果 WWDC 2026：Siri 的「救赎之战」",
     "desc": "全球最有钱的公司，为什么做不好AI？从Siri十年困局看苹果的AI战略。",
     "tags": [
       "company",
       "tech"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-08_apple-wwdc-siri/article-full.html"
   },
   {
-    "id": "2026-06-07_nvidia-rtx-spark",
-    "date": "2026-06-07",
+    "id": "2026-06-01_nvidia-rtx-spark",
+    "date": "2026-06-01",
     "title": "英伟达造CPU了：RTX Spark 意味着什么？",
     "desc": "40年来，你的电脑第一次可能不再用Intel或AMD的芯片。ARM+GPU路线图全解析。",
     "tags": [
       "tech",
       "company"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-01_nvidia-rtx-spark/article-full.html"
   },
   {
-    "id": "2026-06-07_alibaba-qwen-agent",
-    "date": "2026-06-07",
+    "id": "2026-06-08_alibaba-qwen-agent",
+    "date": "2026-06-08",
     "title": "阿里千问开放第三方Agent，微信AI同日开放开发者接入——AI助手开始「能办事」了",
     "desc": "两大平台同日开放Agent生态，AI助手从「会聊天」到「能办事」的转折点。",
     "tags": [
       "scope",
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-08_alibaba-qwen-agent/article-full.html"
   },
   {
     "id": "2026-05-26_ai-internet-rules-fail",
@@ -268,7 +311,8 @@
     "tags": [
       "scope"
     ],
-    "status": "draft"
+    "status": "draft",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-26_ai-internet-rules-fail/article-full.html"
   },
   {
     "id": "2026-05-23_ai-ipo-era",
@@ -279,7 +323,8 @@
       "scope",
       "company"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-23_ai-ipo-era/article-full.html"
   },
   {
     "id": "2026-05-23_ai-math-proof",
@@ -289,7 +334,8 @@
     "tags": [
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-23_ai-math-proof/article-full.html"
   },
   {
     "id": "2026-05-21_deepseek-harness-funding",
@@ -299,7 +345,8 @@
     "tags": [
       "company"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-21_deepseek-harness-funding/article-full.html"
   },
   {
     "id": "2026-05-18_deepseek-funding",
@@ -310,7 +357,8 @@
       "company",
       "business"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-18_deepseek-funding/article-full.html"
   },
   {
     "id": "2026-05-17_anthropic-900b-valuation",
@@ -321,7 +369,8 @@
       "company",
       "business"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-17_anthropic-900b-valuation/article-full.html"
   },
   {
     "id": "2026-05-17_ai-coding-agent-war",
@@ -332,7 +381,8 @@
       "tech",
       "business"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-17_ai-coding-agent-war/article-full.html"
   },
   {
     "id": "2026-05-03_deploy-static-site-lessons",
@@ -342,7 +392,8 @@
     "tags": [
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-03_deploy-static-site-lessons/article-full.html"
   },
   {
     "id": "2026-04-29_chatgpt-ads-breakdown",
@@ -353,7 +404,8 @@
       "business",
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-04-29_chatgpt-ads-breakdown/article-full.html"
   },
   {
     "id": "2026-04-24_deepseek-v4-deep-dive",
@@ -363,6 +415,7 @@
     "tags": [
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-04-24_deepseek-v4-deep-dive/article-full.html"
   }
 ]

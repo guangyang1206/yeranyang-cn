@@ -73,6 +73,7 @@ yeranyang-cn/
 
 | # | 日期 | 标题 | 状态 |
 |---|------|------|------|
+| 0 | 2026-09-21 | [一个不会说话的 AI，凭什么值 4000 万美元](./articles/ai/2026-09-21_jev-system-one-model/) | 📝 待发布 |
 | 1 | 2026-09-16 | [我是怎么用 AI 写公众号的](./articles/ai/2026-09-16_how-we-write-wechat-with-ai/) | 📝 待发布 |
 | 2 | 2026-09-08 | [AI替我们干活之后，劳动还属于人吗](./articles/ai/2026-09-08_ai-labor-belongs-to-us/) | ✅ 已发布 |
 | 3 | 2026-08-28 | [Hy4 preview 开始参与自己的研发了](./articles/ai/2026-08-28_hy4-recursive-self-improvement/) | 📝 待发布 |

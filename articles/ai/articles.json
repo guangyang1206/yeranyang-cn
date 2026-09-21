@@ -1,5 +1,22 @@
 [
   {
+    "id": "2026-09-21_jev-system-one-model",
+    "date": "2026-09-21",
+    "title": "一个不会说话的 AI，凭什么值 4000 万美元",
+    "desc": "它不写文章、不解释、不寒暄，只回给你一个概率。Jev 是什么，它解决了什么真问题，以及发布会没说的三个折扣。",
+    "tags": [
+      "tech",
+      "model"
+    ],
+    "status": "draft",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-09-21",
+    "freshnessCheckedAt": "2026-09-21",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-21_jev-system-one-model/article-full.html"
+  },
+  {
     "id": "2026-09-16_how-we-write-wechat-with-ai",
     "date": "2026-09-16",
     "title": "我是怎么用 AI 写公众号的",

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一个不会说话的 AI，凭什么值 4000 万美元 | 烨然漫笔</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin:0; padding:0;
+    background:#0a0a0a;
+    color:#e8e8e8;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    line-height:1.85; font-size:17px;
+  }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px 80px; }
+  .hero { padding:72px 20px 56px; text-align:center; background:#0f172a; border-bottom:1px solid #1e293b; }
+  .hero-inner { max-width:720px; margin:0 auto; }
+  .kicker { color:#64748b; font-size:14px; letter-spacing:.1em; margin:0 0 16px; }
+  h1 { color:#ffffff; font-size:32px; line-height:1.35; margin:0 0 18px; font-weight:700; }
+  .sub { color:#94a3b8; font-size:18px; margin:0 0 24px; line-height:1.7; }
+  .meta { color:#475569; font-size:14px; margin:0; }
+  h2 { color:#ffffff; font-size:24px; margin:56px 0 20px; font-weight:700; line-height:1.4; }
+  h3 { color:#e2e8f0; font-size:19px; margin:36px 0 14px; font-weight:600; }
+  p { margin:0 0 18px; }
+  strong { color:#ffffff; font-weight:600; }
+  em { color:#94a3b8; font-style:normal; background:#1a1a1a; padding:2px 6px; border-radius:4px; }
+  sup { color:#64748b; font-size:12px; }
+  .lead { font-size:19px; color:#cbd5e1; }
+  .pull {
+    border-left:3px solid #10b981; background:#111827;
+    padding:18px 22px; margin:28px 0; border-radius:0 8px 8px 0;
+    font-size:18px; color:#f1f5f9;
+  }
+  table { width:100%; border-collapse:collapse; margin:24px 0; font-size:15px; }
+  th { background:#1e293b; color:#f1f5f9; padding:12px 14px; text-align:left; font-weight:600; border:1px solid #334155; }
+  td { padding:12px 14px; border:1px solid #1e293b; color:#cbd5e1; }
+  tr:nth-child(even) td { background:#111111; }
+  .win { color:#10b981; font-weight:700; }
+  .lose { color:#ef4444; font-weight:700; }
+  .divider { height:1px; background:#1e293b; margin:48px 0; border:0; }
+  .refs { margin-top:64px; padding-top:32px; border-top:1px solid #1e293b; }
+  .refs h2 { font-size:19px; color:#64748b; margin:0 0 18px; }
+  .refs p { font-size:14px; color:#64748b; margin:0 0 10px; line-height:1.7; }
+  .border-note { background:#111827; border:1px solid #1e293b; border-radius:10px; padding:24px; margin:32px 0; }
+  .border-note p:last-child { margin-bottom:0; }
+  .footer { text-align:center; color:#475569; font-size:14px; margin-top:64px; padding-top:32px; border-top:1px solid #1e293b; }
+  .cover { width:100%; display:block; border-radius:10px; margin:0 0 8px; }
+  @media (max-width:600px) {
+    h1 { font-size:26px; }
+    h2 { font-size:21px; }
+    .wrap { padding:0 16px 60px; }
+    table { font-size:13px; }
+    th, td { padding:9px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="kicker">TYPESAFE AI · JEV · 决策模型</p>
+    <h1>一个不会说话的 AI，凭什么值 4000 万美元</h1>
+    <p class="sub">它只回答概率，不写一个字。而这可能是 AI 被塞进聊天框之后，第一次有人认真问"为什么"。</p>
+    <p class="meta">2026年9月21日 · 烨然漫笔 · 艾AI</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <img class="cover" src="data:image/jpeg;base64,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" alt="封面" />
+
+  <p class="lead">先从一个所有人都熟悉的东西说起。</p>
+
+  <p>你问 ChatGPT 一个问题，它回答你一段话。你让 AI 写周报，它给你一篇文章。这两年我们见过的所有 AI，工作方式都是一样的：<strong>你问，它说。</strong></p>
+
+  <p>2026 年 9 月 15 日，硅谷出现了一个反着来的东西。它不会说话。</p>
+
+  <p>你给它一段材料，它不写文章、不解释、不寒暄，只回给你几个数字。比如"这封邮件该不该开工单？"——它回答：<strong>0.02</strong>。意思是：该开工单的可能性是 2%。</p>
+
+  <p>这个模型叫 <strong>Jev</strong>，来自一家叫 <strong>TypeSafe AI</strong> 的公司<sup>[1]</sup>。同日，公司宣布拿到 <strong>4000 万美元种子轮融资</strong>，由 DCVC 领投<sup>[2]</sup>。</p>
+
+  <p>这笔钱值得说道：据 Dealroom 统计，在它分析过的 28,473 笔 AI 种子轮交易里，这一轮排进<strong>前 1%</strong><sup>[3]</sup>。换句话说，投资人用一个很大的数字押注了这件事。</p>
+
+  <p>更有意思的是做这件事的人。TypeSafe 的创始人 <strong>Diogo Almeida</strong>，曾是 OpenAI 的研究员，是 <strong>InstructGPT 论文的共同第一作者</strong>——那篇论文提出的技术，正是 ChatGPT 能"听懂人话"的基础<sup>[4][5]</sup>。</p>
+
+  <p>一个亲手参与制造了"会说话的 AI"的人，隐身两年后做出的第一个产品，是一个<strong>不会说话的 AI</strong>。这篇文章想讲清楚三件事：它到底是什么；它解决了什么真问题；以及它说的那些数字里，有多少是真的。</p>
+
+  <hr class="divider" />
+
+  <h2>一、先说清楚：现在的 AI 是怎么"说话"的</h2>
+
+  <p>要理解 Jev 特别在哪，得先理解现在的 AI 有个什么样的毛病。</p>
+
+  <p>假设你开了一家公司，有一个客服邮箱，每天收到几百封邮件。你想让 AI 帮你判断：这封邮件需不需要建一个工单让客服跟进？</p>
+
+  <p>用现在的 AI，流程是这样的：你把邮件发给 AI，问它"这封邮件需要开工单吗"。AI 思考一会儿，回答你一段话：<em>"根据邮件内容，客户提到了账单问题并明确要求解决，我认为需要创建工单跟进。"</em>然后你的程序得<strong>从这段话里</strong>把"需要开工单"这个结论提取出来，再决定下一步做什么。</p>
+
+  <p>看出来问题了吗？<strong>你要的只是一个"是"或"否"，但 AI 给了你一段话，你得自己从话里挖答案。</strong></p>
+
+  <p>这段话有几个麻烦：</p>
+
+  <p><strong>格式不固定。</strong>这次它说"我认为需要"，下次可能说"建议创建工单"，再下次说"是的"。你的程序得应付各种说法。</p>
+
+  <p><strong>它会说错话。</strong>AI 偶尔会编造不存在的东西，这在行业里叫"幻觉"。它可能一本正经地说"客户提到了订单号 12345"，而邮件里根本没有这个订单号。</p>
+
+  <p><strong>你不知道它有多确定。</strong>它说"我认为需要"，到底是九成把握还是五成把握？从文字里看不出来。</p>
+
+  <p><strong>慢，而且贵。</strong>AI 是一个字一个字往外"吐"的。吐完一整段话可能要十几秒，而这段话里真正有用的只有"需要"两个字。你却要为整段话付钱。</p>
+
+  <p>这就是为什么很多公司的 AI 客服系统里，塞满了各种补丁代码：检查 AI 返回的是不是合法格式、从文本里抠关键词、设置重试逻辑。工程师们管这堆补丁叫"胶水代码"。</p>
+
+  <div class="pull">Jev 的思路是：既然你要的只是一个判断，那我为什么不直接给你判断？</div>
+
+  <hr class="divider" />
+
+  <h2>二、Jev 是什么：一个只做选择题的 AI</h2>
+
+  <p>Jev 的工作方式是这样的。你给它一段材料（比如一封邮件），同时给它<strong>几个你已经定义好的问题</strong>。它读完材料，把这几个问题<strong>同时</strong>回答完，返回的不是文字，而是<strong>类型和概率</strong>。</p>
+
+  <p>还是客服邮件的例子，你可以一次问三个问题：</p>
+
+  <table>
+    <tr><th>问题</th><th>类型</th><th>Jev 的回答</th></tr>
+    <tr><td>客户想干什么？</td><td>选择题</td><td>退款 0.82，投诉 0.11，咨询 0.05，其他 0.02</td></tr>
+    <tr><td>客户有多生气？</td><td>评分（1–5 档）</td><td>4.2 分</td></tr>
+    <tr><td>这是不是在申请退款？</td><td>是非题</td><td><strong>0.94</strong></td></tr>
+  </table>
+
+  <p>注意几个关键点。</p>
+
+  <p><strong>第一，答案是"类型"的。</strong>不是一段文字，是一个你的程序能直接用的数字或选项。不需要解析，不需要抠关键词。</p>
+
+  <p><strong>第二，带概率。</strong>它不只是说"退款"，而是说"82% 是退款"。这个数字很关键，后面会讲为什么。</p>
+
+  <p><strong>第三，一次问完。</strong>三个问题基于同一份材料<strong>同时</strong>回答。这一点是 Jev 最特别的地方——现在的 AI 是一个字一个字串行生成的，问得越多越慢；Jev 号称问 1 个问题和问 100 个问题，时间差不多<sup>[1][6]</sup>。</p>
+
+  <p><strong>第四，也是最容易误解的一点：它不会解释。</strong></p>
+
+  <p>你拿不到"因为客户在第三段提到了账单问题，所以判断为退款"这样的理由。只有一个数字。所有推理过程都在它内部，你看不见。</p>
+
+  <p>这一点是好事也是坏事。好事是快、便宜、格式干净；坏事是<strong>出了问题你没法追查原因</strong>。如果你的 AI 系统误判了一笔大额退款，你查不到它是怎么想的。</p>
+
+  <h3>这不就是个分类器吗？</h3>
+
+  <p>如果你有点技术背景，看到这里可能会想：<strong>这不就是老老实实的文本分类吗？</strong>这个技术几十年前就有了，垃圾邮件过滤就是这么干的。</p>
+
+  <p>这个质疑很合理，社区里吵得最凶的就是这一条。一位独立开发者做完 16,000 次测试后，把自己的文章标题直接写成了《Jev：分类器还是过滤器？》<sup>[7]</sup>。</p>
+
+  <p>区别在哪？传统的分类器只能处理<strong>你提前定义好的固定类别</strong>，而且换一个任务就得重新训练。Jev 声称的是：你可以<strong>用自然语言临时定义任何判断任务</strong>——今天让它判断邮件，明天让它判断一张发票，后天让它判断游戏画面里该往左还是往右——都不需要重新训练模型，只要改你问的问题。</p>
+
+  <div class="pull">如果这一点成立，它就不是一个分类器，而是一个"万能判断题引擎"。值不值 4000 万美元，就看这个"如果"成不成立。</div>
+
+  <hr class="divider" />
+
+  <h2>三、为什么快、为什么便宜：它根本不写字</h2>
+
+  <p>Jev 的速度和成本优势，不是靠模型更聪明，而是靠<strong>不做无用功</strong>。</p>
+
+  <p>现在的 AI 回答你，是一个字一个字往外吐的。你问它"这封邮件要不要开工单"，它要先吐出"根据"、再吐出"邮件内容"、再吐出"客户"……吐完一整段才算完。这叫<strong>自回归生成</strong>，是慢的根源。</p>
+
+  <p>Jev <strong>一个字都不吐</strong>。它读完材料，一次性算出所有答案的概率。没有"吐字"这个环节。</p>
+
+  <p>结果是什么？看两组数字。</p>
+
+  <p><strong>官方口径</strong>（TypeSafe 自己测的，对比最强的前沿模型）<sup>[1]</sup>：</p>
+
+  <table>
+    <tr><th>维度</th><th>Jev</th><th>前沿大模型</th></tr>
+    <tr><td>响应时间</td><td>70–500 毫秒</td><td>3–329 秒</td></tr>
+    <tr><td>每个案例成本</td><td>$0.0004</td><td>$0.0304（GPT "Terra"）</td></tr>
+    <tr><td>输入价格</td><td>$0.042 / 百万 token</td><td>$0.20–$10 / 百万 token</td></tr>
+    <tr><td>输出价格</td><td><strong>免费</strong></td><td>约为输入的 5 倍</td></tr>
+  </table>
+
+  <p>输出为什么免费？<strong>因为它根本没有输出。没有字，就没有钱。</strong></p>
+
+  <p><strong>第三方实测口径</strong>（独立开发者 Aman Kumar，两天内约 16,000 次调用，对比工业界真正在用的小模型）<sup>[7][8]</sup>：</p>
+
+  <table>
+    <tr><th>维度</th><th>Jev</th><th>gpt-5.4-mini</th><th>gpt-5.6-luna</th></tr>
+    <tr><td>中位数延迟</td><td>0.8–0.9 秒</td><td>1.4–4.2 秒</td><td>1.4–5.0 秒</td></tr>
+    <tr><td>相对成本</td><td>1 倍</td><td>高 23–56 倍</td><td>高 5–6 倍</td></tr>
+  </table>
+
+  <p><strong>请注意这两组数字不能混用。</strong>官方的"194 倍快、445 倍便宜"是跟<strong>最贵最强的前沿模型</strong>比的；第三方的"1.7–5 倍快、5–56 倍便宜"是跟<strong>便宜的小模型</strong>比的<sup>[1][8]</sup>。</p>
+
+  <p>而在真实的工业流水线里，跑日常分类任务的本来就是便宜的小模型，不是最贵的那个。所以第三方这组数字，才是更接近现实的参照系。</p>
+
+  <div class="pull">省在哪？打个比方。原来你要请一个作家写一整篇报告，只为最后看一句结论。现在你直接看结论。省掉的不是作家的水平，是那篇报告。</div>
+
+  <hr class="divider" />
+
+  <h2>四、真问题来了：概率有什么用</h2>
+
+  <p>这是 Jev 最核心、也最容易被跳过的部分。</p>
+
+  <p><strong>为什么一定要给概率，直接给个"是/否"不行吗？</strong></p>
+
+  <p>因为概率让你能<strong>决定什么时候让机器自己干，什么时候交给人类</strong>。</p>
+
+  <p>回到客服邮件的例子。假设 Jev 给每封邮件打一个分数：0 表示"肯定不用开工单"，1 表示"肯定要开"。现在你可以设两条线：低于 0.1，机器直接归档，不用人看；高于 0.9，机器直接开工单，不用人看；<strong>中间地带，转给真人客服看</strong>。</p>
+
+  <p>这就是概率的价值——<strong>它让"让 AI 自己决定"变成一件可控的事</strong>。没有概率，你只能要么全交给 AI（出错没人兜底），要么全部人工看（等于没用 AI）。</p>
+
+  <p>TypeSafe 甚至给这套训练方法起了个名字：<strong>RLCD</strong>（校准决策强化学习）。"校准"是个专业词，意思很朴素：</p>
+
+  <div class="pull">如果它说"我有 80% 把握"的事情有 100 件，那其中应该真的有大约 80 件是对的。</div>
+
+  <p>这就是校准。听起来像废话，但现在的 AI 做不到——它们经常对错误的答案也表现出十足的自信。</p>
+
+  <h3>但这里有个坑，必须讲清楚</h3>
+
+  <p><strong>校准是一个"群体"概念，不是"个体"概念。</strong></p>
+
+  <p>它说的是"我说八成把握的那批判断里，大约八成是对的"。它<strong>不告诉你某一个具体的判断对不对</strong>。</p>
+
+  <p>打个比方：一个天气预报员说"明天 80% 概率下雨"。第二天没下。他说错了吗？没有——因为在他所有说"80%"的日子里，确实大约 80% 下了雨。<strong>但对"明天"这一天来说，你要带的伞还是没用上。</strong></p>
+
+  <p>更要紧的是：<strong>一个永远只报"历史平均降雨率"的天气预报员，可以是完美校准的，但对任何人毫无用处。校准不等于有用。</strong></p>
+
+  <p>记住这一点，后面看实测数据时会用上。</p>
+
+  <hr class="divider" />
+
+  <h2>五、实测：它确实行，但有条很清楚的边界线</h2>
+
+  <p>发布会上的数字都很好看。真正有价值的，是有人把它拿去真实场景里跑。</p>
+
+  <p><strong>Aman Kumar</strong>，一位创始工程师，在 Jev 发布三天后（9 月 18 日）发表了自己的测试：两天内约 <strong>16,000 次 API 调用</strong>，四个公开数据集 + 一个自己负责的真实生产流水线<sup>[7][8]</sup>。测试代码和数据他都开源了。</p>
+
+  <p>他的测试设计有一个很关键的地方：<strong>对比对象不是最强的前沿模型，而是工业界真正在用的便宜小模型</strong>——因为真实流水线里跑日常分类的，本来就是这些便宜货。</p>
+
+  <h3>公开数据集：四场赢三场，输了一场</h3>
+
+  <table>
+    <tr><th>数据集（任务）</th><th>Jev</th><th>gpt-5.4-mini</th><th>gpt-5.6-luna</th></tr>
+    <tr><td>Enron 垃圾邮件（2 选 1）</td><td class="win">98.7%</td><td>97.7%</td><td>98.0%</td></tr>
+    <tr><td>SST-2 影评情感（2 选 1）</td><td class="win">95.7%</td><td>92.7%</td><td>93.0%</td></tr>
+    <tr><td>AG News 新闻分类（4 选 1）</td><td class="win">91.3%</td><td>88.3%</td><td>89.7%</td></tr>
+    <tr><td>Banking77 银行意图（77 选 1）</td><td class="lose">76.0%</td><td>78.7%</td><td><strong>81.7%</strong></td></tr>
+  </table>
+
+  <p>前三个数据集，Jev 都赢了，领先 0.7 到 2.7 个百分点。</p>
+
+  <p><strong>第四个数据集输了，而且输得很有信息量。</strong>Banking77 要求在 77 个高度相似的银行客服意图里选一个——"我想查余额"和"我想查交易记录"这种差别。Jev 拿到 76.0%，两个小模型分别是 78.7% 和 81.7%。</p>
+
+  <div class="pull">结论：选项越多、越相似，Jev 越吃亏。它擅长的是"界限清楚的判断题"，不擅长"在 77 个相似选项里挑"。</div>
+
+  <h3>真实流水线：三个任务封神，一个任务崩盘</h3>
+
+  <p>他拿自己公司的文档处理流水线，跑了 <strong>1,005 个真实页面</strong>：</p>
+
+  <table>
+    <tr><th>任务</th><th>与真实业务结果一致率</th><th>工程结论</th></tr>
+    <tr><td>这页对路由有没有用？</td><td class="win">97.8%</td><td>可当过滤器，安全剔掉 60% 页面，零漏报</td></tr>
+    <tr><td>这页是不是管理配置页？</td><td class="win">95.8%</td><td>剔掉 52%，零漏报</td></tr>
+    <tr><td>这页是不是地点排期页？</td><td class="win">98.0%</td><td>剔掉 25%，零漏报</td></tr>
+    <tr><td><strong>这页有没有包含报表里某个具体数字？</strong></td><td class="lose">68.6%</td><td class="lose">不可用</td></tr>
+  </table>
+
+  <p>前三个任务近乎完美。加上 Jev 做前置过滤后，<strong>路由判断的调用量减少了 50%–67%</strong>，而最终产出的数据<strong>完全一致</strong>——也就是说，省了一半多的钱，结果一点没变。</p>
+
+  <p><strong>第四个任务崩了。</strong>题目要求判断一个页面里是否包含"135 行报表中的某个具体数值"。Jev 的表现是：<strong>只要页面上出现了相关名词，它就判"有"</strong>——分不清"提到了这个概念"和"真的填了这个数据"。</p>
+
+  <p>更糟的是，同样的输入多问几次，它给出的概率<strong>波动高达 0.5</strong>（前三个任务上波动只有 0.01）。</p>
+
+  <p><strong>但这里要说句公道话</strong>：同一个测试里，通用的大模型在这个任务上<strong>也失败了</strong>。这说明这个崩盘主要怪任务本身——它需要通读整篇长文做细粒度推理——不是 Jev 独有的缺陷。</p>
+
+  <h3>一条能直接抄的工程法则</h3>
+
+  <p>Aman Kumar 总结出来的经验，我觉得是这篇实测里最值钱的东西，叫：</p>
+
+  <div class="pull">"采信两端，放弃中间。"</div>
+
+  <p>数据是这样的。在生产文档门控任务里：82% 的页面，Jev 给的概率<strong>低于 0.1</strong>——这批页面里最终真的有用的只有 <strong>0.3%</strong>；4% 的页面，概率<strong>高于 0.9</strong>——这批里最终有用的高达 <strong>97%</strong>；夹在中间的 14%——真实有用率在 <strong>6% 到 83%</strong> 之间剧烈波动，<strong>完全不可预测</strong>。</p>
+
+  <div class="pull">翻译成人话：Jev 说"肯定不是"的时候，你可以信它；它说"肯定是"的时候，你也可以信它；它说"我不太确定"的时候，那个概率数字基本等于抛硬币，别当真。</div>
+
+  <p>所以正确的用法是：<strong>只让两端自动执行，中间的全部交给人或者大模型。</strong></p>
+
+  <p>他还给了一个可以直接抄的阈值设定方法：找出历史上所有"确实是正例"的样本，看 Jev 给它们打的最低分是多少，然后把拒绝线设在<strong>这个最低分的一半</strong>。他用这个方法算出三个门控的阈值分别是 0.12、0.065、0.025，过滤掉 25%–60% 的页面，<strong>没有发生一次漏报</strong>。</p>
+
+  <hr class="divider" />
+
+  <h2>六、发布会没说的部分：三个必须打的折扣</h2>
+
+  <p>到这里，Jev 听起来很不错。但有三件事，发布会的材料里不会主动告诉你。</p>
+
+  <h3>折扣一："成本降 445 倍"——对比的是最贵的对手</h3>
+
+  <p>官方说 Jev 比前沿模型<strong>快 194 倍、便宜 445 倍</strong>。这两个数字是 TypeSafe 自己测的，对比的是<strong>最强也最贵</strong>的前沿模型。但真实的生产流水线里，跑日常分类任务的从来不是最贵的模型，而是便宜的小模型。跟这些比，第三方实测的优势是<strong>快 1.7–5 倍、便宜 5–56 倍</strong><sup>[8]</sup>。<strong>依然是巨大优势，但不是 445 倍。</strong></p>
+
+  <h3>折扣二："不会幻觉"——它只是不会说错话，不代表不会想错</h3>
+
+  <p>TypeSafe 说 Jev"不会幻觉"。这句话需要打个大问号。</p>
+
+  <p>准确的说法是：<strong>因为所有可能的答案都是你提前定义好的，它没法编出一个不存在的选项，也没法输出格式错误的东西。</strong>这确实消灭了一大类真实的工程故障——你再也不用写那些"检查 AI 返回格式对不对"的补丁代码了。</p>
+
+  <p><strong>但它完全可以选错。</strong>它可以在 A 和 B 里选了 B，可以误读材料，可以给一个错误答案打很高的概率。</p>
+
+  <p>一位独立 AI 评论员 Anthony Maio 的原话说得很准<sup>[9]</sup>：<strong>"Jev 约束的是输出的形状，不是判断本身。"</strong>还有个更隐蔽的坑：<strong>如果正确答案不在你给的选项里呢？</strong>概率总得落在某个选项上。所以你得主动给它留"不知道""以上都不是""证据不足"这样的出口——否则它会硬选一个。</p>
+
+  <h3>折扣三：那个"67.8%"，其实是个平局</h3>
+
+  <p>这是最需要说清楚的一点。TypeSafe 自己的评测覆盖了四个工作流（安全事件响应、Agent 轨迹分析、发票处理、客服）。结果如下<sup>[9][10]</sup>：</p>
+
+  <table>
+    <tr><th>模型</th><th>平均一致率</th><th>每例成本</th><th>每例耗时</th></tr>
+    <tr><td>Jev</td><td><strong>67.8%</strong></td><td>$0.0004</td><td>0.4 秒</td></tr>
+    <tr><td>GPT "Terra"</td><td>67.9%</td><td>$0.0304</td><td>10.1 秒</td></tr>
+    <tr><td>Claude Sonnet 5</td><td>67.8%</td><td>更高</td><td>更高</td></tr>
+    <tr><td>GPT "Sol"</td><td class="win">74.1%</td><td>—</td><td>—</td></tr>
+    <tr><td>Claude Opus 5</td><td class="win">73.1%</td><td>—</td><td>—</td></tr>
+  </table>
+
+  <p>看出来了吗？Jev 的 67.8% <strong>不是最高分</strong>。GPT "Sol" 拿到 74.1%，Claude Opus 5 拿到 73.1%。在最难的<strong>发票处理</strong>任务上，差距最大：<strong>Jev 61.8%，Sol 79.1%</strong>。</p>
+
+  <p>Jev 打赢的是<strong>成本和速度</strong>，不是<strong>准确性</strong>。</p>
+
+  <p>而且这个"一致率"的算法本身有个大问题：<strong>参考答案不是客观真值，而是 GPT-6 Astra 和 Claude Fable 5.1 两个模型打分的平均值</strong><sup>[9][10]</sup>。</p>
+
+  <p>也就是说，这个评测衡量的是"Jev 跟那两个模型有多像"，<strong>而不是"Jev 有多对"</strong>。TypeSafe 自己也承认工作流是他们设计的，可能有偏差，也承认宣传的最大速度优势"可能接近你在现实中能看到的上限"。所以 Anthony Maio 的结论很克制，我认为也是最公允的判断<sup>[9]</sup>：<strong>"这份评测没有证明概率校准，没有证明通用智能，也没有证明生产可靠性。"</strong></p>
+
+  <hr class="divider" />
+
+  <h2>七、那到底值不值 4000 万美元</h2>
+
+  <p>讲完了好话和坏话，回到最初的问题。</p>
+
+  <p><strong>先说市场给的信号。</strong>9 月 18 日，Vercel（一家主流的开发者平台）发布数据：Jev 在其 AI Gateway 上线 <strong>24 小时内，触达了近 13% 的付费团队</strong>，成为该平台"史上采纳最快的模型"——是 GPT-5.6 家族的 <strong>2 倍</strong>，是 Fable 5.1 的 <strong>6 倍以上</strong><sup>[11]</sup>。</p>
+
+  <p>Vercel 很诚实地补了一句：<strong>"下一个考验是，这种早期采纳能否持续。"</strong></p>
+
+  <p><strong>再说我的判断。Jev 真正的价值可能不在算法，而在它提出了一个被所有人忽略的问题。</strong></p>
+
+  <p>过去两年，整个行业默认了一件事：AI 就应该是个聊天框。我们造出了越来越会说话的模型，然后为了让它们能干实际的活，在外面包了一层又一层的补丁——解析它说的话、检查格式、防止它胡编。</p>
+
+  <div class="pull">Jev 问的是：为什么智能的默认接口是"说话"？如果你只需要一个判断，为什么要用一段话来表达它？</div>
+
+  <p>这个问题本身就是有价值的，哪怕 Jev 最后输了。</p>
+
+  <p>Maio 在同一篇文章里还指出了一件更有意思的事<sup>[9]</sup>：在 TypeSafe 的评测里，<strong>所有对比模型在被放进"先拆成小判断、再组合"的工作流之后，都变得更准、更快、更便宜了</strong>。也就是说：<strong>在证明 Jev 有用之前，这份评测先证明了"拆解"本身有用。</strong>这可能是整件事里最普适的一条经验——<strong>不管你用不用 Jev，把一个大任务拆成一串小判断，都比让一个模型一口气干完要好。</strong></p>
+
+  <h3>最后说回那个名字</h3>
+
+  <p>TypeSafe 给这个模型起名叫 Jev，致敬的是<strong>杰文斯悖论</strong>。</p>
+
+  <p>19 世纪，经济学家杰文斯发现：瓦特改良蒸汽机让煤炭用得更有效率之后，煤炭的<strong>总消耗量反而大幅上升了</strong>——因为效率提升解锁了以前用不起煤的新用途，需求涨得比效率快得多<sup>[1]</sup>。</p>
+
+  <p>TypeSafe 赌的是同一件事发生在 AI 上：<strong>当一次"判断"的成本降两个数量级，被解锁的不会是"更便宜的聊天"，而是以前根本做不起的、海量的机器判断。</strong></p>
+
+  <p>比如：每一次工具调用之前都做一次安全检查，每一条 AI 轨迹都做一次打分，每一个自动驾驶决策都做一次风险评估。这些事在今天的成本下根本做不起。<strong>这不是一个"更便宜的 ChatGPT"的故事。这是一个"智能的用途会变"的故事。</strong></p>
+
+  <p>至于它能不能成，现在谁也说不准。RLCD 的训练细节、模型架构、参数规模，TypeSafe 一样都没公开，也没有可独立复现的论文<sup>[9]</sup>。有人已经在社区里拿它打游戏——有人用它玩 DOOM，有人玩马里奥<sup>[12]</sup>，这说明它确实能做实时判断，但离"改变软件行业"还很远。</p>
+
+  <p>但至少，有人开始问那个问题了：<strong>如果智能不再需要说话，我们能造出什么？</strong></p>
+
+  <hr class="divider" />
+
+  <h2>几个需要说清楚的边界</h2>
+
+  <div class="border-note">
+    <p><strong>第一，融资数字有两个口径。</strong>公司通稿和大多数媒体报道是 <strong>4000 万美元</strong><sup>[2]</sup>；Dealroom 的数据库记录为 <strong>2590 万美元</strong><sup>[3]</sup>。两者差异可能来自"已披露部分"和"总额"的统计口径不同。本文正文采用公司披露口径，此处如实标注分歧。</p>
+    <p><strong>第二，"ChatGPT 共同发明人"是公司的宣传口径。</strong>更准确的表述是：Diogo Almeida 是 <strong>InstructGPT 论文的共同第一作者</strong>，并参与了 GPT-4<sup>[5]</sup>。ChatGPT 是 OpenAI 的集体成果，把它归到一个人身上不准确——这一点 Anthony Maio 在评论里专门纠正过<sup>[9]</sup>。</p>
+    <p><strong>第三，本文所有"快多少倍、便宜多少倍"都必须看对比对象。</strong>官方数字对比前沿大模型，第三方数字对比工业界小模型，两者不可混用。</p>
+    <p><strong>第四，Jev 目前处于早期访问阶段</strong>，需要申请排队。它的长期表现、稳定性、SLA 都还没有经过大规模生产验证。第三方实测还发现了一个隐患：<strong>并发请求推到 100 时，出现了千分之几概率的 10–35 秒极端延迟</strong><sup>[8]</sup>。</p>
+    <p><strong>第五，"校准"是群体概念，不等于单次判断可靠。</strong>详见第四节。</p>
+  </div>
+
+  <div class="refs">
+    <h2>参考文献</h2>
+    <p>[1] TypeSafe AI 官方发布博客，2026年9月15日，《Introducing System One Models and Jev》</p>
+    <p>[2] BusinessWire 通稿（经 Morningstar 转载），2026年9月15日，《TypeSafe AI Emerges From Stealth With $40M in Funding With New Model for Composable AI》</p>
+    <p>[3] Dealroom，2026年9月，《TypeSafe exits stealth with $40M seed to build AI for software, not people》（该文正文记录融资额为 2590 万美元，并称此轮在其统计的 28,473 笔 AI 种子轮中排名前 1%）</p>
+    <p>[4] TypeSafe AI 官网团队页</p>
+    <p>[5] TypeSafe AI 官方博客，2026年9月10日，《The Bitterest Lesson》</p>
+    <p>[6] MarkTechPost，2026年9月19日，《TypeSafe AI Releases Jev: A System One Model That Returns Typed, Calibrated Decisions Instead of Text》</p>
+    <p>[7] Aman Kumar 个人工程博客，2026年9月18日，《Testing Jev on public and private data: classifier or filter?》；评测代码仓库已开源</p>
+    <p>[8] BrainDetox 技术解析，2026年9月，《单一分类特化模型胜出领域与精度崩溃边界》（对 Aman Kumar 实测的完整中文梳理）</p>
+    <p>[9] Anthony Maio，2026年9月，《Jev: The Language Model That Won't Talk》</p>
+    <p>[10] Agentic Brew，2026年9月，《TypeSafe AI发布Jev决策模型》（综合引用官方博客、TechStartups、Dealroom 等六条来源）</p>
+    <p>[11] Vercel 官方博客，2026年9月18日，《Jev is the fastest-adopted model in AI Gateway history》</p>
+    <p>[12] 社区讨论与 Demo 合集：知乎问题《如何看待 Jev 模型？》、GeekNews 专题 33974</p>
+  </div>
+
+  <div class="footer">事实截至 2026年9月21日 · 烨然漫笔</div>
+
+</div>
+
+</body>
+</html>

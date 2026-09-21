@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一个不会说话的 AI | 烨然漫笔</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0; background:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; }
+  .poster {
+    width:1080px; margin:0 auto; background:#0f172a;
+    padding:88px 72px 72px; color:#f1f5f9;
+  }
+  .tag {
+    display:inline-block; background:#1e293b; color:#94a3b8;
+    font-size:22px; letter-spacing:.08em; padding:12px 24px;
+    border-radius:999px; margin:0 0 40px;
+  }
+  h1 {
+    font-size:76px; line-height:1.22; font-weight:800;
+    margin:0 0 36px; color:#ffffff; letter-spacing:-.01em;
+  }
+  .lead {
+    font-size:34px; line-height:1.65; color:#cbd5e1;
+    margin:0 0 56px; padding-left:24px;
+    border-left:6px solid #10b981;
+  }
+  .cards { margin:0 0 56px; }
+  .card {
+    background:#111827; border:1px solid #1e293b;
+    border-radius:18px; padding:32px 36px; margin:0 0 22px;
+  }
+  .card:last-child { margin-bottom:0; }
+  .card-label { font-size:22px; color:#64748b; margin:0 0 10px; letter-spacing:.04em; }
+  .card-value { font-size:46px; font-weight:800; color:#ffffff; margin:0 0 8px; line-height:1.2; }
+  .card-note { font-size:26px; color:#94a3b8; margin:0; line-height:1.55; }
+  .card.good .card-value { color:#10b981; }
+  .card.bad .card-value { color:#ef4444; }
+  .quote {
+    background:#111827; border-left:8px solid #10b981;
+    border-radius:0 18px 18px 0; padding:36px 40px; margin:0 0 56px;
+  }
+  .quote p { font-size:32px; line-height:1.6; color:#f1f5f9; margin:0; font-weight:600; }
+  .quote span { display:block; font-size:22px; color:#64748b; margin-top:16px; font-weight:400; }
+  .section-title { font-size:24px; color:#64748b; letter-spacing:.1em; margin:0 0 24px; }
+  .footer {
+    margin-top:64px; padding-top:36px; border-top:1px solid #1e293b;
+    display:table; width:100%;
+  }
+  .footer-l { display:table-cell; vertical-align:middle; }
+  .footer-r { display:table-cell; vertical-align:middle; text-align:right; color:#475569; font-size:24px; }
+  .brand { font-size:34px; font-weight:800; color:#ffffff; margin:0 0 8px; }
+  .brand-sub { font-size:22px; color:#64748b; margin:0; }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <div class="tag">TYPESAFE AI · JEV</div>
+
+  <h1>一个不会说话的 AI，<br/>凭什么值 4000 万美元</h1>
+
+  <p class="lead">它不写文章、不解释、不寒暄，只回给你一个数字。而这可能是 AI 被塞进聊天框之后，第一次有人认真问"为什么"。</p>
+
+  <div class="cards">
+    <div class="card">
+      <p class="card-label">它做什么</p>
+      <p class="card-value">只回答判断，不写一个字</p>
+      <p class="card-note">你问"这封邮件该不该开工单"，它回答 <strong>0.02</strong>——不是一段话，是一个概率。格式固定、不会说错话、能直接被程序使用。</p>
+    </div>
+
+    <div class="card">
+      <p class="card-label">快在哪、省在哪</p>
+      <p class="card-value">输出免费</p>
+      <p class="card-note">现在的 AI 一个字一个字往外吐，Jev 一个字都不吐——它读完材料直接算出概率。<strong>没有字，就没有钱。</strong>第三方实测：比工业界小模型快 1.7–5 倍、便宜 5–56 倍。</p>
+    </div>
+
+    <div class="card good">
+      <p class="card-label">实测赢的：界限清楚的判断题</p>
+      <p class="card-value">98.7% / 95.7% / 91.3%</p>
+      <p class="card-note">垃圾邮件识别、影评情感、新闻分类——四场赢三场。真实生产流水线上，三个任务一致率 95.8%–98%，路由调用量直接省掉一半。</p>
+    </div>
+
+    <div class="card bad">
+      <p class="card-label">实测崩的：长文细粒度推理</p>
+      <p class="card-value">68.6%</p>
+      <p class="card-note">判断"这页有没有包含报表里某个具体数字"时崩塌——只要页面上出现相关名词它就判"有"。官方自测里，发票任务 Jev 61.8%，GPT "Sol" 79.1%。</p>
+    </div>
+
+    <div class="card">
+      <p class="card-label">能直接抄的工程法则</p>
+      <p class="card-value">采信两端，放弃中间</p>
+      <p class="card-note">概率高于 0.9 的，97% 真的有用；低于 0.1 的，只有 0.3% 有用；<strong>夹在中间的，有用率在 6%–83% 之间乱跳，等于抛硬币。</strong>只让两端自动执行，中间交给人。</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p>"Jev 约束的是输出的形状，不是判断本身。"</p>
+    <span>— 独立 AI 评论员 Anthony Maio</span>
+  </div>
+
+  <p class="section-title">三个必须打的折扣</p>
+  <div class="cards">
+    <div class="card">
+      <p class="card-note">① <strong>"便宜 445 倍"</strong>对比的是最贵最强的前沿模型；真实流水线用的是便宜小模型，优势是 5–56 倍。</p>
+    </div>
+    <div class="card">
+      <p class="card-note">② <strong>"不会幻觉"</strong>只是不会输出错格式——它照样可以选错、误读、给错误答案打高分。</p>
+    </div>
+    <div class="card">
+      <p class="card-note">③ <strong>官方"67.8% 一致率"不是最高分</strong>，且参考答案是另两个模型的平均分，不是客观真值。</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-l">
+      <p class="brand">烨然漫笔</p>
+      <p class="brand-sub">为理想主义者鼓与呼</p>
+    </div>
+    <div class="footer-r">2026.09.21</div>
+  </div>
+
+</div>
+
+</body>
+</html>

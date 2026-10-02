@@ -1,5 +1,22 @@
 [
   {
+    "id": "2026-10-02_ai-safety-brake-agent-rush",
+    "date": "2026-10-02",
+    "title": "这周，造AI的人自己按下了暂停键",
+    "desc": "OpenAI两次自己叫停训练，六家巨头在白宫签了自律协议，FTC却同时宣布立案调查——三件事看似矛盾，其实说的是同一个故事。",
+    "tags": [
+      "policy",
+      "safety"
+    ],
+    "status": "draft",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-02",
+    "freshnessCheckedAt": "2026-10-02",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-02_ai-safety-brake-agent-rush/article-full.html"
+  },
+  {
     "id": "2026-09-21_jev-system-one-model",
     "date": "2026-09-21",
     "title": "一个不会说话的 AI，凭什么值 4000 万美元",

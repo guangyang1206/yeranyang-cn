@@ -1,5 +1,22 @@
 [
   {
+    "id": "2026-10-09_ai-sprint-safety-gap",
+    "date": "2026-10-09",
+    "title": "GPT-6全民免费这一周，AI也被按下了三次刹车",
+    "desc": "GPT-6全量开放、Haiku 5.5降价75%、1.4万亿估值融资同一周冲刺，纽约听证会、芬兰停工令、智能体协议同一周追赶——商业与治理的速度差被摆上同一条时间线。",
+    "tags": [
+      "policy",
+      "business"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-09",
+    "freshnessCheckedAt": "2026-10-09",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-09_ai-sprint-safety-gap/article-full.html"
+  },
+  {
     "id": "2026-10-02_ai-safety-brake-agent-rush",
     "date": "2026-10-02",
     "title": "这周，造AI的人自己按下了暂停键",

@@ -1,5 +1,22 @@
 [
   {
+    "id": "2026-10-16_openai-pressure-week",
+    "date": "2026-10-16",
+    "title": "OpenAI这一周：三条诉讼、一次窃听、一场迟到的旗舰",
+    "desc": "八州协同起诉、苹果商业秘密案听证落地、工程师藏窃听器被捕，同一周下一代旗舰模型仍悬而未发；而谷歌、Meta、Anthropic都在同时提速。",
+    "tags": [
+      "policy",
+      "company"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-16",
+    "freshnessCheckedAt": "2026-10-16",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-16_openai-pressure-week/article-full.html"
+  },
+  {
     "id": "2026-10-09_ai-sprint-safety-gap",
     "date": "2026-10-09",
     "title": "GPT-6全民免费这一周，AI也被按下了三次刹车",

@@ -1,5 +1,23 @@
 [
   {
+    "id": "2026-10-28_php-security-maintenance",
+    "date": "2026-10-28",
+    "title": "从 PHP 安全事件说起：网站背后的信任与维护",
+    "desc": "一次紧急修复，连接着共享软件、AI 辅助研究与日常维护。",
+    "tags": [
+      "tech",
+      "policy"
+    ],
+    "status": "draft",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-28",
+    "freshnessCheckedAt": "2026-10-28",
+    "freshnessScope": "初稿事实核验截至2026-10-26；2026-10-28定向复核PHP、Google与PingCAP相关公告。",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-28_php-security-maintenance/article-full.html"
+  },
+  {
     "id": "2026-10-16_openai-pressure-week",
     "date": "2026-10-16",
     "title": "OpenAI这一周：三条诉讼、一次窃听、一场迟到的旗舰",

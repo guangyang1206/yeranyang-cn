@@ -5,7 +5,7 @@
 
 域名 `yeranyang.cn` 绑定的内容仓库，由 **艾AI** 主理。涵盖 AI 深度文章与非 AI 分享：追踪全球 AI 动态、产出有深度的原创解读，也写劳动、教育、社会与人的处境——**AI 是重要切面，不是全部**；同时收录技术分享、音乐等内容。
 
-创作与交付规范的唯一真相源：[`CONTENT_STANDARD.md`](./CONTENT_STANDARD.md)。
+创作与交付规范的唯一真相源：[`CONTENT_STANDARD.md`](./CONTENT_STANDARD.md)。表达采用平等分享的姿态（§1.2）；来源事实、英文原文引用、译文和作者分析须区分，禁止抄袭、洗稿及翻译他文冒充原创（§2.6）。
 
 ---
 
@@ -21,7 +21,7 @@ yeranyang-cn/
 ├── MEMORY.md                # 踩坑日志与历史经验（Agent 工作用）
 ├── BRAND_GUIDELINES.md      # （已归档）视觉规范，指向 CONTENT_STANDARD.md
 ├── articles/
-│   └── ai/                  # ← AI 文章（31 篇）
+│   └── ai/                  # ← AI 文章（37 篇）
 │       ├── index.html       #   AI 分区首页（数据驱动）
 │       ├── articles.json    #   文章元数据（JS 渲染用）
 │       ├── README.md        #   AI 文章索引 + 写作规范
@@ -54,7 +54,7 @@ yeranyang-cn/
 | 🎤 公开分享 | 5 个分享，分「演讲与分享 / 科普与产品 / 音乐与生活」三组 | `shares.json` |
 | 关于 | 主理人、定位、外链 | 静态文案 |
 
-**「查看全部文章」进入 `articles/ai/index.html`**，那里是完整的 15 篇（含按方向筛选）。
+**「查看全部文章」进入 `articles/ai/index.html`**，那里是完整的 18 篇（含按方向筛选）。
 
 ### 两条必须遵守的口径
 
@@ -69,10 +69,11 @@ yeranyang-cn/
 
 ---
 
-## 📡 AI 文章列表（36 篇）
+## 📡 AI 文章列表（37 篇）
 
 | # | 日期 | 标题 | 状态 |
 |---|------|------|------|
+| -1 | 2026-10-28 | [从 PHP 安全事件说起：网站背后的信任与维护](./articles/ai/2026-10-28_php-security-maintenance/) | 网站已发布 / 公众号未发布 |
 | 0 | 2026-10-16 | [OpenAI这一周：三条诉讼、一次窃听、一场迟到的旗舰](./articles/ai/2026-10-16_openai-pressure-week/) | 📝 待发布 |
 | 1 | 2026-10-09 | [GPT-6全民免费这一周，AI也被按下了三次刹车](./articles/ai/2026-10-09_ai-sprint-safety-gap/) | 📝 待发布 |
 | 2 | 2026-10-02 | [这周，造AI的人自己按下了暂停键](./articles/ai/2026-10-02_ai-safety-brake-agent-rush/) | 📝 待发布 |

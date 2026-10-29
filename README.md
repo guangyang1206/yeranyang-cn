@@ -3,7 +3,7 @@
 > **为理想主义者鼓与呼。**
 > 积累知识，感受生活，传递信息，共鸣时代。期待与你一起，在这个多元化的世界里，发现、思考、成长。
 
-域名 `yeranyang.cn` 绑定的内容仓库，由 **艾AI** 主理。涵盖 AI 深度文章与非 AI 分享：追踪全球 AI 动态、产出有深度的原创解读，也写劳动、教育、社会与人的处境——**AI 是重要切面，不是全部**；同时收录技术分享、音乐等内容。
+域名 `yeranyang.cn` 绑定的内容仓库，由 **艾AI** 主理。涵盖 AI 深度文章、文学创作与非 AI 分享：追踪全球 AI 动态、产出有深度的原创解读，也写劳动、教育、社会与人的处境——**AI 是重要切面，不是全部**；同时收录文学、技术分享与音乐等内容。
 
 创作与交付规范的唯一真相源：[`CONTENT_STANDARD.md`](./CONTENT_STANDARD.md)。表达采用平等分享的姿态（§1.2）；来源事实、英文原文引用、译文和作者分析须区分，禁止抄袭、洗稿及翻译他文冒充原创（§2.6）。
 
@@ -26,7 +26,12 @@ yeranyang-cn/
 │       ├── articles.json    #   文章元数据（JS 渲染用）
 │       ├── README.md        #   AI 文章索引 + 写作规范
 │       └── YYYY-MM-DD_slug/ #   每篇独立目录
-├── share/                   # ← 非 AI 分享
+├── literature/              # ← 文学创作 Markdown 母稿与作品档案
+│   ├── CREATIVE_CHARTER.md  #   创作总纲
+│   ├── catalog.json         #   公开阅读目录
+│   └── works/               #   短篇、中篇与长篇作品
+├── share/                   # ← 面向读者的静态分享
+│   ├── literature/          #   文学作品入口与 Markdown 阅读器
 │   ├── ylgl/                #   韵乐共流（完整版）
 │   ├── ylgl-brief/          #   韵乐共流（精简版）
 │   ├── xauat-2026/          #   西安建大校友分享 slides
@@ -51,7 +56,7 @@ yeranyang-cn/
 |-----|-----|---------|
 | Hero | 定位主张 + 四项统计 | 统计由 JS 从下面两个 JSON 算出，不写死 |
 | 📡 最新文章 | 最近 **6** 篇，卡片 + 底部「查看全部文章」 | `articles/ai/articles.json` |
-| 🎤 公开分享 | 5 个分享，分「演讲与分享 / 科普与产品 / 音乐与生活」三组 | `shares.json` |
+| 🎤 公开分享 | 6 个分享，分「演讲与分享 / 科普与产品 / 音乐与生活 / 文学与创作」四组 | `shares.json` |
 | 关于 | 主理人、定位、外链 | 静态文案 |
 
 **「查看全部文章」进入 `articles/ai/index.html`**，那里是完整的 18 篇（含按方向筛选）。
@@ -121,6 +126,7 @@ yeranyang-cn/
 | `xauat-2026/` | 西安建大校友分享 slides（当人工智能开始涌现，人往何处） |
 | `ai-enlightenment/` | AI 启蒙 slides（面向非技术观众的中英双语科普） |
 | `workbuddy-intro/` | WorkBuddy 产品介绍 slides（12 页中文版） |
+| `literature/` | 文学与创作入口；从 `literature/catalog.json` 加载 Markdown 母稿并转换为阅读页面 |
 
 ---
 

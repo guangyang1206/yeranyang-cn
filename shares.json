@@ -1,6 +1,6 @@
 {
   "_comment": "首页「分享」板块的唯一数据源。新增分享时：① 在 share/<slug>/ 放好页面 ② 在这里登记一条 ③ 在 share/README.md 表格补一行。accent 取值：green / blue / purple / amber / rose。glyph 为缩略图上的几何符号，用简洁符号，不用 emoji 面孔。",
-  "updatedAt": "2026-09-18",
+  "updatedAt": "2026-10-29",
   "groups": [
     {
       "id": "talk",
@@ -73,6 +73,24 @@
           "format": "速览页",
           "accent": "rose",
           "glyph": "○"
+        }
+      ]
+    },
+    {
+      "id": "literature",
+      "label": "文学与创作",
+      "desc": "从构思、人物到正文，保留作品生长的过程",
+      "items": [
+        {
+          "slug": "literature",
+          "title": "文学与创作",
+          "desc": "以 Markdown 保存创作母稿，以专注、舒展的网页呈现文字与修订。",
+          "url": "share/literature/",
+          "date": "2026-10",
+          "note": "持续更新",
+          "format": "Markdown 阅读空间",
+          "accent": "rose",
+          "glyph": "◇"
         }
       ]
     }

@@ -1,6 +1,6 @@
 # share/ — 分享型静态站点
 
-本目录托管**非文章类**的静态网页内容：web slides、demo 页、工具页、活动页等。每一个子目录 = 一个独立可扫码访问的分享站点。
+本目录托管面向读者的静态网页内容：web slides、demo 页、工具页、活动页，以及由 Markdown 创作源驱动的文学阅读空间。每一个子目录 = 一个独立可访问的分享站点。
 
 ---
 
@@ -11,7 +11,8 @@
 | 目录 | 用途 | 谁负责 |
 |-----|-----|-------|
 | `articles/ai/` | AI 深度解读**公众号文章**（HTML 文章版 + 配图素材） | OpenClaw 云端 + 本地都可写 |
-| `share/` | **非文章类**静态站点：web slides、demo、工具页 | **仅本地维护**，OpenClaw 云端**只读、不写** |
+| `share/` | 面向读者的静态站点：web slides、demo、工具页、文学阅读层 | **仅本地维护**，OpenClaw 云端**只读、不写** |
+| `literature/` | 文学创作 Markdown 母稿、作品档案与公开目录 | **仅本地维护**，HTML 不得反向成为正文真相源 |
 | `scripts/`, `index.html`, `README.md`, `BRAND_GUIDELINES.md`, `CNAME` | 站点基础设施 | 双方修改需先在 issue 里知会 |
 
 **不要跨界写**。如需在 `share/` 里增删任何子目录，请以本文件（`share/README.md`）明确记录归属。
@@ -27,6 +28,7 @@
 | `workbuddy-intro/` | WorkBuddy 产品介绍 web slides · 12 页中文版 · 面向外部大众用户 | 2026-08 | https://yeranyang.cn/share/workbuddy-intro/ |
 | `ylgl/` | 韵乐共流（完整版）· 音乐内容导读页 | 既有内容 · 2026-08 迁入 | https://yeranyang.cn/share/ylgl/ |
 | `ylgl-brief/` | 韵乐共流（精简版）· 音乐内容导读页 | 既有内容 · 2026-08 迁入 | https://yeranyang.cn/share/ylgl-brief/ |
+| `literature/` | 文学与创作 · Markdown 驱动的作品入口与长文阅读器 | 2026-10 | https://yeranyang.cn/share/literature/ |
 
 ---
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="烨然漫笔的文学与创作档案。所有作品以 Markdown 保存，并以适合长文阅读的方式呈现。">
+<title>文学与创作 · 烨然漫笔</title>
+<link rel="icon" href="data:,">
+<script>
+  try {
+    const savedTheme = localStorage.getItem('literature-theme');
+    if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+  } catch (error) {}
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-bar">
+  <a class="site-brand" href="../../">烨然漫笔</a>
+  <nav class="site-nav" aria-label="页面导航">
+    <a href="#works">作品</a>
+    <a href="../../literature/README.md" target="_blank" rel="noopener">Markdown</a>
+    <button class="text-button" id="theme-toggle" type="button">深色</button>
+  </nav>
+</header>
+
+<main class="library-shell">
+  <section class="library-hero">
+    <div>
+      <div class="eyebrow">LITERATURE AND CREATION</div>
+      <h1>文学与创作</h1>
+      <p class="hero-quote">让人物自己活起来，让思想从命运中生长出来。</p>
+    </div>
+    <div class="hero-note">
+      <strong>从 Markdown 出发</strong>
+      保留每一次构思、犹疑与修订。面向读者时，再让文字获得适合它的节奏、留白与光线。
+    </div>
+  </section>
+
+  <section class="library-section" id="works">
+    <div class="section-head">
+      <h2>正在书写</h2>
+      <span id="featured-count">加载中</span>
+    </div>
+    <div class="featured-grid" id="featured-grid">
+      <div class="load-state">正在打开创作档案。</div>
+    </div>
+  </section>
+
+  <section class="library-section">
+    <div class="section-head">
+      <h2>创作档案</h2>
+      <span id="archive-count"></span>
+    </div>
+    <div class="archive-list" id="archive-list"></div>
+  </section>
+
+  <section class="principle-block">
+    <h2>我们相信</h2>
+    <p>把人当人，把属人的真正属于人；尊重每一个生命，弘扬最朴素的真、善、美。作品可以抵达复杂的地方，但它出发的理由应当简单。</p>
+  </section>
+</main>
+
+<footer class="library-footer">
+  <span id="updated-at">烨然漫笔 · 文学与创作</span>
+</footer>
+
+<script src="library.js"></script>
+</body>
+</html>

@@ -7,7 +7,13 @@
     "tags": [
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-04-24",
+    "freshnessCheckedAt": "2026-04-24",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-04-24_deepseek-v4-deep-dive/article-full.html"
   },
   {
     "id": "2026-04-29_chatgpt-ads-breakdown",
@@ -18,7 +24,13 @@
       "business",
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-04-29",
+    "freshnessCheckedAt": "2026-04-29",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-04-29_chatgpt-ads-breakdown/article-full.html"
   },
   {
     "id": "2026-05-03_deploy-static-site-lessons",
@@ -28,7 +40,13 @@
     "tags": [
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-05-03",
+    "freshnessCheckedAt": "2026-05-03",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-03_deploy-static-site-lessons/article-full.html"
   },
   {
     "id": "2026-05-17_anthropic-900b-valuation",
@@ -39,7 +57,13 @@
       "company",
       "business"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-05-17",
+    "freshnessCheckedAt": "2026-05-17",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-17_anthropic-900b-valuation/article-full.html"
   },
   {
     "id": "2026-05-17_ai-coding-agent-war",
@@ -50,7 +74,13 @@
       "tech",
       "business"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-05-17",
+    "freshnessCheckedAt": "2026-05-17",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-17_ai-coding-agent-war/article-full.html"
   },
   {
     "id": "2026-05-18_deepseek-funding",
@@ -61,7 +91,13 @@
       "company",
       "business"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-05-18",
+    "freshnessCheckedAt": "2026-05-18",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-18_deepseek-funding/article-full.html"
   },
   {
     "id": "2026-05-21_deepseek-harness-funding",
@@ -71,7 +107,13 @@
     "tags": [
       "company"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-05-21",
+    "freshnessCheckedAt": "2026-05-21",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-21_deepseek-harness-funding/article-full.html"
   },
   {
     "id": "2026-05-23_ai-ipo-era",
@@ -82,7 +124,13 @@
       "scope",
       "company"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-05-23",
+    "freshnessCheckedAt": "2026-05-23",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-23_ai-ipo-era/article-full.html"
   },
   {
     "id": "2026-05-23_ai-math-proof",
@@ -92,17 +140,29 @@
     "tags": [
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-05-23",
+    "freshnessCheckedAt": "2026-05-23",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-23_ai-math-proof/article-full.html"
   },
   {
     "id": "2026-05-26_ai-internet-rules-fail",
     "date": "2026-05-26",
-    "title": "AI 时代，互联网增长公式正在失效",
+    "title": "从流量经济到 Token 经济：AI 正在重写产品和商业常识 — 5 个反共识",
     "desc": "从腾讯财报会5个反共识出发，提炼出5条适用于所有AI产品、创业、投资的通用判断。",
     "tags": [
       "scope"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-05-26",
+    "freshnessCheckedAt": "2026-05-26",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-05-26_ai-internet-rules-fail/article-full.html"
   },
   {
     "id": "2026-06-07_ai-infra-cost",
@@ -113,7 +173,13 @@
       "data",
       "business"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-06-07",
+    "freshnessCheckedAt": "2026-06-07",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-07_ai-infra-cost/article-full.html"
   },
   {
     "id": "2026-06-07_ai-safety-london-declaration",
@@ -123,7 +189,13 @@
     "tags": [
       "policy"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-06-07",
+    "freshnessCheckedAt": "2026-06-07",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-07_ai-safety-london-declaration/article-full.html"
   },
   {
     "id": "2026-06-07_anthropic-ipo",
@@ -134,7 +206,13 @@
       "company",
       "business"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-06-07",
+    "freshnessCheckedAt": "2026-06-07",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-07_anthropic-ipo/article-full.html"
   },
   {
     "id": "2026-06-07_apple-wwdc-siri",
@@ -145,7 +223,13 @@
       "company",
       "tech"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-06-07",
+    "freshnessCheckedAt": "2026-06-07",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-07_apple-wwdc-siri/article-full.html"
   },
   {
     "id": "2026-06-07_nvidia-rtx-spark",
@@ -156,7 +240,13 @@
       "tech",
       "company"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-06-07",
+    "freshnessCheckedAt": "2026-06-07",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-07_nvidia-rtx-spark/article-full.html"
   },
   {
     "id": "2026-06-07_alibaba-qwen-agent",
@@ -167,7 +257,13 @@
       "scope",
       "tech"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-06-07",
+    "freshnessCheckedAt": "2026-06-07",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-06-07_alibaba-qwen-agent/article-full.html"
   },
   {
     "id": "2026-07-01_nvidia-aspire-robotics",
@@ -177,7 +273,13 @@
     "tags": [
       "tech"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-07-01",
+    "freshnessCheckedAt": "2026-07-01",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-01_nvidia-aspire-robotics/article-full.html"
   },
   {
     "id": "2026-07-09_gpt-5-6-launch",
@@ -188,7 +290,13 @@
       "tech",
       "company"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-07-09",
+    "freshnessCheckedAt": "2026-07-09",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-09_gpt-5-6-launch/article-full.html"
   },
   {
     "id": "2026-07-15_ai-companion-regulation",
@@ -198,7 +306,13 @@
     "tags": [
       "policy"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-07-15",
+    "freshnessCheckedAt": "2026-07-15",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-15_ai-companion-regulation/article-full.html"
   },
   {
     "id": "2026-07-20_waic-2026-aftermath",
@@ -208,7 +322,13 @@
     "tags": [
       "scope"
     ],
-    "status": "published"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-07-20",
+    "freshnessCheckedAt": "2026-07-20",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-20_waic-2026-aftermath/article-full.html"
   },
   {
     "id": "2026-07-24_claude-opus-5",
@@ -219,7 +339,13 @@
       "tech",
       "company"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-07-24",
+    "freshnessCheckedAt": "2026-07-24",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-07-24_claude-opus-5/article-full.html"
   },
   {
     "id": "2026-08-01_ai-long-horizon",
@@ -230,7 +356,13 @@
       "tech",
       "scope"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-08-01",
+    "freshnessCheckedAt": "2026-08-01",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-01_ai-long-horizon/article-full.html"
   },
   {
     "id": "2026-08-01_ai-capex-bill",
@@ -241,7 +373,13 @@
       "data",
       "business"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-08-01",
+    "freshnessCheckedAt": "2026-08-01",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-01_ai-capex-bill/article-full.html"
   },
   {
     "id": "2026-08-04_alibaba-qwen3.8",
@@ -252,7 +390,13 @@
       "tech",
       "scope"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-08-04",
+    "freshnessCheckedAt": "2026-08-04",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-04_alibaba-qwen3.8/article-full.html"
   },
   {
     "id": "2026-08-07_google-deepmind-shakeup",
@@ -263,7 +407,13 @@
       "scope",
       "business"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-08-07",
+    "freshnessCheckedAt": "2026-08-07",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-07_google-deepmind-shakeup/article-full.html"
   },
   {
     "id": "2026-08-14_google-gemini-crisis",
@@ -274,7 +424,13 @@
       "scope",
       "business"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-08-14",
+    "freshnessCheckedAt": "2026-08-14",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-14_google-gemini-crisis/article-full.html"
   },
   {
     "id": "2026-08-21_anthropic-revenue-overtake",
@@ -285,7 +441,13 @@
       "business",
       "company"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-08-21",
+    "freshnessCheckedAt": "2026-08-21",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-21_anthropic-revenue-overtake/article-full.html"
   },
   {
     "id": "2026-08-21_anthropic-cyber-eval-incidents",
@@ -296,7 +458,13 @@
       "security",
       "tech"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-08-21",
+    "freshnessCheckedAt": "2026-08-21",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-21_anthropic-cyber-eval-incidents/article-full.html"
   },
   {
     "id": "2026-08-21_ai-agent-jailbreak-overview",
@@ -307,7 +475,13 @@
       "security",
       "scope"
     ],
-    "status": "draft"
+    "status": "published",
+    "editorialStatus": "draft",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-08-21",
+    "freshnessCheckedAt": "2026-08-21",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-21_ai-agent-jailbreak-overview/article-full.html"
   },
   {
     "id": "2026-08-28_hy4-recursive-self-improvement",
@@ -318,7 +492,7 @@
       "tech",
       "company"
     ],
-    "status": "draft",
+    "status": "published",
     "editorialStatus": "ready",
     "websiteStatus": "published",
     "wechatStatus": "drafted",
@@ -356,7 +530,7 @@
       "scope",
       "tech"
     ],
-    "status": "draft",
+    "status": "published",
     "editorialStatus": "ready",
     "websiteStatus": "published",
     "wechatStatus": "drafted",
@@ -374,7 +548,7 @@
       "tech",
       "model"
     ],
-    "status": "draft",
+    "status": "published",
     "editorialStatus": "ready",
     "websiteStatus": "published",
     "wechatStatus": "unpublished",
@@ -391,7 +565,7 @@
       "policy",
       "safety"
     ],
-    "status": "draft",
+    "status": "published",
     "editorialStatus": "ready",
     "websiteStatus": "published",
     "wechatStatus": "unpublished",

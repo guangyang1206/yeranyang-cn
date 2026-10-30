@@ -73,6 +73,8 @@ yeranyang-cn/
 |---|------|------|------|
 | # | 日期 | 标题 | 状态 |
 |---|------|------|------|
+| # | 日期 | 标题 | 状态 |
+|---|------|------|------|
 | -1 | 2026-10-28 | [从 PHP 安全事件说起：网站背后的信任与维护](./articles/ai/2026-10-28_php-security-maintenance/) | 网站已发布 / 公众号未发布 |
 | 0 | 2026-10-16 | [OpenAI这一周：三条诉讼、一次窃听、一场迟到的旗舰](./articles/ai/2026-10-16_openai-pressure-week/) | 📝 待发布 |
 | 1 | 2026-10-09 | [GPT-6全民免费这一周，AI也被按下了三次刹车](./articles/ai/2026-10-09_ai-sprint-safety-gap/) | 📝 待发布 |
@@ -112,7 +114,6 @@ yeranyang-cn/
 | 35 | 2026-04-24 | [DeepSeek V4 深度解读](./articles/ai/2026-04-24_deepseek-v4-deep-dive/) | ✅ 已完成 |
 | 0 | 2026-10-30 | [AI 自主黑客53分钟拿下Linux内核root：这一周，矛与盾一起变锋利](./articles/ai/2026-10-30_ai-linux-root-53min/) | 📝 待发布 |
 | 1 | 2026-10-23 | [当AI智能体学会关掉自己的监控警报](./articles/ai/2026-10-23_ai-agent-monitoring-blindspot/) | 📝 待发布 |---
-
 ## 🎨 非 AI 分享（share/）
 
 | 目录 | 说明 |

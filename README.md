@@ -69,8 +69,8 @@ yeranyang-cn/
 
 ---
 
-## 📡 AI 文章列表（37 篇）
-
+| # | 日期 | 标题 | 状态 |
+|---|------|------|------|
 | # | 日期 | 标题 | 状态 |
 |---|------|------|------|
 | -1 | 2026-10-28 | [从 PHP 安全事件说起：网站背后的信任与维护](./articles/ai/2026-10-28_php-security-maintenance/) | 网站已发布 / 公众号未发布 |
@@ -110,7 +110,8 @@ yeranyang-cn/
 | 33 | 2026-05-03 | [部署静态网站踩坑实录](./articles/ai/2026-05-03_deploy-static-site-lessons/) | ✅ 已完成 |
 | 34 | 2026-04-29 | [ChatGPT 开始投放广告了](./articles/ai/2026-04-29_chatgpt-ads-breakdown/) | ✅ 已完成 |
 | 35 | 2026-04-24 | [DeepSeek V4 深度解读](./articles/ai/2026-04-24_deepseek-v4-deep-dive/) | ✅ 已完成 |
----
+| 0 | 2026-10-30 | [AI 自主黑客53分钟拿下Linux内核root：这一周，矛与盾一起变锋利](./articles/ai/2026-10-30_ai-linux-root-53min/) | 📝 待发布 |
+| 1 | 2026-10-23 | [当AI智能体学会关掉自己的监控警报](./articles/ai/2026-10-23_ai-agent-monitoring-blindspot/) | 📝 待发布 |---
 
 ## 🎨 非 AI 分享（share/）
 

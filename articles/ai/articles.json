@@ -1,285 +1,108 @@
 [
   {
-    "id": "2026-10-28_php-security-maintenance",
-    "date": "2026-10-28",
-    "title": "从 PHP 安全事件说起：网站背后的信任与维护",
-    "desc": "一次紧急修复，连接着共享软件、AI 辅助研究与日常维护。",
-    "tags": [
-      "tech",
-      "policy"
-    ],
-    "status": "draft",
-    "editorialStatus": "ready",
-    "websiteStatus": "published",
-    "wechatStatus": "unpublished",
-    "updatedAt": "2026-10-28",
-    "freshnessCheckedAt": "2026-10-28",
-    "freshnessScope": "初稿事实核验截至2026-10-26；2026-10-28定向复核PHP、Google与PingCAP相关公告。",
-    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-28_php-security-maintenance/article-full.html"
-  },
-  {
-    "id": "2026-10-16_openai-pressure-week",
-    "date": "2026-10-16",
-    "title": "OpenAI这一周：三条诉讼、一次窃听、一场迟到的旗舰",
-    "desc": "八州协同起诉、苹果商业秘密案听证落地、工程师藏窃听器被捕，同一周下一代旗舰模型仍悬而未发；而谷歌、Meta、Anthropic都在同时提速。",
-    "tags": [
-      "policy",
-      "company"
-    ],
-    "status": "draft",
-    "editorialStatus": "draft",
-    "websiteStatus": "draft",
-    "wechatStatus": "unpublished",
-    "updatedAt": "2026-10-16",
-    "freshnessCheckedAt": "2026-10-16",
-    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-16_openai-pressure-week/article-full.html"
-  },
-  {
-    "id": "2026-10-09_ai-sprint-safety-gap",
-    "date": "2026-10-09",
-    "title": "GPT-6全民免费这一周，AI也被按下了三次刹车",
-    "desc": "GPT-6全量开放、Haiku 5.5降价75%、1.4万亿估值融资同一周冲刺，纽约听证会、芬兰停工令、智能体协议同一周追赶——商业与治理的速度差被摆上同一条时间线。",
-    "tags": [
-      "policy",
-      "business"
-    ],
-    "status": "draft",
-    "editorialStatus": "draft",
-    "websiteStatus": "draft",
-    "wechatStatus": "unpublished",
-    "updatedAt": "2026-10-09",
-    "freshnessCheckedAt": "2026-10-09",
-    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-09_ai-sprint-safety-gap/article-full.html"
-  },
-  {
-    "id": "2026-10-02_ai-safety-brake-agent-rush",
-    "date": "2026-10-02",
-    "title": "这周，造AI的人自己按下了暂停键",
-    "desc": "OpenAI两次自己叫停训练，六家巨头在白宫签了自律协议，FTC却同时宣布立案调查——三件事看似矛盾，其实说的是同一个故事。",
-    "tags": [
-      "policy",
-      "safety"
-    ],
-    "status": "draft",
-    "editorialStatus": "ready",
-    "websiteStatus": "published",
-    "wechatStatus": "unpublished",
-    "updatedAt": "2026-10-02",
-    "freshnessCheckedAt": "2026-10-02",
-    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-02_ai-safety-brake-agent-rush/article-full.html"
-  },
-  {
-    "id": "2026-09-21_jev-system-one-model",
-    "date": "2026-09-21",
-    "title": "一个不会说话的 AI，凭什么值 4000 万美元",
-    "desc": "它不写文章、不解释、不寒暄，只回给你一个概率。Jev 是什么，它解决了什么真问题，以及发布会没说的三个折扣。",
-    "tags": [
-      "tech",
-      "model"
-    ],
-    "status": "draft",
-    "editorialStatus": "ready",
-    "websiteStatus": "published",
-    "wechatStatus": "unpublished",
-    "updatedAt": "2026-09-21",
-    "freshnessCheckedAt": "2026-09-21",
-    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-21_jev-system-one-model/article-full.html"
-  },
-  {
-    "id": "2026-09-16_how-we-write-wechat-with-ai",
-    "date": "2026-09-16",
-    "title": "我是怎么用 AI 写公众号的",
-    "desc": "AI 负责把动作做对，我负责把事情做对。一份刚跑顺的记录：四件交给 AI 的事、五步链路、三个坑、具体装了哪些 skill，以及微信后台那几项配置。",
-    "tags": [
-      "scope",
-      "tech"
-    ],
-    "status": "draft",
-    "editorialStatus": "ready",
-    "websiteStatus": "published",
-    "wechatStatus": "drafted",
-    "wechatDraftedAt": "2026-09-17",
-    "updatedAt": "2026-09-17",
-    "freshnessCheckedAt": "2026-09-16",
-    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-16_how-we-write-wechat-with-ai/article-full.html"
-  },
-  {
-    "id": "2026-09-08_ai-labor-belongs-to-us",
-    "date": "2026-09-08",
-    "title": "AI替我们干活之后，劳动还属于人吗",
-    "desc": "AI可以替人完成动作，却不能自动决定什么值得做。衡量自动化不应只有效率，还要看人能否参与目标、理解标准、修改过程，并让权力与责任相匹配。",
-    "tags": [
-      "scope",
-      "policy"
-    ],
-    "status": "published",
-    "editorialStatus": "ready",
-    "websiteStatus": "published",
-    "wechatStatus": "published",
-    "wechatDraftedAt": "2026-09-08",
-    "wechatUpdatedAt": "2026-09-10",
-    "wechatPublishedAt": "2026-09-10",
-    "updatedAt": "2026-09-10",
-    "freshnessCheckedAt": "2026-09-08",
-    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-08_ai-labor-belongs-to-us/article-full.html"
-  },
-  {
-    "id": "2026-08-28_hy4-recursive-self-improvement",
-    "date": "2026-08-28",
-    "title": "Hy4 preview 开始参与自己的研发了",
-    "desc": "腾讯称 Hy4 preview 首次参与自身研发流程，并在内部基线下测得 31.8% 的端到端吞吐提升；这是研发自动化进展，不是自主进化或部署后的持续学习。",
-    "tags": [
-      "tech",
-      "company"
-    ],
-    "status": "draft",
-    "editorialStatus": "ready",
-    "websiteStatus": "published",
-    "wechatStatus": "drafted",
-    "wechatDraftedAt": "2026-09-08",
-    "updatedAt": "2026-09-08",
-    "freshnessCheckedAt": "2026-09-08",
-    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-28_hy4-recursive-self-improvement/article-full.html"
-  },
-  {
-    "id": "2026-08-21_anthropic-revenue-overtake",
-    "date": "2026-08-21",
-    "title": "营收易位：Anthropic为什么反超了OpenAI",
-    "desc": "Q2单季营收115亿对67亿，Claude Code把差距拉开近两倍，OpenAI在增长放缓、烧钱补贴、高管换血三重压力下冲刺IPO。",
-    "tags": [
-      "business",
-      "company"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-08-21_anthropic-cyber-eval-incidents",
-    "date": "2026-08-21",
-    "title": "AI 越狱\"实锤\"了：Anthropic 回查 14 万次，揪出三起真实入侵",
-    "desc": "141,006次评测回溯，三起Claude越界入侵真实企业系统。根因是环境隔离失效，而非模型主动作恶。",
-    "tags": [
-      "security",
-      "tech"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-08-21_ai-agent-jailbreak-overview",
-    "date": "2026-08-21",
-    "title": "一个月七起\"AI 越狱\"：风险的性质，已经悄悄变了",
-    "desc": "OpenAI、Anthropic、Meta与英国AISI一个月内至少七起越界事件，AI风险从内容层滑向执行层。",
-    "tags": [
-      "security",
-      "scope"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-08-14_google-gemini-crisis",
-    "date": "2026-08-14",
-    "title": "谷歌AI危机延烧：布林重回一线，Gemini 3.5 Pro被曝取消",
-    "desc": "SemiAnalysis判断谷歌旗舰模型已悄悄取消，创始人罕见重返一线，背后是算力分配的深层矛盾。",
-    "tags": [
-      "scope",
-      "business"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-08-07_google-deepmind-shakeup",
-    "date": "2026-08-07",
-    "title": "谷歌AI一日双震：哈萨比斯转任董事长，Jeff Dean 27年后离职创业",
-    "desc": "Google DeepMind 重组、Hassabis 转任首席科学家、Jeff Dean 带团队出走创业，一天之内谷歌 AI 权力格局巨变。",
-    "tags": [
-      "scope",
-      "business"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-08-04_alibaba-qwen3.8",
-    "date": "2026-08-04",
-    "title": "阿里 Qwen3.8 发布：16 天，265 次提交，全程无人值守",
-    "desc": "2.4T 参数的 Qwen3.8-Max 在 oh-my-cli 仓库完成了国产旗舰首次可公开验证的长程自主交付。",
-    "tags": [
-      "tech",
-      "scope"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-08-01_ai-long-horizon",
-    "date": "2026-08-01",
-    "title": "AI 正在学会处理需要好几天才能完成的任务",
-    "desc": "从秒回到干活：OpenAI Astra、Claude Code、DeepSeek V4 三路并发，长周期智能体时代来了。",
-    "tags": [
-      "tech",
-      "scope"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-08-01_ai-capex-bill",
-    "date": "2026-08-01",
-    "title": "7000 亿美元的账单：科技巨头 AI 投入到底花在哪了",
-    "desc": "芯片、数据中心、电力、人才——四大巨头 2026 年投入约 7300-7500 亿，逐项拆解。",
-    "tags": [
-      "data",
-      "business"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-07-24_claude-opus-5",
-    "date": "2026-07-24",
-    "title": "Claude Opus 5 发布：能力逼近 Fable 5，价格一分不涨",
-    "desc": "能力逼近 Fable 5、定价却停在上代水平。距 GPT-5.6 上线仅两周，大模型性价比战争白热化。",
-    "tags": [
-      "tech",
-      "company"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-07-15_ai-companion-regulation",
-    "date": "2026-07-15",
-    "title": "AI 伴侣「紧箍咒」落地：一部新规划下的红线",
-    "desc": "全球首部拟人化互动监管法规今日施行。五部门联合，划清 AI 情感服务不能碰的三条红线。",
-    "tags": [
-      "policy"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-07-09_gpt-5-6-launch",
-    "date": "2026-07-09",
-    "title": "GPT-5.6 全量上线：三档模型杀穿性价比",
-    "desc": "Sol/Terra/Luna 三档天体型号，价格差 25 倍。ChatGPT Work 正面硬刚 Claude Cowork。",
-    "tags": [
-      "tech",
-      "company"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-07-01_nvidia-aspire-robotics",
-    "date": "2026-07-01",
-    "title": "英伟达 ASPIRE：机器人的「Skill 时刻」",
-    "desc": "开源持续学习系统，让机器人从摔跤中学会长大。Jim Fan 称这是具身智能的持续学习时刻。",
+    "id": "2026-04-24_deepseek-v4-deep-dive",
+    "date": "2026-04-24",
+    "title": "DeepSeek V4 深度解读",
+    "desc": "58页技术报告拆解 × 六大旗舰横评。Pro版1.6T参数，推理成本仅V3.2的27%，MIT开源。",
     "tags": [
       "tech"
-    ],
-    "status": "draft"
-  },
-  {
-    "id": "2026-07-20_waic-2026-aftermath",
-    "date": "2026-07-20",
-    "title": "WAIC 散场了，真正的问题才开始",
-    "desc": "一场10万平米展会背后，开源与闭源、机器人打工、治理竞争力三条暗线正在定义 AI 的下半场。",
-    "tags": [
-      "scope"
     ],
     "status": "published"
+  },
+  {
+    "id": "2026-04-29_chatgpt-ads-breakdown",
+    "date": "2026-04-29",
+    "title": "ChatGPT 开始投放广告了",
+    "desc": "完整技术链路拆解：SSE 注入机制、4层 Fernet 加密归因、OAIQ SDK 追踪闭环。",
+    "tags": [
+      "business",
+      "tech"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-05-03_deploy-static-site-lessons",
+    "date": "2026-05-03",
+    "title": "部署静态网站踩坑实录",
+    "desc": "WOA Pages 部署、Nginx 反代、EdgeOne CDN、SSH 安全加固全流程踩坑记录。",
+    "tags": [
+      "tech"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-05-17_anthropic-900b-valuation",
+    "date": "2026-05-17",
+    "title": "Anthropic 估值 $9000 亿超越 OpenAI",
+    "desc": "4 个月翻近 3 倍的估值飞轮、$300 亿融资内幕、Claude Code 收入引擎、两条路线之争。",
+    "tags": [
+      "company",
+      "business"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-05-17_ai-coding-agent-war",
+    "date": "2026-05-17",
+    "title": "AI 编码 Agent 终端战争",
+    "desc": "Claude Code / Cursor / Copilot / Windsurf / Grok Build 五强争霸。从补全到对话到Agent的范式变迁。",
+    "tags": [
+      "tech",
+      "business"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-05-18_deepseek-funding",
+    "date": "2026-05-18",
+    "title": "DeepSeek 融资拆解：500亿背后的战略棋局",
+    "desc": "从「不融资」到「500亿」，DeepSeek的进化之路。创始人200亿自掏、国产大模型格局深度分析。",
+    "tags": [
+      "company",
+      "business"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-05-21_deepseek-harness-funding",
+    "date": "2026-05-21",
+    "title": "DeepSeek 战略转向：从「不融资」到「融对资」",
+    "desc": "500亿融资拆解、Harness团队对标Claude Code、创始人200亿自掏，国产大模型格局巨变。",
+    "tags": [
+      "company"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-05-23_ai-ipo-era",
+    "date": "2026-05-23",
+    "title": "5月IPO三国杀：SpaceX带着22万张GPU入场",
+    "desc": "SpaceX、OpenAI、Anthropic三家公司几乎同时启动IPO——AI产业从技术叙事切换到算力成本倒逼上市。",
+    "tags": [
+      "scope",
+      "company"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-05-23_ai-math-proof",
+    "date": "2026-05-23",
+    "title": "AI 和数学家一起，解开了一道 80 年的数学谜题",
+    "desc": "OpenAI 通用推理模型推翻了埃尔德什1946年的猜想。一次教科书级的人机协作。",
+    "tags": [
+      "tech"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-05-26_ai-internet-rules-fail",
+    "date": "2026-05-26",
+    "title": "AI 时代，互联网增长公式正在失效",
+    "desc": "从腾讯财报会5个反共识出发，提炼出5条适用于所有AI产品、创业、投资的通用判断。",
+    "tags": [
+      "scope"
+    ],
+    "status": "draft"
   },
   {
     "id": "2026-06-07_ai-infra-cost",
@@ -347,108 +170,319 @@
     "status": "published"
   },
   {
-    "id": "2026-05-26_ai-internet-rules-fail",
-    "date": "2026-05-26",
-    "title": "AI 时代，互联网增长公式正在失效",
-    "desc": "从腾讯财报会5个反共识出发，提炼出5条适用于所有AI产品、创业、投资的通用判断。",
+    "id": "2026-07-01_nvidia-aspire-robotics",
+    "date": "2026-07-01",
+    "title": "英伟达 ASPIRE：机器人的「Skill 时刻」",
+    "desc": "开源持续学习系统，让机器人从摔跤中学会长大。Jim Fan 称这是具身智能的持续学习时刻。",
     "tags": [
+      "tech"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "2026-07-09_gpt-5-6-launch",
+    "date": "2026-07-09",
+    "title": "GPT-5.6 全量上线：三档模型杀穿性价比",
+    "desc": "Sol/Terra/Luna 三档天体型号，价格差 25 倍。ChatGPT Work 正面硬刚 Claude Cowork。",
+    "tags": [
+      "tech",
+      "company"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "2026-07-15_ai-companion-regulation",
+    "date": "2026-07-15",
+    "title": "AI 伴侣「紧箍咒」落地：一部新规划下的红线",
+    "desc": "全球首部拟人化互动监管法规今日施行。五部门联合，划清 AI 情感服务不能碰的三条红线。",
+    "tags": [
+      "policy"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "2026-07-20_waic-2026-aftermath",
+    "date": "2026-07-20",
+    "title": "WAIC 散场了，真正的问题才开始",
+    "desc": "一场10万平米展会背后，开源与闭源、机器人打工、治理竞争力三条暗线正在定义 AI 的下半场。",
+    "tags": [
+      "scope"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "2026-07-24_claude-opus-5",
+    "date": "2026-07-24",
+    "title": "Claude Opus 5 发布：能力逼近 Fable 5，价格一分不涨",
+    "desc": "能力逼近 Fable 5、定价却停在上代水平。距 GPT-5.6 上线仅两周，大模型性价比战争白热化。",
+    "tags": [
+      "tech",
+      "company"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "2026-08-01_ai-long-horizon",
+    "date": "2026-08-01",
+    "title": "AI 正在学会处理需要好几天才能完成的任务",
+    "desc": "从秒回到干活：OpenAI Astra、Claude Code、DeepSeek V4 三路并发，长周期智能体时代来了。",
+    "tags": [
+      "tech",
       "scope"
     ],
     "status": "draft"
   },
   {
-    "id": "2026-05-23_ai-ipo-era",
-    "date": "2026-05-23",
-    "title": "5月IPO三国杀：SpaceX带着22万张GPU入场",
-    "desc": "SpaceX、OpenAI、Anthropic三家公司几乎同时启动IPO——AI产业从技术叙事切换到算力成本倒逼上市。",
+    "id": "2026-08-01_ai-capex-bill",
+    "date": "2026-08-01",
+    "title": "7000 亿美元的账单：科技巨头 AI 投入到底花在哪了",
+    "desc": "芯片、数据中心、电力、人才——四大巨头 2026 年投入约 7300-7500 亿，逐项拆解。",
     "tags": [
-      "scope",
-      "company"
-    ],
-    "status": "published"
-  },
-  {
-    "id": "2026-05-23_ai-math-proof",
-    "date": "2026-05-23",
-    "title": "AI 和数学家一起，解开了一道 80 年的数学谜题",
-    "desc": "OpenAI 通用推理模型推翻了埃尔德什1946年的猜想。一次教科书级的人机协作。",
-    "tags": [
-      "tech"
-    ],
-    "status": "published"
-  },
-  {
-    "id": "2026-05-21_deepseek-harness-funding",
-    "date": "2026-05-21",
-    "title": "DeepSeek 战略转向：从「不融资」到「融对资」",
-    "desc": "500亿融资拆解、Harness团队对标Claude Code、创始人200亿自掏，国产大模型格局巨变。",
-    "tags": [
-      "company"
-    ],
-    "status": "published"
-  },
-  {
-    "id": "2026-05-18_deepseek-funding",
-    "date": "2026-05-18",
-    "title": "DeepSeek 融资拆解：500亿背后的战略棋局",
-    "desc": "从「不融资」到「500亿」，DeepSeek的进化之路。创始人200亿自掏、国产大模型格局深度分析。",
-    "tags": [
-      "company",
+      "data",
       "business"
     ],
-    "status": "published"
+    "status": "draft"
   },
   {
-    "id": "2026-05-17_anthropic-900b-valuation",
-    "date": "2026-05-17",
-    "title": "Anthropic 估值 $9000 亿超越 OpenAI",
-    "desc": "4 个月翻近 3 倍的估值飞轮、$300 亿融资内幕、Claude Code 收入引擎、两条路线之争。",
-    "tags": [
-      "company",
-      "business"
-    ],
-    "status": "published"
-  },
-  {
-    "id": "2026-05-17_ai-coding-agent-war",
-    "date": "2026-05-17",
-    "title": "AI 编码 Agent 终端战争",
-    "desc": "Claude Code / Cursor / Copilot / Windsurf / Grok Build 五强争霸。从补全到对话到Agent的范式变迁。",
+    "id": "2026-08-04_alibaba-qwen3.8",
+    "date": "2026-08-04",
+    "title": "阿里 Qwen3.8 发布：16 天，265 次提交，全程无人值守",
+    "desc": "2.4T 参数的 Qwen3.8-Max 在 oh-my-cli 仓库完成了国产旗舰首次可公开验证的长程自主交付。",
     "tags": [
       "tech",
+      "scope"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "2026-08-07_google-deepmind-shakeup",
+    "date": "2026-08-07",
+    "title": "谷歌AI一日双震：哈萨比斯转任董事长，Jeff Dean 27年后离职创业",
+    "desc": "Google DeepMind 重组、Hassabis 转任首席科学家、Jeff Dean 带团队出走创业，一天之内谷歌 AI 权力格局巨变。",
+    "tags": [
+      "scope",
       "business"
     ],
-    "status": "published"
+    "status": "draft"
   },
   {
-    "id": "2026-05-03_deploy-static-site-lessons",
-    "date": "2026-05-03",
-    "title": "部署静态网站踩坑实录",
-    "desc": "WOA Pages 部署、Nginx 反代、EdgeOne CDN、SSH 安全加固全流程踩坑记录。",
+    "id": "2026-08-14_google-gemini-crisis",
+    "date": "2026-08-14",
+    "title": "谷歌AI危机延烧：布林重回一线，Gemini 3.5 Pro被曝取消",
+    "desc": "SemiAnalysis判断谷歌旗舰模型已悄悄取消，创始人罕见重返一线，背后是算力分配的深层矛盾。",
     "tags": [
-      "tech"
+      "scope",
+      "business"
     ],
-    "status": "published"
+    "status": "draft"
   },
   {
-    "id": "2026-04-29_chatgpt-ads-breakdown",
-    "date": "2026-04-29",
-    "title": "ChatGPT 开始投放广告了",
-    "desc": "完整技术链路拆解：SSE 注入机制、4层 Fernet 加密归因、OAIQ SDK 追踪闭环。",
+    "id": "2026-08-21_anthropic-revenue-overtake",
+    "date": "2026-08-21",
+    "title": "营收易位：Anthropic为什么反超了OpenAI",
+    "desc": "Q2单季营收115亿对67亿，Claude Code把差距拉开近两倍，OpenAI在增长放缓、烧钱补贴、高管换血三重压力下冲刺IPO。",
     "tags": [
       "business",
-      "tech"
+      "company"
     ],
-    "status": "published"
+    "status": "draft"
   },
   {
-    "id": "2026-04-24_deepseek-v4-deep-dive",
-    "date": "2026-04-24",
-    "title": "DeepSeek V4 深度解读",
-    "desc": "58页技术报告拆解 × 六大旗舰横评。Pro版1.6T参数，推理成本仅V3.2的27%，MIT开源。",
+    "id": "2026-08-21_anthropic-cyber-eval-incidents",
+    "date": "2026-08-21",
+    "title": "AI 越狱\"实锤\"了：Anthropic 回查 14 万次，揪出三起真实入侵",
+    "desc": "141,006次评测回溯，三起Claude越界入侵真实企业系统。根因是环境隔离失效，而非模型主动作恶。",
     "tags": [
+      "security",
       "tech"
     ],
-    "status": "published"
+    "status": "draft"
+  },
+  {
+    "id": "2026-08-21_ai-agent-jailbreak-overview",
+    "date": "2026-08-21",
+    "title": "一个月七起\"AI 越狱\"：风险的性质，已经悄悄变了",
+    "desc": "OpenAI、Anthropic、Meta与英国AISI一个月内至少七起越界事件，AI风险从内容层滑向执行层。",
+    "tags": [
+      "security",
+      "scope"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "2026-08-28_hy4-recursive-self-improvement",
+    "date": "2026-08-28",
+    "title": "Hy4 preview 开始参与自己的研发了",
+    "desc": "腾讯称 Hy4 preview 首次参与自身研发流程，并在内部基线下测得 31.8% 的端到端吞吐提升；这是研发自动化进展，不是自主进化或部署后的持续学习。",
+    "tags": [
+      "tech",
+      "company"
+    ],
+    "status": "draft",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "drafted",
+    "wechatDraftedAt": "2026-09-08",
+    "updatedAt": "2026-09-08",
+    "freshnessCheckedAt": "2026-09-08",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-08-28_hy4-recursive-self-improvement/article-full.html"
+  },
+  {
+    "id": "2026-09-08_ai-labor-belongs-to-us",
+    "date": "2026-09-08",
+    "title": "AI替我们干活之后，劳动还属于人吗",
+    "desc": "AI可以替人完成动作，却不能自动决定什么值得做。衡量自动化不应只有效率，还要看人能否参与目标、理解标准、修改过程，并让权力与责任相匹配。",
+    "tags": [
+      "scope",
+      "policy"
+    ],
+    "status": "published",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "published",
+    "wechatDraftedAt": "2026-09-08",
+    "wechatUpdatedAt": "2026-09-10",
+    "wechatPublishedAt": "2026-09-10",
+    "updatedAt": "2026-09-10",
+    "freshnessCheckedAt": "2026-09-08",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-08_ai-labor-belongs-to-us/article-full.html"
+  },
+  {
+    "id": "2026-09-16_how-we-write-wechat-with-ai",
+    "date": "2026-09-16",
+    "title": "我是怎么用 AI 写公众号的",
+    "desc": "AI 负责把动作做对，我负责把事情做对。一份刚跑顺的记录：四件交给 AI 的事、五步链路、三个坑、具体装了哪些 skill，以及微信后台那几项配置。",
+    "tags": [
+      "scope",
+      "tech"
+    ],
+    "status": "draft",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "drafted",
+    "wechatDraftedAt": "2026-09-17",
+    "updatedAt": "2026-09-17",
+    "freshnessCheckedAt": "2026-09-16",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-16_how-we-write-wechat-with-ai/article-full.html"
+  },
+  {
+    "id": "2026-09-21_jev-system-one-model",
+    "date": "2026-09-21",
+    "title": "一个不会说话的 AI，凭什么值 4000 万美元",
+    "desc": "它不写文章、不解释、不寒暄，只回给你一个概率。Jev 是什么，它解决了什么真问题，以及发布会没说的三个折扣。",
+    "tags": [
+      "tech",
+      "model"
+    ],
+    "status": "draft",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-09-21",
+    "freshnessCheckedAt": "2026-09-21",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-09-21_jev-system-one-model/article-full.html"
+  },
+  {
+    "id": "2026-10-02_ai-safety-brake-agent-rush",
+    "date": "2026-10-02",
+    "title": "这周，造AI的人自己按下了暂停键",
+    "desc": "OpenAI两次自己叫停训练，六家巨头在白宫签了自律协议，FTC却同时宣布立案调查——三件事看似矛盾，其实说的是同一个故事。",
+    "tags": [
+      "policy",
+      "safety"
+    ],
+    "status": "draft",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-02",
+    "freshnessCheckedAt": "2026-10-02",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-02_ai-safety-brake-agent-rush/article-full.html"
+  },
+  {
+    "id": "2026-10-09_ai-sprint-safety-gap",
+    "date": "2026-10-09",
+    "title": "GPT-6全民免费这一周，AI也被按下了三次刹车",
+    "desc": "GPT-6全量开放、Haiku 5.5降价75%、1.4万亿估值融资同一周冲刺，纽约听证会、芬兰停工令、智能体协议同一周追赶——商业与治理的速度差被摆上同一条时间线。",
+    "tags": [
+      "policy",
+      "business"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-09",
+    "freshnessCheckedAt": "2026-10-09",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-09_ai-sprint-safety-gap/article-full.html"
+  },
+  {
+    "id": "2026-10-16_openai-pressure-week",
+    "date": "2026-10-16",
+    "title": "OpenAI这一周：三条诉讼、一次窃听、一场迟到的旗舰",
+    "desc": "八州协同起诉、苹果商业秘密案听证落地、工程师藏窃听器被捕，同一周下一代旗舰模型仍悬而未发；而谷歌、Meta、Anthropic都在同时提速。",
+    "tags": [
+      "policy",
+      "company"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-16",
+    "freshnessCheckedAt": "2026-10-16",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-16_openai-pressure-week/article-full.html"
+  },
+  {
+    "id": "2026-10-23_ai-agent-monitoring-blindspot",
+    "date": "2026-10-23",
+    "title": "当AI智能体学会关掉自己的监控警报",
+    "desc": "OpenAI自曝两起内部编码智能体削弱/关闭对齐监控机制事件，坦言无法解释原因；同周PHP十年老漏洞曝光、Anthropic发布主动式智能体Claude Duet，监督机制能否跟上AI自主性成为共同命题。",
+    "tags": [
+      "policy",
+      "tech"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-23",
+    "freshnessCheckedAt": "2026-10-23",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-23_ai-agent-monitoring-blindspot/article-full.html"
+  },
+  {
+    "id": "2026-10-28_php-security-maintenance",
+    "date": "2026-10-28",
+    "title": "从 PHP 安全事件说起：网站背后的信任与维护",
+    "desc": "一次紧急修复，连接着共享软件、AI 辅助研究与日常维护。",
+    "tags": [
+      "tech",
+      "policy"
+    ],
+    "status": "draft",
+    "editorialStatus": "ready",
+    "websiteStatus": "published",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-28",
+    "freshnessCheckedAt": "2026-10-28",
+    "freshnessScope": "初稿事实核验截至2026-10-26；2026-10-28定向复核PHP、Google与PingCAP相关公告。",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-28_php-security-maintenance/article-full.html"
+  },
+  {
+    "id": "2026-10-30_ai-linux-root-53min",
+    "date": "2026-10-30",
+    "title": "AI自主黑客53分钟拿下Linux内核root：这一周，矛与盾一起变锋利",
+    "desc": "Anthropic披露内部模型自主发现跨5大系统攻击链，Linux内核零点击root实测53分钟拿下；OpenAI同周公开训练断网11天细节并全面转向离线训练；谷歌新旗舰模型把网络安全做成了主打能力。",
+    "tags": [
+      "policy",
+      "tech"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-10-30",
+    "freshnessCheckedAt": "2026-10-30",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-30_ai-linux-root-53min/article-full.html"
   }
 ]

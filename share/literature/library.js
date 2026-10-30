@@ -1,5 +1,5 @@
 const fallbackCatalog = {
-  updatedAt: '2026-10-29',
+  updatedAt: '2026-10-30',
   items: [
     {
       id: 'creative-charter',
@@ -24,22 +24,32 @@ const fallbackCatalog = {
     {
       id: 'huanqiu-hotel-characters',
       title: '《环球饭店》人物档案',
-      subtitle: '周启明、杜海生、方老师与小禾的第一版人物关系',
+      subtitle: '老师缺席以后，四个人怎样重新面对讲述与被讲述',
       kind: '人物档案',
-      status: '第一版',
-      date: '2026-10-29',
+      status: '第二版',
+      date: '2026-10-30',
       featured: false,
       order: 3
     },
     {
       id: 'huanqiu-hotel-outline',
       title: '《环球饭店》情节大纲',
-      subtitle: '县城里的一夜，以及隐藏其下的三十年',
+      subtitle: '从老师的告别仪式，到清晨去医院的一次照料',
       kind: '情节大纲',
-      status: '第一版',
-      date: '2026-10-29',
+      status: '第二版',
+      date: '2026-10-30',
       featured: false,
       order: 4
+    },
+    {
+      id: 'huanqiu-hotel-geography-ritual',
+      title: '《环球饭店》地理原型与仪式设计',
+      subtitle: '无名的太行山南麓县城，以及葬礼在故事中的六层意义',
+      kind: '创作设计',
+      status: '第一版',
+      date: '2026-10-30',
+      featured: false,
+      order: 5
     }
   ]
 };

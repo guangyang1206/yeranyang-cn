@@ -251,6 +251,8 @@ button { font: inherit; }
   gap: 70px;
   justify-content: center;
 }
+.reader-layout.no-toc { grid-template-columns: minmax(0, 760px); }
+.toc[hidden] { display: none; }
 .toc {
   position: sticky;
   top: 92px;

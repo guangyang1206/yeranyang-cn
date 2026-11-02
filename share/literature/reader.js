@@ -70,6 +70,8 @@ function slugHeading(text, index) {
 function buildToc() {
   const headings = [...document.querySelectorAll('#markdown-body h2, #markdown-body h3')];
   const toc = document.getElementById('toc-list');
+  document.querySelector('.toc').hidden = headings.length === 0;
+  document.querySelector('.reader-layout').classList.toggle('no-toc', headings.length === 0);
   const used = new Map();
 
   headings.forEach((heading, index) => {

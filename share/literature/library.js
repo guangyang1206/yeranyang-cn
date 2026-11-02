@@ -2,12 +2,22 @@ const fallbackCatalog = {
   updatedAt: '2026-10-30',
   items: [
     {
+      id: 'huanqiu-hotel-draft',
+      title: '环球饭店',
+      subtitle: '告别结束以后，人们还在门口站了一会儿。',
+      kind: '短篇小说',
+      status: '第一稿',
+      date: '2026-10-30',
+      featured: true,
+      order: 0
+    },
+    {
       id: 'creative-charter',
       title: '创作总纲',
       subtitle: '让人物自己活起来，让思想从命运中生长出来',
       kind: '创作总纲',
       status: '持续维护',
-      date: '2026-10-29',
+      date: '2026-10-30',
       featured: true,
       order: 1
     },
@@ -16,17 +26,17 @@ const fallbackCatalog = {
       title: '《环球饭店》：内核与故事梗概',
       subtitle: '一个跨世纪县城孩子，在流量、尊严与现实之间重新理解理想',
       kind: '短篇构思',
-      status: '构思中',
-      date: '2026-10-29',
-      featured: true,
+      status: '第三版',
+      date: '2026-10-30',
+      featured: false,
       order: 2
     },
     {
       id: 'huanqiu-hotel-characters',
       title: '《环球饭店》人物档案',
-      subtitle: '老师缺席以后，四个人怎样重新面对讲述与被讲述',
+      subtitle: '人物各有未完成的生活，不只为另一个人的成长而存在',
       kind: '人物档案',
-      status: '第二版',
+      status: '第三版',
       date: '2026-10-30',
       featured: false,
       order: 3
@@ -34,9 +44,9 @@ const fallbackCatalog = {
     {
       id: 'huanqiu-hotel-outline',
       title: '《环球饭店》情节大纲',
-      subtitle: '从老师的告别仪式，到清晨去医院的一次照料',
+      subtitle: '从老师的告别仪式，到清晨在医院外翻阅材料',
       kind: '情节大纲',
-      status: '第二版',
+      status: '第三版',
       date: '2026-10-30',
       featured: false,
       order: 4
@@ -46,10 +56,20 @@ const fallbackCatalog = {
       title: '《环球饭店》地理原型与仪式设计',
       subtitle: '无名的太行山南麓县城，以及葬礼在故事中的六层意义',
       kind: '创作设计',
-      status: '第一版',
+      status: '已补初稿说明',
       date: '2026-10-30',
       featured: false,
       order: 5
+    },
+    {
+      id: 'huanqiu-hotel-first-draft-notes',
+      title: '《环球饭店》第一稿侧记',
+      subtitle: '建议先读小说：未采用的情节、人物的余地与尚待核实的现实细节',
+      kind: '创作侧记',
+      status: '第一版',
+      date: '2026-10-30',
+      featured: false,
+      order: 6
     }
   ]
 };

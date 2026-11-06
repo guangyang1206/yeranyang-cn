@@ -643,6 +643,23 @@
     "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-28_php-security-maintenance/article-full.html"
   },
   {
+    "id": "2026-11-06_ai-funding-reality-check",
+    "date": "2026-11-06",
+    "title": "OpenAI融资砍半，黑石预警Anthropic评级\"垃圾级\"：这一周，资本市场开始重新给AI定价",
+    "desc": "OpenAI新一轮融资目标从300亿砍至200亿美元，实际仅锁定约110亿美元承诺；Anthropic修订版S-1披露Q3营收169.56亿美元同比增11倍，净亏损同步扩大92%，黑石预警其IPO后信用评级恐为垃圾级；同一周中期选举给数据中心审批带来新变量，而ChatGPT周活用户、fal估值却仍在走高。",
+    "tags": [
+      "business",
+      "company"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-11-06",
+    "freshnessCheckedAt": "2026-11-06",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-11-06_ai-funding-reality-check/article-full.html"
+  },
+  {
     "id": "2026-10-30_ai-linux-root-53min",
     "date": "2026-10-30",
     "title": "AI自主黑客53分钟拿下Linux内核root：这一周，矛与盾一起变锋利",

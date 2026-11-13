@@ -643,6 +643,23 @@
     "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-10-28_php-security-maintenance/article-full.html"
   },
   {
+    "id": "2026-11-13_ai-capex-bill-comes-due",
+    "date": "2026-11-13",
+    "title": "Anthropic IPO估值腰斩、软银单季首亏、欧洲工地被占：这一周，AI资本开支的账本摆上了桌面",
+    "desc": "Anthropic公布IPO发行价区间70-78美元，完全稀释估值上限约1.4万亿美元，较五周前传闻的2万亿美元大幅回落；软银因数据中心发电设备预付款减值近两年来首次季度亏损；Meta顶着标普评级展望下调仍完成250亿美元发债；反数据中心抵制从美国投票箱蔓延到欧洲街头。",
+    "tags": [
+      "business",
+      "company"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-11-13",
+    "freshnessCheckedAt": "2026-11-13",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-11-13_ai-capex-bill-comes-due/article-full.html"
+  },
+  {
     "id": "2026-11-06_ai-funding-reality-check",
     "date": "2026-11-06",
     "title": "OpenAI融资砍半，黑石预警Anthropic评级\"垃圾级\"：这一周，资本市场开始重新给AI定价",

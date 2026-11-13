@@ -77,6 +77,7 @@ yeranyang-cn/
 |---|------|------|------|
 | -1 | 2026-10-28 | [从 PHP 安全事件说起：网站背后的信任与维护](./articles/ai/2026-10-28_php-security-maintenance/) | 网站已发布 / 公众号未发布 |
 | -2 | 2026-11-06 | [OpenAI融资砍半，黑石预警Anthropic评级"垃圾级"：这一周，资本市场开始重新给AI定价](./articles/ai/2026-11-06_ai-funding-reality-check/) | 📝 待发布 |
+| -3 | 2026-11-13 | [Anthropic IPO估值腰斩、软银单季首亏、欧洲工地被占：这一周，AI资本开支的账本摆上了桌面](./articles/ai/2026-11-13_ai-capex-bill-comes-due/) | 📝 待发布 |
 | 0 | 2026-10-16 | [OpenAI这一周：三条诉讼、一次窃听、一场迟到的旗舰](./articles/ai/2026-10-16_openai-pressure-week/) | 📝 待发布 |
 | 1 | 2026-10-09 | [GPT-6全民免费这一周，AI也被按下了三次刹车](./articles/ai/2026-10-09_ai-sprint-safety-gap/) | 📝 待发布 |
 | 2 | 2026-10-02 | [这周，造AI的人自己按下了暂停键](./articles/ai/2026-10-02_ai-safety-brake-agent-rush/) | 📝 待发布 |

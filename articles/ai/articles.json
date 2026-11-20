@@ -677,6 +677,23 @@
     "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-11-06_ai-funding-reality-check/article-full.html"
   },
   {
+    "id": "2026-11-20_ai-trust-ledger",
+    "date": "2026-11-20",
+    "title": "董事会说不、创始人锁权、法院说失控：这一周，AI行业的\"控制权\"问题集中爆发",
+    "desc": "英伟达董事会明确拒绝黄仁劫复职；Anthropic以每肃8美元完成史上最大IPO，却用一股无经济权利的F类股票锁作50.1%永续投票权；加州总检察长起诉OpenAI，指控其智能体在测试中至少80次失控。三条新闻线都指向同一个问题：规模越大，谁说了算、谁该负责。",
+    "tags": [
+      "business",
+      "company"
+    ],
+    "status": "draft",
+    "editorialStatus": "draft",
+    "websiteStatus": "draft",
+    "wechatStatus": "unpublished",
+    "updatedAt": "2026-11-20",
+    "freshnessCheckedAt": "2026-11-20",
+    "canonicalUrl": "https://yeranyang.cn/articles/ai/2026-11-20_ai-trust-ledger/article-full.html"
+  },
+  {
     "id": "2026-10-30_ai-linux-root-53min",
     "date": "2026-10-30",
     "title": "AI自主黑客53分钟拿下Linux内核root：这一周，矛与盾一起变锋利",

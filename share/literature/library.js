@@ -56,8 +56,8 @@ const fallbackCatalog = {
       title: '《环球饭店》地理原型与仪式设计',
       subtitle: '无名的太行山南麓县城，以及葬礼在故事中的六层意义',
       kind: '创作设计',
-      status: '已补初稿说明',
-      date: '2026-10-30',
+      status: '已补现实参照',
+      date: '2026-11-23',
       featured: false,
       order: 5
     },

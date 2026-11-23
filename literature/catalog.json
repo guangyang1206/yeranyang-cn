@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-23",
   "items": [
     {
       "id": "huanqiu-hotel-draft",
@@ -7,8 +7,8 @@
       "title": "环球饭店",
       "subtitle": "告别结束以后，人们还在门口站了一会儿。",
       "kind": "短篇小说",
-      "status": "第一稿",
-      "date": "2026-10-30",
+      "status": "第一稿·修订",
+      "date": "2026-11-23",
       "source": "literature/works/short/2026-10-29_huanqiu-hotel/04-draft.md",
       "featured": true,
       "order": 0
@@ -20,7 +20,7 @@
       "subtitle": "让人物自己活起来，让思想从命运中生长出来",
       "kind": "创作总纲",
       "status": "持续维护",
-      "date": "2026-10-30",
+      "date": "2026-11-23",
       "source": "literature/CREATIVE_CHARTER.md",
       "featured": true,
       "order": 1
@@ -32,7 +32,7 @@
       "subtitle": "一个跨世纪县城孩子，在流量、尊严与现实之间重新理解理想",
       "kind": "短篇构思",
       "status": "第三版",
-      "date": "2026-10-30",
+      "date": "2026-11-23",
       "source": "literature/works/short/2026-10-29_huanqiu-hotel/01-concept-and-synopsis.md",
       "featured": false,
       "order": 2
@@ -44,7 +44,7 @@
       "subtitle": "人物各有未完成的生活，不只为另一个人的成长而存在",
       "kind": "人物档案",
       "status": "第三版",
-      "date": "2026-10-30",
+      "date": "2026-11-23",
       "source": "literature/works/short/2026-10-29_huanqiu-hotel/02-characters.md",
       "featured": false,
       "order": 3
@@ -56,7 +56,7 @@
       "subtitle": "从老师的告别仪式，到清晨在医院外翻阅材料",
       "kind": "情节大纲",
       "status": "第三版",
-      "date": "2026-10-30",
+      "date": "2026-11-23",
       "source": "literature/works/short/2026-10-29_huanqiu-hotel/03-outline.md",
       "featured": false,
       "order": 4
@@ -79,8 +79,8 @@
       "title": "《环球饭店》第一稿侧记",
       "subtitle": "建议先读小说：未采用的情节、人物的余地与尚待核实的现实细节",
       "kind": "创作侧记",
-      "status": "第一版",
-      "date": "2026-10-30",
+      "status": "修订记录",
+      "date": "2026-11-23",
       "source": "literature/works/short/2026-10-29_huanqiu-hotel/06-first-draft-notes.md",
       "featured": false,
       "order": 6

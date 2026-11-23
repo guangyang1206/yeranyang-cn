@@ -46,9 +46,13 @@ YYYY-MM-DD_slug/
 
 | 体量 | 作品 | 状态 | 创作档案 |
 |---|---|---|---|
-| 短篇 | 《环球饭店》（暂名） | 第一稿，约九千汉字 | [`works/short/2026-10-29_huanqiu-hotel/`](./works/short/2026-10-29_huanqiu-hotel/) |
+| 短篇 | 《环球饭店》（暂名） | 第一稿·修订，约九千汉字 | [`works/short/2026-10-29_huanqiu-hotel/`](./works/short/2026-10-29_huanqiu-hotel/) |
 
 推荐先读[小说正文](./works/short/2026-10-29_huanqiu-hotel/04-draft.md)，再读[独立侧记](./works/short/2026-10-29_huanqiu-hotel/06-first-draft-notes.md)。正文、侧记和构思分开维护；第一稿不等于定稿，现实细节核实尚未完成。
+
+## 当前阅读版本
+
+2026-11-23 完成一轮语病、叙述视角与连续性修订；具体取舍记在既有侧记中。阅读层采用自托管宋体、暖纸色、小说窄版心与首行缩进，同时保留黑体、字号和主题切换。入口先读作品，创作档案另列；排版不改变 Markdown 内容。
 
 ## 更新流程
 

@@ -6,7 +6,7 @@ const fallbackCatalog = {
       title: '环球饭店',
       subtitle: '告别结束以后，人们还在门口站了一会儿。',
       kind: '短篇小说',
-      status: '第一稿·修订',
+      status: '定稿',
       date: '2026-11-23',
       featured: true,
       order: 0

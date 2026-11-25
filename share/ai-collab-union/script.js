@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  /* ---------- 公开来源清单（与 SPEC E01—E15 一致） ---------- */
+  /* ---------- 公开来源清单（与 SPEC E01—E16 一致） ---------- */
   const SOURCES = [
     { id: 'E01', name: 'Why language models hallucinate', org: 'OpenAI · 2025-09-05', note: '生成貌似可信但不真实的陈述；训练与评估奖励猜测是提出的机制。', url: 'https://openai.com/index/why-language-models-hallucinate/' },
     { id: 'E02', name: 'Training language models to follow instructions with human feedback', org: 'Ouyang et al. · 2022', note: '预训练基础上的示范与偏好反馈，帮助模型遵循指令。', url: 'https://arxiv.org/abs/2203.02155' },
@@ -22,7 +22,8 @@
     { id: 'E12', name: '左侧导航栏', org: 'WorkBuddy 功能说明 · 2026-11-24 读取', note: '文档用「更多」，用户截图用「发现」；命名差异单独记录，未实测点击。', url: 'https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Sidebar' },
     { id: 'E13', name: '新建任务栏', org: 'WorkBuddy 功能说明 · 2026-11-24 读取', note: '工作模式、材料输入、模型入口、工作空间、权限；文档说明不等于已点击验证。', url: 'https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Task-Bar' },
     { id: 'E14', name: '结果查看', org: 'WorkBuddy 文档 · 2026-11-24 读取', note: '产物、网页、工作空间文件、变更；不保证纯文字任务必定生成文件。', url: 'https://www.workbuddy.cn/docs/workbuddy/Results' },
-    { id: 'E15', name: '任务管理', org: 'WorkBuddy 文档 · 2026-11-24 读取', note: '查找并继续任务；文档「任务／空间」与截图「最近／分组」分开记录。', url: 'https://www.workbuddy.cn/docs/workbuddy/Task-Management' }
+    { id: 'E15', name: '任务管理', org: 'WorkBuddy 文档 · 2026-11-24 读取', note: '查找并继续任务；文档「任务／空间」与截图「最近／分组」分开记录。', url: 'https://www.workbuddy.cn/docs/workbuddy/Task-Management' },
+    { id: 'E16', name: 'WorkBuddy 10 个上手技巧', org: 'WorkBuddy 官方文档 · 2026-11-25 读取', note: '三要素公式、10 条技巧与推荐上手顺序四步；官方示例已就近标注，说明文字为本场压缩整理，不是效果保证或账号功能承诺。', url: 'https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Efficient-Tips' }
   ];
 
   const $ = (s, r) => (r || document).querySelector(s);
@@ -39,20 +40,28 @@
     ch: s.dataset.ch || '',
     title: s.dataset.title || s.id,
     min: parseInt(s.dataset.min, 10) || 0,
-    src: (s.dataset.src || '').split(',').filter(Boolean)
+    src: (s.dataset.src || '').split(',').filter(Boolean),
+    optional: s.dataset.optional === '1'
   }));
 
-  /* 章节（按出现顺序聚合），时长由逐页分钟求和 */
+  /* 页面编号：主线仍按 P01—P24 连续编号，补充页单独编「补 0X」，插入位置不影响主线页号 */
+  let mainSeq = 0, optSeq = 0;
+  data.forEach(d => { d.num = d.optional ? '补 ' + pad2(++optSeq) : pad2(++mainSeq); });
+  const mainTotal = mainSeq, optTotal = optSeq;
+
+  /* 章节（按出现顺序聚合），时长由逐页分钟求和；补充页 data-min=0，不改变 6 段预算 */
   const chapters = [];
   data.forEach(d => {
     let c = chapters.find(x => x.name === d.ch);
-    if (!c) { c = { name: d.ch, pages: [], min: 0 }; chapters.push(c); }
+    if (!c) { c = { name: d.ch, pages: [], min: 0, main: 0, opt: 0 }; chapters.push(c); }
     c.pages.push(d.index);
     c.min += d.min;
+    if (d.optional) c.opt += 1; else c.main += 1;
   });
   const totalMin = data.reduce((a, d) => a + d.min, 0);
-  if (totalMin !== 70 || total !== 24) {
-    console.warn('[deck] 规格校验：页数/分钟与 SPEC 不符', { total, totalMin, chapters });
+  /* SPEC v1.3：主线 24 页 / 70 分钟不变，补充页可多可少 */
+  if (totalMin !== 70 || mainTotal !== 24 || chapters.length !== 6) {
+    console.warn('[deck] 规格校验：主线页数/分钟/分段与 SPEC 不符', { mainTotal, optTotal, totalMin, chapters });
   }
 
   /* 逐项揭示的错峰参数 + SVG 描线长度 */
@@ -86,14 +95,14 @@
     g.className = 'index-group';
     const label = document.createElement('div');
     label.className = 'ig-label';
-    label.innerHTML = `<span>${c.name}</span><span>${c.min} min · ${c.pages.length} 页</span>`;
+    label.innerHTML = `<span>${c.name}</span><span>${c.min} min · ${c.main} 主线页${c.opt ? ' + ' + c.opt + ' 补充' : ''}</span>`;
     g.appendChild(label);
     c.pages.forEach(i => {
       const d = data[i];
       const b = document.createElement('button');
-      b.className = 'index-item';
+      b.className = 'index-item' + (d.optional ? ' is-optional' : '');
       b.dataset.target = i;
-      b.innerHTML = `<span class="index-item-num">${pad2(i + 1)}</span><span>${d.title}</span><span class="index-item-min">${d.min}′</span>`;
+      b.innerHTML = `<span class="index-item-num">${d.optional ? d.num.replace('补 ', '补') : d.num}</span><span>${d.title}</span><span class="index-item-min">${d.optional ? '可跳过' : d.min + '′'}</span>`;
       b.addEventListener('click', () => { goTo(i); closeDrawers(); });
       g.appendChild(b);
     });
@@ -119,7 +128,9 @@
     seg.style.flex = String(c.min);
     seg.dataset.label = `${c.name} · ${c.min}′`;
     seg.dataset.chapter = i;
-    seg.title = `${c.name} · P${pad2(c.pages[0] + 1)}—P${pad2(c.pages[c.pages.length - 1] + 1)} · ${c.min} 分钟`;
+    const firstMain = c.pages.map(i => data[i]).find(d => !d.optional);
+    const lastMain = c.pages.map(i => data[i]).filter(d => !d.optional).pop();
+    seg.title = `${c.name} · P${firstMain ? firstMain.num : '--'}—P${lastMain ? lastMain.num : '--'} · ${c.min} 分钟${c.opt ? '（另含 ' + c.opt + ' 张补充页）' : ''}`;
     timeline.appendChild(seg);
   });
   const segs = $$('.btm-seg');
@@ -147,11 +158,11 @@
   let current = 0;
   function updateUI() {
     const d = data[current];
-    barPage.textContent = `${pad2(current + 1)} / ${pad2(total)}`;
+    barPage.textContent = d.optional ? `${d.num} · 补充` : `${d.num} / ${pad2(mainTotal)}`;
     btnPrev.disabled = current === 0;
     btnNext.disabled = current === total - 1;
     progressFill.style.width = ((current + 1) / total * 100) + '%';
-    topmarkCh.textContent = d.ch;
+    topmarkCh.textContent = d.optional ? d.ch + ' · 补充页（可跳过）' : d.ch;
     const ci = chapterOf(current);
     segs.forEach((s, i) => {
       s.classList.toggle('visited', i < ci);
@@ -175,8 +186,27 @@
     if (target.id === 'p02') initTallyChart();
     onSlideEnter(target.id);
   }
-  btnPrev.addEventListener('click', () => goTo(current - 1));
-  btnNext.addEventListener('click', () => goTo(current + 1));
+  /* ---------- 补充页跳过机制（SPEC v1.3） ---------- */
+  let skipOptional = false;
+  const skipToggle = $('#skipOptional');
+  if (skipToggle) skipToggle.addEventListener('change', () => {
+    skipOptional = skipToggle.checked;
+    document.body.classList.toggle('skip-optional', skipOptional);
+  });
+  function step(dir) {
+    let i = current + dir;
+    while (i >= 0 && i < total && skipOptional && data[i].optional) i += dir;
+    goTo(i);
+  }
+  function nextMain() {
+    let i = current + 1;
+    while (i < total && data[i].optional) i += 1;
+    return i < total ? i : total - 1;
+  }
+  $$('.opt-skip').forEach(b => b.addEventListener('click', () => goTo(nextMain())));
+
+  btnPrev.addEventListener('click', () => step(-1));
+  btnNext.addEventListener('click', () => step(1));
   btnHome.addEventListener('click', () => goTo(0));
 
   /* 键盘：输入框/可编辑区聚焦时不误翻页 */
@@ -190,8 +220,8 @@
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (typing(e.target)) return;
     const k = e.key;
-    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); goTo(current + 1); }
-    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); goTo(current - 1); }
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); step(1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); step(-1); }
     else if (k === 'Home') { e.preventDefault(); goTo(0); }
     else if (k === 'End') { e.preventDefault(); goTo(total - 1); }
     else if (k === 'Escape') { closeDrawers(); }
@@ -206,15 +236,14 @@
   deck.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - tx;
     const dy = e.changedTouches[0].clientY - ty;
-    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.4) goTo(current + (dx < 0 ? 1 : -1));
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.4) step(dx < 0 ? 1 : -1);
   }, { passive: true });
 
-  /* hash 恢复位置 */
+  /* hash 恢复位置：主线 p01—p24 与补充页 s01—s06 都按 id 精确匹配 */
   const fromHash = () => {
-    const m = /^#p(\d{2})$/.exec(location.hash || '');
-    if (!m) return 0;
-    const i = parseInt(m[1], 10) - 1;
-    return (i >= 0 && i < total) ? i : 0;
+    const id = (location.hash || '').replace(/^#/, '');
+    const i = data.findIndex(d => d.id === id);
+    return i >= 0 ? i : 0;
   };
   window.addEventListener('hashchange', () => { const i = fromHash(); if (i !== current) goTo(i, true); });
 
@@ -449,5 +478,5 @@
   /* ---------- 启动 ---------- */
   initHero();
   goTo(fromHash(), true);
-  console.info('[deck] 就绪：', total, '页 /', totalMin, '分钟 /', chapters.length, '段；离线依赖已本地化。');
+  console.info('[deck] 就绪：主线', mainTotal, '页 + 补充', optTotal, '页（共', total, '页）/', totalMin, '分钟 /', chapters.length, '段；离线依赖已本地化。');
 })();

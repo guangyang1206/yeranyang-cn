@@ -253,8 +253,9 @@
         labels: tallyLabels,
         datasets: [{
           label: '举手人数', data: tallyCounts.slice(),
-          backgroundColor: ['rgba(20,110,245,.85)', 'rgba(20,110,245,.55)', 'rgba(20,110,245,.3)'],
-          borderColor: '#146ef5', borderWidth: 1, borderRadius: 4, barThickness: 22
+          /* 与 P02 三个按钮的 tone 对应：蓝 / 青 / 紫；数据仍从 0 开始 */
+          backgroundColor: ['rgba(20,110,245,.82)', 'rgba(15,139,135,.78)', 'rgba(116,85,199,.78)'],
+          borderColor: ['#146ef5', '#0f8b87', '#7455c7'], borderWidth: 1, borderRadius: 4, barThickness: 22
         }]
       },
       options: {
@@ -296,7 +297,11 @@
         labels: chapters.map(c => c.name),
         datasets: [{
           label: '分钟', data: chapters.map(c => c.min),
-          backgroundColor: chapters.map((c, i) => i === 3 ? '#146ef5' : 'rgba(20,110,245,.28)'),
+          /* 六段真实分钟数不变；颜色按语义色板循环，现场协作段用主蓝强调 */
+          backgroundColor: chapters.map((c, i) => i === 3 ? '#146ef5' : [
+            'rgba(20,110,245,.30)', 'rgba(15,139,135,.32)', 'rgba(169,119,15,.32)',
+            '#146ef5', 'rgba(116,85,199,.32)', 'rgba(47,139,87,.32)'
+          ][i] || 'rgba(20,110,245,.30)'),
           borderRadius: 3, barThickness: 14
         }]
       },
@@ -382,15 +387,22 @@
       new THREE.PointsMaterial({ color: blue, size: 0.062, transparent: true, opacity: 0.82, sizeAttenuation: true }));
     group.add(cloud);
 
-    /* 少量更亮节点，给线框一个视觉重心 */
-    const accentPts = [];
+    /* 少量更亮节点：主体仍是主蓝，个别点缀扩展色板，呼应正文语义色 */
+    const accentPts = [], accentCols = [];
+    const accentPalette = [0x146ef5, 0x146ef5, 0x146ef5, 0x0f8b87, 0xa9770f, 0x7455c7];
+    let k = 0;
     for (let i = 0; i < pos.length; i += 3) {
-      if ((i / 3) % 11 === 0) accentPts.push(pos[i], pos[i + 1], pos[i + 2]);
+      if ((i / 3) % 11 === 0) {
+        accentPts.push(pos[i], pos[i + 1], pos[i + 2]);
+        const c = new THREE.Color(accentPalette[k % accentPalette.length]); k++;
+        accentCols.push(c.r, c.g, c.b);
+      }
     }
     const accents = new THREE.BufferGeometry();
     accents.setAttribute('position', new THREE.Float32BufferAttribute(accentPts, 3));
+    accents.setAttribute('color', new THREE.Float32BufferAttribute(accentCols, 3));
     group.add(new THREE.Points(accents,
-      new THREE.PointsMaterial({ color: blue, size: 0.15, transparent: true, opacity: 0.95, sizeAttenuation: true })));
+      new THREE.PointsMaterial({ vertexColors: true, size: 0.15, transparent: true, opacity: 0.95, sizeAttenuation: true })));
 
     let active = true, raf = 0, px = 0, py = 0, cx = 0, cy = 0;
     function resize() {

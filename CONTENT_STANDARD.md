@@ -4,7 +4,7 @@
 > 人机都能读：人类可据此理解品牌标准，智能体可据此直接执行并产出符合规范的内容。
 > 所有历史散落在 `MEMORY.md`、`BRAND_GUIDELINES.md` 中的规范，均以本文件为准。
 
-**适用对象**：公众号文章、个人网站全文、贴图/海报、小红书/朋友圈分享图。
+**适用对象**：公众号文章、个人网站全文、文学创作 Markdown 母稿与阅读页面、贴图/海报、小红书/朋友圈分享图。
 **维护原则**：规范变更必须更新本文件，并在同一 commit 内同步引用它的文档（见 §0）。
 
 ---
@@ -37,7 +37,8 @@
 |---|---|
 | 新增文章 | 文章目录（`README.md` + 四类文件）→ `articles/ai/README.md` 表格 → `articles/ai/articles.json` → `articles/ai/index.html` → 根 `README.md` 文章表 |
 | 文章发布（状态变更） | 文章目录 `README.md` 状态 → `articles/ai/README.md` → `articles/ai/articles.json` → 根 `README.md` |
-| `share/` 站点增删 | `share/README.md` 子目录表 → 根 `README.md` share 表 + 目录树 |
+| `share/` 站点增删 | `shares.json` → `index.html` 离线快照 → `share/README.md` 子目录表 → 根 `README.md` share 表 + 目录树 |
+| 文学作品新增或结构调整 | `literature/` Markdown 母稿 → `literature/catalog.json` → `share/literature/` 阅读验证 → 根 `README.md` 与 `share/README.md` |
 | 目录结构调整 | 根 `README.md` 目录树 → `share/README.md` 职责表 → 本文件 + `MEMORY.md` 所有路径引用 → `articles/ai/README.md` |
 | 规范变更 | 本文件 → `MEMORY.md` → 根 `README.md` 对应章节交叉引用 |
 
@@ -199,6 +200,32 @@ articles/ai/YYYY-MM-DD_slug/
 
 > `cover-assets.html` 与 `article-illustrations.html` 为辅助素材（见 §8）；`README.md` 为选题与状态唯一权威来源。
 
+### 3.3 文学创作文件结构
+
+文学创作与 AI 文章分开管理，默认以 Markdown 为可编辑母稿：
+
+```text
+literature/
+├── CREATIVE_CHARTER.md
+├── catalog.json
+└── works/
+    ├── short/
+    ├── novella/
+    └── novel/
+        └── YYYY-MM-DD_slug/
+            ├── README.md
+            ├── 01-concept-and-synopsis.md
+            ├── 02-characters.md
+            ├── 03-outline.md
+            └── 04-draft.md
+```
+
+- 创作正文、人物档案、情节与修订说明默认使用 Markdown。
+- `catalog.json` 仅承载公开阅读所需的技术元数据，不写正文。
+- `share/literature/` 是展示层；不得在 HTML 中维护与 Markdown 分叉的正文副本。
+- 需要专属视觉叙事时可以生成独立 HTML，但必须保留对应 Markdown 母稿并说明生成关系。
+- 未核实的现实细节先记入待调查项，不直接进入正文。
+
 ---
 
 ## §4 公众号版规范
@@ -271,6 +298,16 @@ grep -n '<meta name="viewport"' articles/ai/*/article-wechat.html  # 只有 widt
 ### 5.3 配色基调
 
 深色科技风（详见 §7 色板），正文 `#e8e8e8`，辅助 `#888888`，标题 `#ffffff`。
+
+### 5.4 文学阅读页面
+
+文学阅读与科技文章采用不同的视觉语法：
+
+- 默认使用浅色、温暖、接近纸张的阅读主题，同时提供暗色模式。
+- 中文正文优先使用衬线字体，控制栏使用无衬线字体；正文宽度以长时间阅读舒适为准。
+- 阅读页面由受控目录中的 Markdown 动态转换，不接受任意外部路径。
+- 应提供移动端适配、阅读进度、目录、阅读时长与字号调节；动效克制，并尊重 `prefers-reduced-motion`。
+- 阅读体验不能改写作品内容。Markdown 母稿始终是正文真相源。
 
 ---
 
@@ -606,8 +643,10 @@ docs: 更新 README 文章状态（✅ 已完成）
 - [ ] **自述性数字**：无「读者数/粉丝数/阅读量/好评度」等不可核实声明（对照 §2.5，作者要求长期保持）
 
 **文件结构阶段**：
-- [ ] 四类文件齐全：`article-wechat.html` / `article-full.html` / `poster.html` / `review-log.md`
-- [ ] 状态在 `README.md` 中正确标注
+- [ ] AI 文章四类文件齐全：`article-wechat.html` / `article-full.html` / `poster.html` / `review-log.md`
+- [ ] 文学创作正文与档案以 Markdown 为母稿，HTML 只作阅读展示
+- [ ] 新增公开文学文档已登记 `literature/catalog.json`，阅读器不能加载未登记路径
+- [ ] 状态在对应作品 `README.md` 中正确标注
 
 **公众号版阶段**：
 - [ ] 每块独立 `<section>`，白/灰交替背景

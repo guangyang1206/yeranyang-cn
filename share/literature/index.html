@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="在烨然漫笔读小说，再走进故事背后的构思、人物与修订记录。">
+<title>文学与创作 · 烨然漫笔</title>
+<link rel="icon" href="data:,">
+<script>
+  try {
+    const savedTheme = localStorage.getItem('literature-theme');
+    document.documentElement.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
+  } catch (error) {}
+</script>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<noscript><style>#theme-toggle, #catalog-status { display: none; }</style></noscript>
+</head>
+<body>
+<a class="skip-link" href="#works">跳到作品</a>
+<header class="site-bar">
+  <a class="site-brand" href="../../">烨然漫笔</a>
+  <nav class="site-nav" aria-label="页面导航">
+    <a href="#works">作品</a>
+    <a href="../../literature/README.md" target="_blank" rel="noopener">Markdown</a>
+    <button class="text-button" id="theme-toggle" type="button" aria-label="当前浅色，切换为深色" aria-pressed="false">浅色</button>
+  </nav>
+</header>
+
+<main class="library-shell">
+  <section class="library-hero">
+    <div>
+      <div class="eyebrow">LITERATURE AND CREATION</div>
+      <h1>文学与创作</h1>
+      <p class="hero-quote">让人物自己活起来，让思想从命运中生长出来。</p>
+    </div>
+    <div class="hero-note">
+      <strong>先读作品，再看写作过程</strong>
+      从一个故事开始。读完之后，如果还想走近其中的人与事，这里也留下了构思、犹疑与修订的记录。
+    </div>
+  </section>
+
+  <noscript>
+    <p class="reader-error">作品目录需要启用 JavaScript。你也可以直接打开<a href="../../literature/README.md">文学目录原文</a>，或阅读<a href="../../literature/CREATIVE_CHARTER.md">创作总纲</a>。</p>
+  </noscript>
+  <p class="load-state" id="catalog-status" role="status" aria-live="polite">正在打开作品目录。</p>
+
+  <section class="library-section" id="works" tabindex="-1">
+    <div class="section-head">
+      <h2>从这里读起</h2>
+      <span id="featured-count"></span>
+    </div>
+    <div class="featured-grid" id="featured-grid" aria-busy="true"></div>
+  </section>
+
+  <section class="library-section" id="archives">
+    <div class="section-head">
+      <h2>故事背后的写作</h2>
+      <span id="archive-count"></span>
+    </div>
+    <div class="archive-list" id="archive-list" aria-busy="true"></div>
+  </section>
+
+  <section class="principle-block">
+    <h2>我们相信</h2>
+    <p>把人当人，把属人的真正属于人；尊重每一个生命，弘扬最朴素的真、善、美。作品可以抵达复杂的地方，但它出发的理由应当简单。</p>
+  </section>
+</main>
+
+<footer class="library-footer">
+  <span id="updated-at">烨然漫笔 · 文学与创作</span>
+</footer>
+
+<script src="library.js"></script>
+</body>
+</html>

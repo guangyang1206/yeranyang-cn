@@ -85,6 +85,24 @@
           "glyph": "○"
         }
       ]
+    },
+    {
+      "id": "literature",
+      "label": "文学与创作",
+      "desc": "从构思、人物到正文，保留作品生长的过程",
+      "items": [
+        {
+          "slug": "literature",
+          "title": "文学与创作",
+          "desc": "以 Markdown 保存创作母稿，以专注、舒展的网页呈现文字与修订。",
+          "url": "share/literature/",
+          "date": "2026-10",
+          "note": "持续更新",
+          "format": "Markdown 阅读空间",
+          "accent": "rose",
+          "glyph": "◇"
+        }
+      ]
     }
   ]
 }

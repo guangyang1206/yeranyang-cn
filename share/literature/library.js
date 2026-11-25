@@ -1,13 +1,13 @@
 const fallbackCatalog = {
-  updatedAt: '2026-11-23',
+  updatedAt: '2026-11-25',
   items: [
     {
       id: 'huanqiu-hotel-draft',
       title: '环球饭店',
       subtitle: '告别结束以后，人们还在门口站了一会儿。',
       kind: '短篇小说',
-      status: '定稿',
-      date: '2026-11-23',
+      status: '定稿·局部修订',
+      date: '2026-11-25',
       featured: true,
       order: 0
     },
@@ -67,7 +67,7 @@ const fallbackCatalog = {
       subtitle: '建议先读小说：未采用的情节、人物的余地与尚待核实的现实细节',
       kind: '创作侧记',
       status: '修订记录',
-      date: '2026-11-23',
+      date: '2026-11-25',
       featured: false,
       order: 6
     }

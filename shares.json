@@ -1,12 +1,22 @@
 {
   "_comment": "首页「分享」板块的唯一数据源。新增分享时：① 在 share/<slug>/ 放好页面 ② 在这里登记一条 ③ 在 share/README.md 表格补一行。accent 取值：green / blue / purple / amber / rose。glyph 为缩略图上的几何符号，用简洁符号，不用 emoji 面孔。",
-  "updatedAt": "2026-09-18",
+  "updatedAt": "2026-11-25",
   "groups": [
     {
       "id": "talk",
       "label": "演讲与分享",
       "desc": "面向现场观众的 slides，可扫码自取",
       "items": [
+        {
+          "slug": "ai-collab-union",
+          "title": "AI时代下的人机协同",
+          "desc": "用 WorkBuddy 上手：说清需求、核对结果、沉淀做法。面向普通职工的 24 页讲座，含 45 分钟互动。",
+          "url": "share/ai-collab-union/",
+          "date": "2026-11",
+          "format": "Web slides · 24 页",
+          "accent": "blue",
+          "glyph": "▣"
+        },
         {
           "slug": "xauat-2026",
           "title": "当人工智能开始涌现，人往何处",

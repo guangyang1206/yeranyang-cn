@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="在烨然漫笔安静读一篇小说，或翻阅故事背后的创作记录。">
+<title>阅读 · 文学与创作</title>
+<link rel="icon" href="data:,">
+<script>
+  try {
+    const savedTheme = localStorage.getItem('literature-theme');
+    document.documentElement.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
+    const savedSize = Number.parseInt(localStorage.getItem('literature-font-size'), 10);
+    if (Number.isFinite(savedSize)) {
+      document.documentElement.style.setProperty('--reading-size', Math.max(17, Math.min(26, savedSize)) + 'px');
+    }
+    const savedFamily = localStorage.getItem('literature-font-family');
+    document.documentElement.dataset.readingFont = savedFamily === 'sans' ? 'sans' : 'serif';
+  } catch (error) {}
+</script>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<noscript><style>.reader-tools, #reader-current, #article-masthead, #reader-status { display: none; }</style></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+<script defer src="reader.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#markdown-body">跳到正文</a>
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+<header class="reader-bar">
+  <a class="reader-back" href="index.html">← 返回文学与创作</a>
+  <div class="reader-current" id="reader-current">正在载入</div>
+  <div class="reader-tools" role="group" aria-label="阅读设置">
+    <label class="sr-only" for="font-family">正文字体</label>
+    <select class="font-select" id="font-family">
+      <option value="serif">宋体</option>
+      <option value="sans">黑体</option>
+    </select>
+    <div class="font-size-tools" role="group" aria-label="字号，17 至 26 像素">
+      <button class="tool-button" id="font-smaller" type="button" aria-label="减小字号" aria-controls="markdown-body">A−</button>
+      <output id="font-size" role="status" aria-live="polite" aria-atomic="true">20 px</output>
+      <button class="tool-button" id="font-larger" type="button" aria-label="增大字号" aria-controls="markdown-body">A+</button>
+    </div>
+    <button class="tool-button theme-button" id="theme-toggle" type="button" aria-label="当前浅色，切换为深色" aria-pressed="false">浅色</button>
+  </div>
+  <a class="source-link" id="source-link" target="_blank" rel="noopener" hidden>查看 Markdown</a>
+</header>
+
+<main class="reader-layout no-toc">
+  <aside class="toc" aria-label="文章目录" hidden>
+    <details id="toc-disclosure">
+      <summary>文章目录</summary>
+      <div class="toc-label" aria-hidden="true">目录</div>
+      <nav id="toc-list" aria-label="文章章节"></nav>
+    </details>
+  </aside>
+
+  <article class="reader-article">
+    <header class="article-masthead" id="article-masthead">
+      <div class="article-label" id="article-label">文学与创作</div>
+      <h1 id="article-title">正在打开文字</h1>
+      <div class="article-subtitle" id="article-subtitle" hidden></div>
+      <div class="article-info" id="article-info"></div>
+    </header>
+
+    <p class="load-state" id="reader-status" role="status" aria-live="polite">正在打开正文。</p>
+    <noscript>
+      <p class="reader-error">阅读页面需要启用 JavaScript。你可以前往<a href="../../literature/README.md">文学目录原文</a>选择作品，或<a href="index.html">返回文学与创作</a>。</p>
+    </noscript>
+    <div class="markdown-body" id="markdown-body" aria-busy="true" tabindex="-1"></div>
+
+    <section class="reader-end" id="reader-end" hidden>
+      <h2>继续走近这个故事</h2>
+      <div class="related-list" id="related-list"></div>
+    </section>
+  </article>
+</main>
+</body>
+</html>

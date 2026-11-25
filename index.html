@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>烨然漫笔 · 为理想主义者鼓与呼</title>
-<meta name="description" content="积累知识，感受生活，传递信息，共鸣时代。AI 与技术解读、劳动与人的处境、公开分享 slides，全部在这里。">
+<meta name="description" content="积累知识，感受生活，传递信息，共鸣时代。AI 与技术解读、劳动与人的处境、文学与创作、公开分享，全部在这里。">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; scroll-padding-top: 76px; }
@@ -365,7 +365,7 @@
     <h2>🎤 公开分享</h2>
     <span class="count" id="share-count"></span>
   </div>
-  <p class="section-lead">讲座、科普、产品、读谱材料——讲给具体的人听的内容。每一个都是独立页面，可扫码自取。</p>
+  <p class="section-lead">讲座、科普、产品、读谱材料与文学创作——讲给具体的人听，也为愿意慢慢阅读的人保留空间。</p>
 
   <div id="share-groups"></div>
   <div class="load-error" id="share-error">分享数据加载失败，请刷新页面重试。</div>
@@ -377,7 +377,7 @@
     <div class="about-text">
       <h3>关于「烨然漫笔」</h3>
       <p>
-        由 <strong>艾AI</strong> 主理。写 AI 与技术解读，也写劳动、教育与人的处境；做面向现场观众的分享 slides，也做读谱这样的生活材料。
+        由 <strong>艾AI</strong> 主理。写 AI 与技术解读，也写劳动、教育、文学与人的处境；做面向现场观众的分享 slides，也记录作品从构思到成稿的过程。
         积累知识，感受生活，传递信息，共鸣时代——<strong>为理想主义者鼓与呼</strong>。
       </p>
       <div class="about-links">
@@ -1009,86 +1009,114 @@
         }
       ],
       "shares": {
-  "_comment": "首页「分享」板块的唯一数据源。新增分享时：① 在 share/<slug>/ 放好页面 ② 在这里登记一条 ③ 在 share/README.md 表格补一行。accent 取值：green / blue / purple / amber / rose。glyph 为缩略图上的几何符号，用简洁符号，不用 emoji 面孔。",
-  "updatedAt": "2026-09-18",
-  "groups": [
-    {
-      "id": "talk",
-      "label": "演讲与分享",
-      "desc": "面向现场观众的 slides，可扫码自取",
-      "items": [
-        {
-          "slug": "xauat-2026",
-          "title": "当人工智能开始涌现，人往何处",
-          "desc": "西安建筑科技大学校友分享。从大模型到 Agent，一个工科毕业生的观察与再思考。",
-          "url": "share/xauat-2026/",
-          "date": "2026-07",
-          "format": "Web slides",
-          "accent": "green",
-          "glyph": "◇"
-        }
-      ]
-    },
-    {
-      "id": "primer",
-      "label": "科普与产品",
-      "desc": "讲给非技术听众听的入门内容",
-      "items": [
-        {
-          "slug": "ai-enlightenment",
-          "title": "AI 启蒙：从零理解 AI",
-          "desc": "面向非技术观众的科普 slides，中英双语，不预设任何技术背景。",
-          "url": "share/ai-enlightenment/",
-          "date": "2025",
-          "note": "2026-08 更新",
-          "format": "Web slides · 双语",
-          "accent": "blue",
-          "glyph": "◈"
-        },
-        {
-          "slug": "workbuddy-intro",
-          "title": "WorkBuddy：你的 AI 专家团",
-          "desc": "12 页中文产品 slides，讲清它是什么、能做什么、适合谁。",
-          "url": "share/workbuddy-intro/",
-          "date": "2026-08",
-          "format": "Web slides",
-          "accent": "purple",
-          "glyph": "◆"
-        }
-      ]
-    },
-    {
-      "id": "music",
-      "label": "音乐与生活",
-      "desc": "给企鹅合唱团团员写的读谱材料",
-      "items": [
-        {
-          "slug": "ylgl",
-          "title": "《韵乐共流》五线谱通俗导读",
-          "desc": "给零基础团员的完整版导读，从五线谱怎么看到简谱怎么对。",
-          "url": "share/ylgl/",
-          "date": "2026-08",
-          "note": "既有内容迁入",
-          "format": "导读页",
-          "accent": "amber",
-          "glyph": "◎"
-        },
-        {
-          "slug": "ylgl-brief",
-          "title": "《韵乐共流》读谱要点速览",
-          "desc": "同一份导读的精简版，一页看完排练前必须记住的要点。",
-          "url": "share/ylgl-brief/",
-          "date": "2026-08",
-          "note": "既有内容迁入",
-          "format": "速览页",
-          "accent": "rose",
-          "glyph": "○"
-        }
-      ]
-    }
-  ]
-}
-     };
+        "_comment": "首页「分享」板块的唯一数据源。新增分享时：① 在 share/<slug>/ 放好页面 ② 在这里登记一条 ③ 在 share/README.md 表格补一行。accent 取值：green / blue / purple / amber / rose。glyph 为缩略图上的几何符号，用简洁符号，不用 emoji 面孔。",
+        "updatedAt": "2026-11-25",
+        "groups": [
+          {
+            "id": "talk",
+            "label": "演讲与分享",
+            "desc": "面向现场观众的 slides，可扫码自取",
+            "items": [
+              {
+                "slug": "ai-collab-union",
+                "title": "AI时代下的人机协同",
+                "desc": "用 WorkBuddy 上手：说清需求、核对结果、沉淀做法。面向普通职工的讲座：24 页主线 + 6 页可跳过的官方技巧补充，含 45 分钟互动。",
+                "url": "share/ai-collab-union/",
+                "date": "2026-11",
+                "format": "Web slides · 24+6 页",
+                "accent": "blue",
+                "glyph": "▣"
+              },
+              {
+                "slug": "xauat-2026",
+                "title": "当人工智能开始涌现，人往何处",
+                "desc": "西安建筑科技大学校友分享。从大模型到 Agent，一个工科毕业生的观察与再思考。",
+                "url": "share/xauat-2026/",
+                "date": "2026-07",
+                "format": "Web slides",
+                "accent": "green",
+                "glyph": "◇"
+              }
+            ]
+          },
+          {
+            "id": "primer",
+            "label": "科普与产品",
+            "desc": "讲给非技术听众听的入门内容",
+            "items": [
+              {
+                "slug": "ai-enlightenment",
+                "title": "AI 启蒙：从零理解 AI",
+                "desc": "面向非技术观众的科普 slides，中英双语，不预设任何技术背景。",
+                "url": "share/ai-enlightenment/",
+                "date": "2025",
+                "note": "2026-08 更新",
+                "format": "Web slides · 双语",
+                "accent": "blue",
+                "glyph": "◈"
+              },
+              {
+                "slug": "workbuddy-intro",
+                "title": "WorkBuddy：你的 AI 专家团",
+                "desc": "12 页中文产品 slides，讲清它是什么、能做什么、适合谁。",
+                "url": "share/workbuddy-intro/",
+                "date": "2026-08",
+                "format": "Web slides",
+                "accent": "purple",
+                "glyph": "◆"
+              }
+            ]
+          },
+          {
+            "id": "music",
+            "label": "音乐与生活",
+            "desc": "给企鹅合唱团团员写的读谱材料",
+            "items": [
+              {
+                "slug": "ylgl",
+                "title": "《韵乐共流》五线谱通俗导读",
+                "desc": "给零基础团员的完整版导读，从五线谱怎么看到简谱怎么对。",
+                "url": "share/ylgl/",
+                "date": "2026-08",
+                "note": "既有内容迁入",
+                "format": "导读页",
+                "accent": "amber",
+                "glyph": "◎"
+              },
+              {
+                "slug": "ylgl-brief",
+                "title": "《韵乐共流》读谱要点速览",
+                "desc": "同一份导读的精简版，一页看完排练前必须记住的要点。",
+                "url": "share/ylgl-brief/",
+                "date": "2026-08",
+                "note": "既有内容迁入",
+                "format": "速览页",
+                "accent": "rose",
+                "glyph": "○"
+              }
+            ]
+          },
+          {
+            "id": "literature",
+            "label": "文学与创作",
+            "desc": "从构思、人物到正文，保留作品生长的过程",
+            "items": [
+              {
+                "slug": "literature",
+                "title": "文学与创作",
+                "desc": "以 Markdown 保存创作母稿，以专注、舒展的网页呈现文字与修订。",
+                "url": "share/literature/",
+                "date": "2026-10",
+                "note": "持续更新",
+                "format": "Markdown 阅读空间",
+                "accent": "rose",
+                "glyph": "◇"
+              }
+            ]
+          }
+        ]
+      }
+    };
 
   function escapeHtml(str) {
     const div = document.createElement('div');

@@ -701,6 +701,10 @@ pre{font-family:var(--mono);font-size:clamp(11px,.95vw,14px);line-height:1.75;wh
   #p05 .card h3{font-size:17px;margin-bottom:5px}
   #p05 .card p{font-size:13px;line-height:1.55}
   #p05 .callout{margin-top:12px;padding:10px 14px}
+
+  /* P12 融入旧稿提示词模板说明后，矮屏再收约 12px */
+  #p12 .callout{margin-top:10px;padding:9px 14px;font-size:13px;line-height:1.55}
+  #p12 .tip-line{margin-top:10px}
 }
 
 @media (max-width:1180px){

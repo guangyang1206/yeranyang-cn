@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  /* ---------- 公开来源清单（与 SPEC E01—E16 一致） ---------- */
+  /* ---------- 公开来源清单（与 SPEC E01—E26 一致） ---------- */
   const SOURCES = [
     { id: 'E01', name: 'Why language models hallucinate', org: 'OpenAI · 2025-09-05', note: '生成貌似可信但不真实的陈述；训练与评估奖励猜测是提出的机制。', url: 'https://openai.com/index/why-language-models-hallucinate/' },
     { id: 'E02', name: 'Training language models to follow instructions with human feedback', org: 'Ouyang et al. · 2022', note: '预训练基础上的示范与偏好反馈，帮助模型遵循指令。', url: 'https://arxiv.org/abs/2203.02155' },
@@ -23,7 +23,17 @@
     { id: 'E13', name: '新建任务栏', org: 'WorkBuddy 功能说明 · 2026-11-24 读取', note: '工作模式、材料输入、模型入口、工作空间、权限；文档说明不等于已点击验证。', url: 'https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Task-Bar' },
     { id: 'E14', name: '结果查看', org: 'WorkBuddy 文档 · 2026-11-24 读取', note: '产物、网页、工作空间文件、变更；不保证纯文字任务必定生成文件。', url: 'https://www.workbuddy.cn/docs/workbuddy/Results' },
     { id: 'E15', name: '任务管理', org: 'WorkBuddy 文档 · 2026-11-24 读取', note: '查找并继续任务；文档「任务／空间」与截图「最近／分组」分开记录。', url: 'https://www.workbuddy.cn/docs/workbuddy/Task-Management' },
-    { id: 'E16', name: 'WorkBuddy 10 个上手技巧', org: 'WorkBuddy 官方文档 · 2026-11-25 读取', note: '三要素公式、10 条技巧与推荐上手顺序四步；官方示例已就近标注，说明文字为本场压缩整理，不是效果保证或账号功能承诺。', url: 'https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Efficient-Tips' }
+    { id: 'E16', name: 'WorkBuddy 10 个上手技巧', org: 'WorkBuddy 官方文档 · 2026-11-25 读取', note: '三要素公式、10 条技巧与推荐上手顺序四步；官方示例已就近标注，说明文字为本场压缩整理，不是效果保证或账号功能承诺。', url: 'https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Efficient-Tips' },
+    { id: 'E17', name: '当人工智能开始涌现，人往何处——从大模型到 Agent（本站旧分享，页面简称《从大模型到 Agent》）', org: '杨光 · yeranyang.cn · 已审核自有内容', note: '第 4—7 页原页搬入：三波浪潮（P04）、大模型本质与「猜词」（P05）、智能三次跃迁（扩展）、感知—行动闭环（P07）。仅做最小必要修订，见 SPEC §6.6。', url: 'https://yeranyang.cn/share/xauat-2026/' },
+    { id: 'E18', name: 'WorkBuddy 简介（本站旧分享，2026 年 9 月版）', org: '杨光 · yeranyang.cn · 已审核自有内容', note: '第 02—19 页原页搬入扩展页；产品数字（140+ 专家、4.6 万+ Skill、5.5.x 版本等）是当时快照，以客户端与官网当前页面为准。', url: 'https://yeranyang.cn/share/workbuddy-intro/' },
+    { id: 'E19', name: 'NVIDIA H100 Tensor Core GPU 规格', org: 'NVIDIA 官网 · 2026-11-26 读取', note: 'H100 SXM：FP8 Tensor Core 3,958 TFLOPS（标注 With sparsity），据此把原页「稀疏 2 PFLOPS」改为「约 4 PFLOPS（含稀疏）」。', url: 'https://www.nvidia.com/en-us/data-center/h100/' },
+    { id: 'E20', name: 'GPT-4 Technical Report', org: 'OpenAI · arXiv:2303.08774 · 2023', note: 'MMLU 86.4%（5-shot）。', url: 'https://arxiv.org/abs/2303.08774' },
+    { id: 'E21', name: 'ImageNet Classification with Deep Convolutional Neural Networks', org: 'Krizhevsky, Sutskever, Hinton · NeurIPS 2012', note: 'ILSVRC-2012 Top-5 测试错误率 15.3%。', url: 'https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks' },
+    { id: 'E22', name: '模型配置说明', org: 'WorkBuddy 功能说明', note: '套餐模型、第三方模型与本地模型；积分与额度以账号页面为准。', url: 'https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Model' },
+    { id: 'E23', name: 'SkillHub 技能市场', org: '腾讯 SkillHub 官网', note: '「4.6 万+ 已审核发布、100% 强制安全准入」为 2026 年 9 月访问时的页面口径。', url: 'https://skillhub.tencent.com/' },
+    { id: 'E24', name: 'WorkBuddy 专家团官方发布', org: '腾讯云开发者社区 · 2026 年 3 月', note: '「140+ 专家」及分类数为发布时口径。', url: 'https://cloud.tencent.com/developer/article/2640403' },
+    { id: 'E25', name: 'WorkBuddy 企业版发布！连接超级个体，打造超级团队', org: '腾讯新闻 · 2026-06-12', note: '助理渠道与「项目」团队协作；开放范围以账号与版本为准。', url: 'https://new.qq.com/rain/a/20260612A00X7J00' },
+    { id: 'E26', name: 'AI Today and Vision of the Future（Jensen Huang × Ilya Sutskever）', org: 'NVIDIA GTC 2023 · 会议回放', note: 'P05 右侧为观点大意转述，非逐字引语；原音尚未逐字听校，不作直接引语使用。', url: 'https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s52092/' }
   ];
 
   const $ = (s, r) => (r || document).querySelector(s);
@@ -44,12 +54,15 @@
     optional: s.dataset.optional === '1'
   }));
 
-  /* 页面编号：主线仍按 P01—P24 连续编号，补充页单独编「补 0X」，插入位置不影响主线页号 */
+  /* 页面编号：主线仍按 P01—P24 连续编号，扩展页单独编「扩 0X」，插入位置不影响主线页号 */
   let mainSeq = 0, optSeq = 0;
-  data.forEach(d => { d.num = d.optional ? '补 ' + pad2(++optSeq) : pad2(++mainSeq); });
+  data.forEach(d => { d.num = d.optional ? '扩 ' + pad2(++optSeq) : pad2(++mainSeq); });
   const mainTotal = mainSeq, optTotal = optSeq;
+  /* 页眉编号统一由此写入（本 deck 页 .e-num / 沿用原页 .lg-num），增删扩展页不必手改 */
+  data.forEach(d => { const n = d.el.querySelector('.e-num, .lg-num'); if (n) n.textContent = d.num; });
+  { const oc = $('#optCount'); if (oc) oc.textContent = optTotal; }
 
-  /* 章节（按出现顺序聚合），时长由逐页分钟求和；补充页 data-min=0，不改变 6 段预算 */
+  /* 章节（按出现顺序聚合），时长由逐页分钟求和；扩展页 data-min=0，不改变 6 段预算 */
   const chapters = [];
   data.forEach(d => {
     let c = chapters.find(x => x.name === d.ch);
@@ -95,14 +108,14 @@
     g.className = 'index-group';
     const label = document.createElement('div');
     label.className = 'ig-label';
-    label.innerHTML = `<span>${c.name}</span><span>${c.min} min · ${c.main} 主线页${c.opt ? ' + ' + c.opt + ' 补充' : ''}</span>`;
+    label.innerHTML = `<span>${c.name}</span><span>${c.min} min · ${c.main} 主线页${c.opt ? ' + ' + c.opt + ' 扩展' : ''}</span>`;
     g.appendChild(label);
     c.pages.forEach(i => {
       const d = data[i];
       const b = document.createElement('button');
       b.className = 'index-item' + (d.optional ? ' is-optional' : '');
       b.dataset.target = i;
-      b.innerHTML = `<span class="index-item-num">${d.optional ? d.num.replace('补 ', '补') : d.num}</span><span>${d.title}</span><span class="index-item-min">${d.optional ? '可跳过' : d.min + '′'}</span>`;
+      b.innerHTML = `<span class="index-item-num">${d.optional ? d.num.replace('扩 ', '扩') : d.num}</span><span>${d.title}</span><span class="index-item-min">${d.optional ? '可跳过' : d.min + '′'}</span>`;
       b.addEventListener('click', () => { goTo(i); closeDrawers(); });
       g.appendChild(b);
     });
@@ -130,7 +143,7 @@
     seg.dataset.chapter = i;
     const firstMain = c.pages.map(i => data[i]).find(d => !d.optional);
     const lastMain = c.pages.map(i => data[i]).filter(d => !d.optional).pop();
-    seg.title = `${c.name} · P${firstMain ? firstMain.num : '--'}—P${lastMain ? lastMain.num : '--'} · ${c.min} 分钟${c.opt ? '（另含 ' + c.opt + ' 张补充页）' : ''}`;
+    seg.title = `${c.name} · P${firstMain ? firstMain.num : '--'}—P${lastMain ? lastMain.num : '--'} · ${c.min} 分钟${c.opt ? '（另含 ' + c.opt + ' 张扩展页）' : ''}`;
     timeline.appendChild(seg);
   });
   const segs = $$('.btm-seg');
@@ -158,11 +171,11 @@
   let current = 0;
   function updateUI() {
     const d = data[current];
-    barPage.textContent = d.optional ? `${d.num} · 补充` : `${d.num} / ${pad2(mainTotal)}`;
+    barPage.textContent = d.optional ? `${d.num} · 扩展` : `${d.num} / ${pad2(mainTotal)}`;
     btnPrev.disabled = current === 0;
     btnNext.disabled = current === total - 1;
     progressFill.style.width = ((current + 1) / total * 100) + '%';
-    topmarkCh.textContent = d.optional ? d.ch + ' · 补充页（可跳过）' : d.ch;
+    topmarkCh.textContent = d.optional ? d.ch + (d.el.classList.contains('lg') ? ' · 扩展页 · 沿用本站原页' : ' · 扩展页（可跳过）') : d.ch;
     const ci = chapterOf(current);
     segs.forEach((s, i) => {
       s.classList.toggle('visited', i < ci);
@@ -186,7 +199,7 @@
     if (target.id === 'p02') initTallyChart();
     onSlideEnter(target.id);
   }
-  /* ---------- 补充页跳过机制（SPEC v1.3） ---------- */
+  /* ---------- 扩展页跳过机制（SPEC v1.3 起；v1.4 扩至 25 张） ---------- */
   let skipOptional = false;
   const skipToggle = $('#skipOptional');
   if (skipToggle) skipToggle.addEventListener('change', () => {
@@ -239,7 +252,7 @@
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.4) step(dx < 0 ? 1 : -1);
   }, { passive: true });
 
-  /* hash 恢复位置：主线 p01—p24 与补充页 s01—s06 都按 id 精确匹配 */
+  /* hash 恢复位置：主线 p01—p24 与扩展页（s0X / g05 / x06 / w0X）都按 id 精确匹配 */
   const fromHash = () => {
     const id = (location.hash || '').replace(/^#/, '');
     const i = data.findIndex(d => d.id === id);
@@ -475,8 +488,45 @@
     };
   }
 
+  /* ---------- 沿用原页：按可用区域自适应缩放（SPEC v1.4） ----------
+     原页按 1100—1200px 版心设计、字号固定。这里先以原设计宽度排版测出自然高度，
+     再用 CSS zoom 放大/缩小到当前视口：大屏放大便于投屏，矮屏缩小避免溢出。 */
+  const legacySlides = data.filter(d => d.el.classList.contains('lg'));
+  const mqNarrow = window.matchMedia('(max-width: 900px)');
+  function fitLegacy() {
+    legacySlides.forEach(d => {
+      const sec = d.el, body = sec.querySelector(':scope > .slide-body');
+      if (!body) return;
+      if (mqNarrow.matches) { body.style.zoom = ''; body.style.width = ''; return; }
+      body.style.zoom = '1';
+      body.style.width = '';
+      const cs = getComputedStyle(body);
+      const designW = parseFloat(cs.maxWidth) || 1100;
+      body.style.width = designW + 'px';
+      body.style.maxWidth = 'none';
+      const scs = getComputedStyle(sec);
+      const availW = sec.clientWidth - parseFloat(scs.paddingLeft) - parseFloat(scs.paddingRight);
+      let other = 0;
+      Array.from(sec.children).forEach(c => {
+        if (c === body) return;
+        const m = getComputedStyle(c);
+        other += c.offsetHeight + parseFloat(m.marginTop) + parseFloat(m.marginBottom);
+      });
+      const availH = sec.clientHeight - parseFloat(scs.paddingTop) - parseFloat(scs.paddingBottom) - other - 4;
+      const natH = body.offsetHeight;
+      let z = Math.min(availW / designW, availH / natH, 1.4);
+      z = Math.max(0.6, Math.floor(z * 100) / 100);
+      body.style.zoom = String(z);
+      sec.dataset.zoom = z;
+    });
+  }
+  let fitTimer = null;
+  window.addEventListener('resize', () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitLegacy, 120); }, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLegacy);
+  fitLegacy();
+
   /* ---------- 启动 ---------- */
   initHero();
   goTo(fromHash(), true);
-  console.info('[deck] 就绪：主线', mainTotal, '页 + 补充', optTotal, '页（共', total, '页）/', totalMin, '分钟 /', chapters.length, '段；离线依赖已本地化。');
+  console.info('[deck] 就绪：主线', mainTotal, '页 + 扩展', optTotal, '页（共', total, '页）/', totalMin, '分钟 /', chapters.length, '段；离线依赖已本地化。');
 })();

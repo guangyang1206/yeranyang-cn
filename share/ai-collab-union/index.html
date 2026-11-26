@@ -7,7 +7,8 @@
 <title>AI时代下的人机协同 · 用 WorkBuddy 上手</title>
 <meta name="description" content="面向普通职工的 AI 分享：说清需求、核对结果、沉淀做法。70 分钟主讲 + 45 分钟互动。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23146ef5'/%3E%3Cpath d='M9 16h14M16 9v14' stroke='white' stroke-width='2.4'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="legacy.css?v=1.4">
+<link rel="stylesheet" href="styles.css?v=1.4">
 </head>
 <body>
 
@@ -170,54 +171,263 @@
   <div class="slide-foot"><div class="bridge" data-r="6"><span class="b-ar">→</span><span>动手之前，用几分钟解释为什么它会做、又为什么要查。</span></div></div>
 </section>
 
-<!-- ==================== P04 ==================== -->
-<section class="slide" id="p04" data-ch="理解AI" data-title="从写规则到从数据中学习" data-min="3" data-src="E02" tabindex="-1">
-  <div class="wrap">
-    <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">04</span><span class="e-bar"></span><span class="e-ch">理解 AI</span><span class="e-min">3 min</span></div>
-      <h2 data-r="1">从写规则到从数据中学习</h2>
-      <div class="rule" data-r="1"></div>
-      <p class="lede" data-r="2">模型给出的回答，不全是人一条条预先写好的。</p>
-    </header>
-    <div class="era-row">
-      <div class="era tone-card t-blue" data-r="3">
-        <div class="era-ic"><svg><use href="#i-list"/></svg></div>
-        <div class="era-n">01</div><h3>人写明确规则</h3>
-        <p>如果……就……。每一步都由人先想好、先写死。</p>
-        <div class="era-tag">边界清楚，但遇到没写过的情况就不会处理</div>
-      </div>
-      <div class="era-join" data-r="3"><svg class="draw" viewBox="0 0 80 10" preserveAspectRatio="none"><path d="M0 5 H80" stroke="#146ef5" stroke-width="1.6" fill="none"/></svg></div>
-      <div class="era tone-card t-teal" data-r="4">
-        <div class="era-ic"><svg><use href="#i-spark"/></svg></div>
-        <div class="era-n">02</div><h3>从数据里学规律</h3>
-        <p>不再逐条写规则，让模型从大量例子里学出模式。</p>
-        <div class="era-tag">能应对没见过的输入，但结果要用证据核对</div>
-      </div>
-      <div class="era-join" data-r="4"><svg class="draw" viewBox="0 0 80 10" preserveAspectRatio="none"><path d="M0 5 H80" stroke="#146ef5" stroke-width="1.6" fill="none"/></svg></div>
-      <div class="era tone-card t-violet" data-r="5">
-        <div class="era-ic"><svg><use href="#i-message"/></svg></div>
-        <div class="era-n">03</div><h3>按指令与材料生成</h3>
-        <p>先有预训练打底，再用示范与偏好反馈帮助遵循指令。</p>
-        <div class="era-tag">所以「你怎么说」和「给了什么材料」都影响结果</div>
-      </div>
-    </div>
-    <div class="callout callout-soft" data-r="6"><svg><use href="#i-dot"/></svg><span>这是讲者为了说明主线做的<b>简化概览</b>：三类做法至今并存，不是严格的年代替换关系。</span></div>
-  </div>
+<!-- ==================== P04 · 主线 · 沿用《从大模型到 Agent》 ==================== -->
+<section class="slide lg lg-x" id="p04" data-ch="理解AI" data-title="七十年，三波浪潮" data-min="3" data-src="E17" data-legacy="xauat-2026#slide-04" tabindex="-1">
+          <div class="slide-body slide-wide">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>理解 AI<span class="lg-from">沿用本站《从大模型到 Agent》</span></p>
+          <h2>七十年，<span class="accent">三波浪潮</span>。</h2>
+          <div class="cover-rule"></div>
+
+          <!-- ★ 三波浪潮 · 精简卡片 -->
+          <div class="waves waves-compact">
+            <div class="wave-card">
+              <span class="wave-tag">第一波 · 1956&ndash;1980s</span>
+              <h3>符号主义</h3>
+              <p class="wave-sub">Symbolism · 基于逻辑推理</p>
+              <p class="wave-body">用规则和知识库编码专家的思维。代表：专家系统、知识图谱。<strong>硬编码，脆弱。</strong></p>
+            </div>
+            <div class="wave-card">
+              <span class="wave-tag">第二波 · 1980s&ndash;2010s</span>
+              <h3>连接主义</h3>
+              <p class="wave-sub">Connectionism · 基于统计学习</p>
+              <p class="wave-body">模拟神经元连接，从海量数据里学规律。代表：CNN、RNN、AlphaGo。<strong>会自己学。</strong></p>
+            </div>
+            <div class="wave-card wave-now">
+              <span class="wave-tag">第三波 · 2017&ndash;至今</span>
+              <h3>大模型 &amp; Agent</h3>
+              <p class="wave-sub">Foundation Models · 能力开始涌现</p>
+              <p class="wave-body">Transformer &rarr; GPT &rarr; 推理 &rarr; Agent。规模跨过临界点，<strong>会推理、会做事。</strong></p>
+            </div>
+          </div>
+
+          <!-- ★ AI 发展时间线（SVG） -->
+          <div class="ai-timeline">
+            <div class="ait-header">
+              <span class="ait-title">AI 发展关键节点 · Timeline</span>
+              <span class="ait-legend">
+                <span class="ait-lg ait-lg-sym">符号主义</span>
+                <span class="ait-lg ait-lg-conn">连接主义</span>
+                <span class="ait-lg ait-lg-fm">大模型时代</span>
+              </span>
+            </div>
+
+            <svg class="ait-svg" viewBox="0 0 1000 240" aria-hidden="true">
+              <!-- 背景网格线 -->
+              <line x1="40" y1="200" x2="960" y2="200" stroke="#d8d8d8" stroke-width="1"/>
+              <!-- 三段区间底色 -->
+              <rect x="40"  y="24" width="220" height="176" fill="rgba(90,90,90,0.05)"/>
+              <rect x="260" y="24" width="380" height="176" fill="rgba(20,110,245,0.05)"/>
+              <rect x="640" y="24" width="320" height="176" fill="rgba(20,110,245,0.10)"/>
+              <!-- 能力曲线（贝塞尔）-->
+              <path d="M 60 190 Q 200 188 260 178 T 460 150 T 640 108 T 820 52 T 960 32"
+                    fill="none" stroke="#146ef5" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- 节点 · 事件 -->
+              <!-- 1956 达特茅斯 -->
+              <circle cx="80"  cy="190" r="6" fill="#fff" stroke="#5a5a5a" stroke-width="2"/>
+              <text x="80"  y="220" text-anchor="middle" font-size="11" fill="#5a5a5a">1956</text>
+              <text x="80"  y="175" text-anchor="middle" font-size="10.5" fill="#363636">达特茅斯会议</text>
+              <!-- 1974 AI Winter I -->
+              <circle cx="180" cy="188" r="5" fill="#fff" stroke="#5a5a5a" stroke-width="2"/>
+              <text x="180" y="220" text-anchor="middle" font-size="11" fill="#5a5a5a">1974</text>
+              <text x="180" y="173" text-anchor="middle" font-size="10.5" fill="#363636">第一次寒冬</text>
+              <!-- 1986 反向传播 -->
+              <circle cx="300" cy="176" r="6" fill="#fff" stroke="#146ef5" stroke-width="2"/>
+              <text x="300" y="220" text-anchor="middle" font-size="11" fill="#146ef5">1986</text>
+              <text x="300" y="161" text-anchor="middle" font-size="10.5" fill="#363636">反向传播（Hinton）</text>
+              <!-- 2006 深度学习 -->
+              <circle cx="460" cy="150" r="6" fill="#fff" stroke="#146ef5" stroke-width="2"/>
+              <text x="460" y="220" text-anchor="middle" font-size="11" fill="#146ef5">2006</text>
+              <text x="460" y="135" text-anchor="middle" font-size="10.5" fill="#363636">深度学习被提出</text>
+              <!-- 2012 AlexNet -->
+              <circle cx="560" cy="126" r="7" fill="#146ef5" stroke="#146ef5" stroke-width="2"/>
+              <text x="560" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#146ef5">2012</text>
+              <text x="560" y="112" text-anchor="middle" font-size="10.5" font-weight="600" fill="#146ef5">AlexNet · ImageNet</text>
+              <!-- 2016 AlphaGo -->
+              <circle cx="640" cy="108" r="6" fill="#fff" stroke="#146ef5" stroke-width="2"/>
+              <text x="640" y="220" text-anchor="middle" font-size="11" fill="#146ef5">2016</text>
+              <text x="640" y="93" text-anchor="middle" font-size="10.5" fill="#363636">AlphaGo 胜李世石</text>
+              <!-- 2017 Transformer -->
+              <circle cx="720" cy="86" r="7" fill="#146ef5" stroke="#146ef5" stroke-width="2"/>
+              <text x="720" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#146ef5">2017</text>
+              <text x="720" y="72" text-anchor="middle" font-size="10.5" font-weight="600" fill="#146ef5">Transformer</text>
+              <!-- 2022 ChatGPT -->
+              <circle cx="840" cy="46" r="7" fill="#146ef5" stroke="#146ef5" stroke-width="2"/>
+              <text x="840" y="220" text-anchor="middle" font-size="11" font-weight="600" fill="#146ef5">2022</text>
+              <text x="840" y="32" text-anchor="middle" font-size="10.5" font-weight="600" fill="#146ef5">ChatGPT</text>
+              <!-- 2026 Agent -->
+              <circle cx="945" cy="32" r="8" fill="#146ef5" stroke="#0055d4" stroke-width="2"/>
+              <text x="945" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#0055d4">2026</text>
+              <text x="945" y="17" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0055d4">Agent · DeepSeek</text>
+              <!-- Y 轴标签 -->
+              <text x="40"  y="18" font-size="10" fill="#ababab">AI 能力 &uarr;</text>
+              <text x="965" y="215" font-size="10" fill="#ababab" text-anchor="end">时间 &rarr;</text>
+            </svg>
+
+            <p class="ait-source">时间轴综合参考：Andrew Ng 斯坦福 CS230 · Fei-Fei Li ImageNet · Yann LeCun Deep Learning History · 华为开发者社区 AI 简史</p>
+          </div>
+
+          <div class="key-insight-bar">
+            <span class="key-icon">&#128200;</span>
+            <p>本轮浪潮的底座是<strong>连接主义</strong>：机器从人类历史数据中学习并归纳规律。它不是被&ldquo;编程&rdquo;出来的，而是被<em>&ldquo;训练&rdquo;出来的</em>——这一点，决定了后面的一切。</p>
+          </div>
+        </div>
+      
   <div class="slide-foot">
-    <div class="src"><span class="src-k">依据</span><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">E02 · Ouyang et al., InstructGPT, 2022</a><span class="src-note">仅支持「示范与偏好反馈帮助遵循指令」这一部分</span></div>
-    <div class="bridge" data-r="6"><span class="b-ar">→</span><span>这种学到规律的能力，在语言里怎样表现？</span></div>
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/xauat-2026/" target="_blank" rel="noopener">E17 · 本站《从大模型到 Agent》</a><span class="src-note">原页照搬；时间轴参考见图下注。三个阶段至今仍并存，图中分期是帮助理解的概括</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>这一轮浪潮里，模型到底在「学」什么？</span></div>
   </div>
 </section>
 
-<!-- ==================== P05 ==================== -->
-<section class="slide" id="p05" data-ch="理解AI" data-title="根据上下文生成，不等于查证事实" data-min="3" data-src="E01,E02" tabindex="-1">
+<!-- ==================== P05 · 主线 · 沿用《从大模型到 Agent》 ==================== -->
+<section class="slide lg lg-x" id="p05" data-ch="理解AI" data-title="大模型的本质：神经网络与一场「猜词」游戏" data-min="3" data-src="E17,E26" data-legacy="xauat-2026#slide-05" tabindex="-1">
+          <div class="slide-body slide-wide">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>理解 AI<span class="lg-from">沿用本站《从大模型到 Agent》</span></p>
+          <h2>大模型的本质：<span class="accent">神经网络</span>与一场&ldquo;猜词&rdquo;游戏。</h2>
+          <div class="cover-rule"></div>
+
+          <p class="nn-lede">大模型主要通过从海量数据中学习来构建能力，其本质是一种<strong>基于统计的方法</strong>，依赖于统计规律，而非逻辑推理。给定上文，预测下一个最可能出现的语言符号（Token）。</p>
+
+          <div class="nn-main">
+            <!-- ★ 左：神经网络架构 SVG -->
+            <div class="nn-diagram">
+              <svg class="nn-svg" viewBox="0 0 520 260" aria-hidden="true">
+                <!-- 层标签 -->
+                <text x="60"  y="18" text-anchor="middle" font-size="11" fill="#5a5a5a">输入层</text>
+                <text x="60"  y="30" text-anchor="middle" font-size="9.5" fill="#ababab">Input</text>
+                <text x="200" y="18" text-anchor="middle" font-size="11" fill="#5a5a5a">隐藏层 1</text>
+                <text x="200" y="30" text-anchor="middle" font-size="9.5" fill="#ababab">Hidden</text>
+                <text x="340" y="18" text-anchor="middle" font-size="11" fill="#5a5a5a">隐藏层 2</text>
+                <text x="340" y="30" text-anchor="middle" font-size="9.5" fill="#ababab">Hidden</text>
+                <text x="470" y="18" text-anchor="middle" font-size="11" fill="#5a5a5a">输出层</text>
+                <text x="470" y="30" text-anchor="middle" font-size="9.5" fill="#ababab">Softmax</text>
+
+                <!-- 权重连线：input(3) → h1(5) -->
+                <g stroke="#146ef5" stroke-width="0.6" opacity="0.35">
+                  <line x1="60" y1="80"  x2="200" y2="60"/>
+                  <line x1="60" y1="80"  x2="200" y2="100"/>
+                  <line x1="60" y1="80"  x2="200" y2="140"/>
+                  <line x1="60" y1="80"  x2="200" y2="180"/>
+                  <line x1="60" y1="80"  x2="200" y2="220"/>
+                  <line x1="60" y1="140" x2="200" y2="60"/>
+                  <line x1="60" y1="140" x2="200" y2="100"/>
+                  <line x1="60" y1="140" x2="200" y2="140"/>
+                  <line x1="60" y1="140" x2="200" y2="180"/>
+                  <line x1="60" y1="140" x2="200" y2="220"/>
+                  <line x1="60" y1="200" x2="200" y2="60"/>
+                  <line x1="60" y1="200" x2="200" y2="100"/>
+                  <line x1="60" y1="200" x2="200" y2="140"/>
+                  <line x1="60" y1="200" x2="200" y2="180"/>
+                  <line x1="60" y1="200" x2="200" y2="220"/>
+                </g>
+                <!-- 权重连线：h1(5) → h2(5) -->
+                <g stroke="#146ef5" stroke-width="0.5" opacity="0.25">
+                  <line x1="200" y1="60"  x2="340" y2="60"/><line x1="200" y1="60" x2="340" y2="100"/><line x1="200" y1="60" x2="340" y2="140"/><line x1="200" y1="60" x2="340" y2="180"/><line x1="200" y1="60" x2="340" y2="220"/>
+                  <line x1="200" y1="100" x2="340" y2="60"/><line x1="200" y1="100" x2="340" y2="100"/><line x1="200" y1="100" x2="340" y2="140"/><line x1="200" y1="100" x2="340" y2="180"/><line x1="200" y1="100" x2="340" y2="220"/>
+                  <line x1="200" y1="140" x2="340" y2="60"/><line x1="200" y1="140" x2="340" y2="100"/><line x1="200" y1="140" x2="340" y2="140"/><line x1="200" y1="140" x2="340" y2="180"/><line x1="200" y1="140" x2="340" y2="220"/>
+                  <line x1="200" y1="180" x2="340" y2="60"/><line x1="200" y1="180" x2="340" y2="100"/><line x1="200" y1="180" x2="340" y2="140"/><line x1="200" y1="180" x2="340" y2="180"/><line x1="200" y1="180" x2="340" y2="220"/>
+                  <line x1="200" y1="220" x2="340" y2="60"/><line x1="200" y1="220" x2="340" y2="100"/><line x1="200" y1="220" x2="340" y2="140"/><line x1="200" y1="220" x2="340" y2="180"/><line x1="200" y1="220" x2="340" y2="220"/>
+                </g>
+                <!-- 权重连线：h2(5) → out(2) 高亮 -->
+                <g stroke="#146ef5" stroke-width="1" opacity="0.55">
+                  <line x1="340" y1="60"  x2="470" y2="110"/>
+                  <line x1="340" y1="60"  x2="470" y2="170"/>
+                  <line x1="340" y1="100" x2="470" y2="110"/>
+                  <line x1="340" y1="100" x2="470" y2="170"/>
+                  <line x1="340" y1="140" x2="470" y2="110"/>
+                  <line x1="340" y1="140" x2="470" y2="170"/>
+                  <line x1="340" y1="180" x2="470" y2="110"/>
+                  <line x1="340" y1="180" x2="470" y2="170"/>
+                  <line x1="340" y1="220" x2="470" y2="110"/>
+                  <line x1="340" y1="220" x2="470" y2="170"/>
+                </g>
+
+                <!-- 输入层节点 -->
+                <g>
+                  <circle cx="60" cy="80"  r="18" fill="#fff" stroke="#5a5a5a" stroke-width="1.5"/>
+                  <text x="60" y="85" text-anchor="middle" font-size="14" fill="#080808" font-weight="600">中</text>
+                  <circle cx="60" cy="140" r="18" fill="#fff" stroke="#5a5a5a" stroke-width="1.5"/>
+                  <text x="60" y="145" text-anchor="middle" font-size="14" fill="#080808" font-weight="600">华</text>
+                  <circle cx="60" cy="200" r="18" fill="#fff" stroke="#5a5a5a" stroke-width="1.5"/>
+                  <text x="60" y="205" text-anchor="middle" font-size="14" fill="#080808" font-weight="600">人民</text>
+                </g>
+                <!-- 隐藏层 1 节点 -->
+                <g fill="rgba(20,110,245,0.08)" stroke="#146ef5" stroke-width="1.2">
+                  <circle cx="200" cy="60"  r="11"/><circle cx="200" cy="100" r="11"/><circle cx="200" cy="140" r="11"/><circle cx="200" cy="180" r="11"/><circle cx="200" cy="220" r="11"/>
+                </g>
+                <!-- 隐藏层 2 节点 -->
+                <g fill="rgba(20,110,245,0.08)" stroke="#146ef5" stroke-width="1.2">
+                  <circle cx="340" cy="60"  r="11"/><circle cx="340" cy="100" r="11"/><circle cx="340" cy="140" r="11"/><circle cx="340" cy="180" r="11"/><circle cx="340" cy="220" r="11"/>
+                </g>
+                <!-- 输出层节点 -->
+                <g>
+                  <circle cx="470" cy="110" r="20" fill="#146ef5" stroke="#0055d4" stroke-width="1.5"/>
+                  <text x="470" y="115" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">97%</text>
+                  <text x="510" y="107" text-anchor="start" font-size="11" fill="#146ef5" font-weight="600">共和国</text>
+                  <text x="510" y="120" text-anchor="start" font-size="9" fill="#5a5a5a">最可能</text>
+
+                  <circle cx="470" cy="170" r="16" fill="#fff" stroke="#146ef5" stroke-width="1.5"/>
+                  <text x="470" y="174" text-anchor="middle" font-size="10" fill="#146ef5" font-weight="600">3%</text>
+                  <text x="510" y="167" text-anchor="start" font-size="11" fill="#5a5a5a">共产党</text>
+                  <text x="510" y="180" text-anchor="start" font-size="9" fill="#ababab">次可能</text>
+                </g>
+              </svg>
+              <p class="nn-caption"><strong>结构本质</strong>：输入 <span class="nn-hl">中 · 华 · 人民</span> → 神经网络计算权重 → 输出下一个 Token 的<strong>概率分布</strong>（Softmax）。它把&ldquo;学到的世界&rdquo;编码进了亿万个连接的权重里。</p>
+            </div>
+
+            <!-- ★ 右：Ilya 引言 -->
+            <aside class="nn-side">
+              <blockquote class="ilya-quote ilya-quote-v2">
+                <p class="iq-body"><span class="lg-paraphrase">观点大意 · 讲者转述</span>把下一个词预测得越准，模型对文字背后语义与知识的把握就越深；在他看来，这不只是统计，更接近<span class="accent">对世界的一种压缩和表达</span>。</p>
+                <cite>—— 转述 Ilya Sutskever（时任 OpenAI 首席科学家）在 NVIDIA GTC 2023 与黄仁勋的炉边对谈。非逐字引语，原音尚未逐字听校。</cite>
+              </blockquote>
+              <div class="nn-insight">
+                <span class="ni-icon">&#129504;</span>
+                <p><strong>要把下一个词猜得足够准，模型不得不&ldquo;顺带&rdquo;理解这个世界。</strong>智能，是在压缩世界的过程中<em>涌现</em>出来的副产品。</p>
+              </div>
+            </aside>
+          </div>
+
+          <!-- ★ 两个终极问题 -->
+          <div class="nn-questions">
+            <article class="nn-q">
+              <div class="nq-head">
+                <span class="nq-tag">Q1</span>
+                <p class="nq-title">预测下一个词的语言生成，<em>本质</em>是什么？</p>
+              </div>
+              <p class="nq-body">
+                是把一句话的<strong>联合概率</strong>拆成逐词的条件概率，再挑出（或按概率抽取）下一个词——可以看作 n 元语言模型（马尔可夫链）的自然推广。输出层的 Softmax，在数学形式上与统计物理中的<strong>玻尔兹曼分布</strong> / <strong>吉布斯分布</strong>同构；训练时最小化的是<strong>交叉熵</strong>，即预测与真实下一个词之间的差距。
+                语言生成与<span class="accent">统计物理、信息论</span>之间，确实有可以类比的数学结构——这是一种类比，不是说模型在「遵循物理定律」。
+              </p>
+            </article>
+            <article class="nn-q">
+              <div class="nq-head">
+                <span class="nq-tag">Q2</span>
+                <p class="nq-title">神经网络为何能通过学习，<em>记住</em>世界百科知识？</p>
+              </div>
+              <p class="nq-body">
+                通过<strong>人工神经网络架构（ANN）</strong>，靠<strong>激活函数</strong>与<strong>权重</strong>在训练中不断更新获得。
+                其本质是<span class="accent">学习并形成一种高效的信息与知识编码</span>——把亿万数据压进有限的参数里，把&ldquo;世界&rdquo;塞进权重里。
+              </p>
+            </article>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/xauat-2026/" target="_blank" rel="noopener">E17 · 本站《从大模型到 Agent》</a><a href="https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s52092/" target="_blank" rel="noopener">E26 · NVIDIA GTC 2023 炉边对谈</a><span class="src-note">右侧为观点大意转述，非逐字引语；Q1 物理类比按数学关系修订</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>它在「猜」下一个词——所以像答案，不等于查过证据。</span></div>
+  </div>
+</section>
+
+<!-- ==================== G05 · 扩展：原 P05（讲者为本场新写） ==================== -->
+<section class="slide slide-opt" id="g05" data-ch="理解AI" data-title="根据上下文生成，不等于查证事实" data-min="0" data-optional="1" data-src="E01,E02" tabindex="-1">
   <div class="wrap">
     <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">05</span><span class="e-bar"></span><span class="e-ch">理解 AI</span><span class="e-min">3 min</span></div>
+      <div class="eyebrow" data-r="0"><span class="e-num"></span><span class="e-bar"></span><span class="e-ch">理解 AI</span><span class="e-min">可跳过</span></div>
       <h2 data-r="1">根据上下文生成，不等于查证事实</h2>
       <div class="rule" data-r="1"></div>
       <p class="lede" data-r="2">它擅长接着写「像样的一段」，但「像样」不是「查过」。</p>
     </header>
+    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 把「猜词」落到例会记录上 · 不计入 70 分钟</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
     <div class="gen-flow" data-r="3">
       <div class="gen-in"><div class="gen-lab">已有的上下文</div>
         <div class="tokens"><span>今天</span><span>下午</span><span>的</span><span>例会</span><span class="tok-el">……</span></div>
@@ -270,53 +480,409 @@
   </div>
 </section>
 
-<!-- ==================== P07 ==================== -->
-<section class="slide" id="p07" data-ch="理解AI" data-title="从回答问题，到调用工具完成任务" data-min="3" data-src="E06" tabindex="-1">
-  <div class="wrap">
-    <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">07</span><span class="e-bar"></span><span class="e-ch">理解 AI</span><span class="e-min">3 min</span></div>
-      <h2 data-r="1">从回答问题，到调用工具完成任务</h2>
-      <div class="rule" data-r="1"></div>
-      <p class="lede" data-r="2">WorkBuddy 是一个 AI 桌面工作台：用日常语言描述任务，它可以规划步骤、调用工具，交出可审阅、可继续编辑的交付物。</p>
-    </header>
-    <div class="agent-flow" data-r="3">
-      <div class="af-node tone-card t-blue" data-step="1"><div class="af-ic"><svg><use href="#i-inbox"/></svg></div><div class="af-t">理解任务</div><div class="af-d">读懂目标与材料</div></div>
-      <div class="af-wire"><svg class="draw" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0 6 H100" stroke="#146ef5" stroke-width="1.8" fill="none"/></svg></div>
-      <div class="af-node tone-card t-teal" data-step="2"><div class="af-ic"><svg><use href="#i-gear"/></svg></div><div class="af-t">拆分与选择工具</div><div class="af-d">计划要做什么</div></div>
-      <div class="af-wire"><svg class="draw" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0 6 H100" stroke="#146ef5" stroke-width="1.8" fill="none"/></svg></div>
-      <div class="af-node tone-card t-amber" data-step="3"><div class="af-ic"><svg><use href="#i-loop"/></svg></div><div class="af-t">执行与检查</div><div class="af-d">在授权范围内操作</div></div>
-      <div class="af-wire"><svg class="draw" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0 6 H100" stroke="#146ef5" stroke-width="1.8" fill="none"/></svg></div>
-      <div class="af-node tone-card t-green" data-step="4"><div class="af-ic"><svg><use href="#i-export"/></svg></div><div class="af-t">交出可验收成果</div><div class="af-d">文件、草稿或清单</div></div>
-    </div>
-    <div class="flow-example" data-r="4">
-      <span class="fe-in">一份会议记录</span><span class="fe-ar"><svg><use href="#i-arrow"/></svg></span><span class="fe-out">一份可修改的成果草稿</span>
-      <span class="fe-badge"><svg><use href="#i-lock"/></svg>涉及文件与外部操作时需要授权</span>
-    </div>
-    <!-- 能力名称与适用场景沿用本站既有 workbuddy-intro 分享；不搬用其中的产品数字与渠道清单 -->
-    <div class="cap-strip" data-r="5">
-      <div class="cap-item t-blue"><span class="tone-ic"><svg><use href="#i-people"/></svg></span><div><b>专家团协作</b><small>调研 · 内容创作</small></div></div>
-      <div class="cap-item t-green"><span class="tone-ic"><svg><use href="#i-gear"/></svg></span><div><b>自主规划与执行</b><small>深度调研 · 报告撰写</small></div></div>
-      <div class="cap-item t-amber"><span class="tone-ic"><svg><use href="#i-mobile"/></svg></span><div><b>手机远程指挥</b><small>查进度 · 下发任务</small></div></div>
-      <div class="cap-item t-violet"><span class="tone-ic"><svg><use href="#i-files"/></svg></span><div><b>本地文件与多格式文档</b><small>表格分析 · 批量整理</small></div></div>
-    </div>
-    <div class="callout callout-soft" data-r="6"><svg><use href="#i-dot"/></svg><span>以上是产品说明层面的工作方式，不是对本场演示账号的承诺；实际入口与结果，稍后对着真实界面看。产品定义、工作方式与四项能力名称沿用本站既有《WorkBuddy 简介》分享（已审核），仅作常见场景举例，不含产品数字，具体以实际客户端为准。</span></div>
-  </div>
+<!-- ==================== W02 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w02" data-ch="理解AI" data-title="AI 已经不只是聊天了" data-min="0" data-optional="1" data-src="E18,E24" data-legacy="workbuddy-intro#slide-02" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>理解 AI<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>AI 已经不只是<span class="accent">聊天</span>了。</h2>
+          <div class="cover-rule"></div>
+          <p class="evo-subtitle">
+            从一问一答到自主干活——可以粗略理解为三个阶段。它不是严格的行业分期，而是一条帮助普通用户理解 AI 能力变化的路径。
+          </p>
+
+          <div class="evo-timeline">
+            <article class="evo-phase evo-chat">
+              <span class="evo-year">2022–2023</span>
+              <h3>聊天时代</h3>
+              <p>ChatGPT 等大语言模型出现。你问，它答——能写文章、做翻译、生成代码。但只是一段对话，说完就结束。你负责把对话结果变成实际行动。</p>
+            </article>
+            <article class="evo-phase evo-tool">
+              <span class="evo-year">2024</span>
+              <h3>助手时代</h3>
+              <p>AI 开始学会调用工具——搜索网页、读取文件、操作数据。能做单一任务了，但范围有限，每一步都还需要你确认和推动。</p>
+            </article>
+            <article class="evo-phase evo-team">
+              <span class="evo-year">2026–现在</span>
+              <h3>专家团时代</h3>
+              <p>WorkBuddy。140+ AI 角色各司其职——运营定策略、设计出图、开发写代码、营销写文案。你设定目标，专家团自主规划、执行、交付。</p>
+            </article>
+          </div>
+
+          <div class="evo-insight">
+            <span style="font-size:18px; flex-shrink:0;">&#128161;</span>
+            <p><strong>关键洞察：</strong>变化不只来自模型能力，也来自 AI 开始具备<strong>连续执行、调用工具和管理上下文</strong>的能力。你给出目标，在关键节点确认，并最终审阅结果。</p>
+          </div>
+        </div>
+      
   <div class="slide-foot">
-    <div class="src"><span class="src-k">依据</span><a href="https://www.workbuddy.cn/docs/workbuddy/Overview" target="_blank" rel="noopener">E06 · WorkBuddy 官方简介</a></div>
-    <div class="bridge" data-r="5"><span class="b-ar">→</span><span>当它动手时，我们不是从流程里消失。</span></div>
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>把同一条线拉长看：七十年里，机器从人手里接过了什么？</span></div>
   </div>
 </section>
 
-<!-- ==================== S01 · 补充页（可跳过） ==================== -->
+<!-- ==================== X06 · 扩展 · 沿用《从大模型到 Agent》 ==================== -->
+<section class="slide lg lg-x" id="x06" data-ch="理解AI" data-title="智能的三次跃迁" data-min="0" data-optional="1" data-src="E17,E19,E20,E21" data-legacy="xauat-2026#slide-06" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《从大模型到 Agent》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body slide-wide">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>理解 AI<span class="lg-from">沿用本站《从大模型到 Agent》</span></p>
+          <h2>把这条线拉直，是智能的<span class="accent">三次跃迁</span>。</h2>
+          <div class="cover-rule"></div>
+          <p class="leaps-lede">技术演进背后有一条脊柱——每一次跃迁，机器都从人手里<strong>接过一样东西</strong>。</p>
+
+          <div class="era-cards era-cards-v3">
+            <!-- ★ 第一跃 -->
+            <article class="era-card era-past">
+              <p class="era-label">01 &nbsp;·&nbsp; 第一跃 · 算得快</p>
+              <h3>运算智能 <span class="era-h-en">Computation</span></h3>
+              <p class="era-body">机器接过了 <strong>&ldquo;手&rdquo;</strong>——存储与计算。能记、能算，比人快亿万倍。</p>
+              <div class="era-stat">
+                <span class="es-key">ENIAC · 1946</span>
+                <span class="es-val">5,000 次加法/秒</span>
+              </div>
+              <div class="era-stat">
+                <span class="es-key">H100 GPU · 2022</span>
+                <span class="es-val">FP8 约 4 PFLOPS（SXM，含稀疏）</span>
+              </div>
+              <div class="era-products">
+                <p class="ep-think">Think: 算 &middot; 存 &middot; 传</p>
+                <div class="ep-tags">
+                  <span class="ep-tag ep-tag-cn"><span class="ep-flag">CN</span>超算 · 神威 · 天河</span>
+                  <span class="ep-tag ep-tag-en"><span class="ep-flag">EN</span>Cray · IBM Mainframe</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ★ 第二跃 -->
+            <article class="era-card era-mid">
+              <p class="era-label">02 &nbsp;·&nbsp; 第二跃 · 看得懂 · 想得通</p>
+              <h3>感知 &amp; 认知智能 <span class="era-h-en">Perception &amp; Cognition</span></h3>
+              <p class="era-body">机器接过了 <strong>&ldquo;脑&rdquo;</strong>——能听会说、能看会认，进而能推理会思考。</p>
+              <div class="era-stat">
+                <span class="es-key">AlexNet · 2012</span>
+                <span class="es-val">Top-5 错误率 15.3%</span>
+              </div>
+              <div class="era-stat">
+                <span class="es-key">GPT-4 · 2023</span>
+                <span class="es-val">MMLU 86.4%</span>
+              </div>
+              <div class="era-products">
+                <p class="ep-think">Think: 看 &middot; 听 &middot; 说 &middot; 写</p>
+                <div class="ep-tags">
+                  <span class="ep-tag ep-tag-cn"><span class="ep-flag">CN</span>DeepSeek · 通义 · 混元 · 豆包</span>
+                  <span class="ep-tag ep-tag-en"><span class="ep-flag">EN</span>GPT · Claude · Gemini · Llama</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ★ 第三跃 -->
+            <article class="era-card era-now">
+              <p class="era-label">03 &nbsp;·&nbsp; 第三跃 · 自己去做</p>
+              <h3>自主智能 <span class="era-h-en">Autonomy &middot; Agent</span></h3>
+              <p class="era-body">机器接过了 <strong>&ldquo;手脚&rdquo;</strong>——自己拆解目标、调用工具、执行、交付。</p>
+              <div class="era-stat">
+                <span class="es-key">Cursor / Claude Code</span>
+                <span class="es-val">写代码 · 跑测试 · 交 PR</span>
+              </div>
+              <div class="era-stat">
+                <span class="es-key">Manus / WorkBuddy</span>
+                <span class="es-val">接手多步骤办公任务</span>
+              </div>
+              <div class="era-products">
+                <p class="ep-think">Think: 规划 &rarr; 行动 &rarr; 反思 &rarr; 交付</p>
+                <div class="ep-tags">
+                  <span class="ep-tag ep-tag-cn"><span class="ep-flag">CN</span>WorkBuddy · Manus · MiniMax Agent</span>
+                  <span class="ep-tag ep-tag-en"><span class="ep-flag">EN</span>Cursor · Devin · Claude Code</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="era-transition">
+            <p class="et-text">
+              <span class="et-tag">下一页</span>
+              计算 &rarr; 认知 &rarr; 自主。那<span class="accent">自主智能（Agent）</span>究竟是怎么运作的？
+            </p>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/xauat-2026/" target="_blank" rel="noopener">E17 · 本站《从大模型到 Agent》</a><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noopener">E19 · NVIDIA H100 规格</a><a href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener">E20 · GPT-4 Technical Report</a><a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks" target="_blank" rel="noopener">E21 · AlexNet, NeurIPS 2012</a></div>
+  </div>
+</section>
+
+<!-- ==================== P07 · 主线 · 沿用《从大模型到 Agent》 ==================== -->
+<section class="slide lg lg-x" id="p07" data-ch="理解AI" data-title="Agent 的感知—行动闭环" data-min="3" data-src="E17,E06" data-legacy="xauat-2026#slide-06b" tabindex="-1">
+          <div class="slide-body slide-wide">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>理解 AI<span class="lg-from">沿用本站《从大模型到 Agent》</span></p>
+          <h2>Agent 的<span class="accent">感知-行动闭环</span>。</h2>
+          <div class="cover-rule"></div>
+
+          <div class="agent-oneline">
+            <p class="ao-kicker">一句话总结</p>
+            <p class="ao-body">
+              Agent 不是让 AI &ldquo;更聪明&rdquo;，而是让 AI 从&ldquo;<strong>回答问题</strong>&rdquo;走向&ldquo;<strong>完成任务</strong>&rdquo;——用自然语言说出目标，它<strong>自己</strong>感知上下文、拆解步骤、调用工具、交付可评审的结果。
+            </p>
+          </div>
+
+          <div class="agent-loop-wrap">
+            <p class="al-title">The Perception&ndash;Action Cycle &nbsp;·&nbsp; 感知-行动闭环</p>
+            <p class="al-sub">五个阶段环环相扣，每一环的输出是下一环的输入——是闭环，不是流水线。</p>
+
+            <div class="agent-loop">
+              <div class="al-node">
+                <div class="al-icon al-icon-perc" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </div>
+                <p class="al-name">感知 <span>Perception</span></p>
+                <p class="al-desc">从文件、工具、用户输入等多源信息里，把当前情境<strong>拼起来</strong>。</p>
+              </div>
+              <span class="al-arrow" aria-hidden="true">&rarr;</span>
+              <div class="al-node">
+                <div class="al-icon al-icon-reas" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3a5 5 0 0 0-3 9v3h6v-3a5 5 0 0 0-3-9Z"/><path d="M9 20h6M10 22h4"/>
+                  </svg>
+                </div>
+                <p class="al-name">推理 <span>Reasoning</span></p>
+                <p class="al-desc">理解情境，判断什么<strong>最重要</strong>、什么是当前的关键约束。</p>
+              </div>
+              <span class="al-arrow" aria-hidden="true">&rarr;</span>
+              <div class="al-node">
+                <div class="al-icon al-icon-plan" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>
+                  </svg>
+                </div>
+                <p class="al-name">规划 <span>Planning</span></p>
+                <p class="al-desc">把目标<strong>拆解为步骤</strong>，选择当前最优的执行路径。</p>
+              </div>
+              <span class="al-arrow" aria-hidden="true">&rarr;</span>
+              <div class="al-node">
+                <div class="al-icon al-icon-act" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 2 3 14h9l-1 8 10-12h-9Z"/>
+                  </svg>
+                </div>
+                <p class="al-name">行动 <span>Action</span></p>
+                <p class="al-desc">调用工具与系统去<strong>做</strong>——不只是<strong>说</strong>。</p>
+              </div>
+              <span class="al-arrow" aria-hidden="true">&rarr;</span>
+              <div class="al-node">
+                <div class="al-icon al-icon-refl" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/>
+                  </svg>
+                </div>
+                <p class="al-name">反思 <span>Reflection</span></p>
+                <p class="al-desc">检查结果、汲取反馈，让下一轮更好。<em>输出回到感知。</em></p>
+              </div>
+            </div>
+
+            <div class="al-loop-back" aria-hidden="true">
+              <svg viewBox="0 0 900 40" preserveAspectRatio="none">
+                <path d="M 880 6 Q 880 34 852 34 L 48 34 Q 20 34 20 6" fill="none" stroke="#146ef5" stroke-width="1.2" stroke-dasharray="5 4"/>
+                <path d="M 24 12 L 20 6 L 26 4" fill="none" stroke="#146ef5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="al-loop-text">Reflection &rarr; Perception &nbsp;·&nbsp; 反思即新的感知</span>
+            </div>
+          </div>
+
+          <div class="agent-insight">
+            <span class="ai-icon">&#128161;</span>
+            <div class="ai-copy">
+              <p class="ai-en"><strong>The key insight:</strong> The difference isn&rsquo;t intelligence — the intelligence was always there. The difference is <span class="accent">continuity, context, and connection</span>.</p>
+              <p class="ai-zh"><strong>核心洞察：</strong>差别不在<em>智能</em>本身——智能一直都在。真正的差别在于<span class="accent">连续性（Continuity）</span>、<span class="accent">上下文（Context）</span>、<span class="accent">连接（Connection）</span>。</p>
+            </div>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/xauat-2026/" target="_blank" rel="noopener">E17 · 本站《从大模型到 Agent》</a><a href="https://www.workbuddy.cn/docs/workbuddy/Overview" target="_blank" rel="noopener">E06 · WorkBuddy 官方简介</a><span class="src-note">原页照搬；《WorkBuddy 简介》第 04 页「五个步骤循环推进」与本页同一内容，合并不重复</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>落到一个具体工具上，它长什么样？</span></div>
+  </div>
+</section>
+
+<!-- ==================== W03 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w03" data-ch="理解AI" data-title="从生成式 AI 到自主式 AI" data-min="0" data-optional="1" data-src="E18,E06" data-legacy="workbuddy-intro#slide-03" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body slide-body-p2">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>理解 AI<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>从生成式 AI 到 <span class="accent">自主式 AI</span>。</h2>
+          <div class="cover-rule"></div>
+          <p class="wb-definition">
+            <strong>一句话说清楚：</strong>
+            WorkBuddy 是一个 AI 桌面工作台。你用日常语言描述任务，它可以规划步骤、调用工具，产出可审阅、可继续编辑的交付物，而不只是一段聊天回复。
+          </p>
+          <div class="era-cards">
+            <article class="era-card era-past">
+              <p class="era-label">生成式 AI</p>
+              <span class="era-num">01</span>
+              <h3>擅长生成内容</h3>
+              <p>你问，它答。能写文章、做总结、翻译、生成代码——但回答完就结束了。</p>
+              <p class="era-example">比如：写一段文案、总结一份文件、生成一段代码</p>
+            </article>
+            <article class="era-card era-mid">
+              <p class="era-label">AI 智能体</p>
+              <span class="era-num">02</span>
+              <h3>擅长完成单一任务</h3>
+              <p>一个 AI 智能体专注于特定工作。它能调用工具，比纯对话更自主，但范围相对受限。</p>
+              <p class="era-example">比如：搜索、整理文件、排日程、更新数据</p>
+            </article>
+            <article class="era-card era-now">
+              <p class="era-label">自主式 AI</p>
+              <span class="era-num">03</span>
+              <h3>擅长把工作推进到结果</h3>
+              <p>它围绕目标规划步骤、调用工具并连续推进，产出可供人审阅和继续修改的交付物。</p>
+              <p class="era-example">比如：规划 → 协调 → 执行 → 交付</p>
+            </article>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://www.workbuddy.cn/docs/workbuddy/Overview" target="_blank" rel="noopener">E06 · WorkBuddy 官方简介</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>它具体能帮我们做什么？</span></div>
+  </div>
+</section>
+
+<!-- ==================== W05 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w05" data-ch="理解AI" data-title="一句话进去，能用的结果出来" data-min="0" data-optional="1" data-src="E18" data-legacy="workbuddy-intro#slide-05" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body slide-body-p3">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>理解 AI<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>一句话进去，<span class="accent">能用的结果</span>出来。</h2>
+          <div class="cover-rule"></div>
+          <p class="p3-lede">
+            用日常语言说清楚你想干什么。WorkBuddy 可以读取相关文件、规划步骤并调用工具，产出可审阅、可修改的交付物。一句话可以启动任务，复杂工作仍建议分阶段确认。
+          </p>
+          <div class="capability-matrix">
+            <p class="block-label">核心能力 &nbsp;&times;&nbsp; 适用场景</p>
+            <div class="cap-grid">
+              <article class="cap-card tone-perception">
+                <div class="cap-head">
+                  <span class="cap-icon">&#129309;</span>
+                  <h3>AI 专家团协作</h3>
+                </div>
+                <p class="cap-desc">可调用 140+ 专家角色——运营、设计、开发、营销等角色分工处理子任务，帮助个人获得团队式协作体验。</p>
+                <div class="cap-tags">
+                  <span>竞品调研</span>
+                  <span>内容创作</span>
+                  <span>软件开发</span>
+                </div>
+              </article>
+              <article class="cap-card tone-reasoning">
+                <div class="cap-head">
+                  <span class="cap-icon">&#129504;</span>
+                  <h3>自主规划与执行</h3>
+                </div>
+                <p class="cap-desc">可将大目标拆成多个步骤，选择工具和模型连续推进；重要决策和最终结果仍由人确认。</p>
+                <div class="cap-tags">
+                  <span>深度调研</span>
+                  <span>报告撰写</span>
+                  <span>数据洞察</span>
+                </div>
+              </article>
+              <article class="cap-card tone-planning">
+                <div class="cap-head">
+                  <span class="cap-icon">&#128241;</span>
+                  <h3>手机远程指挥（助理）</h3>
+                </div>
+                <p class="cap-desc">配置微信、企业微信、飞书或钉钉等渠道后，可用手机下发任务；桌面端需保持在线，结果可回传到对应渠道。</p>
+                <div class="cap-tags">
+                  <span>远程查进度</span>
+                  <span>手机发任务</span>
+                  <span>文件随取</span>
+                </div>
+              </article>
+              <article class="cap-card tone-action">
+                <div class="cap-head">
+                  <span class="cap-icon">&#128193;</span>
+                  <h3>本地文件 + 多格式文档</h3>
+                </div>
+                <p class="cap-desc">直接操作你授权文件夹里的 Word、Excel、PPT、PDF、代码——打开、编辑、生成、导出一条龙。</p>
+                <div class="cap-tags">
+                  <span>PPT 生成</span>
+                  <span>表格分析</span>
+                  <span>批量整理</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>和平时用的 AI 对话，差在哪里？</span></div>
+  </div>
+</section>
+
+<!-- ==================== W06 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w06" data-ch="理解AI" data-title="传统 AI 对话 vs WorkBuddy" data-min="0" data-optional="1" data-src="E18" data-legacy="workbuddy-intro#slide-06" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>理解 AI<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>传统 AI 对话 vs <span class="accent">WorkBuddy</span></h2>
+          <div class="cover-rule"></div>
+          <p style="font-size:15px; color:var(--gray-500); max-width:880px; line-height:1.6; margin-bottom:24px;">
+            你用的 ChatGPT 和 WorkBuddy 不是一回事。前者是对话工具，后者是工作搭档。
+          </p>
+
+          <div class="vs-block">
+            <div class="vs-head">
+              <div class="vs-col-head vs-old">
+                <span class="vs-tag">传统 AI 对话</span>
+              </div>
+              <div class="vs-col-arrow" aria-hidden="true"></div>
+              <div class="vs-col-head vs-new">
+                <span class="vs-tag vs-tag-new">WorkBuddy</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-old-cell">给你一段文字建议</div>
+              <div class="vs-arrow">&rarr;</div>
+              <div class="vs-new-cell"><strong>端到端推进</strong>，覆盖规划、执行与交付</div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-old-cell">你手动操作文件</div>
+              <div class="vs-arrow">&rarr;</div>
+              <div class="vs-new-cell"><strong>在选定的工作目录内</strong>执行文件操作</div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-old-cell">单步、简单请求</div>
+              <div class="vs-arrow">&rarr;</div>
+              <div class="vs-new-cell"><strong>多步、复杂工作</strong>可连续推进，必要时人工确认</div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-old-cell">返回一段文字</div>
+              <div class="vs-arrow">&rarr;</div>
+              <div class="vs-new-cell"><strong>交付可审阅的结果</strong>，可继续编辑和导出</div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-old-cell">你一个人跟 AI 聊</div>
+              <div class="vs-arrow">&rarr;</div>
+              <div class="vs-new-cell"><strong>一支 AI 专家团</strong>并行协作，各司其职</div>
+            </div>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>官方建议从哪一步开始上手？</span></div>
+  </div>
+</section>
+
+<!-- ==================== S01 · 扩展页（可跳过） ==================== -->
 <section class="slide slide-opt" id="s01" data-ch="理解AI" data-title="从认识到上手：官方推荐四步" data-min="0" data-optional="1" data-src="E16,E06" tabindex="-1">
   <div class="wrap">
     <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">补 01</span><span class="e-bar"></span><span class="e-ch">理解 AI → 使用 AI · 补充</span><span class="e-min">可跳过</span></div>
+      <div class="eyebrow" data-r="0"><span class="e-num"></span><span class="e-bar"></span><span class="e-ch">理解 AI → 使用 AI · 扩展</span><span class="e-min">可跳过</span></div>
       <h2 data-r="1">从认识到上手：官方推荐四步</h2>
       <div class="rule" data-r="1"></div>
       <p class="lede" data-r="2">前面几页讲「它为什么会这样」，接下来讲「第一次怎么把它用起来」。</p>
     </header>
-    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>补充页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
     <div class="chain-strip" data-r="3">
       <span class="cs t-blue">认识 AI<i>P04—P07</i></span><span class="cs-ar">→</span>
       <span class="cs t-teal">人机分工<i>P08—P09</i></span><span class="cs-ar">→</span>
@@ -389,16 +955,89 @@
   <div class="slide-foot"><div class="bridge" data-r="7"><span class="b-ar">→</span><span>现在开始操作，先过一道材料和权限检查。</span></div></div>
 </section>
 
-<!-- ==================== S02 · 补充页（可跳过） ==================== -->
+<!-- ==================== W17 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w17" data-ch="人机分工" data-title="把 AI 从「会回答」带到「能交付」" data-min="0" data-optional="1" data-src="E18,E16" data-legacy="workbuddy-intro#slide-17" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body slide-body-p15-visual">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>人机分工<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>把 AI 从“会回答”，<span class="accent">带到“能交付”。</span></h2>
+          <div class="cover-rule"></div>
+          <p class="habit-intro">不是把要求一次塞满，而是沿着一条清晰路径推进：先说清楚，再分步审阅，最后安全放大。</p>
+
+          <div class="habit-journey">
+            <article class="habit-step step-one">
+              <span class="habit-step-num">01</span>
+              <div class="habit-step-copy">
+                <small>Define</small>
+                <h3>先说清楚“什么算好”</h3>
+                <p>任务、素材、受众、约束和输出格式，至少说清三项。</p>
+              </div>
+              <div class="habit-example">
+                <div class="habit-contrast">
+                  <div class="habit-mini"><strong>模糊</strong>帮我总结这个文件。</div>
+                  <div class="habit-mini good"><strong>清楚</strong>提取决定、负责人和截止日期，用表格输出。</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="habit-step step-two">
+              <span class="habit-step-num">02</span>
+              <div class="habit-step-copy">
+                <small>Review</small>
+                <h3>把大任务拆成审阅点</h3>
+                <p>每一步都能看、能改、能回退，避免最后才发现方向错了。</p>
+              </div>
+              <div class="habit-example">
+                <div class="habit-chip-flow" aria-label="分步审阅流程">
+                  <span class="habit-chip">提取概要</span><span class="habit-chip-arrow">&rarr;</span>
+                  <span class="habit-chip">确认方向</span><span class="habit-chip-arrow">&rarr;</span>
+                  <span class="habit-chip">展开内容</span><span class="habit-chip-arrow">&rarr;</span>
+                  <span class="habit-chip">最终交付</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="habit-step step-three">
+              <span class="habit-step-num">03</span>
+              <div class="habit-step-copy">
+                <small>Scale</small>
+                <h3>先小范围验证，再自动化</h3>
+                <p>先在测试目录跑通；确认稳定后，再扩大文件范围与执行频率。</p>
+              </div>
+              <div class="habit-example">
+                <div class="habit-chip-flow" aria-label="安全放大流程">
+                  <span class="habit-chip">测试目录</span><span class="habit-chip-arrow">&rarr;</span>
+                  <span class="habit-chip">保留备份</span><span class="habit-chip-arrow">&rarr;</span>
+                  <span class="habit-chip">预览确认</span><span class="habit-chip-arrow">&rarr;</span>
+                  <span class="habit-chip">稳定后放大</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="habit-mantra">
+            <span class="habit-mantra-label">记住这条路径</span>
+            <strong>定义标准 → 分步审阅 → 安全放大</strong>
+            <span>你负责判断，AI 负责推进。</span>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准；Define / Review / Scale 与本场「说清需求 → 核对结果 → 沉淀做法」一一对应</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>把这条路径拆成 10 个具体技巧。</span></div>
+  </div>
+</section>
+
+<!-- ==================== S02 · 扩展页（可跳过） ==================== -->
 <section class="slide slide-opt" id="s02" data-ch="人机分工" data-title="先看全貌：官方 10 个上手技巧" data-min="0" data-optional="1" data-src="E16" tabindex="-1">
   <div class="wrap">
     <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">补 02</span><span class="e-bar"></span><span class="e-ch">人机分工 · 补充</span><span class="e-min">可跳过</span></div>
+      <div class="eyebrow" data-r="0"><span class="e-num"></span><span class="e-bar"></span><span class="e-ch">人机分工 · 扩展</span><span class="e-min">可跳过</span></div>
       <h2 data-r="1">先看全貌：官方 10 个上手技巧</h2>
       <div class="rule" data-r="1"></div>
-      <p class="lede" data-r="2">不必一次记完。今天现场走第 1—3 条，其余在后面的补充页和会后材料里。</p>
+      <p class="lede" data-r="2">不必一次记完。今天现场走第 1—3 条，其余在后面的扩展页和会后材料里。</p>
     </header>
-    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>补充页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
     <div class="tips10" data-r="3">
       <div class="tip10 tone-card t-blue"><span class="t10-n">01</span><div><b>清晰表达，下达明确任务</b><small>做什么 + 有什么 + 怎么样，别让 AI 猜意图</small></div></div>
       <div class="tip10 tone-card t-teal"><span class="t10-n">02</span><div><b>小步快跑，一次搞定一件事</b><small>大任务拆成小步骤，稳稳推进</small></div></div>
@@ -438,6 +1077,207 @@
   <div class="slide-foot">
     <div class="src"><span class="src-k">依据</span><a href="https://www.workbuddy.cn/docs/workbuddy/Create-Task" target="_blank" rel="noopener">E11 · 创建任务</a><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market" target="_blank" rel="noopener">E08 · 技能</a><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Library" target="_blank" rel="noopener">E09 · 资料库</a><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Sidebar" target="_blank" rel="noopener">E12 · 侧栏</a><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Task-Bar" target="_blank" rel="noopener">E13 · 新建任务栏</a><span class="src-note">＋讲者安全建议</span></div>
     <div class="bridge" data-r="5"><span class="b-ar">→</span><span>边界定好，再打开任务。</span></div>
+  </div>
+</section>
+
+<!-- ==================== W09 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w09" data-ch="现场协作" data-title="先看清数据流向，再决定怎么用" data-min="0" data-optional="1" data-src="E18,E06" data-legacy="workbuddy-intro#slide-09" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body slide-body-p9-visual">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>现场协作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>先看清数据流向，<span class="accent">再决定怎么用。</span></h2>
+          <div class="cover-rule"></div>
+
+          <div class="privacy-visual-layout">
+            <div class="privacy-map">
+              <div class="privacy-map-head">
+                <div>
+                  <p class="privacy-map-kicker">Data path</p>
+                  <h3>一次任务，数据会经过哪里？</h3>
+                </div>
+                <span class="privacy-map-badge">边界透明</span>
+              </div>
+
+              <div class="privacy-data-flow">
+                <article class="privacy-flow-node">
+                  <span class="privacy-node-num">01</span>
+                  <h4>你的工作目录</h4>
+                  <p>只选择完成任务所需的文件夹；先确认范围，再开始操作。</p>
+                  <span class="privacy-node-note">范围由你选择</span>
+                </article>
+                <div class="privacy-flow-arrow" aria-hidden="true">
+                  <span>&rarr;</span>
+                  <small>本地<br/>读写</small>
+                </div>
+                <article class="privacy-flow-node node-local">
+                  <span class="privacy-node-num">02</span>
+                  <h4>WorkBuddy 桌面端</h4>
+                  <p>文件处理默认在本机进行；配置、记忆与操作结果可由你管理。</p>
+                  <span class="privacy-node-note">先预览，再确认</span>
+                </article>
+                <div class="privacy-flow-arrow" aria-hidden="true">
+                  <span>&rarr;</span>
+                  <small>必要<br/>输入</small>
+                </div>
+                <article class="privacy-flow-node node-service">
+                  <span class="privacy-node-num">03</span>
+                  <h4>所选模型服务</h4>
+                  <p>调用云端或第三方模型时，完成请求所需内容按对应服务规则处理。</p>
+                  <span class="privacy-node-note">敏感任务可选本地模型</span>
+                </article>
+              </div>
+            </div>
+
+            <aside class="privacy-control-rail">
+              <p class="privacy-rail-kicker">Your controls</p>
+              <h3>三道控制权，都在你手里</h3>
+              <div class="privacy-controls">
+                <div class="privacy-control-item">
+                  <span class="privacy-control-mark">A</span>
+                  <div><strong>选范围</strong><p>只授权当前任务真正需要的目录。</p></div>
+                </div>
+                <div class="privacy-control-item">
+                  <span class="privacy-control-mark">B</span>
+                  <div><strong>选模型</strong><p>普通任务用云端；高敏感任务可选 Ollama 本地模型。</p></div>
+                </div>
+                <div class="privacy-control-item">
+                  <span class="privacy-control-mark">C</span>
+                  <div><strong>审操作</strong><p>删除、外发、批量修改等动作，先看预览再确认。</p></div>
+                </div>
+              </div>
+              <div class="privacy-decision">判断不清敏感度时：先脱敏、缩小范围，或暂停操作。</div>
+            </aside>
+          </div>
+
+          <div class="privacy-risk-strip">
+            <div class="privacy-risk-label">不要直接输入</div>
+            <div class="privacy-risk-item">密码、API Key、SSH 私钥</div>
+            <div class="privacy-risk-item">未脱敏的客户或合同数据</div>
+            <div class="privacy-risk-item">无必要的整库、整盘内容</div>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>「选模型」这一道控制权，具体怎么选？</span></div>
+  </div>
+</section>
+
+<!-- ==================== W13 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w13" data-ch="现场协作" data-title="模型灵活选，费用看规则" data-min="0" data-optional="1" data-src="E18,E22" data-legacy="workbuddy-intro#slide-13" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>现场协作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>模型灵活选，<span class="accent">费用看规则。</span></h2>
+          <div class="cover-rule"></div>
+          <p style="font-size:15px; color:var(--gray-500); max-width:880px; line-height:1.6; margin-bottom:24px;">
+            WorkBuddy 支持套餐模型、第三方模型与本地模型。模型可用范围、积分消耗和活动额度会随套餐与时间变化，使用前应查看账号额度页和最新规则。
+          </p>
+
+          <div class="p7-models-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:20px;">
+            <div style="border:1px solid var(--border); border-radius:10px; padding:20px 22px; background:var(--bg);">
+              <p style="font-size:10px; font-weight:700; color:var(--blue); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">套餐模型</p>
+              <p style="font-size:15px; font-weight:700; color:var(--black); line-height:1.4;">按套餐查看可用模型</p>
+              <p style="font-size:12px; color:var(--gray-500); margin-top:6px; line-height:1.5;">不同套餐支持的模型不同<br/>自动模式可按任务选择模型<br/>消耗以账号额度页为准</p>
+            </div>
+            <div style="border:1px solid var(--border); border-radius:10px; padding:20px 22px; background:var(--bg);">
+              <p style="font-size:10px; font-weight:700; color:#2f855a; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">第三方模型</p>
+              <p style="font-size:15px; font-weight:700; color:var(--black); line-height:1.4;">自定义 API / 提供商接入</p>
+              <p style="font-size:12px; color:var(--gray-500); margin-top:6px; line-height:1.5;">API Key 仅保存在本地<br/>输入会发送给所选模型服务<br/>费用按第三方规则结算</p>
+            </div>
+            <div style="border:1px solid var(--border); border-radius:10px; padding:20px 22px; background:var(--bg);">
+              <p style="font-size:10px; font-weight:700; color:#b48214; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">本地模型</p>
+              <p style="font-size:15px; font-weight:700; color:var(--black); line-height:1.4;">可通过 Ollama 接入</p>
+              <p style="font-size:12px; color:var(--gray-500); margin-top:6px; line-height:1.5;">适合更高隐私要求场景<br/>不消耗平台模型积分<br/>速度与效果取决于本机硬件</p>
+            </div>
+          </div>
+
+          <p style="font-size:11px; color:var(--gray-400); text-align:center;">
+            &#9432; 活动积分、有效期和购买方式属于动态政策，不在分享中固化具体数字。
+            <a href="https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Model" target="_blank" rel="noopener" style="color:var(--blue);">查看官方模型配置说明 &#8599;</a>
+          </p>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Model" target="_blank" rel="noopener">E22 · WorkBuddy 模型配置说明</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准；本页原本就不固化积分数字</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>准备好了，怎么开始？</span></div>
+  </div>
+</section>
+
+<!-- ==================== W07 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w07" data-ch="现场协作" data-title="准备好了就动手：怎么开始" data-min="0" data-optional="1" data-src="E18,E06" data-legacy="workbuddy-intro#slide-07" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body slide-body-p4">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>现场协作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>准备好了就动手。<span class="accent">今天就能用上。</span></h2>
+          <div class="cover-rule"></div>
+          <div class="p4-top">
+            <div class="p4-left">
+              <div class="download-cta" style="margin-bottom:16px;">
+                <div class="cta-copy">
+                  <p class="cta-eyebrow">下载 WorkBuddy</p>
+                  <p class="cta-line">支持 Mac 和 Windows，去官网下载安装包即可。</p>
+                  <p class="cta-note">注册并登录后使用；当前新用户活动可领取体验积分，额度与规则以页面为准。</p>
+                </div>
+                <div class="cta-actions">
+                  <a class="cta-btn" href="https://www.codebuddy.cn/work/" target="_blank" rel="noopener">
+                    去官网下载 &#8599;
+                  </a>
+                  <a class="cta-btn" href="https://www.codebuddy.cn/docs/workbuddy/Overview" target="_blank" rel="noopener" style="background:var(--bg);color:var(--blue);border:1px solid rgba(20,110,245,0.25);">
+                    查看官方文档 &#8599;
+                  </a>
+                </div>
+              </div>
+              <div class="safety-grid" style="margin-top:8px;">
+                <article class="safety-card tone-perception">
+                  <span class="safety-icon">&#128229;</span>
+                  <h3>1. 下载安装</h3>
+                  <p>去官网下载 Mac 或 Windows 版，安装后打开即可。</p>
+                </article>
+                <article class="safety-card tone-reasoning">
+                  <span class="safety-icon">&#128221;</span>
+                  <h3>2. 打开新任务</h3>
+                  <p>创建一个新任务，用日常语言描述你想做的事情。</p>
+                </article>
+                <article class="safety-card tone-action">
+                  <span class="safety-icon">&#9989;</span>
+                  <h3>3. 审阅结果</h3>
+                  <p>WorkBuddy 会在右侧面板展示结果，你可以直接下载或继续修改。</p>
+                </article>
+              </div>
+            </div>
+            <div class="p4-right">
+              <div class="product-shot">
+                <img src="assets/legacy/workbuddy-intro-screenshot.png" alt="WorkBuddy 桌面界面：左侧任务列表，中间对话区，右侧输出区" />
+                <p class="product-caption">一个工作台——任务、上下文、工具和结果都在一个窗口里。</p>
+              </div>
+            </div>
+          </div>
+          <div class="safety-block" style="margin-top:8px;">
+            <p class="block-label">安全可控</p>
+            <div class="safety-grid">
+              <article class="safety-card tone-perception">
+                <span class="safety-icon">&#128193;</span>
+                <h3>你的文件你做主</h3>
+                <p>文件操作以你选择或授权的工作目录为边界，开始前请确认目录范围。</p>
+              </article>
+              <article class="safety-card tone-reasoning">
+                <span class="safety-icon">&#128274;</span>
+                <h3>在你的电脑上运行</h3>
+                <p>桌面端与文件操作主要在本机运行；使用云端模型时，必要输入会按服务规则处理。</p>
+              </article>
+              <article class="safety-card tone-action">
+                <span class="safety-icon">&#9888;&#65039;</span>
+                <h3>高风险操作有保护</h3>
+                <p>删除文件、对外发送等危险操作会要求二次确认，并展示预览。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准；截图为 9 月版界面，当前界面以下一页 U01 为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>对照今天的真实界面，再看一遍入口。</span></div>
   </div>
 </section>
 
@@ -510,16 +1350,16 @@
   </div>
 </section>
 
-<!-- ==================== S03 · 补充页（可跳过） ==================== -->
+<!-- ==================== S03 · 扩展页（可跳过） ==================== -->
 <section class="slide slide-opt" id="s03" data-ch="现场协作" data-title="把「帮我整理一下」改成能验收的任务" data-min="0" data-optional="1" data-src="E16,E11" tabindex="-1">
   <div class="wrap">
     <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">补 03</span><span class="e-bar"></span><span class="e-ch">现场协作 · 补充</span><span class="e-min">可跳过</span></div>
+      <div class="eyebrow" data-r="0"><span class="e-num"></span><span class="e-bar"></span><span class="e-ch">现场协作 · 扩展</span><span class="e-min">可跳过</span></div>
       <h2 data-r="1">把「帮我整理一下」改成能验收的任务</h2>
       <div class="rule" data-r="1"></div>
       <p class="lede" data-r="2">官方文档给了一个很朴素的公式：三样东西说齐，就不用让工具猜。</p>
     </header>
-    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>补充页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
     <div class="formula3" data-r="3">
       <span class="f3 t-blue">做什么</span><span class="f3-plus">＋</span>
       <span class="f3 t-teal">有什么</span><span class="f3-plus">＋</span>
@@ -535,6 +1375,102 @@
   </div>
   <div class="slide-foot">
     <div class="src"><span class="src-k">依据</span><a href="https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Efficient-Tips" target="_blank" rel="noopener">E16 · WorkBuddy 官方 10 个上手技巧</a><a href="https://www.workbuddy.cn/docs/workbuddy/Create-Task" target="_blank" rel="noopener">E11 · 创建任务（目标、输入、输出、约束）</a></div>
+  </div>
+</section>
+
+<!-- ==================== W18 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w18" data-ch="现场协作" data-title="你的第一个任务，七步搞定" data-min="0" data-optional="1" data-src="E18,E11" data-legacy="workbuddy-intro#slide-18" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body slide-body-p14">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>现场协作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>你的第一个任务，<span class="accent">七步搞定。</span></h2>
+          <div class="cover-rule"></div>
+          <ol class="p14-flow">
+            <li class="p14-step">
+              <span class="p14-num">1</span>
+              <p>创建新任务</p>
+            </li>
+            <li class="p14-step">
+              <span class="p14-num">2</span>
+              <p>写一句清楚的任务描述</p>
+            </li>
+            <li class="p14-step">
+              <span class="p14-num">3</span>
+              <p>上传文件或贴截图（如果需要）</p>
+            </li>
+            <li class="p14-step">
+              <span class="p14-num">4</span>
+              <p>说明你想要的输出格式</p>
+            </li>
+            <li class="p14-step">
+              <span class="p14-num">5</span>
+              <p>发送任务</p>
+            </li>
+            <li class="p14-step">
+              <span class="p14-num">6</span>
+              <p>在对话区跟踪进展</p>
+            </li>
+            <li class="p14-step">
+              <span class="p14-num">7</span>
+              <p>在结果区审阅输出</p>
+            </li>
+          </ol>
+          <div class="prompt-examples p14-prompts">
+            <p class="block-label">好用的入门提示词</p>
+            <div class="prompt-row">
+              <div class="prompt-card">
+                <p>把这份会议记录整理成 6 页的执行摘要 PPT。</p>
+              </div>
+              <div class="prompt-card">
+                <p>分析这个电子表格，写一份一页纸的洞察总结。</p>
+              </div>
+              <div class="prompt-card">
+                <p>扫描这个测试文件夹，先列出按日期重命名的预览方案，不要直接修改。</p>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-template">
+            <div class="pt-window">
+              <div class="pt-titlebar">
+                <span class="pt-dot pt-dot-red"></span>
+                <span class="pt-dot pt-dot-yellow"></span>
+                <span class="pt-dot pt-dot-green"></span>
+                <span class="pt-filename">提示词模板 — 复制、修改、每次都用</span>
+              </div>
+              <div class="pt-body">
+                <div class="pt-line"><span class="pt-key">角色：</span><span class="pt-val">[这个任务中 WorkBuddy 应该扮演谁？]</span></div>
+                <div class="pt-line"><span class="pt-key">任务：</span><span class="pt-val">[具体要做什么？]</span></div>
+                <div class="pt-line"><span class="pt-key">受众：</span><span class="pt-val">[这份内容给谁看？]</span></div>
+                <div class="pt-line"><span class="pt-key">背景/素材：</span><span class="pt-val">[相关的背景信息、参考资料、已有草稿]</span></div>
+                <div class="pt-line"><span class="pt-key">约束：</span><span class="pt-val">[字数限制、语气要求、要避免的事、品牌规范]</span></div>
+                <div class="pt-line"><span class="pt-key">输出格式：</span><span class="pt-val">[新闻稿 / 要点 / 问答 / 发言提纲 / 等等]</span></div>
+              </div>
+            </div>
+            <div class="pt-angles">
+              <div class="pt-angle">
+                <p class="pt-angle-label">角色 → 视角</p>
+                <p>「扮演危机公关顾问」和「扮演写这篇报道的记者」产出的内容完全不同。用角色来获得正确的视角，而不仅仅是执行力。</p>
+              </div>
+              <div class="pt-angle">
+                <p class="pt-angle-label">受众 → 语气</p>
+                <p>「给 CEO 看」vs「给大众看」vs「给技术记者看」——语气完全不同。不要让 WorkBuddy 自己猜。</p>
+              </div>
+              <div class="pt-angle">
+                <p class="pt-angle-label">约束 → 内置 QA</p>
+                <p>「300 字以内、避免被动语态、中文简体」。把你的检查清单写进提示词里。好的约束能省掉大部分来回修改。</p>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:center; padding-top:12px;">
+            <a href="https://www.codebuddy.cn/docs/workbuddy/Overview" target="_blank" rel="noopener" style="font-size:11px; color:var(--blue); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px;">
+              &#128214; 查看完整官方文档，了解更多功能和最佳实践 &#8599;
+            </a>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://www.workbuddy.cn/docs/workbuddy/Create-Task" target="_blank" rel="noopener">E11 · 创建任务</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准；提示词模板与本场「需求六格」可互相替换使用</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>回到例会记录：按验收标准，再做一次。</span></div>
   </div>
 </section>
 
@@ -634,16 +1570,16 @@
   <div class="slide-foot"><div class="bridge" data-r="8"><span class="b-ar">→</span><span>核对之后，并不是把每个空白都填满才叫完成。</span></div></div>
 </section>
 
-<!-- ==================== S04 · 补充页（可跳过） ==================== -->
+<!-- ==================== S04 · 扩展页（可跳过） ==================== -->
 <section class="slide slide-opt" id="s04" data-ch="现场协作" data-title="第一轮只是起点：分步推进 + 多轮调整" data-min="0" data-optional="1" data-src="E16" tabindex="-1">
   <div class="wrap">
     <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">补 04</span><span class="e-bar"></span><span class="e-ch">现场协作 · 补充</span><span class="e-min">可跳过</span></div>
+      <div class="eyebrow" data-r="0"><span class="e-num"></span><span class="e-bar"></span><span class="e-ch">现场协作 · 扩展</span><span class="e-min">可跳过</span></div>
       <h2 data-r="1">第一轮只是起点：分步推进 + 多轮调整</h2>
       <div class="rule" data-r="1"></div>
       <p class="lede" data-r="2">大任务一次丢过去，往往「写了很多，没有一处满意」。</p>
     </header>
-    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>补充页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
     <div class="round3" data-r="3">
       <div class="rd tone-card t-blue"><span class="rd-n">第 1 轮</span><b>提炼 5 个核心结论</b><small>每个结论一句话概括，并附原文页码</small></div>
       <div class="rd tone-card t-teal"><span class="rd-n">第 2 轮</span><b>写成 15 页内部汇报大纲</b><small>聚焦与业务相关的机会，补建议与下一步</small></div>
@@ -730,6 +1666,128 @@
   </div>
 </section>
 
+<!-- ==================== W08 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w08" data-ch="现场协作" data-title="不用每次都重新介绍自己" data-min="0" data-optional="1" data-src="E18,E07" data-legacy="workbuddy-intro#slide-08" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>现场协作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>不用每次都<span class="accent">重新介绍自己</span>。</h2>
+          <div class="cover-rule"></div>
+          <p style="font-size:15px; color:var(--gray-500); max-width:880px; line-height:1.6; margin-bottom:20px;">
+            有没有反复跟 AI 说明自己的角色和项目，说了几十遍？WorkBuddy 有记忆——它在你的电脑上维护一小份笔记，下次打开还记得上次聊到哪了。
+          </p>
+
+          <div class="scene-mem-grid">
+            <article class="scene-mem-card sm-who">
+              <div class="sm-head">
+                <span class="sm-icon">&#128100;</span>
+                <h3>它记得你是谁</h3>
+              </div>
+              <p>你可以告诉它自己的角色、团队和项目背景。启用并维护记忆后，它能在后续协作中参考这些信息，减少重复说明。</p>
+            </article>
+            <article class="scene-mem-card sm-how">
+              <div class="sm-head">
+                <span class="sm-icon">&#129302;</span>
+                <h3>它记得怎么跟你配合</h3>
+              </div>
+              <p>设定它的名字、说话风格和工作边界。喜欢直接还是温和？输出要简洁还是详细？它会按你喜欢的方式跟你工作。</p>
+            </article>
+            <article class="scene-mem-card sm-log">
+              <div class="sm-head">
+                <span class="sm-icon">&#128214;</span>
+                <h3>它记得你们一起做过什么</h3>
+              </div>
+              <p>你可以让它记录值得长期保留的决策、偏好和反馈。下次遇到类似任务时，这些信息可以成为参考。</p>
+            </article>
+            <article class="scene-mem-card sm-ctrl">
+              <div class="sm-head">
+                <span class="sm-icon">&#128221;</span>
+                <h3>你随时能查看和修改</h3>
+              </div>
+              <p>本地配置和记忆可以查看、维护或删除。具体文件位置与同步方式可能随版本和工作区不同，以客户端设置为准。</p>
+            </article>
+          </div>
+
+          <div class="mem-footnote">
+            个人配置与记忆可通过本地可读文件维护；具体文件位置、注入范围和同步方式可能随版本变化，请以客户端设置与官方文档为准。
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Memory" target="_blank" rel="noopener">E07 · 记忆</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>做出来的成果，放在哪里继续用？</span></div>
+  </div>
+</section>
+
+<!-- ==================== W15 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w15" data-ch="现场协作" data-title="AI 产物不再是一次性文件" data-min="0" data-optional="1" data-src="E18,E09" data-legacy="workbuddy-intro#slide-15" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>现场协作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>AI 产物不再是<span class="accent">一次性文件。</span></h2>
+          <div class="cover-rule"></div>
+          <p class="library-intro">生成只是起点。资料库让人、同事与 AI 围绕同一份内容继续修改、审阅、发布和复用，把“交付文件”变成持续生长的工作资产。</p>
+
+          <div class="library-layout">
+            <section class="library-panel">
+              <p class="library-panel-kicker">Living document</p>
+              <h3>一份产物，沿着四步继续生长</h3>
+              <div class="library-flow">
+                <article class="library-step">
+                  <span class="library-step-num">01</span>
+                  <h4>生成</h4>
+                  <p>先让 AI 产出 Word、PPT、Markdown、HTML 或数据表初稿。</p>
+                  <small>从空白到第一版</small>
+                </article>
+                <article class="library-step">
+                  <span class="library-step-num">02</span>
+                  <h4>人机双写</h4>
+                  <p>小改动直接手动改；复杂改写选中内容后交给 AI。</p>
+                  <small>同区编辑，可撤销</small>
+                </article>
+                <article class="library-step">
+                  <span class="library-step-num">03</span>
+                  <h4>协同审阅</h4>
+                  <p>团队成员与 Agent 围绕同一份内容继续评论、修改和确认。</p>
+                  <small>人负责判断</small>
+                </article>
+                <article class="library-step">
+                  <span class="library-step-num">04</span>
+                  <h4>发布与复用</h4>
+                  <p>HTML 可发布为网页；沉淀后的内容还能成为下一次任务的上下文。</p>
+                  <small>从交付到资产</small>
+                </article>
+              </div>
+            </section>
+
+            <aside class="library-app">
+              <p class="library-app-kicker">Light app</p>
+              <h3>轻应用：页面与数据双向同步</h3>
+              <div class="library-sync">
+                <div class="library-sync-node"><strong>HTML</strong><span>界面与交互</span></div>
+                <div class="library-sync-arrow">&#8644;</div>
+                <div class="library-sync-node"><strong>CSV</strong><span>数据底座</span></div>
+              </div>
+              <p>适合把静态网页升级成能记录、筛选和同步数据的轻量工具。功能开放范围以账号与版本为准。</p>
+              <div class="library-examples">
+                <span>项目看板</span><span>库存台账</span><span>个人工作台</span>
+              </div>
+            </aside>
+          </div>
+
+          <div class="library-foot">
+            <a href="https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Knowledge-Base/Cowriting" target="_blank" rel="noopener">人机双写官方文档 &#8599;</a>
+            <span>·</span>
+            <a href="https://cloud.tencent.com.cn/developer/article/2728428" target="_blank" rel="noopener">资料库升级说明 &#8599;</a>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Library" target="_blank" rel="noopener">E09 · 资料库</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>方法存好了，换一段输入试试。</span></div>
+  </div>
+</section>
+
 <!-- ==================== P19 ==================== -->
 <section class="slide" id="p19" data-ch="现场协作" data-title="换一段输入，试用刚才的方法" data-min="4" data-src="E08,E09" tabindex="-1">
   <div class="wrap">
@@ -785,16 +1843,16 @@
   </div>
 </section>
 
-<!-- ==================== S05 · 补充页（可跳过） ==================== -->
+<!-- ==================== S05 · 扩展页（可跳过） ==================== -->
 <section class="slide slide-opt" id="s05" data-ch="现场协作" data-title="先稳再快：本地 → 备份 → 自动化" data-min="0" data-optional="1" data-src="E16,E10" tabindex="-1">
   <div class="wrap">
     <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">补 05</span><span class="e-bar"></span><span class="e-ch">现场协作 · 补充</span><span class="e-min">可跳过</span></div>
+      <div class="eyebrow" data-r="0"><span class="e-num"></span><span class="e-bar"></span><span class="e-ch">现场协作 · 扩展</span><span class="e-min">可跳过</span></div>
       <h2 data-r="1">先稳再快：本地 → 备份 → 自动化</h2>
       <div class="rule" data-r="1"></div>
       <p class="lede" data-r="2">官方文档把这三件事排成了一条有先后的路，而不是三个并列的功能。</p>
     </header>
-    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>补充页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
     <div class="cards-3" data-r="3">
       <div class="card card-flat t-teal"><div class="card-k">第 1 步 · 先在桌面端</div><h3>边看边用，再谈远程</h3><p>官方提醒：远程遥控意味着它在你看不见的地方自主行动，一旦执行超出预期，未必来得及叫停。</p></div>
       <div class="card card-flat t-amber"><div class="card-k">第 2 步 · 动文件之前</div><h3>先复制一份备份</h3><p>官方提醒：它可能删掉你想保留的内容、打乱格式或把方向改偏；成熟的做法不是期待它永远不出错，而是提前留好回退方案。</p></div>
@@ -827,16 +1885,70 @@
   <div class="slide-foot"><div class="bridge" data-r="4"><span class="b-ar">→</span><span>从一件件任务看变化，比直接问整个岗位会不会消失更具体。</span></div></div>
 </section>
 
-<!-- ==================== S06 · 补充页（可跳过） ==================== -->
+<!-- ==================== W16 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w16" data-ch="回到工作" data-title="上手案例：把一个选题变成能用的初稿" data-min="0" data-optional="1" data-src="E18" data-legacy="workbuddy-intro#slide-16" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>回到工作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <div class="case-header">
+            <span class="case-label">内容创作</span>
+            <h2>把一个选题变成<span class="accent">能用的初稿</span>。</h2>
+          </div>
+          <div class="cover-rule"></div>
+          <div class="two-col-content">
+            <div class="col">
+              <p class="block-label">适合谁</p>
+              <ul class="clean-list">
+                <li>把选题、简报或创意方向变成第一版草稿</li>
+                <li>内容团队需要一个更快的起点，然后再精修</li>
+                <li>文章、社交媒体帖子、文案、短视频脚本创作</li>
+              </ul>
+              <p class="block-label" style="margin-top:28px;">操作步骤</p>
+              <ul class="clean-list">
+                <li>说清楚选题、平台、受众和目标</li>
+                <li>补充关键信息、产品卖点或参考资料</li>
+                <li>指定输出格式：大纲 / 帖子 / 文案 / 脚本</li>
+                <li>审阅角度、语气和结构是否合适</li>
+                <li>逐段修改标题、正文或脚本内容</li>
+                <li>需要时把同一份素材改成另一种格式</li>
+              </ul>
+            </div>
+            <div class="col">
+              <div class="prompt-block">
+                <p class="block-label">示例提示词</p>
+                <div class="prompt-quote">
+                  <p>根据这份选题简报，帮我写一篇面向普通读者的产品介绍文章。包含一个吸引人的标题、清晰的结构、以及我可以直接修改的初稿内容。</p>
+                </div>
+              </div>
+              <div class="flow-mini">
+                <span>选题 + 简报</span>
+                <span class="flowmini-arrow">&#8594;</span>
+                <span>初稿</span>
+                <span class="flowmini-arrow">&#8594;</span>
+                <span>精修</span>
+                <span class="flowmini-arrow">&#8594;</span>
+                <span>多格式输出</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>更多日常技巧：专家、样例、多任务。</span></div>
+  </div>
+</section>
+
+<!-- ==================== S06 · 扩展页（可跳过） ==================== -->
 <section class="slide slide-opt" id="s06" data-ch="回到工作" data-title="把技巧带回日常：专家、样例、多任务" data-min="0" data-optional="1" data-src="E16" tabindex="-1">
   <div class="wrap">
     <header class="s-head">
-      <div class="eyebrow" data-r="0"><span class="e-num">补 06</span><span class="e-bar"></span><span class="e-ch">回到工作 · 补充</span><span class="e-min">可跳过</span></div>
+      <div class="eyebrow" data-r="0"><span class="e-num"></span><span class="e-bar"></span><span class="e-ch">回到工作 · 扩展</span><span class="e-min">可跳过</span></div>
       <h2 data-r="1">把技巧带回日常：专家、样例、多任务</h2>
       <div class="rule" data-r="1"></div>
       <p class="lede" data-r="2">方法还是那三个动作，多的是几种更省力的输入方式。</p>
     </header>
-    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>补充页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+    <div class="opt-bar" data-r="2"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 不计入 70 分钟 · 时间紧可直接跳到下一主线页</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
     <div class="pre-4 opt-steps" data-r="3">
       <div class="pre tone-card t-violet"><div class="g6-n">05</div><div class="pre-ic"><svg><use href="#i-people"/></svg></div><b>给一个身份</b><p>用「专家」预设角色，让表达框架与关注重点更快对齐</p><div class="tone-tags"><span>专业性强时更稳</span></div></div>
       <div class="pre tone-card t-blue"><div class="g6-n">06</div><div class="pre-ic"><svg><use href="#i-files"/></svg></div><b>给一个例子</b><p>直接把一个你满意的样本给它：「照这个来」</p><div class="tone-tags"><span>语气 / 结构 / 格式</span></div></div>
@@ -847,6 +1959,247 @@
   </div>
   <div class="slide-foot">
     <div class="src"><span class="src-k">依据</span><a href="https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Efficient-Tips" target="_blank" rel="noopener">E16 · WorkBuddy 官方 10 个上手技巧（技巧 5、6、7、10）</a><span class="src-note">＋讲者整理</span></div>
+  </div>
+</section>
+
+<!-- ==================== W10 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w10" data-ch="回到工作" data-title="AI 专家团：一个人就是一支团队" data-min="0" data-optional="1" data-src="E18,E24" data-legacy="workbuddy-intro#slide-10" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>回到工作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>140+ 专家，<span class="accent">一个人就是一支团队</span>。</h2>
+          <div class="cover-rule"></div>
+          <p style="font-size:15px; color:var(--gray-500); max-width:880px; line-height:1.6; margin-bottom:20px;">
+            这些专家角色不只是换一个名称，而是预置了<strong style="color:var(--black);">领域提示、方法框架和相关技能配置</strong>。你可以按任务组合不同角色，并行处理子任务，再统一审阅结果。
+          </p>
+
+          <!-- 12 domain tags -->
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px;">
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(20,110,245,0.08); color:var(--blue); font-weight:600;">设计(8)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(47,133,90,0.08); color:#2f855a; font-weight:600;">工程(21)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(180,130,20,0.08); color:#b48214; font-weight:600;">营销(26)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(120,80,200,0.08); color:#7850c8; font-weight:600;">付费媒体(7)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(200,80,120,0.08); color:#c85078; font-weight:600;">销售(8)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(20,110,245,0.08); color:var(--blue); font-weight:600;">产品(4)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(47,133,90,0.08); color:#2f855a; font-weight:600;">项目管理(6)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(180,130,20,0.08); color:#b48214; font-weight:600;">质量(8)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(120,80,200,0.08); color:#7850c8; font-weight:600;">运营(6)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(200,80,120,0.08); color:#c85078; font-weight:600;">专业服务(22)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(20,110,245,0.08); color:var(--blue); font-weight:600;">游戏(19)</span>
+            <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(47,133,90,0.08); color:#2f855a; font-weight:600;">空间计算(6)</span>
+          </div>
+
+          <!-- Typical scenarios -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div style="border:1px solid var(--border); border-radius:10px; padding:18px 20px; background:var(--bg);">
+              <p style="font-size:10px; font-weight:700; color:var(--blue); letter-spacing:0.8px; text-transform:uppercase; margin-bottom:8px;">OPC 一人公司</p>
+              <p style="font-size:13px; line-height:1.6; color:var(--gray-700); margin-bottom:12px;">组合运营、设计、开发、法务等 AI 角色，并行处理不同子任务，再由你统一审阅交付物。</p>
+              <p style="font-size:11.5px; color:var(--gray-500); border-left:2px solid var(--blue); padding-left:10px;">"帮我做一次完整的新品上市方案——从市场调研、定价策略到推广物料。"</p>
+            </div>
+            <div style="border:1px solid var(--border); border-radius:10px; padding:18px 20px; background:var(--bg);">
+              <p style="font-size:10px; font-weight:700; color:#2f855a; letter-spacing:0.8px; text-transform:uppercase; margin-bottom:8px;">内容创作团队</p>
+              <p style="font-size:13px; line-height:1.6; color:var(--gray-700); margin-bottom:12px;">组合研究、写作、设计等角色，从选题策略到图文内容协同推进。</p>
+              <p style="font-size:11.5px; color:var(--gray-500); border-left:2px solid #2f855a; padding-left:10px;">"围绕「远程办公效率」这个主题，产出公众号文章 + 小红书 3 篇 + 短视频脚本。"</p>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:center; gap:8px; align-items:center;">
+            <a href="https://cloud.tencent.com/developer/article/2640403" target="_blank" rel="noopener" style="font-size:11px; color:var(--blue); text-decoration:none; font-weight:600;">数据来源：WorkBuddy 官方发布（2026年3月）&#8599;</a>
+            <span style="color:var(--gray-300);">&middot;</span>
+            <a href="https://www.codebuddy.cn/work/" target="_blank" rel="noopener" style="font-size:11px; color:var(--blue); text-decoration:none; font-weight:600;">下载 WorkBuddy &#8599;</a>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://cloud.tencent.com/developer/article/2640403" target="_blank" rel="noopener">E24 · WorkBuddy 专家团官方发布</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准；「140+」与分类数为 2026 年 3 月发布口径</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>专家之外，还有现成的技能可以装。</span></div>
+  </div>
+</section>
+
+<!-- ==================== W11 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w11" data-ch="回到工作" data-title="技能市场 SkillHub：先逛市场，别自己造轮子" data-min="0" data-optional="1" data-src="E18,E23,E08" data-legacy="workbuddy-intro#slide-11" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>回到工作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>技能市场 SkillHub：<span class="accent">先逛市场，别自己造轮子。</span></h2>
+          <div class="cover-rule"></div>
+
+          <div class="skillhub-layout" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <!-- LEFT: Stats -->
+            <div style="border:1px solid var(--border); border-radius:10px; padding:22px 24px; background:var(--bg); display:flex; flex-direction:column; gap:14px;">
+              <h3 style="font-size:16px; font-weight:700; color:var(--black);">可信分发比“数量很多”更重要</h3>
+              <div style="display:flex; gap:16px;">
+                <div style="text-align:center;">
+                  <p style="font-size:32px; font-weight:800; color:var(--blue); line-height:1;">4.6 万+</p>
+                  <p style="font-size:12px; color:var(--gray-500);">累计已审核发布个人 Skill</p>
+                </div>
+                <div style="width:1px; background:var(--border);"></div>
+                <div style="text-align:center;">
+                  <p style="font-size:32px; font-weight:800; color:#2f855a; line-height:1;">100%</p>
+                  <p style="font-size:12px; color:var(--gray-500);">Skill 强制安全准入</p>
+                </div>
+              </div>
+              <p style="font-size:13px; line-height:1.6; color:var(--gray-500);">
+                平台当前明确展示三线并行审核：内容合规过滤、科恩实验室深度漏洞扫描、云鼎实验室 AI 模型安全评估。安装前仍应查看具体 Skill 的安全报告、权限和配置要求。
+              </p>
+            </div>
+            <!-- RIGHT: Tags + MCP -->
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="border:1px solid var(--border); border-radius:10px; padding:18px 20px; background:var(--bg);">
+                <p style="font-size:10px; font-weight:700; color:var(--gray-500); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px;">热门技能</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                  <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(20,110,245,0.07); color:var(--blue); font-weight:600;">Excel 自动化</span>
+                  <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(47,133,90,0.07); color:#2f855a; font-weight:600;">PPT 生成</span>
+                  <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(180,130,20,0.07); color:#b48214; font-weight:600;">会议纪要</span>
+                  <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(120,80,200,0.07); color:#7850c8; font-weight:600;">代码审查</span>
+                  <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(200,80,120,0.07); color:#c85078; font-weight:600;">小红书文案</span>
+                  <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(20,110,245,0.07); color:var(--blue); font-weight:600;">PDF 解析</span>
+                  <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(47,133,90,0.07); color:#2f855a; font-weight:600;">周报生成</span>
+                  <span style="font-size:10px; padding:4px 8px; border-radius:999px; background:rgba(180,130,20,0.07); color:#b48214; font-weight:600;">数据清洗</span>
+                </div>
+              </div>
+              <div style="border:1px dashed rgba(20,110,245,0.2); border-radius:10px; padding:18px 20px; background:rgba(20,110,245,0.02);">
+                <p style="font-size:10px; font-weight:700; color:var(--blue); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">MCP 开放生态</p>
+                <p style="font-size:13px; line-height:1.55; color:var(--gray-600);">支持自定义技能包和模型配置。连接器可将 WorkBuddy 接入<strong style="color:var(--black);">邮箱、日历、在线文档、项目管理</strong>等外部系统；不少连接器采用开放的 <strong>MCP</strong> 标准，并需按各自说明完成授权与配置。</p>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:center;">
+            <a href="https://skillhub.tencent.com/" target="_blank" rel="noopener" style="font-size:11px; color:var(--blue); text-decoration:none; font-weight:600;">数据来源：SkillHub 官网（2026年9月访问）&#8599;</a>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://skillhub.tencent.com/" target="_blank" rel="noopener">E23 · SkillHub 官网</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准；「4.6 万+」为 2026 年 9 月访问时的页面口径，安装前看安全报告与权限</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>人不在电脑前，也能把任务交出去。</span></div>
+  </div>
+</section>
+
+<!-- ==================== W12 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w12" data-ch="回到工作" data-title="助理：不在电脑前也能干活" data-min="0" data-optional="1" data-src="E18,E25" data-legacy="workbuddy-intro#slide-12" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>回到工作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>不在电脑前<span class="accent">也能干活</span>。</h2>
+          <div class="cover-rule"></div>
+          <p style="font-size:15px; color:var(--gray-500); max-width:880px; line-height:1.6; margin-bottom:24px;">
+            配置微信、企业微信、飞书、钉钉或 QQ 等渠道后，可用手机下发任务。桌面端需保持在线并完成相应授权，执行过程与结果可回传到对应渠道。
+          </p>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div style="border:1px solid var(--border); border-radius:10px; padding:20px 22px; background:var(--bg);">
+              <p style="font-size:10px; font-weight:700; color:var(--blue); letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">四步上手</p>
+              <ul style="display:flex; flex-direction:column; gap:10px;">
+                <li style="font-size:13px; line-height:1.5; color:var(--gray-700); padding-left:14px; position:relative;">
+                  <span style="position:absolute; left:0; top:6px; width:4px; height:4px; border-radius:50%; background:var(--blue);"></span>
+                  WorkBuddy 设置里扫二维码绑定微信
+                </li>
+                <li style="font-size:13px; line-height:1.5; color:var(--gray-700); padding-left:14px; position:relative;">
+                  <span style="position:absolute; left:0; top:6px; width:4px; height:4px; border-radius:50%; background:var(--blue);"></span>
+                  用微信发一条消息描述任务
+                </li>
+                <li style="font-size:13px; line-height:1.5; color:var(--gray-700); padding-left:14px; position:relative;">
+                  <span style="position:absolute; left:0; top:6px; width:4px; height:4px; border-radius:50%; background:var(--blue);"></span>
+                  桌面端在线时接收并执行任务
+                </li>
+                <li style="font-size:13px; line-height:1.5; color:var(--gray-700); padding-left:14px; position:relative;">
+                  <span style="position:absolute; left:0; top:6px; width:4px; height:4px; border-radius:50%; background:var(--blue);"></span>
+                  执行状态与结果回传到手机，可继续查看
+                </li>
+              </ul>
+            </div>
+            <div style="border:1px solid var(--border); border-radius:10px; padding:20px 22px; background:var(--bg);">
+              <p style="font-size:10px; font-weight:700; color:#2f855a; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">典型场景</p>
+              <ul style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px;">
+                <li style="font-size:13px; line-height:1.5; color:var(--gray-700); padding-left:14px; position:relative;">
+                  <span style="position:absolute; left:0; top:6px; width:4px; height:4px; border-radius:50%; background:#2f855a;"></span>
+                  查任务进度——"今天上午的调研跑完了吗？"
+                </li>
+                <li style="font-size:13px; line-height:1.5; color:var(--gray-700); padding-left:14px; position:relative;">
+                  <span style="position:absolute; left:0; top:6px; width:4px; height:4px; border-radius:50%; background:#2f855a;"></span>
+                  取文件——"把刚才生成的那份报告发我"
+                </li>
+                <li style="font-size:13px; line-height:1.5; color:var(--gray-700); padding-left:14px; position:relative;">
+                  <span style="position:absolute; left:0; top:6px; width:4px; height:4px; border-radius:50%; background:#2f855a;"></span>
+                  定时自动化——"每天早上 9 点整理今日待办"
+                </li>
+              </ul>
+              <div style="padding:10px 14px; border-radius:6px; background:rgba(20,110,245,0.05); border:1px dashed rgba(20,110,245,0.2); font-size:12px; line-height:1.55; color:var(--gray-700);">
+                <strong style="display:block; font-size:9.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue); margin-bottom:4px;">示例（手机发送）</strong>
+                帮我把今天上午会议的录音转成文字，整理成会议纪要，发给我。
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:12px 16px; border:1px dashed rgba(20,110,245,0.2); border-radius:8px; background:rgba(20,110,245,0.02);">
+            <p style="font-size:10px; font-weight:700; color:var(--blue); letter-spacing:0.8px; text-transform:uppercase; margin-bottom:6px;">&#128640; 关联功能：项目（Projects）— 团队协作</p>
+            <p style="font-size:12.5px; line-height:1.55; color:var(--gray-600);">
+              「项目」让团队成员与 Agent 在同一空间共享上下文、Skills 和 MCP 等资产，接力推进任务。该能力主要面向企业协作，开放范围以账号与版本为准。
+              <a href="https://new.qq.com/rain/a/20260612A00X7J00" target="_blank" rel="noopener" style="color:var(--blue); font-weight:600;">查看官方发布 &#8599;</a>
+            </p>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://new.qq.com/rain/a/20260612A00X7J00" target="_blank" rel="noopener">E25 · WorkBuddy 企业版发布报道</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准；渠道与开放范围以账号与版本为准</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>这些能力还在快速更新。</span></div>
+  </div>
+</section>
+
+<!-- ==================== W14 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w14" data-ch="回到工作" data-title="2026 年 9 月产品更新" data-min="0" data-optional="1" data-src="E18,E10" data-legacy="workbuddy-intro#slide-14" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>回到工作<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>新功能越来越多，核心是<span class="accent">任务路径更短了。</span></h2>
+          <div class="cover-rule"></div>
+          <p class="release-intro">5.5.0–5.5.2 的变化可以归纳为两件事：更快进入专业场景，更自然地把现实素材交给 AI 继续处理。</p>
+
+          <div class="release-grid">
+            <article class="release-card featured">
+              <div class="release-card-head">
+                <span class="release-icon">&#9673;</span>
+                <span class="release-version">5.5.0</span>
+              </div>
+              <h3>行业 Buddy：从通用工作台进入专业场景</h3>
+              <p>按场景提供专属首页、专家、技能和连接器。不是先研究“该装什么”，而是直接从更贴近行业需求的任务入口开始。</p>
+            </article>
+            <article class="release-card">
+              <div class="release-card-head">
+                <span class="release-icon">&#8645;</span>
+                <span class="release-version">5.5.0</span>
+              </div>
+              <h3>系统分享：微信聊天记录可直接送进任务</h3>
+              <p>macOS 与 Windows 增加系统分享入口，可将微信聊天记录发送到 WorkBuddy，并在提交前预览转发内容。</p>
+            </article>
+            <article class="release-card">
+              <div class="release-card-head">
+                <span class="release-icon">&#9635;</span>
+                <span class="release-version">5.5.0</span>
+              </div>
+              <h3>图片处理：不只生成，还能继续修</h3>
+              <p>新增去文字或水印、图片修复、增强、美颜和透明背景抠图等能力，让已有素材也能进入工作流。</p>
+            </article>
+            <article class="release-card">
+              <div class="release-card-head">
+                <span class="release-icon">&#9654;</span>
+                <span class="release-version">5.5.1</span>
+              </div>
+              <h3>视频生成：创作控制更具体</h3>
+              <p>可选择画面比例、是否带声音，并描述不希望出现的内容；适合先明确约束，再生成可审阅的视频草稿。</p>
+            </article>
+          </div>
+
+          <div class="release-summary">
+            <strong>从“一个通用入口”走向“按场景组织能力”。</strong>
+            <span>5.5.1–5.5.2 还重点改善云助理、自动化、积分明细和本地历史恢复。</span>
+            <a href="https://www.codebuddy.cn/docs/workbuddy/Changelog" target="_blank" rel="noopener">查看官方更新日志 &#8599;</a>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><a href="https://www.workbuddy.cn/docs/workbuddy/Changelog" target="_blank" rel="noopener">E10 · 更新日志</a><span class="src-note">本页为 9 月版快照（5.5.0—5.5.2）；截至 2026-11-25，官方更新日志最新为 5.11.3（2026-11-15）</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>功能会变，判断与责任的分工不变。</span></div>
   </div>
 </section>
 
@@ -905,6 +2258,57 @@
   <div class="slide-foot"><div class="bridge" data-r="4"><span class="b-ar">→</span><span>把它落到一个小行动，不必一次改变全部工作。</span></div></div>
 </section>
 
+<!-- ==================== W19 · 扩展 · 沿用《WorkBuddy 简介》 ==================== -->
+<section class="slide lg lg-w" id="w19" data-ch="收尾" data-title="最快的学习方式：用它做一件真事" data-min="0" data-optional="1" data-src="E18" data-legacy="workbuddy-intro#slide-19" tabindex="-1">
+  <div class="opt-bar lg-bar"><svg class="mini-ic"><use href="#i-clock"/></svg><span>扩展页 · 原页沿用本站《WorkBuddy 简介》 · 不计入 70 分钟，时间紧可跳过</span><button class="opt-skip" type="button">跳到下一主线页 →</button></div>
+          <div class="slide-body" style="padding:40px var(--slide-px) 32px;">
+          <p class="section-eyebrow"><span class="lg-num"></span><span class="lg-dash">&mdash;</span>收尾<span class="lg-from">沿用本站《WorkBuddy 简介》</span></p>
+          <h2>最快的学习方式：<span class="accent">用它做一件真事。</span></h2>
+          <div class="cover-rule"></div>
+          <p style="font-size:15px; color:var(--gray-500); max-width:880px; line-height:1.6; margin-bottom:24px;">
+            不需要读完所有文档。下面四个任务，挑一个你最想解决的，打开 WorkBuddy 试试看。
+          </p>
+
+          <div class="starter-grid">
+            <article class="starter-card">
+              <span class="starter-num">1</span>
+              <h3>让专家团分析一个行业</h3>
+              <p>召唤市场、运营、数据专家并行工作——收集信息、对比竞品、提炼趋势，产出一份结构化的分析报告。</p>
+              <span class="starter-hint">试试看 &#8594;</span>
+            </article>
+            <article class="starter-card">
+              <span class="starter-num">2</span>
+              <h3>不在电脑前发个任务</h3>
+              <p>配置微信渠道并保持桌面端在线，出门时发条消息——"帮我把下午的录音转成会议纪要"——随后在手机查看执行状态和结果。</p>
+              <span class="starter-hint">试试看 &#8594;</span>
+            </article>
+            <article class="starter-card">
+              <span class="starter-num">3</span>
+              <h3>去技能市场装个翻译工具</h3>
+              <p>打开 SkillHub 搜索翻译类技能，先查看安全报告、配置要求和兼容说明，再安装并用一份非敏感材料试运行。</p>
+              <span class="starter-hint">试试看 &#8594;</span>
+            </article>
+            <article class="starter-card">
+              <span class="starter-num">4</span>
+              <h3>让它帮你写一份周报</h3>
+              <p>告诉它这周的工作、成果和问题，让它整理成周报初稿；你需要核对事实、补充判断并确认最终表述。</p>
+              <span class="starter-hint">试试看 &#8594;</span>
+            </article>
+          </div>
+
+          <div style="text-align:center; padding-top:8px;">
+            <a class="cta-btn" href="https://www.codebuddy.cn/work/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; font-size:14px; padding:12px 28px;">
+              下载 WorkBuddy，现在开始 &#8599;
+            </a>
+          </div>
+        </div>
+      
+  <div class="slide-foot">
+    <div class="src"><span class="src-k">依据</span><a href="https://yeranyang.cn/share/workbuddy-intro/" target="_blank" rel="noopener">E18 · 本站《WorkBuddy 简介》（2026 年 9 月版）</a><span class="src-note">沿用本站 2026 年 9 月版《WorkBuddy 简介》原页（已审核）；产品数字与功能为当时快照，以客户端与官网当前页面为准；涉及渠道、技能安装的任务，请先确认所在单位的使用规定</span></div>
+    <div class="bridge"><span class="b-ar">→</span><span>今天回去，从手边一件事开始。</span></div>
+  </div>
+</section>
+
 <!-- ==================== P24 ==================== -->
 <section class="slide slide-end" id="p24" data-ch="收尾" data-title="从手边一件事开始" data-min="2" data-src="" tabindex="-1">
   <div class="wrap">
@@ -951,10 +2355,10 @@
   <div class="agenda">
     <div class="agenda-head"><span>主讲时间分配</span><span>分钟 · 依据制作规格</span></div>
     <div class="agenda-chart"><canvas id="agendaChart" aria-label="六段主讲时间分配柱状图"></canvas></div>
-    <label class="skip-toggle" for="skipOptional"><input type="checkbox" id="skipOptional"><span>跳过补充页：现场只讲主线 24 页 / 70 分钟（6 张补充页不计入时长）</span></label>
+    <label class="skip-toggle" for="skipOptional"><input type="checkbox" id="skipOptional"><span>跳过扩展页：现场只讲主线 24 页 / 70 分钟（<b id="optCount">25</b> 张扩展页不计入时长）</span></label>
   </div>
   <div class="index-list" id="indexList"></div>
-  <div class="drawer-tip">键盘 ← → 翻页 · 空格下一页 · I 目录 · S 来源 · Esc 关闭<br>也可用翻页笔；输入框聚焦时不会误翻页。补充页页眉有「跳到下一主线页」按钮。</div>
+  <div class="drawer-tip">键盘 ← → 翻页 · 空格下一页 · I 目录 · S 来源 · Esc 关闭<br>也可用翻页笔；输入框聚焦时不会误翻页。扩展页页眉有「跳到下一主线页」按钮。</div>
 </aside>
 
 <!-- ============ 来源抽屉 ============ -->
@@ -962,11 +2366,11 @@
   <div class="drawer-head"><div><span class="dh-k">SOURCES</span><h3>公开来源与证据边界</h3></div><button class="drawer-close" id="btnSourcesClose" aria-label="关闭">×</button></div>
   <p class="sources-intro">媒体转述不等于亲临现场；多份转录一致也不等于独立来源或原音核验。官方产品文档不等于演示账号已跑通。以下编号与每页脚注一致。</p>
   <div class="source-list" id="sourceList"></div>
-  <div class="sources-foot">本场部分 WorkBuddy 产品说明与工作方法沿用本站既有《WorkBuddy 简介》（2026 年 9 月版）与校友分享，均为已审核自有内容；未复用其中的产品数量、积分额度与渠道配置等动态信息。<br>补充页 S01—S06 的「推荐上手顺序」「10 个技巧」来自官方文档 E16《WorkBuddy 10 个上手技巧》（2026-11-25 读取）；页面上的一句话说明、示例压缩、页号对应与链条图均为讲者整理，官方示例已就近标注，不整篇复制官方正文。<br>U01：用户提供的新建任务首页截图（2026-11-24），仅作界面参考，未做点击实测。<br>版本与功能可用状态以录屏前的实际客户端为准；补充说明不是效果保证，也不等于演示账号已跑通。</div>
+  <div class="sources-foot">E17、E18 为本站已审核的两份旧分享：《从大模型到 Agent》第 4—7 页（AI 发展历程、大模型本质、三次跃迁、感知—行动闭环）原页搬入主线 P04、P05、P07 与扩展页；《WorkBuddy 简介》（2026 年 9 月版）第 02—19 页原页搬入扩展页（第 04 页与 P07 内容相同，合并）。原页只做最小必要修订（Sutskever 改为大意转述、Q1 物理类比、H100 算力口径等，见 SPEC §6.6）；其中产品数字与功能是 9 月版快照，以客户端与官网当前页面为准。<br>扩展页 S01—S06 的「推荐上手顺序」「10 个技巧」来自官方文档 E16《WorkBuddy 10 个上手技巧》（2026-11-25 读取）；页面上的一句话说明、示例压缩、页号对应与链条图均为讲者整理，官方示例已就近标注，不整篇复制官方正文。<br>U01：用户提供的新建任务首页截图（2026-11-24），仅作界面参考，未做点击实测。<br>版本与功能可用状态以录屏前的实际客户端为准；扩展页说明不是效果保证，也不等于演示账号已跑通。</div>
 </aside>
 
 <script src="vendor/chart.umd.min.js"></script>
 <script src="vendor/three.min.js"></script>
-<script src="script.js"></script>
+<script src="script.js?v=1.4"></script>
 </body>
 </html>

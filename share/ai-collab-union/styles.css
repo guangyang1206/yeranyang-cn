@@ -65,7 +65,8 @@ img{display:block;max-width:100%}
 button{font:inherit;color:inherit;cursor:pointer}
 a{color:inherit}
 ul{list-style:none}
-svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* 图标默认样式只作用于本 deck 自己的图标；沿用旧分享的原页（.lg .slide-body）保留原 SVG 的默认绘制 */
+svg:where(:not(.lg .slide-body svg, .lg .slide-body svg *)){width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 .accent{color:var(--blue)}
 
@@ -831,4 +832,66 @@ body.skip-optional .index-item.is-optional{opacity:.45}
   .slide{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;page-break-after:always;min-height:100vh;display:flex}
   .bar,.progress,.topmark,.drawer,.drawer-backdrop{display:none}
   [data-r]{opacity:1;transform:none}
+}
+
+/* =============================================================
+   沿用原页（SPEC v1.4）：站内已审核旧分享的页面整页搬入。
+   原样式见 legacy.css（作用域 .lg / .lg-x / .lg-w）；这里只接管
+   整页布局、编号、揭示动画与自适应缩放（script.js fitLegacy）。
+   ============================================================= */
+.slide.lg{padding-left:28px;padding-right:28px}
+.lg > .slide-body{flex:none;margin:0 auto;padding-top:4px!important;padding-bottom:4px!important;color:#080808}
+.lg > .opt-bar{width:min(var(--max),100%);margin:0 auto clamp(6px,1vh,12px);flex:none}
+.lg .section-eyebrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lg .section-eyebrow .lg-num{font-family:var(--mono);color:var(--blue);font-size:1.15em;letter-spacing:0}
+.lg .section-eyebrow .lg-dash{opacity:.6}
+.lg .section-eyebrow .lg-from{text-transform:none;margin-left:6px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;letter-spacing:.06em;color:var(--gray-2);font-weight:500}
+.lg .lg-paraphrase{display:inline-block;margin:0 8px 6px 0;padding:1px 8px;border:1px dashed var(--t-amber-edge);border-radius:999px;background:var(--t-amber-soft);color:var(--t-amber);font-size:.72em;font-style:normal;font-weight:600;letter-spacing:.04em;vertical-align:middle}
+#x06 .era-cards{margin-top:0}
+/* 原页 SVG 的标签有少量画在 viewBox 外（如 P05 输出层「共和国」）；版心比原站略窄时不裁切 */
+.lg .slide-body svg{overflow:visible}
+/* 揭示：原页没有 data-r，按 slide-body 的直接子元素依次浮现 */
+.lg > .slide-body > *{opacity:0;transform:translate3d(0,14px,0)}
+.slide.active.lg > .slide-body > *{animation:rise .66s var(--ease) both}
+.slide.active.lg > .slide-body > :nth-child(1){animation-delay:.06s}
+.slide.active.lg > .slide-body > :nth-child(2){animation-delay:.12s}
+.slide.active.lg > .slide-body > :nth-child(3){animation-delay:.16s}
+.slide.active.lg > .slide-body > :nth-child(4){animation-delay:.24s}
+.slide.active.lg > .slide-body > :nth-child(5){animation-delay:.34s}
+.slide.active.lg > .slide-body > :nth-child(6){animation-delay:.44s}
+.slide.active.lg > .slide-body > :nth-child(n+7){animation-delay:.52s}
+@media (max-width:900px){
+  .slide.lg{padding-left:12px;padding-right:12px}
+  .lg > .slide-body{zoom:1!important;width:auto!important;max-width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .lg > .slide-body > *{opacity:1;transform:none}
+}
+@media print{
+  .lg > .slide-body > *{opacity:1;transform:none}
+}
+/* g05（原 P05 降为扩展页后多了一条扩展提示）矮屏压缩 */
+@media (max-height:820px){
+  #g05 .gen-flow{margin-bottom:10px}
+  #g05 .cards-3 .card p{font-size:13px;line-height:1.45}
+  #g05 .callout{margin-top:8px}
+  #g05 .cards-3{margin-top:10px}
+}
+/* 矮屏：压缩原页宿主的提示条与页脚，把高度让给原页本身（fitLegacy 会据此放大） */
+@media (max-height:820px){
+  .slide.lg{padding-top:40px;padding-bottom:12px}
+  .lg > .opt-bar{padding:4px 10px;font-size:12px;margin-bottom:4px}
+  .lg > .opt-bar .opt-skip{padding:3px 10px}
+  .lg .slide-foot{margin-top:6px;gap:4px}
+  .lg .slide-foot .src{font-size:11px;gap:4px 12px}
+  .lg .slide-foot .bridge{font-size:13px;padding-top:4px}
+}
+/* 矮屏：压缩原页宿主的提示条与页脚，把高度让给原页本身（fitLegacy 会据此放大） */
+@media (max-height:820px){
+  .slide.lg{padding-top:40px;padding-bottom:12px}
+  .lg > .opt-bar{padding:4px 10px;font-size:12px;margin-bottom:4px}
+  .lg > .opt-bar .opt-skip{padding:3px 10px}
+  .lg .slide-foot{margin-top:6px;gap:4px}
+  .lg .slide-foot .src{font-size:11px;gap:4px 12px}
+  .lg .slide-foot .bridge{font-size:13px;padding-top:4px}
 }

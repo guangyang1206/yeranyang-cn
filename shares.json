@@ -10,10 +10,10 @@
         {
           "slug": "ai-collab-union",
           "title": "AI时代下的人机协同",
-          "desc": "用 WorkBuddy 上手：说清需求、核对结果、沉淀做法。面向普通职工的讲座：24 页主线 + 6 页可跳过的官方技巧补充，含 45 分钟互动。",
+          "desc": "用 WorkBuddy 上手：说清需求、核对结果、沉淀做法。面向普通职工的讲座：24 页主线（含《从大模型到 Agent》AI 发展与大模型本质原页）+ 25 页可跳过扩展页（含《WorkBuddy 简介》原页与官方上手技巧），含 45 分钟互动。",
           "url": "share/ai-collab-union/",
           "date": "2026-11",
-          "format": "Web slides · 24+6 页",
+          "format": "Web slides · 24+25 页",
           "accent": "blue",
           "glyph": "▣"
         },

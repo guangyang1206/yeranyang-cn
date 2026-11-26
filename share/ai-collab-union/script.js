@@ -33,7 +33,8 @@
     { id: 'E23', name: 'SkillHub 技能市场', org: '腾讯 SkillHub 官网', note: '「4.6 万+ 已审核发布、100% 强制安全准入」为 2026 年 9 月访问时的页面口径。', url: 'https://skillhub.tencent.com/' },
     { id: 'E24', name: 'WorkBuddy 专家团官方发布', org: '腾讯云开发者社区 · 2026 年 3 月', note: '「140+ 专家」及分类数为发布时的口径。', url: 'https://cloud.tencent.com/developer/article/2640403' },
     { id: 'E25', name: 'WorkBuddy 企业版发布！连接超级个体，打造超级团队', org: '腾讯新闻 · 2026-06-12', note: '助理渠道与「项目」团队协作；开放范围以账号与版本为准。', url: 'https://new.qq.com/rain/a/20260612A00X7J00' },
-    { id: 'E26', name: 'AI Today and Vision of the Future（Jensen Huang × Ilya Sutskever）', org: 'NVIDIA GTC 2023 · 会议回放', note: '页面上的说法是观点大意转述，不是逐字引语，因此不作为直接引语使用。', url: 'https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s52092/' }
+    { id: 'E26', name: 'AI Today and Vision of the Future（Jensen Huang × Ilya Sutskever）', org: 'NVIDIA GTC 2023 · 会议回放', note: '页面上的说法是观点大意转述，不是逐字引语，因此不作为直接引语使用。', url: 'https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s52092/' },
+    { id: 'E27', name: 'Clarke’s Laws', org: 'The Encyclopedia of Science Fiction · 2016', note: '收录克拉克第三定律英文原文，并说明该定律加入《未来的轮廓》1973 年修订版。', url: 'https://sf-encyclopedia.com/entry/clarkes_laws' }
   ];
 
   const $ = (s, r) => (r || document).querySelector(s);

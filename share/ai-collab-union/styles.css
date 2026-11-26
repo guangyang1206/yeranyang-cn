@@ -207,7 +207,10 @@ h2{font-size:clamp(32px,3.4vw,52px)}
 .slide-cover h1{font-size:clamp(50px,5.4vw,88px);line-height:1.1}
 .cover-sub{margin-top:26px;font-size:clamp(17px,1.5vw,24px);font-weight:600;letter-spacing:.01em}
 .cover-lede{margin-top:18px;font-size:clamp(15px,1.2vw,19px);line-height:1.85;color:var(--gray)}
-.cover-meta{margin-top:clamp(28px,4vh,48px);display:flex;flex-direction:column;gap:12px}
+.cover-clarke{margin-top:clamp(18px,2.4vh,28px);padding-left:18px;border-left:3px solid var(--blue)}
+.cover-clarke blockquote{font-size:clamp(15px,1.25vw,20px);line-height:1.55;font-weight:500;letter-spacing:.01em;color:var(--ink)}
+.cover-clarke figcaption{margin-top:5px;font-size:11px;line-height:1.5;color:var(--gray-2);letter-spacing:.04em}
+.cover-meta{margin-top:clamp(20px,2.8vh,34px);display:flex;flex-direction:column;gap:12px}
 .cm-item{display:flex;gap:16px;align-items:baseline;font-size:clamp(13px,1.05vw,16px)}
 .cm-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gray-2);text-transform:uppercase;width:36px;flex:none}
 .cm-v{color:var(--ink);font-weight:500}

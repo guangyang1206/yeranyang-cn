@@ -12,7 +12,6 @@
     { id: 'E02', name: 'Training language models to follow instructions with human feedback', org: 'Ouyang et al. · 2022', note: '预训练基础上的示范与偏好反馈，帮助模型遵循指令。', url: 'https://arxiv.org/abs/2203.02155' },
     { id: 'E03', name: 'HBS Working Paper 24-013', org: 'Harvard Business School · 2023 年实验', note: 'GPT-4 辅助咨询任务的收益随任务类型变化很大；这里只取这一定性结论。', url: 'https://www.hbs.edu/faculty/Pages/item.aspx?num=64700' },
     { id: 'E04', name: '郭毅可：人类正迈入人机共生的时代', org: '张一鸣 · 中国经济新闻网 · 2026-07-30', note: '报道强调机器承担事务性工作，人负责目标、价值判断与责任。此处为注明出处的转述。', url: 'https://www.cet.com.cn/wzsy/zkgc/10472869.shtml' },
-    { id: 'E05', name: 'Generative AI and Jobs: A Refined Global Index of Occupational Exposure', org: 'ILO—NASK · 2025', note: '岗位由任务组成，潜在暴露不等于实际岗位流失。', url: 'https://www.ilo.org/resource/article/how-might-generative-ai-impact-different-occupations' },
     { id: 'E06', name: 'WorkBuddy 官方简介', org: 'WorkBuddy 文档', note: '用自然语言提出任务、自主规划执行、经授权处理文件、交付可验收的成果。', url: 'https://www.workbuddy.cn/docs/workbuddy/Overview' },
     { id: 'E07', name: '记忆', org: 'WorkBuddy 功能说明', note: '记忆是背景上下文，可以更正、删除或关闭，也可能出现概括偏差和时效问题。', url: 'https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Memory' },
     { id: 'E08', name: '技能', org: 'WorkBuddy 功能说明', note: '把工作流和能力封装起来；使用前值得看一眼来源、权限和可能的数据流向。', url: 'https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market' },

@@ -113,22 +113,22 @@ svg:where(:not(.lg .slide-body svg, .lg .slide-body svg *)){width:1em;height:1em
 .s-head-center{text-align:center}
 .s-head-center .eyebrow{justify-content:center}
 .s-head-center .rule{margin-left:auto;margin-right:auto}
-.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.16em;color:var(--gray-2);text-transform:uppercase;margin-bottom:18px}
-.e-num{font-family:var(--mono);color:var(--blue);font-size:13px;letter-spacing:0}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;color:var(--gray);text-transform:uppercase;margin-bottom:20px;font-weight:500}
+.e-num{font-family:var(--mono);color:var(--gray);font-size:12px;letter-spacing:0;font-weight:400}
 .e-bar{width:22px;height:1px;background:var(--line)}
-.e-ch{font-weight:600;letter-spacing:.1em}
+.e-ch{font-weight:500;letter-spacing:.12em}
 .e-min{margin-left:auto;font-family:var(--mono);letter-spacing:0;color:var(--gray-2)}
 .s-head-center .e-min{margin-left:12px}
-h1,h2{font-weight:600;letter-spacing:-.035em;line-height:1.16}
-h2{font-size:clamp(30px,3.3vw,52px)}
-.rule{width:32px;height:3px;background:var(--blue);margin-top:20px}
-.lede{font-size:clamp(18px,1.55vw,25px);line-height:1.6;color:var(--gray);margin-top:18px;letter-spacing:.005em}
+h1,h2{font-weight:600;letter-spacing:-.03em;line-height:1.12}
+h2{font-size:clamp(32px,3.4vw,52px)}
+.rule{width:32px;height:3px;background:var(--blue);margin-top:18px;border-radius:2px}
+.lede{font-size:clamp(16px,1.22vw,20px);line-height:1.6;color:var(--gray);margin-top:14px;letter-spacing:.005em;max-width:62em}
 .note{font-size:clamp(13px,1.02vw,16px);line-height:1.65;color:var(--gray-2)}
 .note b{color:var(--ink);font-weight:600}
 
 /* ---------- 页脚：来源 + 转场 ---------- */
 .slide-foot{
-  width:min(var(--max),100%);margin:clamp(18px,2.6vh,30px) auto 0;
+  width:min(var(--max),100%);margin:clamp(20px,3vh,34px) auto 0;
   display:flex;flex-direction:column;gap:12px;flex:none;
 }
 .src{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px;font-size:clamp(12px,.92vw,15px);color:var(--gray-2);line-height:1.5}
@@ -138,8 +138,7 @@ h2{font-size:clamp(30px,3.3vw,52px)}
 .src-note{opacity:.75}
 .bridge{
   display:flex;align-items:center;gap:12px;
-  font-size:clamp(14px,1.15vw,19px);color:var(--gray);
-  padding-top:14px;border-top:1px solid var(--line);
+  font-size:clamp(15px,1.18vw,19px);color:var(--gray);
 }
 .b-ar{color:var(--blue);font-size:1.15em;line-height:1;flex:none}
 
@@ -567,27 +566,29 @@ pre{font-family:var(--mono);font-size:clamp(11px,.95vw,14px);line-height:1.75;wh
 .bar{
   position:fixed;left:0;right:0;bottom:0;height:var(--bar);z-index:55;
   display:flex;align-items:center;gap:clamp(14px,2vw,34px);
-  padding:0 var(--pad);background:rgba(255,255,255,.94);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  padding:0 var(--pad);background:#fff;
   border-top:1px solid var(--line);
 }
-.bar-brand{display:flex;align-items:center;gap:10px;background:none;border:none;font-size:12px;font-weight:600;letter-spacing:.06em;white-space:nowrap;padding:0}
+.bar-left{display:flex;align-items:center;gap:8px;flex:none}
+.bar-dash{color:var(--line);font-size:13px}
+.bar-brand{display:flex;align-items:center;gap:9px;background:none;border:none;font-size:13px;font-weight:600;letter-spacing:.02em;white-space:nowrap;padding:0}
 .bar-brand:hover{color:var(--blue)}
 .bar-timeline{flex:1;display:flex;gap:3px;height:22px;align-items:flex-end;min-width:80px}
-.btm-seg{height:4px;background:rgba(8,8,8,.09);border-radius:2px;position:relative;transition:background .3s}
+.btm-seg{height:4px;background:rgba(8,8,8,.09);border-radius:2px;position:relative;transition:background .3s;box-shadow:inset -3px 0 0 #fff}
 .btm-seg::after{content:attr(data-label);position:absolute;bottom:9px;left:0;font-size:9px;letter-spacing:.06em;color:var(--gray-2);white-space:nowrap;opacity:0;transition:opacity .25s;pointer-events:none}
+.btm-seg:last-child{box-shadow:none}
 .btm-seg:hover::after{opacity:1}
 .btm-seg.visited{background:rgba(20,110,245,.35)}
 .btm-seg.active{background:var(--blue)}
 .btm-seg.active::after{opacity:1;color:var(--blue)}
 .bar-right{display:flex;align-items:center;gap:8px}
-.bar-page{font-family:var(--mono);font-size:12px;color:var(--gray-2);margin-right:8px;white-space:nowrap}
-.bar-btn{background:#fff;border:1px solid var(--line);border-radius:7px;min-width:34px;height:32px;display:grid;place-items:center;font-size:17px;line-height:1;transition:border-color .2s,background .2s,color .2s}
+.bar-page{font-family:var(--mono);font-size:12px;color:var(--gray-2);white-space:nowrap;letter-spacing:-.02em}
+.bar-btn{background:#fff;border:1px solid var(--line);border-radius:4px;min-width:34px;height:32px;display:grid;place-items:center;font-size:16px;line-height:1;color:var(--gray);transition:border-color .2s,background .2s,color .2s}
 .bar-btn:hover:not(:disabled){border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
 .bar-btn:disabled{opacity:.35;cursor:default}
-.bar-btn-text{font-size:12px;padding:0 11px;letter-spacing:.04em}
-.bar-next{background:var(--blue);border-color:var(--blue);color:#fff}
-.bar-next:hover:not(:disabled){background:#0055d4;border-color:#0055d4;color:#fff}
+.bar-btn-text{font-size:13px;padding:0 14px;letter-spacing:.02em;color:var(--gray)}
+.bar-next{background:var(--ink);border-color:var(--ink);color:#fff;min-width:38px}
+.bar-next:hover:not(:disabled){background:#222;border-color:#222;color:#fff}
 
 /* ================= 抽屉 ================= */
 .drawer-backdrop{position:fixed;inset:0;background:rgba(8,8,8,.28);z-index:70;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
@@ -621,7 +622,6 @@ pre{font-family:var(--mono);font-size:clamp(11px,.95vw,14px);line-height:1.75;wh
 .sources-intro{padding:18px 26px;font-size:13px;line-height:1.75;color:var(--gray);border-bottom:1px solid var(--line)}
 .source-list{flex:1;overflow-y:auto;padding:12px 26px}
 .source-row{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:14px}
-.sr-n{font-family:var(--mono);font-size:11px;color:var(--blue);width:30px;flex:none;padding-top:3px}
 .source-row div{display:flex;flex-direction:column;gap:4px}
 .source-row b{font-size:13px;font-weight:600;line-height:1.5}
 .source-row span{font-size:11px;color:var(--gray-2);line-height:1.55}
@@ -689,6 +689,21 @@ body.skip-optional .index-item.is-optional{opacity:.45}
   .doc-lines{max-height:160px}
   .loop-stage{padding-top:22px}
   .big-line{margin-bottom:20px}
+}
+/* 中等高度（1440×900 / 1600×900 等）：先收口，避免内容压到底栏 */
+@media (max-height:960px){
+  .slide{padding-top:52px;padding-bottom:16px}
+  .s-head{margin-bottom:16px}
+  .slide-ui .s-head{margin-bottom:10px}
+  .slide-foot{margin-top:12px}
+  .slide-ui .ui-grid{gap:46px}
+  .slide-ui .ui-step{padding-top:10px;padding-bottom:10px}
+  .slide-ui .ui-shot{display:flex;flex-direction:column;max-height:462px}
+  .slide-ui .ui-shot > img{flex:1 1 auto;min-height:0;height:100%;max-height:100%;object-fit:cover;object-position:50% 0}
+  .slide-ui .ui-shot-cap{flex:none}
+  .slide-ui .ui-detail img{max-height:88px;object-fit:cover;object-position:50% 30%}
+  .slide-ui .ui-notes{margin-top:12px}
+  .slide-ui .prompt-box{margin-top:10px}
 }
 /* 矮屏投屏（1366×768 等）：只压缩高密度页，保持 1080p 的完整布局 */
 @media (max-height:820px){
@@ -895,3 +910,92 @@ body.skip-optional .index-item.is-optional{opacity:.45}
   .lg .slide-foot .src{font-size:11px;gap:4px 12px}
   .lg .slide-foot .bridge{font-size:13px;padding-top:4px}
 }
+
+/* =============================================================
+   v1.5 · 面向全体观众的统一视觉
+   1) 活动海报：整屏、不计页码
+   2) 首页与尾页的网页版二维码
+   3) 沿用原页与新写页面共用同一套页眉、标题与版心节奏
+   ============================================================= */
+
+/* ---- 1. 活动海报 ---- */
+.slide-poster{
+  inset:0;padding:0;overflow:hidden;background:#05122b;
+  display:none;align-items:center;justify-content:center;
+}
+.slide-poster.active{display:flex}
+.poster-bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:blur(48px) saturate(1.05) brightness(.55);
+}
+.poster-img{
+  position:relative;z-index:1;
+  width:100%;height:100%;object-fit:contain;object-position:center;
+  cursor:pointer;
+}
+@media (min-aspect-ratio:2276/1280){
+  .poster-img{width:100%;height:auto;max-height:100%}
+}
+@media (max-aspect-ratio:2276/1280){
+  .poster-img{height:100%;width:auto;max-width:100%}
+}
+
+/* ---- 2. 二维码 ---- */
+.cover-qr{display:flex;flex-direction:column;align-items:center;gap:7px;flex:none}
+.cover-qr img{width:clamp(84px,6.4vw,104px);height:auto;border:1px solid var(--line);border-radius:6px;padding:5px;background:#fff}
+.cover-qr span{font-size:11px;line-height:1.35;color:var(--gray-2);text-align:center;letter-spacing:.02em}
+.end-qr{display:flex;align-items:center;gap:12px;flex:none}
+.end-qr img{width:clamp(88px,6.6vw,112px);height:auto;border:1px solid var(--line);border-radius:6px;padding:5px;background:#fff}
+.end-qr span{font-size:12px;line-height:1.5;color:var(--gray-2)}
+.end-qr b{display:block;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--gray);letter-spacing:-.01em}
+.end-col{display:flex;flex-direction:column;gap:14px}
+
+/* ---- 3. 沿用原页与本 deck 同源：页眉、版心、标题节奏 ---- */
+.lg .section-eyebrow{
+  font-size:12px;letter-spacing:.14em;color:var(--gray);font-weight:500;
+  text-transform:uppercase;margin-bottom:20px;
+}
+.lg .section-eyebrow .lg-num{font-family:var(--mono);color:var(--gray);font-size:12px;font-weight:400;letter-spacing:0}
+.lg .section-eyebrow .lg-dash{color:var(--line);opacity:1}
+.lg .slide-body h2{font-size:46px;line-height:1.12;letter-spacing:-.6px;font-weight:600}
+.lg .cover-rule{margin-top:18px;margin-bottom:26px;border-radius:2px}
+.lg .slide-body .body-text,.lg .slide-body .p3-lede{color:var(--gray)}
+/* 原页版心与原设计一致，缩放后与主线页同一左右边界（fitLegacy 会把设计宽度收进 --max） */
+@media (max-height:820px){
+  .lg .slide-body h2{font-size:42px}
+}
+
+/* 海报页：隐藏所有导航界面元素，整屏只看海报 */
+body.on-poster .bar,
+body.on-poster .progress,
+body.on-poster .topmark{opacity:0;pointer-events:none;transition:opacity .3s}
+body.on-poster .deck{height:100dvh}
+@media print{.slide-poster{page-break-after:always}}
+
+/* 海报页：隐藏所有导航界面元素，整屏只看海报 */
+body.on-poster .bar,
+body.on-poster .progress,
+body.on-poster .topmark{opacity:0;pointer-events:none;transition:opacity .3s}
+body.on-poster .deck{height:100dvh}
+@media print{.slide-poster{page-break-after:always}}
+
+/* 封面二维码：贴在右上图形区底部，不与主讲信息抢位置 */
+.cover-qr{display:flex;flex-direction:column;align-items:flex-end;gap:6px;margin-top:clamp(10px,1.6vh,18px)}
+.cover-qr img{width:clamp(72px,5vw,92px);height:auto;border:1px solid var(--line);border-radius:5px;padding:4px;background:#fff}
+.cover-qr span{font-size:11px;color:var(--gray-2);letter-spacing:.04em}
+.cover-right{position:relative}
+/* 二维码固定在图形区右下角，不压住 3D 主体与说明文字 */
+.cover-right > .cover-qr{position:absolute;right:0;bottom:0;z-index:3;margin:0}
+.cover-right{display:flex;flex-direction:column;justify-content:center}
+.cover-qr img{box-shadow:0 2px 12px rgba(8,8,8,.06)}
+.cover-right .hero-caption{justify-content:center;text-align:center}
+/* 原页标题字体并入本 deck 字体栈，避免同一 deck 出现两种标题字 */
+.lg .slide-body h1,.lg .slide-body h2,.lg .slide-body h3,.lg .slide-body h4{font-family:var(--font)}
+.end-qr{margin-left:24px}
+/* 海报铺满整个视口，不受 deck 底部预留栏影响 */
+.slide-poster.active{position:fixed;inset:0;z-index:40}
+.slide-poster,.slide-poster.active{padding:0!important;overflow:hidden}
+body.on-poster .deck{height:100dvh;padding-bottom:0}
+body.on-poster .slide{inset:0}
+.e-dash{color:var(--line)}
+.slide.lg{padding-left:var(--pad);padding-right:var(--pad)}
